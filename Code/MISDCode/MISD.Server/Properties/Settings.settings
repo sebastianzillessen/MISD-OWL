@@ -1,0 +1,107 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MISD.Server.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="MISDConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=acid.visus.uni-stuttgart.de;Initial Catalog=MISD;Persist Security Info=True;User ID=stupro;Password=C0mplex&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=acid.visus.uni-stuttgart.de;Initial Catalog=MISD;Persist Security Info=True;User ID=stupro;Password=C0mplex</Value>
+    </Setting>
+    <Setting Name="PluginPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Plugins/</Value>
+    </Setting>
+    <Setting Name="MISDConnectionString1" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=acid.visus.uni-stuttgart.de;Initial Catalog=MISD;User ID=stupro;Password=C0mplex&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=acid.visus.uni-stuttgart.de;Initial Catalog=MISD;User ID=stupro;Password=C0mplex</Value>
+    </Setting>
+    <Setting Name="MailHost" Type="System.String" Scope="User">
+      <Value Profile="(Default)">smtp.gmail.com</Value>
+    </Setting>
+    <Setting Name="MailPort" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">587</Value>
+    </Setting>
+    <Setting Name="MailAdressFrom" Type="System.String" Scope="User">
+      <Value Profile="(Default)">misd.owl.mailer@gmail.com</Value>
+    </Setting>
+    <Setting Name="MailAdressFromPW" Type="System.String" Scope="User">
+      <Value Profile="(Default)">stupr[]M1SD</Value>
+    </Setting>
+    <Setting Name="DebugMode" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="PluginPathWorkstationWindows" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Plugins\Workstation\Windows</Value>
+    </Setting>
+    <Setting Name="PluginPathWorkstationLinux" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Plugins\Workstation\Linux</Value>
+    </Setting>
+    <Setting Name="PluginPathClusterBright" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Plugins\Cluster\Bright</Value>
+    </Setting>
+    <Setting Name="PluginPathClusterHPC" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Plugins\Cluster\HPC</Value>
+    </Setting>
+    <Setting Name="PluginPathServer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Plugins\Server</Value>
+    </Setting>
+    <Setting Name="DefaultOU" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Default</Value>
+    </Setting>
+    <Setting Name="MISDDirectory" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Program Files (x86)\MISD</Value>
+    </Setting>
+    <Setting Name="TemplatePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Email\Templates\WarningMailTemplate.txt</Value>
+    </Setting>
+    <Setting Name="DailyMailInterval" Type="System.TimeSpan" Scope="Application">
+      <Value Profile="(Default)">1.00:00:00</Value>
+    </Setting>
+    <Setting Name="MISDConnectionString2" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=ACID;Initial Catalog=MISD;Persist Security Info=True;User ID=sa;Password=C0mplex&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=ACID;Initial Catalog=MISD;Persist Security Info=True;User ID=sa;Password=C0mplex</Value>
+    </Setting>
+    <Setting Name="PluginPathVisualization" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Plugins\Visualization</Value>
+    </Setting>
+    <Setting Name="CleanerTakeCount" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">8192</Value>
+    </Setting>
+    <Setting Name="CleanerJobInterval" Type="System.TimeSpan" Scope="User">
+      <Value Profile="(Default)">1.00:00:00</Value>
+    </Setting>
+    <Setting Name="MainUpdateInterval" Type="System.TimeSpan" Scope="User">
+      <Value Profile="(Default)">00:15:00</Value>
+    </Setting>
+    <Setting Name="MISDConnectionString3" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=acid.visus.uni-stuttgart.de;Initial Catalog=MISD;Integrated Security=True&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=acid.visus.uni-stuttgart.de;Initial Catalog=MISD;Integrated Security=True</Value>
+    </Setting>
+    <Setting Name="MailFromDisplayName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">MISD OWL - Tagesbericht</Value>
+    </Setting>
+    <Setting Name="DailyMailSubject" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Tagesbericht</Value>
+    </Setting>
+    <Setting Name="WarningMailSubject" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Warnung</Value>
+    </Setting>
+    <Setting Name="WarningMailFromDisplayName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">MISD OWL - Warnung</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

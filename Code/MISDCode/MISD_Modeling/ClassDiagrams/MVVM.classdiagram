@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner" dslVersion="1.0.0.0" Id="b69225c8-9d2a-4d15-a042-3d1768d2a5e8" name="UMLClassDiagram1" linkedPackageId="b5114934-e1a1-41a6-9bda-e58cba19c00a" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <ownedCommentsInternal>
+    <comment Id="0a01eb7b-7c6f-4e3d-8874-71ee019bcae6">
+      <elementDefinition Id="0fe04f68-1b52-4b0b-bbdb-a237d64c773b" />
+      <body>Notifications
+Data Binding
+Commands</body>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances Id="02b23bbf-6939-4c61-bc55-7e364e249996">
+      <profileInstance Id="d020b998-28d4-4ff9-99fa-ae45a116b7ff" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="e7d0f875-bc51-4ce5-a792-415447f46cf9">
+      <profileInstance Id="e51798bc-78f5-419f-a837-e49206cdae7f" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasPackages>
+      <package Id="d96981fb-3e2b-4ff2-bb67-ebcb2c4ceb26" name="View">
+        <elementDefinition Id="e7f3c871-adbc-4f8f-bfe9-e07d4b36553d" />
+        <packagedElements>
+          <packageHasNamedElement>
+            <class Id="4f52ec3f-9e3c-4443-a5cf-99b587ea110b" name="View" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="fb5b506f-a35c-43f1-a57a-0d050c5885b3" />
+              <targetEnds>
+                <association Id="de4e457f-0fbf-496a-ab58-942dca95a338" isDerived="false" sourceEndRoleName="View" targetEndRoleName="ViewModel" isLeaf="false" isAbstract="false">
+                  <classMoniker Id="7eb5ab59-091e-4db5-8496-d8c9079b1834" LastKnownName="ViewModel" />
+                  <relationshipOwnedElementsInternal>
+                    <associationHasOwnedEnds>
+                      <memberEnd Id="6694a24a-26ca-4f64-b086-907fc97e3eb2" name="View" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                        <lowerValueInternal>
+                          <literalString Id="3c306aaa-8310-4635-ac20-12c518babcf3" name="Lower" value="1">
+                            <elementDefinition Id="94ef34dd-98cc-464e-9264-faa90488e285" />
+                          </literalString>
+                        </lowerValueInternal>
+                        <upperValueInternal>
+                          <literalString Id="7d08ffaa-6121-4ddb-b345-e20eb7ad5005" name="Upper" value="*">
+                            <elementDefinition Id="fa99b3dc-1e28-4b89-a3fc-f19e4353f1c7" />
+                          </literalString>
+                        </upperValueInternal>
+                        <elementDefinition Id="92d25e8d-f733-4ef9-b8b9-223e09521b76" />
+                      </memberEnd>
+                    </associationHasOwnedEnds>
+                    <associationHasOwnedEnds>
+                      <memberEnd Id="4ea7722d-bba8-4043-a9e5-98339204d82c" name="ViewModel" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                        <elementDefinition Id="c612b5b0-1605-4605-aed9-361117f7f5f6" />
+                      </memberEnd>
+                    </associationHasOwnedEnds>
+                  </relationshipOwnedElementsInternal>
+                  <elementDefinition Id="f3648e4a-4f7a-4918-9c8b-a31d9d2679f2" />
+                </association>
+              </targetEnds>
+            </class>
+          </packageHasNamedElement>
+        </packagedElements>
+      </package>
+    </logicalClassDesignerModelHasPackages>
+    <logicalClassDesignerModelHasPackages>
+      <package Id="23ee37f1-5b13-407c-b856-f609652dc461" name="ViewModel">
+        <ownedCommentsInternal>
+          <comment Id="020ff9e4-476b-43ca-81ab-6a134df871d3">
+            <elementDefinition Id="ee8cc2cd-24ea-4d76-abb0-5b39030145d1" />
+            <body>Excample Strukture of  a ViewModel</body>
+          </comment>
+        </ownedCommentsInternal>
+        <elementDefinition Id="2974ecff-d208-4659-b381-983adf5dd379" />
+        <packagedElements>
+          <packageHasNamedElement>
+            <class Id="7eb5ab59-091e-4db5-8496-d8c9079b1834" name="ViewModel" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="a1cb1cda-9564-4439-b6db-6b1d1c255376" />
+              <targetEnds>
+                <association Id="a2fcf385-8b67-49fe-a624-cc8bdd0416e2" isDerived="false" sourceEndRoleName="ViewModel" targetEndRoleName="Model" isLeaf="false" isAbstract="false">
+                  <classMoniker Id="4cd8fbc6-ed5b-4c1f-a496-fa8e8b6fa001" LastKnownName="Model" />
+                  <relationshipOwnedElementsInternal>
+                    <associationHasOwnedEnds>
+                      <memberEnd Id="d05222c9-f236-4679-bd2c-a8aaf83fccf2" name="ViewModel" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                        <elementDefinition Id="0658f4d6-8f8f-4653-9400-c642de2c60b5" />
+                      </memberEnd>
+                    </associationHasOwnedEnds>
+                    <associationHasOwnedEnds>
+                      <memberEnd Id="dbf60d10-2728-4dd0-bc91-4e39cb5cbb9d" name="Model" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                        <lowerValueInternal>
+                          <literalString Id="010f19d8-adfa-4356-93b5-03b41d0dbeb2" name="Lower" value="1">
+                            <elementDefinition Id="6eea6dc5-a82b-4d33-8104-5d905dc4b5e6" />
+                          </literalString>
+                        </lowerValueInternal>
+                        <upperValueInternal>
+                          <literalString Id="612aad7c-ff8e-45c5-a169-9713b39c8199" name="Upper" value="*">
+                            <elementDefinition Id="3a599fa7-e688-48f4-829d-99ce13c5c2fa" />
+                          </literalString>
+                        </upperValueInternal>
+                        <elementDefinition Id="3e58ad66-4f32-4551-97a0-db5c1b1943d6" />
+                      </memberEnd>
+                    </associationHasOwnedEnds>
+                  </relationshipOwnedElementsInternal>
+                  <elementDefinition Id="a9202b31-99ec-4e41-b591-0dd9ccbd8b10" />
+                </association>
+              </targetEnds>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="d0174eba-9cad-472d-94ca-01fadd4b230d" name="NavigatorViewModel" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="d6765e83-e871-41d2-8e14-43740046c95c" />
+              <generalsInternal>
+                <generalization Id="c328d73a-27e7-4159-b9bc-36e004b63929" isSubstitutable="false">
+                  <classMoniker Id="7eb5ab59-091e-4db5-8496-d8c9079b1834" LastKnownName="ViewModel" />
+                  <elementDefinition Id="bc600d5d-7185-47ef-ad5a-c9882ecef20f" />
+                </generalization>
+              </generalsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="09a58c84-a59b-4cad-a43d-fcc3e8b36ef4" name="TabbingViewModel" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="6811ff94-7b60-4ad1-b020-5e313913b2d7" />
+              <generalsInternal>
+                <generalization Id="e9785697-2e59-47d1-a9a4-d583c1acd7b6" isSubstitutable="false">
+                  <classMoniker Id="7eb5ab59-091e-4db5-8496-d8c9079b1834" LastKnownName="ViewModel" />
+                  <elementDefinition Id="b6adf8ae-094f-4064-8502-94bdab3e4aaf" />
+                </generalization>
+              </generalsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="749a006c-818f-4321-8b59-2b114c442b1a" name="Tab1ViewModel" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="7712b10d-c852-4808-a0db-aec2a9d9f606" />
+              <generalsInternal>
+                <generalization Id="9aea05d6-6016-4d09-a958-ae2ff146148d" isSubstitutable="false">
+                  <classMoniker Id="09a58c84-a59b-4cad-a43d-fcc3e8b36ef4" LastKnownName="TabbingViewModel" />
+                  <elementDefinition Id="2728b3af-0a85-4539-9280-134584f2daba" />
+                </generalization>
+              </generalsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="f496cc97-465d-4398-8f4c-478c4677c846" name="Tab2ViewModel" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="5c71bb5d-8296-49d4-848a-c709bedd62f9" />
+              <generalsInternal>
+                <generalization Id="8a93c784-8930-4367-862b-b404a13760e8" isSubstitutable="false">
+                  <classMoniker Id="09a58c84-a59b-4cad-a43d-fcc3e8b36ef4" LastKnownName="TabbingViewModel" />
+                  <elementDefinition Id="88d705e4-88e6-45c7-bf76-8f36d4407757" />
+                </generalization>
+              </generalsInternal>
+            </class>
+          </packageHasNamedElement>
+        </packagedElements>
+      </package>
+    </logicalClassDesignerModelHasPackages>
+    <logicalClassDesignerModelHasPackages>
+      <package Id="bad40226-f64a-414a-9dbe-4c0db7ad7996" name="Model">
+        <elementDefinition Id="3237485e-79f4-404d-9bde-6b74f910708d" />
+        <packagedElements>
+          <packageHasNamedElement>
+            <class Id="4cd8fbc6-ed5b-4c1f-a496-fa8e8b6fa001" name="Model" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="4b05f13c-f26a-46e2-8798-4d938e1fec98" />
+            </class>
+          </packageHasNamedElement>
+        </packagedElements>
+      </package>
+    </logicalClassDesignerModelHasPackages>
+  </packagedElements>
+  <package Id="b5114934-e1a1-41a6-9bda-e58cba19c00a" name="MISD_Modeling">
+    <elementDefinition Id="57152138-29c8-467d-80d5-86353decd659" />
+  </package>
+</logicalClassDesignerModel>

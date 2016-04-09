@@ -1,0 +1,68 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MISD.Test.Plugins.Linux", "MISD.Test.Plugins.Linux\MISD.Test.Plugins.Linux.csproj", "{0FDAC9AA-42BC-4EA9-A7A4-26EA1D6B0C3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CPU", "..\MISD.Plugins.Linux\CPU\CPU.csproj", "{C66533C9-8FB0-452B-B287-69F638701A81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RAM", "..\MISD.Plugins.Linux\RAM\RAM.csproj", "{F51A5514-2A09-4E5B-9565-AC56CD4BD595}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MISD.Core", "..\MISD.Core\MISD.Core.csproj", "{B8C8677E-FE2E-46ED-BAA1-537A076EF164}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HDD", "..\MISD.Plugins.Linux\HDD\HDD.csproj", "{20FF0AFE-36C7-414F-93E2-8AA0AFABC4D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GPU", "..\MISD.Plugins.Linux\Gpu\GPU.csproj", "{E2DBF5C8-9478-451A-8041-7111F4539AED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkAdapter", "..\MISD.Plugins.Linux\Network\NetworkAdapter.csproj", "{91EB2CCF-99FD-4502-B510-AB5F13504FA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OS", "..\MISD.Plugins.Linux\OS\OS.csproj", "{4570A394-C040-415A-B180-43F00A46108A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Events", "..\MISD.Plugins.Linux\Events\Events.csproj", "{55C99C11-5E01-4686-87BE-6428B269CDAA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0FDAC9AA-42BC-4EA9-A7A4-26EA1D6B0C3C}.Debug|x86.ActiveCfg = Debug|x86
+		{0FDAC9AA-42BC-4EA9-A7A4-26EA1D6B0C3C}.Debug|x86.Build.0 = Debug|x86
+		{0FDAC9AA-42BC-4EA9-A7A4-26EA1D6B0C3C}.Release|x86.ActiveCfg = Release|x86
+		{0FDAC9AA-42BC-4EA9-A7A4-26EA1D6B0C3C}.Release|x86.Build.0 = Release|x86
+		{20FF0AFE-36C7-414F-93E2-8AA0AFABC4D5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{20FF0AFE-36C7-414F-93E2-8AA0AFABC4D5}.Debug|x86.Build.0 = Debug|Any CPU
+		{20FF0AFE-36C7-414F-93E2-8AA0AFABC4D5}.Release|x86.ActiveCfg = Release|Any CPU
+		{20FF0AFE-36C7-414F-93E2-8AA0AFABC4D5}.Release|x86.Build.0 = Release|Any CPU
+		{4570A394-C040-415A-B180-43F00A46108A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4570A394-C040-415A-B180-43F00A46108A}.Debug|x86.Build.0 = Debug|Any CPU
+		{4570A394-C040-415A-B180-43F00A46108A}.Release|x86.ActiveCfg = Release|Any CPU
+		{4570A394-C040-415A-B180-43F00A46108A}.Release|x86.Build.0 = Release|Any CPU
+		{55C99C11-5E01-4686-87BE-6428B269CDAA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{55C99C11-5E01-4686-87BE-6428B269CDAA}.Debug|x86.Build.0 = Debug|Any CPU
+		{55C99C11-5E01-4686-87BE-6428B269CDAA}.Release|x86.ActiveCfg = Release|Any CPU
+		{55C99C11-5E01-4686-87BE-6428B269CDAA}.Release|x86.Build.0 = Release|Any CPU
+		{91EB2CCF-99FD-4502-B510-AB5F13504FA3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{91EB2CCF-99FD-4502-B510-AB5F13504FA3}.Debug|x86.Build.0 = Debug|Any CPU
+		{91EB2CCF-99FD-4502-B510-AB5F13504FA3}.Release|x86.ActiveCfg = Release|Any CPU
+		{91EB2CCF-99FD-4502-B510-AB5F13504FA3}.Release|x86.Build.0 = Release|Any CPU
+		{B8C8677E-FE2E-46ED-BAA1-537A076EF164}.Debug|x86.ActiveCfg = Debug|x86
+		{B8C8677E-FE2E-46ED-BAA1-537A076EF164}.Debug|x86.Build.0 = Debug|x86
+		{B8C8677E-FE2E-46ED-BAA1-537A076EF164}.Release|x86.ActiveCfg = Release|x86
+		{B8C8677E-FE2E-46ED-BAA1-537A076EF164}.Release|x86.Build.0 = Release|x86
+		{C66533C9-8FB0-452B-B287-69F638701A81}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C66533C9-8FB0-452B-B287-69F638701A81}.Debug|x86.Build.0 = Debug|Any CPU
+		{C66533C9-8FB0-452B-B287-69F638701A81}.Release|x86.ActiveCfg = Release|Any CPU
+		{C66533C9-8FB0-452B-B287-69F638701A81}.Release|x86.Build.0 = Release|Any CPU
+		{E2DBF5C8-9478-451A-8041-7111F4539AED}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E2DBF5C8-9478-451A-8041-7111F4539AED}.Debug|x86.Build.0 = Debug|Any CPU
+		{E2DBF5C8-9478-451A-8041-7111F4539AED}.Release|x86.ActiveCfg = Release|Any CPU
+		{E2DBF5C8-9478-451A-8041-7111F4539AED}.Release|x86.Build.0 = Release|Any CPU
+		{F51A5514-2A09-4E5B-9565-AC56CD4BD595}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F51A5514-2A09-4E5B-9565-AC56CD4BD595}.Debug|x86.Build.0 = Debug|Any CPU
+		{F51A5514-2A09-4E5B-9565-AC56CD4BD595}.Release|x86.ActiveCfg = Release|Any CPU
+		{F51A5514-2A09-4E5B-9565-AC56CD4BD595}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = MISD.Test.Plugins.Linux\MISD.Test.Plugins.Linux.csproj
+	EndGlobalSection
+EndGlobal

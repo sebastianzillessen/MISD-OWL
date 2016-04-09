@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="14fe0661-d3df-4bfc-952f-a047f916ac69" name="Clientlayout" linkedPackageId="2fc61f86-4589-4ec1-a267-f95363c12e7f" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="e918e347-435d-4cd6-b586-70e84c263121" name="Clientlayout" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="3081ecaf-9898-4245-b4d1-7431f47a9637" />
+        <nodes>
+          <initialNode Id="3311c6aa-447c-40a5-af17-8e8a1a3ba4d1" name="Initial1" isLeaf="false">
+            <elementDefinition Id="e19e2106-1193-463e-8eef-b7d812573c22" />
+            <flowNodeTargets>
+              <controlFlow Id="27f16547-9a4c-4c06-9b30-3e4498fba729" isLeaf="false">
+                <acceptEventActionMoniker Id="9219a7f4-c850-43aa-8b4f-6de74389f2e2" LastKnownName="UI configurations" />
+                <elementDefinition Id="54366a2e-e751-4955-ac8a-2ac601d86dfe" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <acceptEventAction Id="9219a7f4-c850-43aa-8b4f-6de74389f2e2" name="UI configurations" isLeaf="false" isUnmarshall="false">
+            <elementDefinition Id="2269ad84-7dd5-4225-a20a-a910ae11e86d" />
+            <flowNodeTargets>
+              <controlFlow Id="ff64f7b7-3e01-45df-805d-93d24fd8ec17" isLeaf="false">
+                <opaqueActionMoniker Id="ce6baa7e-9ece-4f41-a43f-b5d3f0bf8295" LastKnownName="show UI configurations&#xD;&#xA;- name&#xD;&#xA;- preview" />
+                <elementDefinition Id="97b42892-4df1-47d9-b385-a330489dbd77" />
+              </controlFlow>
+            </flowNodeTargets>
+          </acceptEventAction>
+          <opaqueAction Id="ce6baa7e-9ece-4f41-a43f-b5d3f0bf8295" name="show UI configurations&#xD;&#xA;- name&#xD;&#xA;- preview" isLeaf="false">
+            <elementDefinition Id="f8096068-dab9-4118-8604-8fb0a991b83a" />
+            <flowNodeTargets>
+              <controlFlow Id="b0d5b40f-6711-43cf-a313-654d0249f749" isLeaf="false">
+                <opaqueActionMoniker Id="ffc38f9c-27af-49d3-acd3-2ce70ed2c3eb" LastKnownName="select one configuration" />
+                <elementDefinition Id="6850201e-f01d-4f1c-a42a-a0e0c3963af3" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="ffc38f9c-27af-49d3-acd3-2ce70ed2c3eb" name="select one configuration" isLeaf="false">
+            <elementDefinition Id="1d878309-881e-4a3c-b7a5-246df5b788e4" />
+            <flowNodeTargets>
+              <controlFlow Id="715644e1-9ad6-4fa0-ad48-c4938d0e84a0" isLeaf="false">
+                <mergeNodeMoniker Id="961c0e3c-9cce-47bf-98c1-9feb26e6f379" LastKnownName="Merge3" />
+                <elementDefinition Id="03ba1bd7-1c1a-43c3-a59c-9284311a50cf" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="130cf935-78ec-494e-b922-bd7714f89108" name="Decision1" isLeaf="false">
+            <elementDefinition Id="1b8fcf75-606f-4019-9452-bc4aa76252d9" />
+            <flowNodeTargets>
+              <controlFlow Id="263b83fe-9ec7-4e05-91f3-5f16023efc81" guard="element is part of the layout" isLeaf="false">
+                <opaqueActionMoniker Id="e5667e7d-aed5-4839-a1e3-e3dac25b64f1" LastKnownName="reorganize element" />
+                <elementDefinition Id="090a1e15-6611-4b78-be24-f20fffd4666b" />
+              </controlFlow>
+              <controlFlow Id="2253dca8-cc10-4a5d-b1c8-af37afd37f2d" guard="element is not part of the layout" isLeaf="false">
+                <opaqueActionMoniker Id="4f4cd5c5-d029-45c8-8f1d-bdfc36e94326" LastKnownName="organize the element as last element of the organisation unit" />
+                <elementDefinition Id="b653bd1f-f5f9-4e98-8891-47ae9b88aae4" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="e5667e7d-aed5-4839-a1e3-e3dac25b64f1" name="reorganize element" isLeaf="false">
+            <elementDefinition Id="cbeac987-a863-414b-b12b-fce2fbdb446d" />
+            <flowNodeTargets>
+              <controlFlow Id="5c008c7b-0e87-4487-ae5e-64c18622a40c" isLeaf="false">
+                <mergeNodeMoniker Id="6f9a8aea-a4c3-4162-bb9a-40f482d2f9cd" LastKnownName="Merge1" />
+                <elementDefinition Id="04547c5a-ea7e-472d-82dd-db206c342c4e" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="4f4cd5c5-d029-45c8-8f1d-bdfc36e94326" name="organize the element as last element of the organisation unit" isLeaf="false">
+            <elementDefinition Id="c8687caf-db2b-4228-8b4d-c3f88623a2c4" />
+            <flowNodeTargets>
+              <controlFlow Id="496619f4-bf01-48c2-8b2d-a2da32bbe954" isLeaf="false">
+                <mergeNodeMoniker Id="6f9a8aea-a4c3-4162-bb9a-40f482d2f9cd" LastKnownName="Merge1" />
+                <elementDefinition Id="4c90b731-b7e3-4484-9fad-02a81529ce4e" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <mergeNode Id="6f9a8aea-a4c3-4162-bb9a-40f482d2f9cd" name="Merge1" isLeaf="false">
+            <elementDefinition Id="53cb06b6-1efe-4579-a3be-2a6e5f30c971" />
+            <flowNodeTargets>
+              <controlFlow Id="f003a9a0-25d4-45a2-99bf-8d3d3f5ccb1a" isLeaf="false">
+                <decisionNodeMoniker Id="1bc1afbc-c1d3-435d-a28c-1be5f80b2cd8" LastKnownName="Decision2" />
+                <elementDefinition Id="46044784-ee6d-495a-afad-507067be4048" />
+              </controlFlow>
+            </flowNodeTargets>
+          </mergeNode>
+          <activityFinalNode Id="e15010d4-87d6-4fb8-a4c5-b32abd8ca0bc" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="0a758a1b-e9b3-4112-9556-a0f598220e20" />
+          </activityFinalNode>
+          <mergeNode Id="961c0e3c-9cce-47bf-98c1-9feb26e6f379" name="Merge3" isLeaf="false">
+            <elementDefinition Id="9a25c8bb-80ea-4e60-9a87-f744206330ce" />
+            <flowNodeTargets>
+              <controlFlow Id="c11538b3-2120-4bea-8128-97e20d7c1e2c" isLeaf="false">
+                <decisionNodeMoniker Id="130cf935-78ec-494e-b922-bd7714f89108" LastKnownName="Decision1" />
+                <elementDefinition Id="ad912f04-3a18-4c94-8319-5925b86a855b" />
+              </controlFlow>
+            </flowNodeTargets>
+          </mergeNode>
+          <decisionNode Id="1bc1afbc-c1d3-435d-a28c-1be5f80b2cd8" name="Decision2" isLeaf="false">
+            <elementDefinition Id="52972eea-a712-4ab9-9d78-725c2ee780ca" />
+            <flowNodeTargets>
+              <controlFlow Id="b349e9db-78e2-4e93-9ead-c5cfa9b86465" guard="execute next element" isLeaf="false">
+                <mergeNodeMoniker Id="961c0e3c-9cce-47bf-98c1-9feb26e6f379" LastKnownName="Merge3" />
+                <elementDefinition Id="30c56ca4-5497-4117-af76-9018c99a1d97" />
+              </controlFlow>
+              <controlFlow Id="69043edc-cb72-4c8f-8931-769f46acab98" isLeaf="false">
+                <activityFinalNodeMoniker Id="e15010d4-87d6-4fb8-a4c5-b32abd8ca0bc" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="419e24fc-c920-4202-971a-f7dd6eac3224" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="2fc61f86-4589-4ec1-a267-f95363c12e7f" name="MISD_Modeling">
+    <elementDefinition Id="57152138-29c8-467d-80d5-86353decd659" />
+    <profileInstances>
+      <packageHasProfileInstances Id="035acf43-5f55-494b-8e28-3d74f920f6b5">
+        <profileInstance Id="9e179187-abd2-4b7b-a574-8ae24b9d6c6e" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="e1f21899-3abe-4b23-ad46-4dcf62c01a8c">
+        <profileInstance Id="bdbe76bd-6962-4622-9c10-83cc069dcb14" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</activityRootModel>

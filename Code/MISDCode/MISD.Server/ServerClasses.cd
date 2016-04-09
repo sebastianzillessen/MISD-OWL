@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="MISD.Server.ServerService">
+    <Position X="3.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAACAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>ServerService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Server.Program">
+    <Position X="0.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAQIAAAEAAAAAAAAIAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Server.InternalServer">
+    <Position X="6" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AIQAAACAACAAQAAQAgAAAAAAAAJAAAAAYAAABAAAAAA=</HashCode>
+      <FileName>InternalServer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Server.Bootstrapper">
+    <Position X="9.5" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACBAAAAQAQAAAAAAAQAADAAAAAQAAEAAAAgAA=</HashCode>
+      <FileName>Bootstrapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Server.Services.ClientWebService">
+    <Position X="0.5" Y="7" Width="7.5" />
+    <TypeIdentifier>
+      <HashCode>wABBAAAAsAEQghAhAQMgGAJQAEIEFYAAgIoCIAAACFA=</HashCode>
+      <FileName>Services\ClientWebService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MISD.Server.Services.WorkstationWebService">
+    <Position X="9" Y="7" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACCAAAACAAAAAFIAAAAAAAAAAQAEAAAAQAIAAAA=</HashCode>
+      <FileName>Services\WorkstationWebService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MISD.Server.Scheduling.CleanerJobScheduler">
+    <Position X="6.5" Y="17" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAQAQAAAAAAAAAABAAAAAYAAAAAAAAAA=</HashCode>
+      <FileName>Scheduling\CleanerJobScheduler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Server.Scheduling.MainScheduler">
+    <Position X="0.75" Y="17" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAgAQAQAIAAAAAAAIBAAAAAYAAAAAAAAAA=</HashCode>
+      <FileName>Scheduling\MainScheduler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Server.Scheduling.MainRefreshTimerJob">
+    <Position X="4.25" Y="17" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Scheduling\MainRefreshTimerJob.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Server.Scheduling.GlobalScheduler">
+    <Position X="12.5" Y="17" Width="3" />
+    <TypeIdentifier>
+      <HashCode>EAAACAAAAAAAAQAYAAQAAAAAABBAAAAAYAAAAAAgAAA=</HashCode>
+      <FileName>Scheduling\GlobalScheduler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Server.Scheduling.GlobalTimerJob">
+    <Position X="15.75" Y="17" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIIAAAAACAACAgAAAABAAAAAAAAAAAAABQAAA=</HashCode>
+      <FileName>Scheduling\GlobalTimerJob.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Server.Scheduling.MailScheduler">
+    <Position X="22.75" Y="17" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAABAAAAAYAAAAAAQAAA=</HashCode>
+      <FileName>Scheduling\MailScheduler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Server.Scheduling.DailyMailTimerJob">
+    <Position X="25.25" Y="17" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Scheduling\DailyMailTimerJob.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Server.Scheduling.ClusterTimerJob">
+    <Position X="19.75" Y="17" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAIIAAAAAAAACAgAAAABAAAAAAAAAIAAAgQAAA=</HashCode>
+      <FileName>Scheduling\ClusterTimerJob.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Server.Manager.ADManager">
+    <Position X="0.5" Y="22.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQQAAAAAAQAAAAAAAAAABAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Manager\ADManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Server.Manager.ClusterManager">
+    <Position X="3.25" Y="22.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAASACAAAIAgQAIACACAAAAAAAAAIAAAAIMAAUQAAI=</HashCode>
+      <FileName>Manager\ClusterManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Server.Manager.FilterManager">
+    <Position X="6.5" Y="22.5" Width="7" />
+    <TypeIdentifier>
+      <HashCode>AAAiAAAAAAACAAAUMRAAAAAAAABAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Manager\FilterManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Server.Manager.MetaClusterManager">
+    <Position X="14" Y="22.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAwAAAEAAEAAABgAIAAYAAAACAAAAA=</HashCode>
+      <FileName>Manager\MetaClusterManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Server.Manager.MetricManager">
+    <Position X="17.5" Y="22.5" Width="5.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAUgAAACAEAAABAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Manager\MetricManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Server.Manager.OUManager">
+    <Position X="23.5" Y="22.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ACABAAAgAAAAAgAQAQBAAAAAAABABAAAQAACAAEAAEA=</HashCode>
+      <FileName>Manager\OUManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Server.Manager.PluginManager">
+    <Position X="26" Y="22.5" Width="6.25" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>BAAAAAABgAEABIBQBgNIAEJgAADKbUMQQgQABUAAAAA=</HashCode>
+      <FileName>Manager\PluginManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Server.Manager.UIConfigManager">
+    <Position X="32.75" Y="22.5" Width="3.75" />
+    <NestedTypes>
+      <Class Name="MISD.Server.Manager.UIConfigManager.LayoutResult" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Manager\UIConfigManager.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAQAAAgAAAAAABAAIAAQAAAAEAAABA=</HashCode>
+      <FileName>Manager\UIConfigManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Server.Manager.UpdateIntervalManager">
+    <Position X="51.75" Y="22.5" Width="8.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAQAAABEAAACABAAAAEQAAAAAIAAAA=</HashCode>
+      <FileName>Manager\UpdateIntervalManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Server.Manager.ValueManager">
+    <Position X="37" Y="22.5" Width="7.25" />
+    <NestedTypes>
+      <Class Name="MISD.Server.Manager.ValueManager.QueryResult" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Manager\ValueManager.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Enum Name="MISD.Server.Manager.ValueManager.ValueType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Manager\ValueManager.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAJAAAAAEAQQAAAQCAAAQGAQAABAEAQAQAAAAAAAAAA=</HashCode>
+      <FileName>Manager\ValueManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Server.Manager.WorkstationManager">
+    <Position X="44.75" Y="22.5" Width="6.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACCSAAAQAQAxIACAAAZCCABAAgADwKIAYABAAAA=</HashCode>
+      <FileName>Manager\WorkstationManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Server.Email.Mailer">
+    <Position X="0.5" Y="32" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAEAIAAAABAAAAEAKAAAEApMQAAASAIAIAAAICA=</HashCode>
+      <FileName>Email\Mailer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Server.Email.WarningMailParser.MailParser">
+    <Position X="4.75" Y="32" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAgAAABAAAAAUAAAAAAAIAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Email\WarningMailParser\WarningMailParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Server.Email.WarningMailParser.TemplateTag">
+    <Position X="7.5" Y="32" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Email\WarningMailParser\TemplateTag.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Server.Email.Templates.DailyMailTemplate">
+    <Position X="9.75" Y="33" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Email\Templates\DailyMailTemplate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Server.Email.Templates.DailyMailTemplateBase" Collapsed="true">
+    <Position X="9.75" Y="32" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>ACABAAAAQAIAGSAMAAAIABAAAAAIAAAAAAAAQAEgAAA=</HashCode>
+      <FileName>Email\Templates\DailyMailTemplate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Server.Email.Templates.DailyMailTemplateData">
+    <Position X="12.75" Y="32" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAACAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Email\Templates\DailyMailTemplateData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Server.Database.DataContextFactory">
+    <Position X="0.5" Y="38.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Database\DataContextFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Server.Database.PrecompiledQueries">
+    <Position X="4.5" Y="38.75" Width="8" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAgECAAAQAAABAAAIAQAYQIAEAAAAE=</HashCode>
+      <FileName>Database\PrecompiledQueries.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Server.Cluster.BrightClusterConnection">
+    <Position X="0.5" Y="44" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAoAAAAAUCAAAAQAgAAAAAEEAAAIACCAAEACAgAAAAA=</HashCode>
+      <FileName>Cluster\BrightClusterConnection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Server.Cluster.BrightClusterShell">
+    <Position X="3.75" Y="44" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAIAAMQAACAAAAiAAAAAAAEIAAAIAAgAAAAABgAAAAg=</HashCode>
+      <FileName>Cluster\BrightClusterShell.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MISD.Server.Cluster.HpcClusterConnection">
+    <Position X="8.25" Y="44" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>IA4ACAFAACAAAAQCIAAAAAFAAAAJAAAAABACAgAAAEA=</HashCode>
+      <FileName>Cluster\HpcClusterConnection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Server.Scheduling.CleanerJob">
+    <Position X="10.25" Y="17" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Scheduling\CleanerJob.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="MISD.Server.Services.IClientWebService" Collapsed="true">
+    <Position X="0.5" Y="6" Width="7.5" />
+    <TypeIdentifier>
+      <HashCode>wABBAAAAsAEQghAhAQMgGAJQAEIEFYAAgIoCIAAACFA=</HashCode>
+      <FileName>Services\IClientWebService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MISD.Server.Services.IWorkstationWebService" Collapsed="true">
+    <Position X="9" Y="6" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACCAAAACAAAAAFIAAAAAAAAAAQAEAAAAQAIAAAA=</HashCode>
+      <FileName>Services\IWorkstationWebService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

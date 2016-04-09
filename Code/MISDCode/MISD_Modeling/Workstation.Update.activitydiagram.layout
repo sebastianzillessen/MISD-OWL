@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Workstation.Update">
+  <activityRootModelMoniker Id="17d99f37-54bd-4384-a201-d6f8f7d880e3" />
+  <nestedChildShapes>
+    <initialNodeShape Id="0e312f8c-cb6e-4995-bef8-83a3c3930c70" absoluteBounds="2, 0.75, 0.25, 0.25" customColor="89, 89, 89">
+      <initialNodeMoniker Id="c6916dca-281a-4a79-8e08-540098d9d727" LastKnownName="Initial1" />
+    </initialNodeShape>
+    <actionShape Id="c8dec57f-29e3-48e0-aa19-acd753d61190" absoluteBounds="1.375, 1.5, 1.625, 0.625" customColor="161, 199, 231">
+      <opaqueActionMoniker Id="42937930-0acb-4135-9f69-3fb24276cea6" LastKnownName="Identify every Plugin on the machine." />
+    </actionShape>
+    <actionShape Id="22187150-cb36-4780-af5b-4768e981bf1a" absoluteBounds="1.375, 2.375, 1.625, 0.625" customColor="161, 199, 231">
+      <opaqueActionMoniker Id="56a5939d-c2fe-4d98-b8d6-01695accc972" LastKnownName="For each Plugin: Call GetFilters (this, Plugin i) on the PluginWebService." />
+    </actionShape>
+    <actionShape Id="5f842b2b-6415-4bdd-9845-d4f55be6424c" absoluteBounds="1.375, 3.25, 1.625, 0.625" customColor="161, 199, 231">
+      <opaqueActionMoniker Id="7b33b1c1-b45b-4ab2-aa86-6d155f08d60b" LastKnownName="Update the Filters on the machine." />
+    </actionShape>
+    <commentShape Id="67222bbc-421d-478f-9689-7687ac3c987d" absoluteBounds="2.875, 0.5, 1.5, 0.5" customColor="251, 247, 200">
+      <commentMoniker Id="dcb2c4ec-19e5-4046-ba07-bc293c57c992" />
+      <relativeChildShapes />
+    </commentShape>
+    <commentConnector edgePoints="[(2.875 : 0.875); (2.25 : 0.875)]" fixedFrom="Algorithm" fixedTo="Algorithm" TargetRelationshipDomainClassId="217d6bd0-42ed-4e7f-ad2b-af3ef5142428" customColor="Black">
+      <relativeChildShapes />
+      <nodes>
+        <commentShapeMoniker Id="67222bbc-421d-478f-9689-7687ac3c987d" />
+        <initialNodeShapeMoniker Id="0e312f8c-cb6e-4995-bef8-83a3c3930c70" />
+      </nodes>
+    </commentConnector>
+    <controlFlowConnector edgePoints="[(2.125 : 1); (2.125 : 1.5)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black">
+      <controlFlowMoniker Id="54ae1b81-a8db-46f9-9b56-b98b0f0b1603" />
+      <relativeChildShapes />
+      <nodes>
+        <initialNodeShapeMoniker Id="0e312f8c-cb6e-4995-bef8-83a3c3930c70" />
+        <actionShapeMoniker Id="c8dec57f-29e3-48e0-aa19-acd753d61190" />
+      </nodes>
+    </controlFlowConnector>
+    <controlFlowConnector edgePoints="[(2.1875 : 2.125); (2.1875 : 2.375)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black">
+      <controlFlowMoniker Id="aafebc11-dadb-4556-b622-fce4658af607" />
+      <relativeChildShapes />
+      <nodes>
+        <actionShapeMoniker Id="c8dec57f-29e3-48e0-aa19-acd753d61190" />
+        <actionShapeMoniker Id="22187150-cb36-4780-af5b-4768e981bf1a" />
+      </nodes>
+    </controlFlowConnector>
+    <controlFlowConnector edgePoints="[(2.1875 : 3); (2.1875 : 3.25)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black">
+      <controlFlowMoniker Id="5a626eae-1d80-4ae0-9821-4a4dbb3ac8cc" />
+      <relativeChildShapes />
+      <nodes>
+        <actionShapeMoniker Id="22187150-cb36-4780-af5b-4768e981bf1a" />
+        <actionShapeMoniker Id="5f842b2b-6415-4bdd-9845-d4f55be6424c" />
+      </nodes>
+    </controlFlowConnector>
+    <actionShape Id="0e8c48cc-5508-473f-942e-3f81a5fc522d" absoluteBounds="1.375, 4.125, 1.625, 0.625" customColor="161, 199, 231">
+      <opaqueActionMoniker Id="a711f4a1-067f-4522-859f-a5d40a1eaf3b" LastKnownName="For each Plugin i: Call GetUpdateIntervals(this, Plugin i) on the PluginWebService." />
+    </actionShape>
+    <actionShape Id="377be6a9-4983-4881-b3c9-1a5c2466cd9f" absoluteBounds="1.375, 5, 1.625, 0.625" customColor="161, 199, 231">
+      <opaqueActionMoniker Id="cc5ae298-d9e1-476e-a1c2-56b5887a7d0a" LastKnownName="Update the Updateintervalls on the machine." />
+    </actionShape>
+    <controlFlowConnector edgePoints="[(2.1875 : 3.875); (2.1875 : 4.125)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black">
+      <controlFlowMoniker Id="fcdad3d3-eb02-41bc-b351-133497da0e25" />
+      <relativeChildShapes />
+      <nodes>
+        <actionShapeMoniker Id="5f842b2b-6415-4bdd-9845-d4f55be6424c" />
+        <actionShapeMoniker Id="0e8c48cc-5508-473f-942e-3f81a5fc522d" />
+      </nodes>
+    </controlFlowConnector>
+    <controlFlowConnector edgePoints="[(2.1875 : 4.75); (2.1875 : 5)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black">
+      <controlFlowMoniker Id="40b434c7-f169-4c8e-bb11-4d2711503db6" />
+      <relativeChildShapes />
+      <nodes>
+        <actionShapeMoniker Id="0e8c48cc-5508-473f-942e-3f81a5fc522d" />
+        <actionShapeMoniker Id="377be6a9-4983-4881-b3c9-1a5c2466cd9f" />
+      </nodes>
+    </controlFlowConnector>
+    <activityFinalNodeShape Id="19340c0f-62e7-4918-848a-b726399bb17c" absoluteBounds="2.125, 6, 0.25, 0.25" customColor="89, 89, 89">
+      <activityFinalNodeMoniker Id="9a3e5591-9f77-4562-a964-b1102af00adc" LastKnownName="ActivityFinal1" />
+    </activityFinalNodeShape>
+    <controlFlowConnector edgePoints="[(2.25 : 5.625); (2.25 : 6)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black">
+      <controlFlowMoniker Id="f46bdd5a-51e1-46be-bc75-d1eba93db381" />
+      <relativeChildShapes />
+      <nodes>
+        <actionShapeMoniker Id="377be6a9-4983-4881-b3c9-1a5c2466cd9f" />
+        <activityFinalNodeShapeMoniker Id="19340c0f-62e7-4918-848a-b726399bb17c" />
+      </nodes>
+    </controlFlowConnector>
+  </nestedChildShapes>
+</activityDiagram>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="99548439-6c28-4656-b555-e90c8e9d9887" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://acid.visus.uni-stuttgart.de:8002/workstationWebService" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="WorkstationWebService.wsdl" MetadataType="Wsdl" ID="3b627ac4-807f-4509-af07-8e8ce5500f7b" SourceId="1" SourceUrl="http://acid.visus.uni-stuttgart.de:8002/workstationWebService?wsdl" />
+    <MetadataFile FileName="workstationWebService.xsd" MetadataType="Schema" ID="14031d24-f210-451a-8c18-abf8a351c68c" SourceId="1" SourceUrl="http://acid.visus.uni-stuttgart.de:8002/workstationWebService?xsd=xsd1" />
+    <MetadataFile FileName="workstationWebService1.xsd" MetadataType="Schema" ID="cf6f7bfc-2e96-46af-839d-00de29cb7f57" SourceId="1" SourceUrl="http://acid.visus.uni-stuttgart.de:8002/workstationWebService?xsd=xsd0" />
+    <MetadataFile FileName="workstationWebService2.xsd" MetadataType="Schema" ID="20779df1-3505-4f5c-93b3-e8158514bd70" SourceId="1" SourceUrl="http://acid.visus.uni-stuttgart.de:8002/workstationWebService?xsd=xsd3" />
+    <MetadataFile FileName="workstationWebService3.xsd" MetadataType="Schema" ID="f9c14272-dcfd-4672-b6df-5a6f10bcb777" SourceId="1" SourceUrl="http://acid.visus.uni-stuttgart.de:8002/workstationWebService?xsd=xsd2" />
+    <MetadataFile FileName="workstationWebService.disco" MetadataType="Disco" ID="7d84b47d-cacf-4943-87bc-46dabc63598d" SourceId="1" SourceUrl="http://acid.visus.uni-stuttgart.de:8002/workstationWebService?disco" />
+    <MetadataFile FileName="workstationWebService4.xsd" MetadataType="Schema" ID="06da3d7b-d5c9-41e2-98c0-234204804eb8" SourceId="1" SourceUrl="http://acid.visus.uni-stuttgart.de:8002/workstationWebService?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

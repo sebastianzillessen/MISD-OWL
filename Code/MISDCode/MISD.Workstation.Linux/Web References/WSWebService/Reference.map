@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://acid.visus.uni-stuttgart.de:8002/workstationWebService?wsdl" filename="WorkstationWebService.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://acid.visus.uni-stuttgart.de:8002/workstationWebService?xsd=xsd1" filename="workstationWebService.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://acid.visus.uni-stuttgart.de:8002/workstationWebService?xsd=xsd0" filename="workstationWebService0.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://acid.visus.uni-stuttgart.de:8002/workstationWebService?xsd=xsd3" filename="workstationWebService1.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://acid.visus.uni-stuttgart.de:8002/workstationWebService?xsd=xsd2" filename="workstationWebService2.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://acid.visus.uni-stuttgart.de:8002/workstationWebService?disco" filename="workstationWebService.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://acid.visus.uni-stuttgart.de:8002/workstationWebService?xsd=xsd4" filename="workstationWebService3.xsd" />
+  </Results>
+</DiscoveryClientResultsFile>

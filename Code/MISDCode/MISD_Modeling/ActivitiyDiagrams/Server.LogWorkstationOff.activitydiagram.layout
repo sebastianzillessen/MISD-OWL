@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Server.LogWorkstationOff">
+  <activityRootModelMoniker Id="a2076a2d-f07b-4fb6-ac3f-1ccb9e4da494" />
+  <nestedChildShapes>
+    <initialNodeShape Id="0613cb81-2ea3-46bb-b71c-d9d726eb1318" absoluteBounds="1, 1.375, 0.125, 0.125" customColor="89, 89, 89">
+      <initialNodeMoniker Id="1d4eaa31-2403-4146-984f-87030975ea9a" LastKnownName="Initial1" />
+    </initialNodeShape>
+    <activityFinalNodeShape Id="effdb195-cf38-40a8-a497-4122d527f7f7" absoluteBounds="1, 3.125, 0.125, 0.125" customColor="89, 89, 89">
+      <activityFinalNodeMoniker Id="1c3accf5-e065-48cb-820d-952512e7426c" LastKnownName="ActivityFinal1" />
+    </activityFinalNodeShape>
+    <acceptEventActionShape Id="cf3aba25-80a2-4af6-a524-bffaa17c589f" absoluteBounds="2.125, 1.25, 1.125, 0.375" customColor="185, 212, 238">
+      <acceptEventActionMoniker Id="427fbe55-3fef-4454-afb0-2737855c8b5b" LastKnownName="received log off signal" />
+      <relativeChildShapes>
+        <outputPinShape Id="e794e471-1c64-4a9f-ab35-3bdc15e62524" absoluteBounds="2.46875, 1.625, 0.15, 0.15">
+          <outputPinMoniker Id="5203ca9a-7d1d-44a4-9d89-70e109cb5eee" LastKnownName="FQDN" />
+          <relativeChildShapes />
+          <moveableDecoratorHostShapes>
+            <moveableDecoratorHostShape manuallyPlaced="true" absoluteBounds="2.03125, 1.6875, 0.33168759942054749, 0.14800345897674561" shapeFieldName="Name" />
+          </moveableDecoratorHostShapes>
+        </outputPinShape>
+      </relativeChildShapes>
+    </acceptEventActionShape>
+    <controlFlowConnector edgePoints="[(1.125 : 1.4375); (2.23325317547305 : 1.4375)]" fixedFrom="NotFixed" fixedTo="NotFixed" customColor="Black">
+      <controlFlowMoniker Id="0bcd7076-9430-4bde-a76c-016b239a57b8" />
+      <relativeChildShapes />
+      <nodes>
+        <initialNodeShapeMoniker Id="0613cb81-2ea3-46bb-b71c-d9d726eb1318" />
+        <acceptEventActionShapeMoniker Id="cf3aba25-80a2-4af6-a524-bffaa17c589f" />
+      </nodes>
+    </controlFlowConnector>
+    <actionShape Id="ca00fef4-2915-4602-a21f-cde207897eec" absoluteBounds="2.125, 3, 1.125, 0.375" customColor="161, 199, 231">
+      <opaqueActionMoniker Id="c7411f2a-dcb8-4d77-a32b-0ad8e84cbf2f" LastKnownName="set flag in database" />
+    </actionShape>
+    <controlFlowConnector edgePoints="[(2.125 : 3.1875); (1.125 : 3.1875)]" fixedFrom="NotFixed" fixedTo="NotFixed" customColor="Black">
+      <controlFlowMoniker Id="212d0bc1-cb5f-428f-840d-f28b40c7ff72" />
+      <relativeChildShapes />
+      <nodes>
+        <actionShapeMoniker Id="ca00fef4-2915-4602-a21f-cde207897eec" />
+        <activityFinalNodeShapeMoniker Id="effdb195-cf38-40a8-a497-4122d527f7f7" />
+      </nodes>
+    </controlFlowConnector>
+    <decisionNodeShape Id="c8af52b2-1fbf-48ce-8120-67f7e660fc49" absoluteBounds="2.375, 2.25, 0.375, 0.375" customColor="185, 212, 238">
+      <decisionNodeMoniker Id="7307e451-2de1-4280-8d40-8142e4429c55" LastKnownName="Decision1" />
+      <relativeChildShapes />
+    </decisionNodeShape>
+    <controlFlowConnector edgePoints="[(2.375 : 2.4375); (1.0625 : 2.4375); (1.0625 : 3.125)]" fixedFrom="NotFixed" fixedTo="NotFixed" customColor="Black">
+      <controlFlowMoniker Id="accb8225-8a14-4f56-964e-14ae6d0a6fc3" />
+      <relativeChildShapes />
+      <nodes>
+        <decisionNodeShapeMoniker Id="c8af52b2-1fbf-48ce-8120-67f7e660fc49" />
+        <activityFinalNodeShapeMoniker Id="effdb195-cf38-40a8-a497-4122d527f7f7" />
+      </nodes>
+    </controlFlowConnector>
+    <objectFlowConnector edgePoints="[(2.54375 : 1.775); (2.54375 : 2.26875)]" fixedFrom="Caller" fixedTo="NotFixed" customColor="Black">
+      <objectFlowMoniker Id="99f4ace7-5695-409b-a7fd-e4ad972bddce" />
+      <relativeChildShapes />
+      <nodes>
+        <outputPinShapeMoniker Id="e794e471-1c64-4a9f-ab35-3bdc15e62524" />
+        <decisionNodeShapeMoniker Id="c8af52b2-1fbf-48ce-8120-67f7e660fc49" />
+      </nodes>
+    </objectFlowConnector>
+    <controlFlowConnector edgePoints="[(2.5625 : 2.625); (2.5625 : 3)]" fixedFrom="NotFixed" fixedTo="NotFixed" customColor="Black">
+      <controlFlowMoniker Id="0f087299-69e2-4383-8936-9b5380f8d557" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallyPlaced="true" absoluteBounds="2.6875, 2.6875, 1.0772930383682251, 0.14800345897674561" shapeFieldName="Guard" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <decisionNodeShapeMoniker Id="c8af52b2-1fbf-48ce-8120-67f7e660fc49" />
+        <actionShapeMoniker Id="ca00fef4-2915-4602-a21f-cde207897eec" />
+      </nodes>
+    </controlFlowConnector>
+  </nestedChildShapes>
+</activityDiagram>

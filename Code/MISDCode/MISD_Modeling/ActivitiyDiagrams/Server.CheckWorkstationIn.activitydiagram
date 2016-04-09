@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="c7692913-b36f-455b-ac78-4e4be72e39cf" name="Server.CheckWorkstationIn" linkedPackageId="e119939f-bf18-43db-ab50-7c8c926c42a1" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="c5734caa-e85e-4864-8208-e473aef85d7e" name="Server.CheckWorkstationIn" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="169541e6-8e94-4bbe-81db-fbed71d8122d" />
+        <nodes>
+          <initialNode Id="7f6e8588-e3c5-4146-b60d-eae13614fc54" name="Initial1" isLeaf="false">
+            <elementDefinition Id="f5ce4e56-9d57-4b48-b8e8-cd9f81daad1a" />
+            <flowNodeTargets>
+              <controlFlow Id="9dfb88d8-8f9a-4cd3-a906-db7237de1250" isLeaf="false">
+                <acceptEventActionMoniker Id="a62743a4-1a20-447e-b296-ff0193e63907" LastKnownName="received workstation check in message" />
+                <elementDefinition Id="42b37f51-b18f-4932-9ce4-d12c35ebfbf6" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <activityFinalNode Id="831ed21e-6b2c-46e3-994e-ecbbd646fa36" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="7a62ba12-23fc-4cdf-b34e-90bdbdb0e176" />
+          </activityFinalNode>
+          <opaqueAction Id="83b305e1-1fda-42cf-af99-040fb25c226c" name="lookup in database" isLeaf="false">
+            <elementDefinition Id="cb18c425-d19d-4f7a-b6d5-7f0d47dac66b" />
+            <flowNodeTargets>
+              <controlFlow Id="d06605b8-f9a5-42c0-aac9-db6b482fe275" isLeaf="false">
+                <decisionNodeMoniker Id="d7dc4d30-0d4f-4b15-b90e-e444ba4af294" LastKnownName="Decision1" />
+                <elementDefinition Id="4d06c566-2caa-4ed4-9794-fb577addfb9f" />
+              </controlFlow>
+            </flowNodeTargets>
+            <pins>
+              <opaqueActionHasInputValues>
+                <inputPin Id="3fc9cc35-3260-410a-a10f-6bceb72925b7" name="FQDN" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="faaed620-ca9a-444c-bc1d-b98ef4b4c7a2" />
+                  <upperBound>
+                    <literalInteger Id="a4e49899-81ee-412c-9074-cc19b7831c4b" name="2147483647" value="2147483647">
+                      <elementDefinition Id="d5a902ac-29c9-4438-984e-a46109922a26" />
+                    </literalInteger>
+                  </upperBound>
+                </inputPin>
+              </opaqueActionHasInputValues>
+            </pins>
+          </opaqueAction>
+          <acceptEventAction Id="a62743a4-1a20-447e-b296-ff0193e63907" name="received workstation check in message" isLeaf="false" isUnmarshall="false">
+            <elementDefinition Id="160d5eed-69e8-4015-87b6-5d162d5e1f16" />
+            <objectFlowTargets>
+              <objectFlow Id="31ad18b5-0862-470f-b392-3796006059f5" isLeaf="false" isMulticast="false" isMultireceive="false">
+                <inputPinMoniker Id="3fc9cc35-3260-410a-a10f-6bceb72925b7" LastKnownName="FQDN" />
+                <elementDefinition Id="a9c6c889-20e8-4641-88be-815deb2558b5" />
+              </objectFlow>
+            </objectFlowTargets>
+          </acceptEventAction>
+          <decisionNode Id="d7dc4d30-0d4f-4b15-b90e-e444ba4af294" name="Decision1" isLeaf="false">
+            <elementDefinition Id="3f7bfccc-9cff-4e2f-b7de-4e2a93291a7d" />
+            <flowNodeTargets>
+              <controlFlow Id="270fd4af-caeb-4f5e-b17d-a8088bbf97f7" guard="not found" isLeaf="false">
+                <opaqueActionMoniker Id="06677792-69fa-4e25-a854-5ffdbc82fe08" LastKnownName="get available data from active directory" />
+                <elementDefinition Id="3badf023-2a09-4689-bd01-ed30179f6882" />
+              </controlFlow>
+              <controlFlow Id="6fc3d419-cd70-4ab0-8f49-31e0ed8c99c1" guard="found" isLeaf="false">
+                <mergeNodeMoniker Id="512271f0-6b24-4555-8fd2-6f04550732c8" LastKnownName="Merge1" />
+                <elementDefinition Id="c4cd497c-ba0c-4d63-86fe-dd76b77496b8" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="06677792-69fa-4e25-a854-5ffdbc82fe08" name="get available data from active directory" isLeaf="false">
+            <elementDefinition Id="b9810204-d1be-441b-b008-964b2dfcec97" />
+            <flowNodeTargets>
+              <controlFlow Id="ba75e1eb-8f30-4d6f-b415-e9566f674795" isLeaf="false">
+                <decisionNodeMoniker Id="6440d32a-7612-4efd-8f0d-898625f5009e" LastKnownName="Decision2" />
+                <elementDefinition Id="43cbbc21-c02f-41e0-9f4c-641e7568b44c" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <mergeNode Id="512271f0-6b24-4555-8fd2-6f04550732c8" name="Merge1" isLeaf="false">
+            <elementDefinition Id="1da8d360-2381-499a-9a44-1bd35e51fc08" />
+            <objectFlowTargets>
+              <objectFlow Id="12034dcd-bb13-483a-9d4c-e308f7d9e1e4" isLeaf="false" isMulticast="false" isMultireceive="false">
+                <inputPinMoniker Id="45a87dce-f426-4136-9390-5a21c501073f" LastKnownName="FQDN" />
+                <elementDefinition Id="1bebb201-3ed5-459f-a78b-6d115ec489f3" />
+              </objectFlow>
+            </objectFlowTargets>
+          </mergeNode>
+          <opaqueAction Id="93a3cd2f-4ce4-442f-9149-a26a718f05b1" name="set workstation's available  flag in database" isLeaf="false">
+            <elementDefinition Id="4e8f9bda-03cb-477e-baeb-d825db56bba0" />
+            <flowNodeTargets>
+              <controlFlow Id="74208501-030f-441c-8189-482d4cd2fcac" isLeaf="false">
+                <sendSignalActionMoniker Id="fba19853-2059-4b0f-9f26-1e87a4a122ae" LastKnownName="return boolean to signal success" />
+                <elementDefinition Id="f1c0db0a-84a7-457f-b60d-4999b2c86582" />
+              </controlFlow>
+            </flowNodeTargets>
+            <pins>
+              <opaqueActionHasInputValues>
+                <inputPin Id="45a87dce-f426-4136-9390-5a21c501073f" name="FQDN" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="5cfabd4f-0b9c-40aa-b5c8-34003d05ee6b" />
+                  <upperBound>
+                    <literalInteger Id="12761990-e2b2-4f30-9498-f4d2fc8c3d15" name="2147483647" value="2147483647">
+                      <elementDefinition Id="a6c2ca93-51bb-461b-9963-4191343346c7" />
+                    </literalInteger>
+                  </upperBound>
+                </inputPin>
+              </opaqueActionHasInputValues>
+            </pins>
+          </opaqueAction>
+          <sendSignalAction Id="fba19853-2059-4b0f-9f26-1e87a4a122ae" name="return boolean to signal success" isLeaf="false">
+            <elementDefinition Id="f2d8fe13-b30c-401f-a0c5-7eef59cf262c" />
+            <flowNodeTargets>
+              <controlFlow Id="c1cc4593-99f0-4684-9bf5-b8e6e72d5d8f" isLeaf="false">
+                <activityFinalNodeMoniker Id="831ed21e-6b2c-46e3-994e-ecbbd646fa36" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="d13136ce-cb6c-4011-8739-ae1b96d62183" />
+              </controlFlow>
+            </flowNodeTargets>
+          </sendSignalAction>
+          <opaqueAction Id="bf49b59b-36b3-4d09-91dd-e55415854889" name="save workstation to database" isLeaf="false">
+            <elementDefinition Id="e1463328-0278-4e7f-8184-c1e936fbf94d" />
+            <flowNodeTargets>
+              <controlFlow Id="9604ea7c-842c-4add-b1fc-8592b9ffe039" isLeaf="false">
+                <mergeNodeMoniker Id="512271f0-6b24-4555-8fd2-6f04550732c8" LastKnownName="Merge1" />
+                <elementDefinition Id="734669f5-1ec3-469d-a976-bca70b5626ba" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="829c2689-0edd-48ff-9f03-bfbbd0a26069" name="assign to special OU" isLeaf="false">
+            <elementDefinition Id="693571cc-03ee-4907-8c13-3eed6a3dbaee" />
+            <flowNodeTargets>
+              <controlFlow Id="8b0abcbe-d8f5-4c7f-8952-c2492d253406" isLeaf="false">
+                <opaqueActionMoniker Id="bf49b59b-36b3-4d09-91dd-e55415854889" LastKnownName="save workstation to database" />
+                <elementDefinition Id="ba697f47-9719-4738-9317-2e480965c167" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="6440d32a-7612-4efd-8f0d-898625f5009e" name="Decision2" isLeaf="false">
+            <elementDefinition Id="10cf2699-efe7-463f-a76a-5bbdaad1ad95" />
+            <flowNodeTargets>
+              <controlFlow Id="08af1b7c-9d26-4871-b3e9-e7eed4a24b3a" guard="not found" isLeaf="false">
+                <opaqueActionMoniker Id="829c2689-0edd-48ff-9f03-bfbbd0a26069" LastKnownName="assign to special OU" />
+                <elementDefinition Id="169e0675-5b6e-40ff-9e45-0582334f88be" />
+              </controlFlow>
+              <controlFlow Id="e6f132f8-1104-46fc-8ba8-0fe4f086e69b" guard="found" isLeaf="false">
+                <opaqueActionMoniker Id="bf49b59b-36b3-4d09-91dd-e55415854889" LastKnownName="save workstation to database" />
+                <elementDefinition Id="e76b23f1-8113-40e0-84c5-de221e39f9ec" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="e119939f-bf18-43db-ab50-7c8c926c42a1" name="MISD_Modeling">
+    <elementDefinition Id="57152138-29c8-467d-80d5-86353decd659" />
+    <profileInstances>
+      <packageHasProfileInstances Id="cf650a7b-4e81-4e1d-acee-5488c9434d03">
+        <profileInstance Id="3738779b-6478-4497-8da6-1de85ac9268d" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="1ffa1a36-4266-43f8-b4db-d50054492ec1">
+        <profileInstance Id="3a83197a-229d-4edb-8ed4-89e561701098" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</activityRootModel>

@@ -1,0 +1,131 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:MISD.Plugins.Visualization.RAM"
+                    xmlns:chartingToolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=system.windows.controls.dataVisualization.toolkit"
+                    xmlns:chartingprimitives="clr-namespace:System.Windows.Controls.DataVisualization.Charting.Primitives;assembly=System.Windows.Controls.DataVisualization.Toolkit">
+
+    <!--Insert plugin image here-->
+    <DrawingBrush x:Key="RAMPluginImage">
+        <DrawingBrush.Drawing>
+            <DrawingGroup>
+                <DrawingGroup.Children>
+                    <GeometryDrawing Brush="White" Geometry="F1 M 0.000671387,-3.05176e-005L 29.334,-3.05176e-005L 0.000671387,-3.05176e-005 Z "/>
+                    <GeometryDrawing Brush="White" Geometry="F1 M 0,3.99997L 29.3334,3.99997L 29.3334,-3.05176e-005L 0,-3.05176e-005L 0,3.99997 Z "/>
+                    <GeometryDrawing Brush="White" Geometry="F1 M 0.000671387,3.99997L 0.000671387,29.3333L 21.334,29.3333L 21.334,21.3333L 29.334,21.3333L 29.334,3.99997L 0.000671387,3.99997 Z "/>
+                    <GeometryDrawing Brush="White" Geometry="F1 M 22.6674,22.6667L 28.0007,22.6667L 22.6674,28L 22.6674,22.6667 Z "/>
+                </DrawingGroup.Children>
+            </DrawingGroup>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+    <Style x:Key="DataPointStyleWithNoPoints" TargetType="Control">
+        <Setter Property="Width" Value="0" />
+        <Setter Property="Height" Value="0" />
+    </Style>
+    <Style x:Key="GridLineStyle" TargetType="Line">
+        <Setter Property="Stroke" Value="#cccccc"/>
+    </Style>
+    <Style TargetType="{x:Type local:RAMTileCustomUI}">
+        <Style.Setters>
+            <!--define plugin image and data template-->
+            <Setter Property="Image" Value="{StaticResource RAMPluginImage}" />
+            <Setter Property="Template">
+                <Setter.Value>
+
+                    <ControlTemplate TargetType="{x:Type local:RAMTileCustomUI}">
+                        <Grid x:Name="PART_LayoutRoot" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinWidth="600">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" MinHeight="200"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="RAM Size " Foreground="White" HorizontalAlignment="Center"/>
+                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Size}" Foreground="White" HorizontalAlignment="Center"/>
+                            <TextBlock Grid.Row="0" Grid.Column="2" Text="Swap Size " Foreground="White" HorizontalAlignment="Center"/>
+                            <TextBlock Grid.Row="0" Grid.Column="3" Text="{Binding SwapSize}" Foreground="White" HorizontalAlignment="Center"/>
+                            <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="RAM Load" Foreground="White" HorizontalAlignment="Center"/>
+                            <chartingToolkit:Chart Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Name="RAM_chart" Title="RAM Load" Foreground="White" 
+		                        VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="7" Padding="0" BorderThickness="0" MinWidth="250">
+                                <chartingToolkit:LineSeries  DependentValuePath="Value" Opacity=".7"
+		                        IndependentValuePath="Timestamp" ItemsSource="{Binding Load}" 
+		                        IsSelectionEnabled="False">
+                                    <chartingToolkit:DataPointSeries.DataPointStyle>
+                                        <Style BasedOn="{StaticResource DataPointStyleWithNoPoints}"
+                                         TargetType="{x:Type chartingToolkit:LineDataPoint}">
+                                            <Setter Property="Background" Value="Blue" />
+                                        </Style>
+                                    </chartingToolkit:DataPointSeries.DataPointStyle>
+                                    <chartingToolkit:LineSeries.IndependentAxis>
+                                        <chartingToolkit:DateTimeAxis Orientation="X" Visibility="Hidden" ShowGridLines="True" Height="0" IntervalType="Auto" GridLineStyle ="{StaticResource GridLineStyle}" />
+                                    </chartingToolkit:LineSeries.IndependentAxis>
+                                    <chartingToolkit:LineSeries.DependentRangeAxis>
+                                        <chartingToolkit:LinearAxis Orientation="Y" Visibility="Visible" ShowGridLines="True" Minimum="0" Maximum="100" GridLineStyle ="{StaticResource GridLineStyle}"/>
+                                    </chartingToolkit:LineSeries.DependentRangeAxis>
+                                </chartingToolkit:LineSeries>
+
+                                <chartingToolkit:Chart.Template>
+                                    <ControlTemplate TargetType="chartingToolkit:Chart">
+                                        <Border Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        Padding="{TemplateBinding Padding}">
+                                            <Grid>
+                                                <chartingprimitives:EdgePanel x:Name="ChartArea" Style="{TemplateBinding ChartAreaStyle}">
+                                                    <Grid Canvas.ZIndex="-1" Style="{TemplateBinding PlotAreaStyle}" />
+                                                    <Border Canvas.ZIndex="10" BorderBrush="#FF919191" BorderThickness="1" />
+                                                </chartingprimitives:EdgePanel>
+                                            </Grid>
+                                        </Border>
+                                    </ControlTemplate>
+                                </chartingToolkit:Chart.Template>
+                            </chartingToolkit:Chart>
+
+                            <TextBlock Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Text="Swap Load" Foreground="White" HorizontalAlignment="Center"/>
+                            <chartingToolkit:Chart Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2" Name="SWAP_chart" Title="SWAP Load" Foreground="White" 
+		                        VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="7" Padding="0" BorderThickness="0" MinWidth="250">
+                                <chartingToolkit:LineSeries  DependentValuePath="Value" Opacity=".7"
+		                        IndependentValuePath="Timestamp" ItemsSource="{Binding SwapLoad}" 
+		                        IsSelectionEnabled="False">
+                                    <chartingToolkit:DataPointSeries.DataPointStyle>
+                                        <Style BasedOn="{StaticResource DataPointStyleWithNoPoints}"
+                                         TargetType="{x:Type chartingToolkit:LineDataPoint}">
+                                            <Setter Property="Background" Value="Blue" />
+                                        </Style>
+                                    </chartingToolkit:DataPointSeries.DataPointStyle>
+                                    <chartingToolkit:LineSeries.IndependentAxis>
+                                        <chartingToolkit:DateTimeAxis Orientation="X" Visibility="Hidden" ShowGridLines="True" Height="0" IntervalType="Auto" GridLineStyle ="{StaticResource GridLineStyle}" />
+                                    </chartingToolkit:LineSeries.IndependentAxis>
+                                    <chartingToolkit:LineSeries.DependentRangeAxis>
+                                        <chartingToolkit:LinearAxis Orientation="Y" Visibility="Visible" ShowGridLines="True" Minimum="0" Maximum="100" GridLineStyle ="{StaticResource GridLineStyle}"/>
+                                    </chartingToolkit:LineSeries.DependentRangeAxis>
+                                </chartingToolkit:LineSeries>
+
+                                <chartingToolkit:Chart.Template>
+                                    <ControlTemplate TargetType="chartingToolkit:Chart">
+                                        <Border Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        Padding="{TemplateBinding Padding}">
+                                            <Grid>
+                                                <chartingprimitives:EdgePanel x:Name="ChartArea" Style="{TemplateBinding ChartAreaStyle}">
+                                                    <Grid Canvas.ZIndex="-1" Style="{TemplateBinding PlotAreaStyle}" />
+                                                    <Border Canvas.ZIndex="10" BorderBrush="#FF919191" BorderThickness="1" />
+                                                </chartingprimitives:EdgePanel>
+                                            </Grid>
+                                        </Border>
+                                    </ControlTemplate>
+                                </chartingToolkit:Chart.Template>
+                            </chartingToolkit:Chart>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+    </Style>
+
+</ResourceDictionary>

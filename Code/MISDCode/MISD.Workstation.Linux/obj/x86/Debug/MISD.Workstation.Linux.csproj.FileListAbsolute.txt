@@ -1,0 +1,20 @@
+\\VBOXSVR\sebastian\Uni\2012_SoSe\StuPro\SVN\Entwicklung\StuProVisualStudio\MISD\MISD.Workstation.Linux\bin\Debug\MISD.Workstation.Linux.exe
+\\VBOXSVR\sebastian\Uni\2012_SoSe\StuPro\SVN\Entwicklung\StuProVisualStudio\MISD\MISD.Workstation.Linux\bin\Debug\MISD.Workstation.Linux.pdb
+\\VBOXSVR\sebastian\Uni\2012_SoSe\StuPro\SVN\Entwicklung\StuProVisualStudio\MISD\MISD.Workstation.Linux\obj\x86\Debug\MISD.Workstation.Linux.exe
+\\VBOXSVR\sebastian\Uni\2012_SoSe\StuPro\SVN\Entwicklung\StuProVisualStudio\MISD\MISD.Workstation.Linux\obj\x86\Debug\MISD.Workstation.Linux.pdb
+C:\Users\Ehssan Doust\Documents\Visual Studio 2010\Projects\MISD\MISD.Workstation.Linux\bin\Debug\MISD.Workstation.Linux.exe
+C:\Users\Ehssan Doust\Documents\Visual Studio 2010\Projects\MISD\MISD.Workstation.Linux\bin\Debug\MISD.Workstation.Linux.pdb
+C:\Users\Ehssan Doust\Documents\Visual Studio 2010\Projects\MISD\MISD.Workstation.Linux\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Ehssan Doust\Documents\Visual Studio 2010\Projects\MISD\MISD.Workstation.Linux\obj\x86\Debug\MISD.Workstation.Linux.exe
+C:\Users\Ehssan Doust\Documents\Visual Studio 2010\Projects\MISD\MISD.Workstation.Linux\obj\x86\Debug\MISD.Workstation.Linux.pdb
+C:\Users\Fabi\Desktop\misd\Entwicklung\StuProVisualStudio\MISD\MISD.Workstation.Linux\bin\Debug\MISD.Workstation.Linux.exe
+C:\Users\Fabi\Desktop\misd\Entwicklung\StuProVisualStudio\MISD\MISD.Workstation.Linux\bin\Debug\MISD.Workstation.Linux.pdb
+C:\Users\Fabi\Desktop\misd\Entwicklung\StuProVisualStudio\MISD\MISD.Workstation.Linux\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Fabi\Desktop\misd\Entwicklung\StuProVisualStudio\MISD\MISD.Workstation.Linux\obj\x86\Debug\MISD.Workstation.Linux.exe
+C:\Users\Fabi\Desktop\misd\Entwicklung\StuProVisualStudio\MISD\MISD.Workstation.Linux\obj\x86\Debug\MISD.Workstation.Linux.pdb
+E:\Uni\2012_SoSe\StuPro\SVN2\Entwicklung\StuProVisualStudio\MISD\MISD.Workstation.Linux\obj\x86\Debug\MISD.Workstation.Linux.csprojResolveAssemblyReference.cache
+E:\Uni\2012_SoSe\StuPro\SVN2\Entwicklung\StuProVisualStudio\MISD\MISD.Workstation.Linux\obj\x86\Debug\MISD.Workstation.Linux.exe
+E:\Uni\2012_SoSe\StuPro\SVN2\Entwicklung\StuProVisualStudio\MISD\MISD.Workstation.Linux\obj\x86\Debug\MISD.Workstation.Linux.pdb
+F:\StuPro - SVN\Entwicklung\StuProVisualStudio\MISD\MISD.Workstation.Linux\bin\Debug\MISD.Workstation.Linux.exe.config
+F:\StuPro - SVN\Entwicklung\StuProVisualStudio\MISD\MISD.Workstation.Linux\obj\x86\Debug\MISD.Workstation.Linux.exe
+F:\StuPro - SVN\Entwicklung\StuProVisualStudio\MISD\MISD.Workstation.Linux\obj\x86\Debug\MISD.Workstation.Linux.pdb

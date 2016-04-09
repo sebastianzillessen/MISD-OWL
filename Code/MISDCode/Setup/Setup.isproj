@@ -1,0 +1,68 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+	<PropertyGroup>
+		<!-- Select a Product Configuration -->
+		<InstallShieldProductConfiguration>Express</InstallShieldProductConfiguration>
+		<!-- Select a Visual Studio Configuration / InstallShield Release -->
+		<Configuration>Debug</Configuration>
+		<InstallShieldRelease>$(Configuration)</InstallShieldRelease>
+	</PropertyGroup>
+	<ItemGroup>
+		<!-- The InstallShieldProject item selects the project to build -->
+		<InstallShieldProject Include="$(MSBuildProjectDirectory)\$(MSBuildProjectName).isl"/>
+		<!-- The InstallShieldReleaseFlags sets Release Flags -->
+		<!--<InstallShieldReleaseFlags Include=""/>-->
+		<!-- The InstallShieldMergeModulePath specifies what directories are
+		searched for Merge Modules -->
+		<!--<InstallShieldMergeModulePath Include=""/>-->
+	</ItemGroup>
+	<ItemGroup>
+		<!-- The ProjectReference items refer to any Visual Studio solutions you want to automatically probe for Project Output Groups.  -->
+	</ItemGroup>
+	<ItemGroup>
+		<!-- The TaggedOutputs items allow you to explicitly add extra files to output groups. Each item must include both Name and OutputGroup, as well as TargetPath metadata values. -->
+		<!--<TaggedOutputs Include="C:\My Test Exe.exe">
+			<Name>My Test Project</Name>
+			<OutputGroup>Primary output</OutputGroup>
+			<TargetPath>My Test Exe.exe</TargetPath>
+		</TaggedOutputs> -->
+	</ItemGroup>
+	<Import Project="$(MSBuildExtensionsPath32)\InstallShield\2012SpringLimited\InstallShield.targets"/>
+	<ItemGroup>
+		<ProjectReference Include="..\MISD.Core\MISD.Core.csproj">
+			<Name>MISD.Core</Name>
+			<Project>{B8C8677E-FE2E-46ED-BAA1-537A076EF164}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\CPU\MISD.Plugins.Windows.CPU.csproj">
+			<Name>MISD.Plugins.Windows.CPU</Name>
+			<Project>{A354ECD1-E080-4F09-AE84-FC5D2ECFF25C}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\RAMWindows\MISD.Plugins.Windows.RAM.csproj">
+			<Name>MISD.Plugins.Windows.RAM</Name>
+			<Project>{3A617B6A-3DA6-4A61-8A12-9239E422D8AA}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\MISD.Server\MISD.Server.csproj">
+			<Name>MISD.Server</Name>
+			<Project>{FCE4B574-C7B4-4222-BCF5-FFB0BB9F614D}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\Network_Server\MISD.Plugins.Server.Ping.csproj">
+			<Name>MISD.Plugins.Server.Ping</Name>
+			<Project>{FB562340-D10C-4437-A691-F29178BF0A10}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\MISD.Plugins.Bright.CPU\MISD.Plugins.Bright.CPU.csproj">
+			<Name>MISD.Plugins.Bright.CPU</Name>
+			<Project>{463A708D-9BC9-4853-9FB7-31E1BA62D0BA}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\MISD.Plugins.Bright.RAM\MISD.Plugins.Bright.RAM.csproj">
+			<Name>MISD.Plugins.Bright.RAM</Name>
+			<Project>{4C1914FE-B28A-4D67-B2D3-F57F7965B157}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\MISD.Plugins.HPC.CPU\MISD.Plugins.HPC.CPU.csproj">
+			<Name>MISD.Plugins.HPC.CPU</Name>
+			<Project>{81F0210D-ED14-401F-AD2E-F1B450FD1018}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\MISD.Plugins.HPC.RAM\MISD.Plugins.HPC.RAM.csproj">
+			<Name>MISD.Plugins.HPC.RAM</Name>
+			<Project>{0D108739-3D49-4303-A387-FF8CBDC47A78}</Project>
+		</ProjectReference>
+	</ItemGroup>
+</Project>

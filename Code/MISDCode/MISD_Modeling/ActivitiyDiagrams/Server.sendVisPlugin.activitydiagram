@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="50c2a3aa-fcad-462b-abfb-9c745abcdb8d" name="Server.VisPlugin" linkedPackageId="f2657886-68e9-43e5-a50b-c2e9cc0b2a9d" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="e9f8ad59-2d96-4ce0-bfc6-01adfff0809d" name="Server.VisPlugin" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="a0b0328c-43df-4677-bc84-42e31ff979ef" />
+        <nodes>
+          <initialNode Id="883a870d-1952-4440-a673-29ccb4d2194d" name="Initial1" isLeaf="false">
+            <elementDefinition Id="1a7bb3d6-f26d-4b10-80af-8ff56f9e7525" />
+            <flowNodeTargets>
+              <controlFlow Id="6f3eee66-b373-43cf-877e-c62ecdb60826" isLeaf="false">
+                <acceptEventActionMoniker Id="698eac60-722e-4d29-83d6-7a83eca35029" LastKnownName="request plugin list" />
+                <elementDefinition Id="4f88427d-d2fa-4b47-8b85-268fc5495bbb" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <acceptEventAction Id="698eac60-722e-4d29-83d6-7a83eca35029" name="request plugin list" isLeaf="false" isUnmarshall="false">
+            <elementDefinition Id="37a29594-48bd-49df-81a4-b6d7dbedfb2c" />
+            <flowNodeTargets>
+              <controlFlow Id="bfc1e803-b115-4a20-98da-c16fdd3031fd" isLeaf="false">
+                <sendSignalActionMoniker Id="51b8a61b-b64c-4026-bb15-c9961552c2b4" LastKnownName="send visualization plugin list" />
+                <elementDefinition Id="a0a8f498-13b3-4499-bbb5-0b3c62364cf7" />
+              </controlFlow>
+            </flowNodeTargets>
+          </acceptEventAction>
+          <sendSignalAction Id="51b8a61b-b64c-4026-bb15-c9961552c2b4" name="send visualization plugin list" isLeaf="false">
+            <elementDefinition Id="3de907a1-e5bd-48b3-a578-e3a8c6c3c5bb" />
+            <flowNodeTargets>
+              <controlFlow Id="7664f2e3-fac9-4852-a1a0-46151ab4f010" isLeaf="false">
+                <acceptEventActionMoniker Id="15a98a55-4c48-419a-9cfe-d950c5a711a7" LastKnownName="requested plugins" />
+                <elementDefinition Id="248e8a60-8c3a-4fdb-8d37-16294fd9b45d" />
+              </controlFlow>
+            </flowNodeTargets>
+          </sendSignalAction>
+          <sendSignalAction Id="0443fbbf-062a-4b34-be72-9c02f166eaa3" name="requested plugins" isLeaf="false">
+            <elementDefinition Id="61eab787-fde3-4aa0-b3e4-6ea165150bb5" />
+            <flowNodeTargets>
+              <controlFlow Id="97fe7f31-8973-4fca-981d-ccb1b3dcb3c0" isLeaf="false">
+                <activityFinalNodeMoniker Id="26f0a6de-0878-4db2-8e4f-535dc69a1cd3" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="927da75d-5e89-4e74-abc4-a9dea94d7068" />
+              </controlFlow>
+            </flowNodeTargets>
+          </sendSignalAction>
+          <acceptEventAction Id="15a98a55-4c48-419a-9cfe-d950c5a711a7" name="requested plugins" isLeaf="false" isUnmarshall="false">
+            <elementDefinition Id="58ab2782-e8fa-44cd-8e7e-349730bba608" />
+            <flowNodeTargets>
+              <controlFlow Id="00281202-0f18-4ea7-bdc7-7af8107bdbec" isLeaf="false">
+                <sendSignalActionMoniker Id="0443fbbf-062a-4b34-be72-9c02f166eaa3" LastKnownName="requested plugins" />
+                <elementDefinition Id="c6d8158a-ff0d-46e1-84b0-0a1986ef5161" />
+              </controlFlow>
+            </flowNodeTargets>
+          </acceptEventAction>
+          <activityFinalNode Id="26f0a6de-0878-4db2-8e4f-535dc69a1cd3" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="89bded58-e4fd-4be9-83be-4c0479febe12" />
+          </activityFinalNode>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="f2657886-68e9-43e5-a50b-c2e9cc0b2a9d" name="MISD_Modeling">
+    <elementDefinition Id="57152138-29c8-467d-80d5-86353decd659" />
+    <profileInstances>
+      <packageHasProfileInstances Id="1a907c6b-f405-4621-8f41-9da8c50ec32f">
+        <profileInstance Id="a2452291-768a-4c92-8517-d262f3f1b87f" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="ebe3c731-66bd-471c-9215-235ad6ad9a85">
+        <profileInstance Id="25e95a05-be72-42dc-82d0-bf25fac5c90a" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</activityRootModel>

@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="DataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="DataModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="MetrikMenge" EntityType="DataModel.Metrik" />
+    <EntitySet Name="IndicatorMenge" EntityType="DataModel.Indicator" />
+    <EntitySet Name="PluginMenge" EntityType="DataModel.Plugin" />
+    <EntitySet Name="ValueMenge" EntityType="DataModel.Value" />
+    <EntitySet Name="SettingMenge" EntityType="DataModel.Setting" />
+    <EntitySet Name="UserMenge" EntityType="DataModel.User" />
+    <EntitySet Name="UIConfigurationMenge" EntityType="DataModel.UIConfiguration" />
+    <EntitySet Name="OrganisationUnitsMenge" EntityType="DataModel.OrganisationUnits" />
+    <EntitySet Name="EMailMenge" EntityType="DataModel.EMail" />
+    <EntitySet Name="WorkstationMenge" EntityType="DataModel.Workstation" />
+    <EntitySet Name="FilterMenge" EntityType="DataModel.Filter" />
+    <AssociationSet Name="MetrikIndicator" Association="DataModel.MetrikIndicator">
+      <End Role="Metrik" EntitySet="MetrikMenge" />
+      <End Role="Indicator" EntitySet="IndicatorMenge" />
+    </AssociationSet>
+    <AssociationSet Name="IndicatorValue" Association="DataModel.IndicatorValue">
+      <End Role="Indicator" EntitySet="IndicatorMenge" />
+      <End Role="Value" EntitySet="ValueMenge" />
+    </AssociationSet>
+    <AssociationSet Name="PluginIndicator" Association="DataModel.PluginIndicator">
+      <End Role="Plugin" EntitySet="PluginMenge" />
+      <End Role="Indicator" EntitySet="IndicatorMenge" />
+    </AssociationSet>
+    <AssociationSet Name="UserSetting" Association="DataModel.UserSetting">
+      <End Role="User" EntitySet="UserMenge" />
+      <End Role="Setting" EntitySet="SettingMenge" />
+    </AssociationSet>
+    <AssociationSet Name="SettingSetting" Association="DataModel.Setting_Tree">
+      <End Role="Father" EntitySet="SettingMenge" />
+      <End Role="Child" EntitySet="SettingMenge" />
+    </AssociationSet>
+    <AssociationSet Name="WorkstationFilter" Association="DataModel.WorkstationFilter">
+      <End Role="Workstation" EntitySet="WorkstationMenge" />
+      <End Role="Filter" EntitySet="FilterMenge" />
+    </AssociationSet>
+    <AssociationSet Name="IndicatorFilter" Association="DataModel.IndicatorFilter">
+      <End Role="Indicator" EntitySet="IndicatorMenge" />
+      <End Role="Filter" EntitySet="FilterMenge" />
+    </AssociationSet>
+    <AssociationSet Name="WorkstationValue" Association="DataModel.WorkstationValue">
+      <End Role="Workstation" EntitySet="WorkstationMenge" />
+      <End Role="Value" EntitySet="ValueMenge" />
+    </AssociationSet>
+    <AssociationSet Name="OrganisationUnitsWorkstation" Association="DataModel.OrganisationUnitsWorkstation">
+      <End Role="OrganisationUnits" EntitySet="OrganisationUnitsMenge" />
+      <End Role="Workstation" EntitySet="WorkstationMenge" />
+    </AssociationSet>
+    <AssociationSet Name="OrganisationUnitsOrganisationUnits" Association="DataModel.OU_Hierarchy">
+      <End Role="Father" EntitySet="OrganisationUnitsMenge" />
+      <End Role="Child" EntitySet="OrganisationUnitsMenge" />
+    </AssociationSet>
+    <AssociationSet Name="EMailWorkstation" Association="DataModel.EMailWorkstation">
+      <End Role="Observer" EntitySet="EMailMenge" />
+      <End Role="isObserver" EntitySet="WorkstationMenge" />
+    </AssociationSet>
+    <AssociationSet Name="UserPlugin" Association="DataModel.UserPlugin">
+      <End Role="Uploader" EntitySet="UserMenge" />
+      <End Role="Plugin" EntitySet="PluginMenge" />
+    </AssociationSet>
+    <AssociationSet Name="UserUIConfiguration" Association="DataModel.UserUIConfiguration">
+      <End Role="User" EntitySet="UserMenge" />
+      <End Role="UIConfiguration" EntitySet="UIConfigurationMenge" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Metrik">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Indicator" Relationship="DataModel.MetrikIndicator" FromRole="Metrik" ToRole="Indicator" />
+  </EntityType>
+  <EntityType Name="Indicator">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Metrik" Relationship="DataModel.MetrikIndicator" FromRole="Indicator" ToRole="Metrik" />
+    <NavigationProperty Name="Value" Relationship="DataModel.IndicatorValue" FromRole="Indicator" ToRole="Value" />
+    <NavigationProperty Name="Plugin" Relationship="DataModel.PluginIndicator" FromRole="Indicator" ToRole="Plugin" />
+    <NavigationProperty Name="Filter" Relationship="DataModel.IndicatorFilter" FromRole="Indicator" ToRole="Filter" />
+  </EntityType>
+  <EntityType Name="Plugin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Indicator" Relationship="DataModel.PluginIndicator" FromRole="Plugin" ToRole="Indicator" />
+    <NavigationProperty Name="Uploader" Relationship="DataModel.UserPlugin" FromRole="Plugin" ToRole="Uploader" />
+  </EntityType>
+  <EntityType Name="Value">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Indicator" Relationship="DataModel.IndicatorValue" FromRole="Value" ToRole="Indicator" />
+    <NavigationProperty Name="Workstation" Relationship="DataModel.WorkstationValue" FromRole="Value" ToRole="Workstation" />
+  </EntityType>
+  <EntityType Name="Setting">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="LastChanger" Relationship="DataModel.UserSetting" FromRole="Setting" ToRole="User" />
+    <NavigationProperty Name="Father" Relationship="DataModel.Setting_Tree" FromRole="Father" ToRole="Child" />
+    <NavigationProperty Name="Children" Relationship="DataModel.Setting_Tree" FromRole="Child" ToRole="Father" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="LastSettingChanges" Relationship="DataModel.UserSetting" FromRole="User" ToRole="Setting" />
+    <NavigationProperty Name="UploadedPlugins" Relationship="DataModel.UserPlugin" FromRole="Uploader" ToRole="Plugin" />
+    <NavigationProperty Name="UIConfiguration" Relationship="DataModel.UserUIConfiguration" FromRole="User" ToRole="UIConfiguration" />
+  </EntityType>
+  <EntityType Name="UIConfiguration">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Creator" Relationship="DataModel.UserUIConfiguration" FromRole="UIConfiguration" ToRole="User" />
+  </EntityType>
+  <EntityType Name="OrganisationUnits">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Workstations" Relationship="DataModel.OrganisationUnitsWorkstation" FromRole="OrganisationUnits" ToRole="Workstation" />
+    <NavigationProperty Name="Father" Relationship="DataModel.OU_Hierarchy" FromRole="Father" ToRole="Child" />
+    <NavigationProperty Name="Children" Relationship="DataModel.OU_Hierarchy" FromRole="Child" ToRole="Father" />
+  </EntityType>
+  <EntityType Name="EMail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="ObservedWorkstations" Relationship="DataModel.EMailWorkstation" FromRole="Observer" ToRole="isObserver" />
+    <Property Type="Boolean" Name="sendDailyReport" Nullable="false" DefaultValue="false" />
+  </EntityType>
+  <EntityType Name="Workstation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Filter" Relationship="DataModel.WorkstationFilter" FromRole="Workstation" ToRole="Filter" />
+    <NavigationProperty Name="Value" Relationship="DataModel.WorkstationValue" FromRole="Workstation" ToRole="Value" />
+    <NavigationProperty Name="OrganisationUnits" Relationship="DataModel.OrganisationUnitsWorkstation" FromRole="Workstation" ToRole="OrganisationUnits" />
+    <NavigationProperty Name="EMail" Relationship="DataModel.EMailWorkstation" FromRole="isObserver" ToRole="Observer" />
+  </EntityType>
+  <EntityType Name="Filter">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Workstation" Relationship="DataModel.WorkstationFilter" FromRole="Filter" ToRole="Workstation" />
+    <NavigationProperty Name="Indicator" Relationship="DataModel.IndicatorFilter" FromRole="Filter" ToRole="Indicator" />
+  </EntityType>
+  <Association Name="MetrikIndicator">
+    <End Type="DataModel.Metrik" Role="Metrik" Multiplicity="1" />
+    <End Type="DataModel.Indicator" Role="Indicator" Multiplicity="0..1" />
+  </Association>
+  <Association Name="IndicatorValue">
+    <End Type="DataModel.Indicator" Role="Indicator" Multiplicity="1" />
+    <End Type="DataModel.Value" Role="Value" Multiplicity="*" />
+  </Association>
+  <Association Name="PluginIndicator">
+    <End Type="DataModel.Plugin" Role="Plugin" Multiplicity="1" />
+    <End Type="DataModel.Indicator" Role="Indicator" Multiplicity="*" />
+  </Association>
+  <Association Name="UserSetting">
+    <End Type="DataModel.User" Role="User" Multiplicity="1" />
+    <End Type="DataModel.Setting" Role="Setting" Multiplicity="*" />
+  </Association>
+  <Association Name="Setting_Tree">
+    <End Type="DataModel.Setting" Role="Father" Multiplicity="1" />
+    <End Type="DataModel.Setting" Role="Child" Multiplicity="*" />
+  </Association>
+  <Association Name="WorkstationFilter">
+    <End Type="DataModel.Workstation" Role="Workstation" Multiplicity="1" />
+    <End Type="DataModel.Filter" Role="Filter" Multiplicity="*" />
+  </Association>
+  <Association Name="IndicatorFilter">
+    <End Type="DataModel.Indicator" Role="Indicator" Multiplicity="1" />
+    <End Type="DataModel.Filter" Role="Filter" Multiplicity="*" />
+  </Association>
+  <Association Name="WorkstationValue">
+    <End Type="DataModel.Workstation" Role="Workstation" Multiplicity="1" />
+    <End Type="DataModel.Value" Role="Value" Multiplicity="*" />
+  </Association>
+  <Association Name="OrganisationUnitsWorkstation">
+    <End Type="DataModel.OrganisationUnits" Role="OrganisationUnits" Multiplicity="1" />
+    <End Type="DataModel.Workstation" Role="Workstation" Multiplicity="*" />
+  </Association>
+  <Association Name="OU_Hierarchy">
+    <Documentation>
+      <Summary>Hierarchie</Summary>
+      <LongDescription>Hierarchie</LongDescription>
+    </Documentation>
+    <End Type="DataModel.OrganisationUnits" Role="Father" Multiplicity="1" />
+    <End Type="DataModel.OrganisationUnits" Role="Child" Multiplicity="*" />
+  </Association>
+  <Association Name="EMailWorkstation">
+    <End Type="DataModel.EMail" Role="Observer" Multiplicity="*" />
+    <End Type="DataModel.Workstation" Role="isObserver" Multiplicity="*" />
+  </Association>
+  <Association Name="UserPlugin">
+    <End Type="DataModel.User" Role="Uploader" Multiplicity="1" />
+    <End Type="DataModel.Plugin" Role="Plugin" Multiplicity="*" />
+  </Association>
+  <Association Name="UserUIConfiguration">
+    <End Type="DataModel.User" Role="User" Multiplicity="1" />
+    <End Type="DataModel.UIConfiguration" Role="UIConfiguration" Multiplicity="*" />
+  </Association>
+</Schema>

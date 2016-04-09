@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://acid.visus.uni-stuttgart.de:8002/workstationWebService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://acid.visus.uni-stuttgart.de:8002/workstationWebService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MISD.Core" />
+  <xs:import schemaLocation="http://acid.visus.uni-stuttgart.de:8002/workstationWebService?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://acid.visus.uni-stuttgart.de:8002/workstationWebService?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System" />
+  <xs:element name="GetMainUpdateInterval">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMainUpdateIntervalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="GetMainUpdateIntervalResult" type="q1:duration" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SignIn">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="monitoredSystemFQDN" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="monitoredSystemMAC" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="operatingSystem" type="xs:unsignedByte" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SignInResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SignInResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SignOut">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="monitoredSystemMAC" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SignOutResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SignOutResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPluginList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="monitoredSystemMAC" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPluginListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MISD.Core" minOccurs="0" name="GetPluginListResult" nillable="true" type="q2:ArrayOfPluginMetadata" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DownloadPlugins">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="monitoredSystemMAC" nillable="true" type="xs:string" />
+        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="pluginNames" nillable="true" type="q3:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DownloadPluginsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MISD.Core" minOccurs="0" name="DownloadPluginsResult" nillable="true" type="q4:ArrayOfPluginFile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadIndicatorValues">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="monitoredSystemMAC" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pluginName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="indicatorValues" nillable="true" type="q5:ArrayOfTupleOfstringanyTypeDataTypedateTimefLvhoF9L" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadIndicatorValuesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UploadIndicatorValuesResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadIndicatorValue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="monitoredSystemMAC" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pluginName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="indicatorValueName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="value" nillable="true" type="xs:anyType" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MISD.Core" minOccurs="0" name="valueDataType" type="q6:DataType" />
+        <xs:element minOccurs="0" name="aquiredTimestamp" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadIndicatorValueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UploadIndicatorValueResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFilters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="monitoredSystemMAC" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pluginName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFiltersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="GetFiltersResult" nillable="true" type="q7:ArrayOfTupleOfstringstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFilter">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="monitoredSystemMAC" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pluginName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="indicatorName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFilterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetFilterResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUpdateIntervals">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="monitoredSystemMAC" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pluginName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUpdateIntervalsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="GetUpdateIntervalsResult" nillable="true" type="q8:ArrayOfTupleOfstringNullableOflongU6ho3Bhd" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUpdateInterval">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="monitoredSystemMAC" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pluginName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="indicatorName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUpdateIntervalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUpdateIntervalResult" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WriteLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/MISD.Core" minOccurs="0" name="type" type="q9:LogType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WriteLogResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

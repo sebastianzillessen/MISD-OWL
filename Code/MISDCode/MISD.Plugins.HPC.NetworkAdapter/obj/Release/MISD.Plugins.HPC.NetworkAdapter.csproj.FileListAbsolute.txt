@@ -1,0 +1,5 @@
+\\carimbo\students\muellefn\Desktop\misd2\Entwicklung\StuProVisualStudio\MISD\MISD.Plugins.HPC.NetworkAdapter\bin\Release\MISD.Plugins.HPC.NetworkAdapter.dll
+\\carimbo\students\muellefn\Desktop\misd2\Entwicklung\StuProVisualStudio\MISD\MISD.Plugins.HPC.NetworkAdapter\bin\Release\MISD.Plugins.HPC.NetworkAdapter.pdb
+\\carimbo\students\muellefn\Desktop\misd2\Entwicklung\StuProVisualStudio\MISD\MISD.Plugins.HPC.NetworkAdapter\obj\Release\ResolveAssemblyReference.cache
+\\carimbo\students\muellefn\Desktop\misd2\Entwicklung\StuProVisualStudio\MISD\MISD.Plugins.HPC.NetworkAdapter\obj\Release\MISD.Plugins.HPC.NetworkAdapter.dll
+\\carimbo\students\muellefn\Desktop\misd2\Entwicklung\StuProVisualStudio\MISD\MISD.Plugins.HPC.NetworkAdapter\obj\Release\MISD.Plugins.HPC.NetworkAdapter.pdb

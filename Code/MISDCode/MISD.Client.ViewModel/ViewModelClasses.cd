@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MISD.Client.ViewModel.ViewModelBase">
+    <Position X="0.75" Y="1.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModelBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Client.ViewModel.MainWindowViewModel">
+    <Position X="0.75" Y="2.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>aNAJ0moAFwAOAIcyAoUBA2AQDADYEaUB6AgVEAAYERI=</HashCode>
+      <FileName>MainWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="MISD.Client.Model.MenuStates">
+    <Position X="5.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAAAAAAAIAABAAAAgAAQAECAAAA=</HashCode>
+      <FileName>MenuStates.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

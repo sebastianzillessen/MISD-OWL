@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MISD.Core.States" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MISD.Core.States" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="WorkstationState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="Warning" />
+      <xs:enumeration value="Critical" />
+      <xs:enumeration value="Maintenance" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="WorkstationState" nillable="true" type="tns:WorkstationState" />
+  <xs:simpleType name="MappingState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="Warning" />
+      <xs:enumeration value="Critical" />
+      <xs:enumeration value="Maintenance" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MappingState" nillable="true" type="tns:MappingState" />
+</xs:schema>

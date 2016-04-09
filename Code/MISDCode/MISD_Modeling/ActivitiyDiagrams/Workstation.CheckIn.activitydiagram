@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="20c29132-e15e-4cde-a5e8-720a89213b0d" name="Workstation.CheckIn" linkedPackageId="405d1ff8-b011-43f8-b547-81d7cf24be5b" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="02bfc0c1-de14-4288-a373-7ba3d6d1b0fd" name="Workstation.CheckIn" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="c036cce6-0b03-4ece-beb0-c51be41d6f34" />
+        <nodes>
+          <initialNode Id="610ff842-3002-4177-bb4c-291acc4456e5" name="Initial1" isLeaf="false">
+            <elementDefinition Id="11a19503-67ef-4259-9786-d96a4816a268" />
+            <flowNodeTargets>
+              <controlFlow Id="41498557-20d9-4956-984c-383da338cb4d" isLeaf="false">
+                <opaqueActionMoniker Id="60dc598a-11e8-4f2f-bda5-03e10984d634" LastKnownName="check in at the server using the certificate" />
+                <elementDefinition Id="45440880-f955-48bb-9296-fa99fd0b6995" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <activityFinalNode Id="33661c66-3d5e-4b81-8c47-5590a022b8e7" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="98ba0e5a-e645-4337-a3b8-eefe08ed51bb" />
+          </activityFinalNode>
+          <opaqueAction Id="60dc598a-11e8-4f2f-bda5-03e10984d634" name="check in at the server using the certificate" isLeaf="false">
+            <elementDefinition Id="0e302422-9715-4133-a27a-52da53480bf6" />
+            <pins>
+              <opaqueActionHasOutputValues>
+                <outputPin Id="df6dd5cd-bc07-4f63-83e2-a7c5ab0d55fe" name="FQDN" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="604ffaa4-3eb5-4a91-bd41-c64ba4b33cc7" />
+                  <objectFlowTargets>
+                    <objectFlow Id="157978ef-86b9-43d2-ad9a-0fecb3aaded1" isLeaf="false" isMulticast="false" isMultireceive="false">
+                      <inputPinMoniker Id="81d791c8-efb1-4eeb-b313-74c7ef96b31c" />
+                      <elementDefinition Id="b320b7c0-e2ee-457d-9148-13dbd4f74361" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger Id="3cdbe0a0-3fb9-4a3d-a2a5-2eeee6b6bddd" name="2147483647" value="2147483647">
+                      <elementDefinition Id="ff765b7b-9b10-4db2-a7f7-6fdd0a7bd66d" />
+                    </literalInteger>
+                  </upperBound>
+                </outputPin>
+              </opaqueActionHasOutputValues>
+            </pins>
+          </opaqueAction>
+          <opaqueAction Id="e0d8efaf-3271-4487-b465-0b94e74209d8" name="get plugin list from server" isLeaf="false">
+            <elementDefinition Id="8e20429c-eeb5-4b38-9a6a-71ddf0db5635" />
+            <pins>
+              <opaqueActionHasInputValues>
+                <inputPin Id="81d791c8-efb1-4eeb-b313-74c7ef96b31c" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="b64aee29-047d-422c-bf82-a55e2bec4326" />
+                  <upperBound>
+                    <literalInteger Id="d2e9b67a-fdb7-4810-98bd-c8e7954d371d" name="2147483647" value="2147483647">
+                      <elementDefinition Id="cb5673ea-1301-4d50-afae-be39c57ea211" />
+                    </literalInteger>
+                  </upperBound>
+                </inputPin>
+              </opaqueActionHasInputValues>
+              <opaqueActionHasOutputValues>
+                <outputPin Id="0cf9a583-52f8-4342-9a02-841915756c80" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="88c7eb1e-c411-473c-b0e3-e5c0373bef6b" />
+                  <objectFlowTargets>
+                    <objectFlow Id="fa0f3df2-35e4-440b-bab2-6e6f05958f55" isLeaf="false" isMulticast="false" isMultireceive="false">
+                      <inputPinMoniker Id="c873b5e7-bb30-43c1-b2ee-3be9ce84e59d" LastKnownName="list" />
+                      <elementDefinition Id="1563df36-5ad3-49d7-b104-69a5cc878caf" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger Id="464f88c5-2e1b-40c9-8360-de3c951fa5b4" name="2147483647" value="2147483647">
+                      <elementDefinition Id="4362d421-80e7-45e1-8a0e-c0eaace7f9a0" />
+                    </literalInteger>
+                  </upperBound>
+                </outputPin>
+              </opaqueActionHasOutputValues>
+            </pins>
+          </opaqueAction>
+          <opaqueAction Id="0d3fcc1e-8fcc-4c5e-99b0-9ae6ead9e49b" name="search list for plugins to delete" isLeaf="false">
+            <elementDefinition Id="86762755-3328-40bc-a236-79bcd0d83555" />
+            <flowNodeTargets>
+              <controlFlow Id="2640fe1d-e3ee-441e-8e62-f140eadfd8ab" isLeaf="false">
+                <decisionNodeMoniker Id="2d2ad16e-cba1-4a77-892e-b7fd11e35c36" LastKnownName="Decision1" />
+                <elementDefinition Id="487ed97a-7d2d-477a-90b7-df117f796e7c" />
+              </controlFlow>
+            </flowNodeTargets>
+            <pins>
+              <opaqueActionHasInputValues>
+                <inputPin Id="c873b5e7-bb30-43c1-b2ee-3be9ce84e59d" name="list" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="c7c5b4d3-5b9c-47aa-be1b-c44a390ec0b6" />
+                  <upperBound>
+                    <literalInteger Id="8b939a68-9941-4f2f-b4e5-7359210a7dbf" name="2147483647" value="2147483647">
+                      <elementDefinition Id="dc7a5092-d4ed-4b1f-8c34-47112f83f61e" />
+                    </literalInteger>
+                  </upperBound>
+                </inputPin>
+              </opaqueActionHasInputValues>
+            </pins>
+          </opaqueAction>
+          <decisionNode Id="2d2ad16e-cba1-4a77-892e-b7fd11e35c36" name="Decision1" isLeaf="false">
+            <elementDefinition Id="1375791b-c762-47de-ba6a-66adab31d226" />
+            <flowNodeTargets>
+              <controlFlow Id="625adb60-e397-4233-8362-af0fa9441d66" guard="found obsolete" isLeaf="false">
+                <opaqueActionMoniker Id="6855be6c-2f98-4acd-975c-2b4179e24450" LastKnownName="unload and delete all obsolete&#xD;&#xA;" />
+                <elementDefinition Id="bf0d9548-e223-4c00-afe8-aaabff1753fd" />
+              </controlFlow>
+            </flowNodeTargets>
+            <objectFlowTargets>
+              <objectFlow Id="10a800cf-d4b6-4f17-8704-d8b5cc10f2d3" guard="not found" isLeaf="false" isMulticast="false" isMultireceive="false">
+                <inputPinMoniker Id="740bee1b-71b9-4cca-89fc-f85eaa965c5e" LastKnownName="list" />
+                <elementDefinition Id="a90dab7d-ab17-4061-9b34-a2b417ecbdb8" />
+              </objectFlow>
+            </objectFlowTargets>
+          </decisionNode>
+          <opaqueAction Id="6855be6c-2f98-4acd-975c-2b4179e24450" name="unload and delete all obsolete&#xD;&#xA;" isLeaf="false">
+            <elementDefinition Id="c968dd7e-00bf-4c2b-ac9c-75a76bd9c9de" />
+            <objectFlowTargets>
+              <objectFlow Id="cc8d2d3a-9517-49a4-93fe-24294bc6cd60" isLeaf="false" isMulticast="false" isMultireceive="false">
+                <inputPinMoniker Id="740bee1b-71b9-4cca-89fc-f85eaa965c5e" LastKnownName="list" />
+                <elementDefinition Id="7874a771-d32b-4601-b4ba-9f47a225112d" />
+              </objectFlow>
+            </objectFlowTargets>
+          </opaqueAction>
+          <opaqueAction Id="b9c713e7-c48f-48e4-a990-f518f6f5cc05" name="search for new plugins to download" isLeaf="false">
+            <elementDefinition Id="937d89f4-6401-4837-ab7f-ad143d6ebdeb" />
+            <flowNodeTargets>
+              <controlFlow Id="6e28ac00-2bea-4d39-9595-71367a65fe25" isLeaf="false">
+                <decisionNodeMoniker Id="f248789b-8f2a-4bf8-9d2b-cab90a349b0f" LastKnownName="Decision2" />
+                <elementDefinition Id="575d1fdc-6589-4e6c-8e9f-26fc203416dc" />
+              </controlFlow>
+            </flowNodeTargets>
+            <pins>
+              <opaqueActionHasInputValues>
+                <inputPin Id="740bee1b-71b9-4cca-89fc-f85eaa965c5e" name="list" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="eb5ed42e-da51-481d-93b8-14f586c8e3dd" />
+                  <upperBound>
+                    <literalInteger Id="540fedd5-df08-4871-a357-fda4d891ee70" name="2147483647" value="2147483647">
+                      <elementDefinition Id="98093881-bc50-4d4c-8e36-6cc19fedf31e" />
+                    </literalInteger>
+                  </upperBound>
+                </inputPin>
+              </opaqueActionHasInputValues>
+            </pins>
+          </opaqueAction>
+          <opaqueAction Id="7cb64e4a-5427-4844-8ae7-6980f6dea5fa" name="download and initialize" isLeaf="false">
+            <elementDefinition Id="7bb6dac9-72f4-4a95-b8e3-fc32a3899236" />
+            <flowNodeTargets>
+              <controlFlow Id="29d90126-ed4b-49d6-99eb-08c21e13935d" isLeaf="false">
+                <activityFinalNodeMoniker Id="33661c66-3d5e-4b81-8c47-5590a022b8e7" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="fe7109c1-dc0a-4a0d-8fb9-c16573370f67" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="f248789b-8f2a-4bf8-9d2b-cab90a349b0f" name="Decision2" isLeaf="false">
+            <elementDefinition Id="d45fe2d6-f011-4522-8186-eb91dbeecc88" />
+            <flowNodeTargets>
+              <controlFlow Id="3b1a7ef8-f865-40c3-82eb-17311661249b" guard="not found" isLeaf="false">
+                <activityFinalNodeMoniker Id="33661c66-3d5e-4b81-8c47-5590a022b8e7" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="cf2e1095-3092-449b-8c0a-852788e37835" />
+              </controlFlow>
+              <controlFlow Id="3b252aad-fe69-4926-adab-442b9dcbd7a9" guard="found new" isLeaf="false">
+                <opaqueActionMoniker Id="7cb64e4a-5427-4844-8ae7-6980f6dea5fa" LastKnownName="download and initialize" />
+                <elementDefinition Id="e138ce54-d541-43b0-b6d5-473cb03aa0e1" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="405d1ff8-b011-43f8-b547-81d7cf24be5b" name="MISD_Modeling">
+    <elementDefinition Id="57152138-29c8-467d-80d5-86353decd659" />
+    <profileInstances>
+      <packageHasProfileInstances Id="a207ef6d-3384-4c59-b466-447218782b93">
+        <profileInstance Id="b9db5103-a672-4344-b42e-60da7e09f65f" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="f76bb78d-ac3d-4a3f-aabe-e0d04897709c">
+        <profileInstance Id="19d9be62-210b-44fe-9d50-bd64a7f49d2c" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</activityRootModel>

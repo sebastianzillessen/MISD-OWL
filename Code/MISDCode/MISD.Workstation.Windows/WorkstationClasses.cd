@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="MISD.Workstation.Windows.Plugins.PluginManager">
+    <Position X="0.75" Y="6.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAACEAAAAAAIAAAAAAAAAIAQgAFCAQAAwAAAAQQAAAA=</HashCode>
+      <FileName>Plugins\PluginManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Workstation.Windows.ServerConnection">
+    <Position X="4.25" Y="0.75" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAACSAAAACAAAAAEIAABAIAAAAAQAEEAEAQAJAAAI=</HashCode>
+      <FileName>ServerConnection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Workstation.Windows.WorkstationService">
+    <Position X="12.75" Y="0.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAEAAAAAACAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>WorkstationService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Workstation.Windows.Scheduling.Scheduler">
+    <Position X="4.5" Y="6.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAgAAAAAAABAAAAAYAAAAAAAAAA=</HashCode>
+      <FileName>Scheduling\Scheduler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Workstation.Windows.Scheduling.TimerJobs.IndicatorTimerJob">
+    <Position X="7.25" Y="6.25" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAACAkAAAAABAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>Scheduling\TimerJobs\IndicatorTimerJob.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Workstation.Windows.Scheduling.TimerJobs.MainUpdateTimerJob">
+    <Position X="11.5" Y="6.25" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAIAAAEAAAAAAAAA=</HashCode>
+      <FileName>Scheduling\TimerJobs\MainUpdateTimerJob.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Workstation.Windows.WSWebService.WorkstationWebServiceClient" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="0.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACCAAAACAAAAAFIAAAAAAAAAAQAEAAAAQAIAAAA=</HashCode>
+      <FileName>Service References\WSWebService\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MISD.Workstation.Windows.WorkstationLogger">
+    <Position X="12.75" Y="2.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAEAAAAAAAgAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>WorkstationLogger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="MISD.Workstation.Windows.WSWebService.IWorkstationWebService">
+    <Position X="0.75" Y="2.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAACCAAAACAAAAAFIAAAAAAAAAAQAEAAAAQAIAAAA=</HashCode>
+      <FileName>Service References\WSWebService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MISD.Workstation.Windows.WSWebService.IWorkstationWebServiceChannel">
+    <Position X="0.75" Y="0.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\WSWebService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

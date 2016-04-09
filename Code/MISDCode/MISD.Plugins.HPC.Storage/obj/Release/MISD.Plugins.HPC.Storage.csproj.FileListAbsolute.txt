@@ -1,0 +1,5 @@
+\\carimbo\students\muellefn\Desktop\misd2\Entwicklung\StuProVisualStudio\MISD\MISD.Plugins.HPC.Storage\bin\Release\MISD.Plugins.HPC.Storage.dll
+\\carimbo\students\muellefn\Desktop\misd2\Entwicklung\StuProVisualStudio\MISD\MISD.Plugins.HPC.Storage\bin\Release\MISD.Plugins.HPC.Storage.pdb
+\\carimbo\students\muellefn\Desktop\misd2\Entwicklung\StuProVisualStudio\MISD\MISD.Plugins.HPC.Storage\obj\Release\ResolveAssemblyReference.cache
+\\carimbo\students\muellefn\Desktop\misd2\Entwicklung\StuProVisualStudio\MISD\MISD.Plugins.HPC.Storage\obj\Release\MISD.Plugins.HPC.Storage.dll
+\\carimbo\students\muellefn\Desktop\misd2\Entwicklung\StuProVisualStudio\MISD\MISD.Plugins.HPC.Storage\obj\Release\MISD.Plugins.HPC.Storage.pdb

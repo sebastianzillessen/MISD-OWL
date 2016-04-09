@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MISD.Workstation.Linux.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="pluginPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">plugins</Value>
+    </Setting>
+    <Setting Name="pluginFileBase" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">MISD.Plugins.Linux.</Value>
+    </Setting>
+    <Setting Name="MISD_Workstation_Linux_WSWebService_WorkstationWebService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://acid.visus.uni-stuttgart.de:8002/workstationWebService</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

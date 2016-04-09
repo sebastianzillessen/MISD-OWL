@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2ffb5e70-56d7-4499-9a76-c48bb6dcd928}</ProjectGuid>
+    <ArchitectureToolsVersion>2.0.0.0</ArchitectureToolsVersion>
+    <Name>MISD_Modeling</Name>
+    <RootNamespace>MISD_Modeling</RootNamespace>
+    <SccProjectName>Svn</SccProjectName>
+    <SccProvider>SubversionScc</SccProvider>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccLocalPath>Svn</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Workstation.Windows Release' ">
+    <OutputPath>bin\Workstation.Windows Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'ServerPerformance' ">
+    <OutputPath>bin\ServerPerformance\</OutputPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="false" />
+  <ItemGroup>
+    <Content Include="ActivitiyDiagrams\Client.activitydiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>ActivitiyDiagrams\Client.VisPlugin.activitydiagram</DependentUpon>
+    </Content>
+    <Content Include="ActivitiyDiagrams\Client.layoutAdd.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ActivitiyDiagrams\Client.layoutLoad.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ActivitiyDiagrams\Client.VisPlugin.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ActivitiyDiagrams\Server.activitydiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>ActivitiyDiagrams\Server.sendVisPlugin.activitydiagram</DependentUpon>
+    </Content>
+    <Content Include="ActivitiyDiagrams\Server.addToIgnore.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ActivitiyDiagrams\Server.addToMaintenance.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ActivitiyDiagrams\Server.CheckWorkstationIn.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ActivitiyDiagrams\Server.CheckWorkstationOut.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ActivitiyDiagrams\Server.LogWorkstationOff.activitydiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>ActivitiyDiagrams\Server.CheckWorkstationOut.activitydiagram</DependentUpon>
+    </Content>
+    <Content Include="ActivitiyDiagrams\Server.LogWorkstationOn.activitydiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>ActivitiyDiagrams\Server.CheckWorkstationIn.activitydiagram</DependentUpon>
+    </Content>
+    <Content Include="ActivitiyDiagrams\Server.ReceiveData.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ActivitiyDiagrams\Server.ReceiveData.activitydiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>ActivitiyDiagrams\Server.ReceiveData.activitydiagram</DependentUpon>
+    </Content>
+    <Content Include="ActivitiyDiagrams\Server.sendVisData.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ActivitiyDiagrams\Server.sendVisPlugin.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ActivitiyDiagrams\Server.VisPlugin.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ActivitiyDiagrams\Workstation.CheckIn.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ActivitiyDiagrams\Workstation.LogOff.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ActivitiyDiagrams\Workstation.LogOff.activitydiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>ActivitiyDiagrams\Workstation.LogOff.activitydiagram</DependentUpon>
+    </Content>
+    <Content Include="ActivitiyDiagrams\Workstation.LogOn.activitydiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>ActivitiyDiagrams\Workstation.CheckIn.activitydiagram</DependentUpon>
+    </Content>
+    <Content Include="ActivitiyDiagrams\Workstation.SendData.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ActivitiyDiagrams\Workstation.SendData.activitydiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>ActivitiyDiagrams\Workstation.SendData.activitydiagram</DependentUpon>
+    </Content>
+    <Content Include="ActivitiyDiagrams\WorkstationState.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ActivitiyDiagrams\WorkstationState.activitydiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>ActivitiyDiagrams\WorkstationState.activitydiagram</DependentUpon>
+    </Content>
+    <Content Include="ClassDiagrams\MVVM.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ClassDiagrams\MVVM.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>ClassDiagrams\MVVM.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="ModelDefinition\Package1_1601.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package2_1601.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1601.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Folder Include="ModelDefinition\" />
+    <Content Include="ModelDefinition\MISD_Modeling.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Folder Include="ActivitiyDiagrams" />
+    <Folder Include="ClassDiagrams" />
+  </ItemGroup>
+</Project>

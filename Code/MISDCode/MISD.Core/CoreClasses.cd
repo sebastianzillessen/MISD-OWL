@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="MISD.Core.Scheduling.SchedulerBase">
+    <Position X="0.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAACAAAQAAAEAAAgAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Scheduling\SchedulerBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Core.Scheduling.TimerJobBase">
+    <Position X="3.75" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAIACAAgAAAAKAAAECAAABAAAAEIAAAAAAAAAA=</HashCode>
+      <FileName>Scheduling\TimerJobBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MISD.Core.ClusterConnection">
+    <Position X="0.5" Y="7.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAoAAAAAACAAAAQAAAAAAAAAAAEAAAAAAAACABAAAAA=</HashCode>
+      <FileName>ClusterConnection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MISD.Core.IndicatorSettings">
+    <Position X="0.5" Y="10.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>gACAAAAAgAMAAAAQAAAAAAAAAgAEAAAgAABAAAAAAAA=</HashCode>
+      <FileName>IndicatorSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Core.IPluginExtensions">
+    <Position X="10.75" Y="10.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQQAAIAAAAAAAAAAAAAAAAAAACAAABAA=</HashCode>
+      <FileName>IPluginExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Core.Logger">
+    <Position X="0.5" Y="14.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAIAAAAAQAAAAAAAAAIBAACIAQAAABAAAAAA=</HashCode>
+      <FileName>Logger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Core.PluginFile">
+    <Position X="8.5" Y="10.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>PluginFile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Core.PluginMetadata">
+    <Position X="13.5" Y="10.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>IAACCAABAAAgAAAAAAAAAAQAAAAAAAAAAAAABABAAAA=</HashCode>
+      <FileName>PluginMetadata.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Core.StringExtensions">
+    <Position X="4" Y="14.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>StringExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Core.Layout">
+    <Position X="7.25" Y="14.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAgAAAAAAAAAQAAAAAABABAQAAAAAAAAA=</HashCode>
+      <FileName>Layout.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MISD.Core.WorkstationInfo">
+    <Position X="9.75" Y="14.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgACAAAAAAAQQAEAAgAAAAAAABIAAAAA=</HashCode>
+      <FileName>WorkstationInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="MISD.Core.IPlugin">
+    <Position X="3.75" Y="10.5" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAEQAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IPlugin.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="MISD.Core.MappingState">
+    <Position X="2.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAAAAABAAAAAAAAAAAAADAAAAAAA=</HashCode>
+      <FileName>MappingState.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MISD.Core.DataType">
+    <Position X="4.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAABAAAAAAAAAAAAAAgACA=</HashCode>
+      <FileName>DataType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MISD.Core.LogType">
+    <Position X="6.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAABAAAAAAAAAAAABAAEAAAAA=</HashCode>
+      <FileName>LogType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MISD.Core.Platform">
+    <Position X="8.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAACAAAIAAAAAAAQAAAAAAAABAAAgAAAAA=</HashCode>
+      <FileName>Platform.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

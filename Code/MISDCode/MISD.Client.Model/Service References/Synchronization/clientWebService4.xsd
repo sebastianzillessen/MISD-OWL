@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/System" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://acid.visus.uni-stuttgart.de:8001/clientWebService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://acid.visus.uni-stuttgart.de:8001/clientWebService?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MISD.Core" />
+  <xs:complexType name="ArrayOfTupleOfintstringstringstringstring">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TupleOfintstringstringstringstring" nillable="true" type="tns:TupleOfintstringstringstringstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTupleOfintstringstringstringstring" nillable="true" type="tns:ArrayOfTupleOfintstringstringstringstring" />
+  <xs:complexType name="TupleOfintstringstringstringstring">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="TupleOf{0}{1}{2}{3}{4}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="int" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="m_Item1" type="xs:int" />
+      <xs:element name="m_Item2" nillable="true" type="xs:string" />
+      <xs:element name="m_Item3" nillable="true" type="xs:string" />
+      <xs:element name="m_Item4" nillable="true" type="xs:string" />
+      <xs:element name="m_Item5" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TupleOfintstringstringstringstring" nillable="true" type="tns:TupleOfintstringstringstringstring" />
+  <xs:complexType name="Version">
+    <xs:sequence>
+      <xs:element name="_Build" type="xs:int" />
+      <xs:element name="_Major" type="xs:int" />
+      <xs:element name="_Minor" type="xs:int" />
+      <xs:element name="_Revision" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Version" nillable="true" type="tns:Version" />
+  <xs:complexType name="ArrayOfTupleOfstringdateTime">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TupleOfstringdateTime" nillable="true" type="tns:TupleOfstringdateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTupleOfstringdateTime" nillable="true" type="tns:ArrayOfTupleOfstringdateTime" />
+  <xs:complexType name="TupleOfstringdateTime">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="TupleOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="dateTime" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="m_Item1" nillable="true" type="xs:string" />
+      <xs:element name="m_Item2" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TupleOfstringdateTime" nillable="true" type="tns:TupleOfstringdateTime" />
+  <xs:complexType name="ArrayOfTupleOfstringintdateTime">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TupleOfstringintdateTime" nillable="true" type="tns:TupleOfstringintdateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTupleOfstringintdateTime" nillable="true" type="tns:ArrayOfTupleOfstringintdateTime" />
+  <xs:complexType name="TupleOfstringintdateTime">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="TupleOf{0}{1}{2}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="int" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="dateTime" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="m_Item1" nillable="true" type="xs:string" />
+      <xs:element name="m_Item2" type="xs:int" />
+      <xs:element name="m_Item3" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TupleOfstringintdateTime" nillable="true" type="tns:TupleOfstringintdateTime" />
+  <xs:complexType name="ArrayOfTupleOfstringstring">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TupleOfstringstring" nillable="true" type="tns:TupleOfstringstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTupleOfstringstring" nillable="true" type="tns:ArrayOfTupleOfstringstring" />
+  <xs:complexType name="TupleOfstringstring">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="TupleOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="m_Item1" nillable="true" type="xs:string" />
+      <xs:element name="m_Item2" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TupleOfstringstring" nillable="true" type="tns:TupleOfstringstring" />
+  <xs:complexType name="ArrayOfTupleOfintstringstringboolean">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TupleOfintstringstringboolean" nillable="true" type="tns:TupleOfintstringstringboolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTupleOfintstringstringboolean" nillable="true" type="tns:ArrayOfTupleOfintstringstringboolean" />
+  <xs:complexType name="TupleOfintstringstringboolean">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="TupleOf{0}{1}{2}{3}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="int" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="m_Item1" type="xs:int" />
+      <xs:element name="m_Item2" nillable="true" type="xs:string" />
+      <xs:element name="m_Item3" nillable="true" type="xs:string" />
+      <xs:element name="m_Item4" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TupleOfintstringstringboolean" nillable="true" type="tns:TupleOfintstringstringboolean" />
+  <xs:complexType name="ArrayOfTupleOfintstringstringNullableOfintNullableOfdateTime7Va014Av">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TupleOfintstringstringNullableOfintNullableOfdateTime7Va014Av" nillable="true" type="tns:TupleOfintstringstringNullableOfintNullableOfdateTime7Va014Av" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTupleOfintstringstringNullableOfintNullableOfdateTime7Va014Av" nillable="true" type="tns:ArrayOfTupleOfintstringstringNullableOfintNullableOfdateTime7Va014Av" />
+  <xs:complexType name="TupleOfintstringstringNullableOfintNullableOfdateTime7Va014Av">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="TupleOf{0}{1}{2}{3}{4}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="int" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="NullableOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System">
+            <GenericParameter Name="int" Namespace="http://www.w3.org/2001/XMLSchema" />
+          </GenericParameter>
+          <GenericParameter Name="NullableOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System">
+            <GenericParameter Name="dateTime" Namespace="http://www.w3.org/2001/XMLSchema" />
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="m_Item1" type="xs:int" />
+      <xs:element name="m_Item2" nillable="true" type="xs:string" />
+      <xs:element name="m_Item3" nillable="true" type="xs:string" />
+      <xs:element name="m_Item4" nillable="true" type="xs:int" />
+      <xs:element name="m_Item5" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TupleOfintstringstringNullableOfintNullableOfdateTime7Va014Av" nillable="true" type="tns:TupleOfintstringstringNullableOfintNullableOfdateTime7Va014Av" />
+  <xs:complexType name="ArrayOfTupleOfintduration">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TupleOfintduration" nillable="true" type="tns:TupleOfintduration" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTupleOfintduration" nillable="true" type="tns:ArrayOfTupleOfintduration" />
+  <xs:complexType name="TupleOfintduration">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="TupleOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="int" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="duration" Namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="m_Item1" type="xs:int" />
+      <xs:element name="m_Item2" type="ser:duration" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TupleOfintduration" nillable="true" type="tns:TupleOfintduration" />
+  <xs:complexType name="ArrayOfTupleOfstringstringstringstringMappingStatedateTimeH2_SPQ3ZK">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TupleOfstringstringstringstringMappingStatedateTimeH2_SPQ3ZK" nillable="true" type="tns:TupleOfstringstringstringstringMappingStatedateTimeH2_SPQ3ZK" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTupleOfstringstringstringstringMappingStatedateTimeH2_SPQ3ZK" nillable="true" type="tns:ArrayOfTupleOfstringstringstringstringMappingStatedateTimeH2_SPQ3ZK" />
+  <xs:complexType name="TupleOfstringstringstringstringMappingStatedateTimeH2_SPQ3ZK">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="TupleOf{0}{1}{2}{3}{4}{5}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="MappingState" Namespace="http://schemas.datacontract.org/2004/07/MISD.Core" />
+          <GenericParameter Name="dateTime" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="m_Item1" nillable="true" type="xs:string" />
+      <xs:element name="m_Item2" nillable="true" type="xs:string" />
+      <xs:element name="m_Item3" nillable="true" type="xs:string" />
+      <xs:element name="m_Item4" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MISD.Core" name="m_Item5" type="q1:MappingState" />
+      <xs:element name="m_Item6" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TupleOfstringstringstringstringMappingStatedateTimeH2_SPQ3ZK" nillable="true" type="tns:TupleOfstringstringstringstringMappingStatedateTimeH2_SPQ3ZK" />
+  <xs:complexType name="ArrayOfTupleOfstringstringstringNullableOfdateTimeNullableOfdateTimeNullableOfintw6zq_S7Ox">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TupleOfstringstringstringNullableOfdateTimeNullableOfdateTimeNullableOfintw6zq_S7Ox" nillable="true" type="tns:TupleOfstringstringstringNullableOfdateTimeNullableOfdateTimeNullableOfintw6zq_S7Ox" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTupleOfstringstringstringNullableOfdateTimeNullableOfdateTimeNullableOfintw6zq_S7Ox" nillable="true" type="tns:ArrayOfTupleOfstringstringstringNullableOfdateTimeNullableOfdateTimeNullableOfintw6zq_S7Ox" />
+  <xs:complexType name="TupleOfstringstringstringNullableOfdateTimeNullableOfdateTimeNullableOfintw6zq_S7Ox">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="TupleOf{0}{1}{2}{3}{4}{5}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="NullableOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System">
+            <GenericParameter Name="dateTime" Namespace="http://www.w3.org/2001/XMLSchema" />
+          </GenericParameter>
+          <GenericParameter Name="NullableOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System">
+            <GenericParameter Name="dateTime" Namespace="http://www.w3.org/2001/XMLSchema" />
+          </GenericParameter>
+          <GenericParameter Name="NullableOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System">
+            <GenericParameter Name="int" Namespace="http://www.w3.org/2001/XMLSchema" />
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="m_Item1" nillable="true" type="xs:string" />
+      <xs:element name="m_Item2" nillable="true" type="xs:string" />
+      <xs:element name="m_Item3" nillable="true" type="xs:string" />
+      <xs:element name="m_Item4" nillable="true" type="xs:dateTime" />
+      <xs:element name="m_Item5" nillable="true" type="xs:dateTime" />
+      <xs:element name="m_Item6" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TupleOfstringstringstringNullableOfdateTimeNullableOfdateTimeNullableOfintw6zq_S7Ox" nillable="true" type="tns:TupleOfstringstringstringNullableOfdateTimeNullableOfdateTimeNullableOfintw6zq_S7Ox" />
+  <xs:complexType name="TupleOfstringstringstringstring">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="TupleOf{0}{1}{2}{3}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="m_Item1" nillable="true" type="xs:string" />
+      <xs:element name="m_Item2" nillable="true" type="xs:string" />
+      <xs:element name="m_Item3" nillable="true" type="xs:string" />
+      <xs:element name="m_Item4" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TupleOfstringstringstringstring" nillable="true" type="tns:TupleOfstringstringstringstring" />
+</xs:schema>

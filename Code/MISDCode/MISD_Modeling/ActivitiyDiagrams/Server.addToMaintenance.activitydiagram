@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="72f0f73d-080a-480e-ab5e-acb4117f9edc" name="Server.addToMaintance" linkedPackageId="0d073bc3-8bdc-4c4f-b698-37d77005daca" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="18302ec8-cf4d-4c5e-bb2a-3fa28cc4519f" name="Server.addToMaintance" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="0bf6567f-ddba-4d81-8452-e989b1cf8d8e" />
+        <nodes>
+          <initialNode Id="ecbc1624-5525-48d5-9286-4dc130479907" name="Initial1" isLeaf="false">
+            <elementDefinition Id="28c75828-cba7-4549-9a4d-ffa6292d8614" />
+            <flowNodeTargets>
+              <controlFlow Id="ae0f6cc9-db60-485f-ae27-772e69facaf4" isLeaf="false">
+                <acceptEventActionMoniker Id="7e22f5e3-a685-4ab0-bd3e-cbc983da96d5" LastKnownName="workstation to switch maintenance state" />
+                <elementDefinition Id="f8988035-ca5f-4904-b0d2-2a246a307ca3" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction Id="dc41303d-26e6-4d3b-8286-0bf13c6cc411" name="create start log" isLeaf="false">
+            <elementDefinition Id="4fc7030a-b637-4f76-ba1f-02aeb870e394" />
+            <flowNodeTargets>
+              <controlFlow Id="3b020e85-fa52-4cfa-a4cd-2d2b125c8cc6" isLeaf="false">
+                <mergeNodeMoniker Id="29ba7d07-9d29-4d20-adb6-0d73aab6ed33" LastKnownName="Merge1" />
+                <elementDefinition Id="c7b528f4-799e-45f9-b871-81ea789e56e7" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <acceptEventAction Id="7e22f5e3-a685-4ab0-bd3e-cbc983da96d5" name="workstation to switch maintenance state" isLeaf="false" isUnmarshall="false">
+            <elementDefinition Id="19b8a59b-9bef-4c36-8173-7e882858f7f5" />
+            <flowNodeTargets>
+              <controlFlow Id="5fa9727b-abdf-40d2-be21-d576ae648009" isLeaf="false">
+                <decisionNodeMoniker Id="0cf1f570-a723-4046-b141-bf5d200656c8" LastKnownName="Decision1" />
+                <elementDefinition Id="8bf3f2ae-1479-42a8-bc41-a1a03a5404a6" />
+              </controlFlow>
+            </flowNodeTargets>
+          </acceptEventAction>
+          <opaqueAction Id="22c4f2c6-ba4e-4c62-9815-5491113fa61d" name="add to maintenance list" isLeaf="false">
+            <elementDefinition Id="38606d89-9939-4382-8ea2-058cd447a583" />
+            <flowNodeTargets>
+              <controlFlow Id="5cc464e9-eebf-4153-bfb9-4234f4d15d0a" isLeaf="false">
+                <opaqueActionMoniker Id="dc41303d-26e6-4d3b-8286-0bf13c6cc411" LastKnownName="create start log" />
+                <elementDefinition Id="c42440f0-0cb0-463e-9fdc-82925c8e08bf" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode Id="a2c94486-5eb1-4bbb-a9be-716fc7242c2d" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="f2fa8869-3b24-4640-af6a-630c05cef171" />
+          </activityFinalNode>
+          <opaqueAction Id="6ee042de-c0a4-43ef-8597-886120c3ac24" name="create end log" isLeaf="false">
+            <elementDefinition Id="55a50ec5-591f-430c-b961-0cefb62a68c0" />
+            <flowNodeTargets>
+              <controlFlow Id="8e397e07-02fb-4907-b831-d093f594f71c" isLeaf="false">
+                <mergeNodeMoniker Id="29ba7d07-9d29-4d20-adb6-0d73aab6ed33" LastKnownName="Merge1" />
+                <elementDefinition Id="0d482471-ae2d-44a0-8d06-729e56d924d1" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="7c9adf5e-e8a8-4dea-8975-b997f9defc41" name="delete from maintenance list" isLeaf="false">
+            <elementDefinition Id="a6c273f7-82c5-49ad-b5bb-831e737adade" />
+            <flowNodeTargets>
+              <controlFlow Id="c018cedc-34ba-410c-9f0a-9d89af9495e1" isLeaf="false">
+                <opaqueActionMoniker Id="6ee042de-c0a4-43ef-8597-886120c3ac24" LastKnownName="create end log" />
+                <elementDefinition Id="7d199ff2-b449-44c6-8bf2-0618b396cfcd" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="0cf1f570-a723-4046-b141-bf5d200656c8" name="Decision1" isLeaf="false">
+            <elementDefinition Id="a007f5ac-5176-4ed0-95cc-7aa9890044ac" />
+            <flowNodeTargets>
+              <controlFlow Id="5cc8f13f-9538-438f-bc75-ea52ee797ce7" guard="disable maintenance" isLeaf="false">
+                <opaqueActionMoniker Id="7c9adf5e-e8a8-4dea-8975-b997f9defc41" LastKnownName="delete from maintenance list" />
+                <elementDefinition Id="4378835d-1c3f-416f-bdd9-4af538cb5664" />
+              </controlFlow>
+              <controlFlow Id="d3852229-ccb6-4a52-aa16-0644f245b1ae" guard="set maintenance" isLeaf="false">
+                <opaqueActionMoniker Id="22c4f2c6-ba4e-4c62-9815-5491113fa61d" LastKnownName="add to maintenance list" />
+                <elementDefinition Id="d6a09b4f-3d81-423a-8168-a34e9be628ca" />
+              </controlFlow>
+              <controlFlow Id="035dfd98-bbb2-4ae8-a896-584a7c57aa88" guard="workstation already has the desired state" isLeaf="false">
+                <mergeNodeMoniker Id="29ba7d07-9d29-4d20-adb6-0d73aab6ed33" LastKnownName="Merge1" />
+                <elementDefinition Id="e9b4cab1-4f34-449c-9af6-448f224bdb1d" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <mergeNode Id="29ba7d07-9d29-4d20-adb6-0d73aab6ed33" name="Merge1" isLeaf="false">
+            <elementDefinition Id="38111f49-40a2-4609-a6fe-c6b69db52564" />
+            <flowNodeTargets>
+              <controlFlow Id="0d42f689-bde5-4609-b859-d261f710b9b5" isLeaf="false">
+                <activityFinalNodeMoniker Id="a2c94486-5eb1-4bbb-a9be-716fc7242c2d" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="eb420291-9ed0-480d-99c0-b2817d9fbe6c" />
+              </controlFlow>
+            </flowNodeTargets>
+          </mergeNode>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="0d073bc3-8bdc-4c4f-b698-37d77005daca" name="MISD_Modeling">
+    <elementDefinition Id="57152138-29c8-467d-80d5-86353decd659" />
+    <profileInstances>
+      <packageHasProfileInstances Id="06bbf1b7-bdbe-4ddd-8887-81ca793d83a2">
+        <profileInstance Id="8118755e-0e50-4c02-bf8d-18b149d54be2" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="1edc288d-395f-4334-b402-62f76d7dde2b">
+        <profileInstance Id="a620e8f9-b67a-4106-82ca-53cce202daff" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</activityRootModel>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/MISD.Core" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MISD.Core" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://acid.visus.uni-stuttgart.de:8002/workstationWebService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfPluginMetadata">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PluginMetadata" nillable="true" type="tns:PluginMetadata" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPluginMetadata" nillable="true" type="tns:ArrayOfPluginMetadata" />
+  <xs:complexType name="PluginMetadata">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Author" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Indicators" nillable="true" type="tns:ArrayOfIndicatorSettings" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Version" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PluginMetadata" nillable="true" type="tns:PluginMetadata" />
+  <xs:complexType name="ArrayOfIndicatorSettings">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IndicatorSettings" nillable="true" type="tns:IndicatorSettings" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIndicatorSettings" nillable="true" type="tns:ArrayOfIndicatorSettings" />
+  <xs:complexType name="IndicatorSettings">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DataType" type="tns:DataType" />
+      <xs:element minOccurs="0" name="FilterStatement" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IndicatorName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MappingDuration" type="ser:duration" />
+      <xs:element minOccurs="0" name="PluginName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StorageDuration" type="ser:duration" />
+      <xs:element minOccurs="0" name="UpdateInterval" type="ser:duration" />
+      <xs:element minOccurs="0" name="WorkstationDomainName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IndicatorSettings" nillable="true" type="tns:IndicatorSettings" />
+  <xs:simpleType name="DataType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="String" />
+      <xs:enumeration value="Float" />
+      <xs:enumeration value="Int" />
+      <xs:enumeration value="Byte" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DataType" nillable="true" type="tns:DataType" />
+  <xs:complexType name="ArrayOfPluginFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PluginFile" nillable="true" type="tns:PluginFile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPluginFile" nillable="true" type="tns:ArrayOfPluginFile" />
+  <xs:complexType name="PluginFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FileAsBase64" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PluginFile" nillable="true" type="tns:PluginFile" />
+</xs:schema>

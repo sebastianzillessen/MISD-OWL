@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="a2076a2d-f07b-4fb6-ac3f-1ccb9e4da494" name="Server.CheckWorkstationOut" linkedPackageId="007526e0-63d6-4e94-a915-0565b63bb388" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="990703a6-865d-4760-8cf0-0216e3ff419b" name="Server.CheckWorkstationOut" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="f1b83db7-b1e8-4a6b-80fb-63259dbc5ee7" />
+        <nodes>
+          <initialNode Id="1d4eaa31-2403-4146-984f-87030975ea9a" name="Initial1" isLeaf="false">
+            <elementDefinition Id="4834daaf-a36e-4a51-97db-2dd398c261dd" />
+            <flowNodeTargets>
+              <controlFlow Id="0bcd7076-9430-4bde-a76c-016b239a57b8" isLeaf="false">
+                <acceptEventActionMoniker Id="427fbe55-3fef-4454-afb0-2737855c8b5b" LastKnownName="received workstation check out signal" />
+                <elementDefinition Id="8761e175-1a4c-4017-b487-3a50a71e0979" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <activityFinalNode Id="1c3accf5-e065-48cb-820d-952512e7426c" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="68cdc92b-46c0-410d-8edc-9fa38e71c951" />
+          </activityFinalNode>
+          <acceptEventAction Id="427fbe55-3fef-4454-afb0-2737855c8b5b" name="received workstation check out signal" isLeaf="false" isUnmarshall="false">
+            <elementDefinition Id="a27a1594-e768-42f3-9406-56d5f515c270" />
+            <pins>
+              <acceptEventActionHasResults>
+                <outputPin Id="5203ca9a-7d1d-44a4-9d89-70e109cb5eee" name="FQDN" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="fc3b4261-2d29-4241-af66-d23ee2dd1b0c" />
+                  <objectFlowTargets>
+                    <objectFlow Id="99f4ace7-5695-409b-a7fd-e4ad972bddce" isLeaf="false" isMulticast="false" isMultireceive="false">
+                      <decisionNodeMoniker Id="7307e451-2de1-4280-8d40-8142e4429c55" LastKnownName="Decision1" />
+                      <elementDefinition Id="919c058c-f192-4e49-8272-a233630d6092" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger Id="c7d99a53-da14-4e50-829b-a3c8c7965b9d" name="2147483647" value="2147483647">
+                      <elementDefinition Id="5b298a78-1b66-443d-8fd0-8e349d5d8275" />
+                    </literalInteger>
+                  </upperBound>
+                </outputPin>
+              </acceptEventActionHasResults>
+            </pins>
+          </acceptEventAction>
+          <opaqueAction Id="c7411f2a-dcb8-4d77-a32b-0ad8e84cbf2f" name="set workstation's available flag in database to false" isLeaf="false">
+            <elementDefinition Id="94272d32-9935-4e0a-8acc-069bc452fe00" />
+            <flowNodeTargets>
+              <controlFlow Id="212d0bc1-cb5f-428f-840d-f28b40c7ff72" isLeaf="false">
+                <activityFinalNodeMoniker Id="1c3accf5-e065-48cb-820d-952512e7426c" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="e1dc45db-ab79-4bec-b932-518636821a34" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="7307e451-2de1-4280-8d40-8142e4429c55" name="Decision1" isLeaf="false">
+            <elementDefinition Id="d56901cc-49fe-40a2-865b-187dacce9b85" />
+            <flowNodeTargets>
+              <controlFlow Id="accb8225-8a14-4f56-964e-14ae6d0a6fc3" guard="workstation unknown" isLeaf="false">
+                <activityFinalNodeMoniker Id="1c3accf5-e065-48cb-820d-952512e7426c" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="4715094b-ec43-4d50-91fe-3905cc682780" />
+              </controlFlow>
+              <controlFlow Id="0f087299-69e2-4383-8936-9b5380f8d557" guard="workstation known" isLeaf="false">
+                <opaqueActionMoniker Id="c7411f2a-dcb8-4d77-a32b-0ad8e84cbf2f" LastKnownName="set workstation's available flag in database to false" />
+                <elementDefinition Id="d13c2d70-8386-4c6d-9b07-b38899ace035" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="007526e0-63d6-4e94-a915-0565b63bb388" name="MISD_Modeling">
+    <elementDefinition Id="57152138-29c8-467d-80d5-86353decd659" />
+    <profileInstances>
+      <packageHasProfileInstances Id="c6cce1f1-9180-4f56-8c42-1b81649957f5">
+        <profileInstance Id="3da44c13-8ec3-4d78-aebb-8c8e33d934d5" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="7e36b927-4fd6-4d20-a672-e1a0a047e448">
+        <profileInstance Id="a4b2b1e3-f132-4781-9826-33481c3aee83" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</activityRootModel>

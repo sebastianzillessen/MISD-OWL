@@ -1,0 +1,9 @@
+﻿<Window x:Class="MISD.Client.Info"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:resources="clr-namespace:MISD.Client.Model.Resources;assembly=MISD.Client.Model"
+        Title="{x:Static resources:Strings.Info}" Height="300" Width="480">
+    <Grid x:Name="LayoutRoot">
+        
+    </Grid>
+</Window>

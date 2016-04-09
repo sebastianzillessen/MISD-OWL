@@ -1,0 +1,20 @@
+﻿<Window x:Class="MISD.Server.InstallerTool.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="349" Width="630" Loaded="Window_Loaded">
+    <StackPanel Margin="60 0" VerticalAlignment="Center" Height="117" Width="512">
+        <StackPanel Margin="0 30">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Style="{StaticResource TextBlock}" Text="Service: " FontSize="30" />
+                <TextBlock x:Name="PluginServiceState" Style="{StaticResource TextBlock}" Text="Unbekannt" FontSize="30" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Style="{StaticResource TextBlock}" Text="Aktionen:" Margin="0 0 10 0" />
+                <TextBlock MouseLeftButtonUp="InstallPluginService" Style="{StaticResource ActionTextBlock}" Text="Installieren" />
+                <TextBlock MouseLeftButtonUp="StartPluginService" Style="{StaticResource ActionTextBlock}" Text="Starten" />
+                <TextBlock MouseLeftButtonUp="StopPluginService" Style="{StaticResource ActionTextBlock}" Text="Stoppen" />
+                <TextBlock MouseLeftButtonUp="UninstallPluginService" Style="{StaticResource ActionTextBlock}" Text="Deinstallieren" />
+            </StackPanel>
+        </StackPanel>
+    </StackPanel>
+</Window>

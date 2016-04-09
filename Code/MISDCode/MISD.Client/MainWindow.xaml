@@ -1,0 +1,672 @@
+﻿<Window x:Class="MISD.Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:MISD.Client.Controls"
+        xmlns:resources="clr-namespace:MISD.Client.Model.Resources;assembly=MISD.Client.Model"
+        xmlns:selectors="clr-namespace:MISD.Client.ViewModel.Selectors;assembly=MISD.Client.ViewModel"
+        xmlns:converters="clr-namespace:MISD.Client.ViewModel.Converters;assembly=MISD.Client.ViewModel"
+        xmlns:viewModel="clr-namespace:MISD.Client.ViewModel;assembly=MISD.Client.ViewModel"
+        xmlns:menu="clr-namespace:MISD.Client.Controls.Menu"
+        xmlns:panels="clr-namespace:MISD.Client.Controls.Panels"
+        xmlns:commands="clr-namespace:MISD.Client.Commands"
+        Title="{x:Static resources:Strings.ApplicationTitle}" 
+        Height="540" Width="960" MinHeight="600" MinWidth="850"
+        FontFamily="{DynamicResource ApplicationGlobalFont}"
+        FontSize="{DynamicResource ApplicationGlobalFontSize}"
+        Closing="Window_Closing_1">
+
+    <Window.Resources>
+        <commands:SelectAllCommand x:Key="SelectAllCommand"/>
+        <converters:NegatedBooleanToVisibilityConverter x:Key="NegatedBooleanToVisibilityConverter" />
+        <converters:NegatedBooleanToBoolean x:Key="NegatedBooleanToBoolean" />
+        <converters:StringToImageConverter x:Key="StringToImageConverter" />
+        <converters:MonitoredSystemStateToBooleanMaintenanceConverter x:Key="MonitoredSystemStateToBooleanMaintenanceConverter" />
+        <converters:MonitoredSystemStateToMaintenanceTextConverter x:Key="MonitoredSystemStateToMaintenanceTextConverter" />
+        <converters:SyncingBooleanToStringConverter x:Key="SyncingBooleanToStringConverter" />
+        <converters:SyncingBooleanToBrushConverter x:Key="SyncingBooleanToBrushConverter" />
+        <converters:SortingHierarchyConverter x:Key="SortingHierarchyConverter" />
+        <converters:MultiplyValueConverter x:Key="MultiplyValueConverter" />
+        <converters:BooleanToBrushConverter x:Key="BooleanToBrushConverter" />
+        <converters:NegatedBooleanToScrollbarVisibilityConverter x:Key="NegatedBooleanToScrollbarVisibilityConverter" />
+        <converters:PowerwallDimensionConverter x:Key="PowerwallDimensionConverter" />
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <converters:TreeViewItemHeightConverter x:Key="TreeViewItemHeightConverter" />
+        <converters:NumberOfCharactersInTileName x:Key="NumberOfCharactersInTileName" />
+        <converters:HeightDecrementConverter x:Key="HeightDecrementConverter" />
+        <converters:WidthRemovePaddingConverter x:Key="WidthRemovePaddingConverter" />
+
+        <DataTemplate x:Key="MonitoredSystemTemplate">
+            <controls:Tile MonitoredSystem="{Binding Path=.}" />
+        </DataTemplate>
+
+        <HierarchicalDataTemplate x:Key="OrganizationalUnitTemplate" ItemsSource="{Binding Elements}">
+            <TextBlock FontSize="{Binding Path=DataContext.FontSize, 
+                                    RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}},
+                                    Converter={StaticResource MultiplyValueConverter},
+                                    ConverterParameter=1.5}"
+                MinWidth="{Binding Path=DataContext.TileWidth, Converter={StaticResource WidthRemovePaddingConverter},
+                                   RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" 
+                                   Padding="5">
+                <TextBlock.Text>
+                    <MultiBinding Converter="{StaticResource MonitoredSystemNameToLength}">
+                        <Binding Path="Name"/>
+                        <Binding Path="DataContext.NumberOfCharactersInTileName" RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type Window}}"/>
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+        </HierarchicalDataTemplate>
+
+
+        <selectors:TreeViewTemplateSelector x:Key="TreeViewTemplateSelector"
+                                            MonitoredSystemTemplate="{StaticResource MonitoredSystemTemplate}"
+                                            OrganizationalUnitTemplate="{StaticResource OrganizationalUnitTemplate}" />
+
+    </Window.Resources>
+
+    <Window.InputBindings>
+        <KeyBinding Command="{StaticResource SelectAllCommand}" Key="A" Modifiers="Control" Gesture="CTRL+A"  />
+    </Window.InputBindings>
+
+    <Grid x:Name="LayoutRoot">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Ribbon Name="Ribbons"
+                FontFamily="{DynamicResource ApplicationGlobalFont}" 
+                FontSize="{DynamicResource FixFontSize}"
+                Margin="0 -23 0 0" 
+                IsMinimized="True"
+                Visibility="{Binding DataModel.IsPowerwall, Converter={StaticResource NegatedBooleanToVisibilityConverter}}"
+                MouseUp="Ribbon_MouseDown_1">
+
+            <Ribbon.ApplicationMenu >
+                <RibbonApplicationMenu>
+                    <RibbonApplicationMenu.Template>
+                        <ControlTemplate TargetType="RibbonApplicationMenu" >
+                            <ToggleButton IsEnabled="{Binding DataModel.ShowUI}"
+                                          x:Name="ApplicationMenuToggleButton" Checked="ApplicationMenuToggleButton_Checked_1"
+                                          IsChecked="{Binding IsMenuOpen, Mode=TwoWay}" HorizontalAlignment="Stretch" 
+                                          VerticalAlignment="Stretch" Template="{StaticResource MenuToggleButtonTemplate}"/>
+                        </ControlTemplate>
+                    </RibbonApplicationMenu.Template>
+                </RibbonApplicationMenu>
+            </Ribbon.ApplicationMenu>
+
+            <RibbonTab Name="TabLayout" Header="{x:Static resources:Strings.Layout}" >
+                <RibbonGroup Header="{x:Static resources:Strings.New}">
+                    <RibbonButton Click="NewLayout" Width="60" Height="40" Margin="0 12 0 12" VerticalAlignment="Center" HorizontalAlignment="Center" LargeImageSource="Resources/Icons/112_Plus_Green.ico">
+                    </RibbonButton>
+                </RibbonGroup>
+                <RibbonGroup Header="{x:Static resources:Strings.Save}">
+                    <RibbonButton Click="SaveLayout" Width="60" Height="40" Margin="0 12 0 12" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                  LargeImageSource="Resources/Icons/FloppyDisk.ico"/>
+                </RibbonGroup>
+                <RibbonGroup Header="{x:Static resources:Strings.Delete}">
+                    <RibbonButton Click="DeleteLayout"  Width="60" Height="40" Margin="0 12 0 12" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                  LargeImageSource="Resources/Icons/Annotate_Disabled.ico"/>
+                </RibbonGroup>
+                <RibbonGroup Header="{x:Static resources:Strings.Gallery}">
+                    <RibbonComboBox LargeImageSource="Resources/Icons/Layouts.png" IsEditable="False">
+                        <RibbonGallery Name="LayoutGalery" SelectionChanged="Ribbon_Layouts_SelectionChanged" Height="200" Width="200">
+                            <RibbonGalleryCategory Header="{x:Static resources:Strings.Layout}" ItemsSource="{Binding DataModel.Layouts, Mode=TwoWay}">
+                                <RibbonGalleryCategory.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Vertical">
+                                        </StackPanel>
+                                    </ItemsPanelTemplate>
+                                </RibbonGalleryCategory.ItemsPanel>
+                                <RibbonGalleryCategory.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image  Height="20" Width="20" Source="{Binding PreviewImage, Converter={StaticResource StringToImageConverter}}"/>
+                                            <TextBlock Text="{Binding Name}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </RibbonGalleryCategory.ItemTemplate>
+                            </RibbonGalleryCategory>
+                        </RibbonGallery>
+                    </RibbonComboBox>
+                </RibbonGroup>
+                <RibbonGroup Header="Details">
+                    <Grid Margin="17 17 17 17" Visibility="Visible" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Orientation="Horizontal" Grid.Column="0" Margin="2 2 5 2">
+                            <TextBlock Text="{x:Static resources:Strings.NumberLayouts}"/>
+                            <TextBlock Text=": "/>
+                        </StackPanel>
+                        <TextBlock Text="{Binding DataModel.Layouts.Count}" Grid.Column="1" Margin="2 2 5 2"/>
+                        <StackPanel Orientation="Horizontal" Grid.Column="2" Margin="2 2 5 2">
+                            <TextBlock Text="{x:Static resources:Strings.LastChanged}"/>
+                            <TextBlock Text=": "/>
+                        </StackPanel>
+                        <TextBlock Text="{Binding DataModel.LastChangedLayout, FallbackValue={x:Static resources:Strings.NoChangeYet}}" Grid.Column="3" Margin="2 2 5 2"/>
+                    </Grid>
+                </RibbonGroup>
+            </RibbonTab>
+
+
+            <RibbonTab Name="TabTile" Header="{x:Static resources:Strings.Tiles}" Visibility="{Binding msSelected, FallbackValue=Hidden, UpdateSourceTrigger=PropertyChanged}" IsSelected="{Binding HasSelection, Mode=TwoWay}">
+                <RibbonGroup Header="{x:Static resources:Strings.Rename}">
+                    <RibbonTextBox Text="{Binding SelectedValue.Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, ElementName=MainTreeView, FallbackValue={x:Static resources:Strings.NoSingleSelection}}" Height="30" Margin="2 12 2 12" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </RibbonGroup>
+                <RibbonGroup Header="{x:Static resources:Strings.Levels}">
+                    <RibbonComboBox LargeImageSource="Resources/Icons/Kachel.png" IsEditable="False">
+                        <RibbonGallery SelectionChanged="Ribbon_Levels_SelectionChanged" Height="200" Width="200">
+                            <RibbonGalleryCategory Header="{x:Static resources:Strings.Levels}" ItemsSource="{Binding DataModel.LevelDefinitions}">
+                                <RibbonGalleryCategory.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Vertical" />
+                                    </ItemsPanelTemplate>
+                                </RibbonGalleryCategory.ItemsPanel>
+                                <RibbonGalleryCategory.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Height="40" Width="40" Source="{Binding PreviewImage}"/>
+                                            <TextBlock Text="{Binding Name}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </RibbonGalleryCategory.ItemTemplate>
+                            </RibbonGalleryCategory>
+                        </RibbonGallery>
+                    </RibbonComboBox>
+                </RibbonGroup>
+                <RibbonGroup Header="{x:Static resources:Strings.Maintenance}">
+                    <RibbonButton Height="20" Margin="0 12 0 12" Background="Gray" MinWidth="60"
+                                        VerticalAlignment="Center" HorizontalAlignment="Center" Click="KontextMenuItem_Click_Maintance"
+                                        Label="{Binding SelectedValue.State,ElementName=MainTreeView, Converter={StaticResource MonitoredSystemStateToMaintenanceTextConverter}}"/>
+                </RibbonGroup>
+                <RibbonGroup Header="{x:Static resources:Strings.Refresh}">
+                    <RibbonButton Width="60" Height="40" Margin="0 12 0 12" VerticalAlignment="Center" HorizontalAlignment="Center" Click="KontextMenuItem_Click_ResetMapping"
+                                  LargeImageSource="Resources/Icons/WispRefresh.ico"/>
+                </RibbonGroup>
+                <RibbonGroup Header="{x:Static resources:Strings.Delete}">
+                    <RibbonButton Width="60" Height="40" Margin="0 12 0 12" VerticalAlignment="Center" HorizontalAlignment="Center" Click="DeleteTile"
+                                  LargeImageSource="Resources/Icons/Annotate_Disabled.ico"/>
+                </RibbonGroup>
+                <RibbonGroup Header="{x:Static resources:Strings.MailSettings}">
+                    <RibbonButton Width="60" Height="40" Margin="0 12 0 12" VerticalAlignment="Center" HorizontalAlignment="Center" Click="OpenEmailSettings"
+                                  LargeImageSource="Resources/Icons/mail.ico"/>
+                </RibbonGroup>
+                <RibbonGroup Header="{x:Static resources:Strings.Monitoring}">
+                    <RibbonButton Width="60" Height="40" Margin="0 12 0 12" VerticalAlignment="Center" HorizontalAlignment="Center" Click="OpenSettings"
+                                  LargeImageSource="Resources/Icons/Gear.ico"/>
+                </RibbonGroup>
+                <RibbonGroup Header="{x:Static resources:Strings.Details}">
+                    <Grid Margin="17 17 17 17" Visibility="Visible" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+
+                        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="0" Margin="2 2 5 2">
+                            <TextBlock Text="{x:Static resources:Strings.Critical}"/>
+                            <TextBlock Text=": "/>
+                        </StackPanel>
+                        <TextBlock Text="{Binding DataModel.StatusBarInfo.Item1}" Grid.Column="1" Grid.Row="0" Margin="2 2 5 2"/>
+                        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="1" Margin="2 2 5 2">
+                            <TextBlock Text="{x:Static resources:Strings.Warning}"/>
+                            <TextBlock Text=": "/>
+                        </StackPanel>
+                        <TextBlock Text="{Binding DataModel.StatusBarInfo.Item2}" Grid.Column="1" Grid.Row="1" Margin="2 2 5 2"/>
+                        <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="0" Margin="2 2 5 2">
+                            <TextBlock Text="{x:Static resources:Strings.OK}"/>
+                            <TextBlock Text=": "/>
+                        </StackPanel>
+                        <TextBlock Text="{Binding DataModel.StatusBarInfo.Item3}" Grid.Column="3" Grid.Row="0" Margin="2 2 5 2"/>
+                        <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="1" Margin="2 2 5 2">
+                            <TextBlock Text="{x:Static resources:Strings.Maintenance}"/>
+                            <TextBlock Text=": "/>
+                        </StackPanel>
+                        <TextBlock Text="{Binding DataModel.StatusBarInfo.Item4}" Grid.Column="3" Grid.Row="1" Margin="2 2 5 2"/>
+                    </Grid>
+                </RibbonGroup>
+            </RibbonTab>
+
+            <RibbonTab Name="TabOU" Header="{x:Static resources:Strings.OUs}" Visibility="{Binding ousSelected, FallbackValue=Hidden, UpdateSourceTrigger=PropertyChanged}" IsSelected="{Binding HasSelection, Mode=TwoWay}">
+                <RibbonGroup Header="{x:Static resources:Strings.Rename}">
+                    <RibbonTextBox Height="30" 
+                                   Margin="2 12 2 12" 
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center"
+                                  Text="{Binding SelectedValue.Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, ElementName=MainTreeView, FallbackValue={x:Static resources:Strings.NoSingleSelection}}">
+                    </RibbonTextBox>
+                </RibbonGroup>
+                <RibbonGroup Header="{x:Static resources:Strings.Delete}">
+                    <RibbonButton Width="60" Height="40" Margin="0 12 0 12" VerticalAlignment="Center" HorizontalAlignment="Center" Click="DeleteOUs"
+                                  LargeImageSource="Resources/Icons/Annotate_Disabled.ico"/>
+                </RibbonGroup>
+                <RibbonGroup Header="{x:Static resources:Strings.Settings}">
+                    <RibbonButton Width="60" Height="40" Margin="0 12 0 12" VerticalAlignment="Center" HorizontalAlignment="Center" Click="OpenSettings"
+                                  LargeImageSource="Resources/Icons/Gear.ico"/>
+                </RibbonGroup>
+                <RibbonGroup Header="{x:Static resources:Strings.Details}">
+                    <Grid  Margin="2 2 2 2" Visibility="Visible" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+
+                        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="0" Margin="2 2 5 2">
+                            <TextBlock Text="{x:Static resources:Strings.Critical}"/>
+                            <TextBlock Text=": "/>
+                        </StackPanel>
+                        <TextBlock Text="{Binding DataModel.StatusBarInfo.Item1}" Grid.Column="1" Grid.Row="0" Margin="2 2 5 2"/>
+                        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="1" Margin="2 2 5 2">
+                            <TextBlock Text="{x:Static resources:Strings.Warning}"/>
+                            <TextBlock Text=": "/>
+                        </StackPanel>
+                        <TextBlock Text="{Binding DataModel.StatusBarInfo.Item2}" Grid.Column="1" Grid.Row="1" Margin="2 2 5 2"/>
+                        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="2" Margin="2 2 5 2">
+                            <TextBlock Text="{x:Static resources:Strings.OK}"/>
+                            <TextBlock Text=": "/>
+                        </StackPanel>
+                        <TextBlock Text="{Binding DataModel.StatusBarInfo.Item3}" Grid.Column="1" Grid.Row="2" Margin="2 2 5 2"/>
+                        <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="0" Margin="2 2 5 2">
+                            <TextBlock Text="{x:Static resources:Strings.Path}"/>
+                            <TextBlock Text=": "/>
+                        </StackPanel>
+                        <TextBlock Text="{Binding PathOfOU}" Grid.Column="3" Grid.Row="0" Margin="2 2 5 2"/>
+                        <StackPanel Orientation="Horizontal"  Grid.Column="2" Grid.Row="1" Margin="2 2 5 2">
+                            <TextBlock Text="{x:Static resources:Strings.SystemsInOU}"/>
+                            <TextBlock Text=": "/>
+                        </StackPanel>
+                        <TextBlock Text="{Binding SystemsinOUs}" Grid.Column="3" Grid.Row="1" Margin="2 2 5 2"/>
+                        <StackPanel Orientation="Horizontal"  Grid.Column="2" Grid.Row="2" Margin="2 2 5 2">
+                            <TextBlock Text="{x:Static resources:Strings.NumberOfChosenSystems}"/>
+                            <TextBlock Text=": "/>
+                        </StackPanel>
+                        <TextBlock Text="{Binding SelectedElements.Count}" Grid.Column="3" Grid.Row="2" Margin="2 2 5 2"/>
+                    </Grid>
+                </RibbonGroup>
+            </RibbonTab>
+
+            <Ribbon.ContextualTabGroups>
+                <RibbonContextualTabGroup>
+                    <RibbonTab Header="{x:Static resources:Strings.Filter}">
+                        <RibbonGroup  Header="{x:Static resources:Strings.Status}">
+
+                            <Grid Margin="17 17 17 17" Visibility="Visible" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <CheckBox Content="{x:Static resources:Strings.OK}" Grid.Column="0" Grid.Row="0"  Margin="2 2 2 2"/>
+                                <CheckBox Content="{x:Static resources:Strings.Warning}" Grid.Column="0" Grid.Row="1"  Margin="2 2 2 2"/>
+                                <CheckBox Content="{x:Static resources:Strings.Critical}"  Grid.Column="1" Grid.Row="0"  Margin="2 2 2 2"/>
+                                <CheckBox Content="{x:Static resources:Strings.Maintenance}"  Grid.Column="1" Grid.Row="1"  Margin="2 2 2 2"/>
+
+                            </Grid>
+                        </RibbonGroup>
+                        <RibbonGroup Header="{x:Static resources:Strings.Search}">
+                            <RibbonTextBox Width="120" Margin="0 20 0 20" VerticalAlignment="Center" HorizontalAlignment="Center" SmallImageSource="Resources/Icons/magnify.ico" Text="{x:Static resources:Strings.Search}"  />
+                        </RibbonGroup>
+                        <RibbonGroup Header="{x:Static resources:Strings.OUs}">
+                            <ListBox HorizontalAlignment="Left" Height="65" Width="60" ItemsSource="{Binding OrganizationalUnit.Name}"/>
+                            <RibbonButton HorizontalAlignment="Center" VerticalAlignment="Bottom" LargeImageSource="Resources/Icons/112_LeftArrowLong_Grey_48x48_72.png" Width="60" Height="30">
+                            </RibbonButton>
+                            <RibbonButton HorizontalAlignment="Center" VerticalAlignment="Top" LargeImageSource="Resources/Icons/112_RightArrowLong_Grey_48x48_72.png" Width="60" Height="30">
+                            </RibbonButton>
+                            <ListBox HorizontalAlignment="Right" Height="65" Width="60" ItemsSource="{Binding OrganizationalUnit.Name}"/>
+                        </RibbonGroup>
+                    </RibbonTab>
+                </RibbonContextualTabGroup>
+            </Ribbon.ContextualTabGroups>
+        </Ribbon>
+
+
+        <Rectangle Fill="#B9C9DA" Height="1" VerticalAlignment="Bottom"/>
+
+        <Grid x:Name="ContentRoot" Grid.Row="1" Width="Auto">
+            <Grid x:Name="PowerwallCanvas"
+                    ScrollViewer.CanContentScroll="False"
+                    ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                    ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <Grid.Width>
+                    <MultiBinding Converter="{StaticResource PowerwallDimensionConverter}">
+                        <Binding Path="DataModel.IsPowerwall"/>
+                        <Binding Path="DataModel.PowerwallWidth"/>
+                    </MultiBinding>
+                </Grid.Width>
+                <Grid.Height>
+                    <MultiBinding Converter="{StaticResource PowerwallDimensionConverter}">
+                        <Binding Path="DataModel.IsPowerwall"/>
+                        <Binding Path="DataModel.PowerwallHeight"/>
+                    </MultiBinding>
+                </Grid.Height>
+                <!--Content goes here-->
+                <controls:ExtendedTreeView 
+                    Background="White"
+                    SelectionMode="Multiple"
+                    x:Name="MainTreeView"
+                    ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                    ScrollViewer.HorizontalScrollBarVisibility="{Binding DataModel.IsPowerwall, Converter={StaticResource NegatedBooleanToScrollbarVisibilityConverter}}"
+                    Margin="0 0 0 0" 
+                    BorderThickness="0"
+                    BorderBrush="Transparent"
+                    ItemsSource="{Binding DataModel.Elements}"
+                    ItemTemplateSelector="{StaticResource TreeViewTemplateSelector}"
+                    SelectedItems="{Binding SelectedElements, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                    Height="{Binding ActualHeight, ElementName=PowerwallCanvas}"
+                    Width="{Binding ActualWidth, ElementName=PowerwallCanvas}"
+                    MouseLeftButtonDown="MainTreeView_MouseLeftButtonDown_1"
+                    MouseRightButtonDown="MainTreeView_MouseRightButtonDown_outter"
+                    AllowDrop="True"
+                    Drop="MetaDropHandler"
+                   >
+
+                    <!--Radial Context Menu-->
+                    <TreeView.ContextMenu>
+                        <ContextMenu x:Name="MainContextMenu" 
+                                     ContextMenuOpening="ContextMenu_ContextMenuOpening_1">
+                            <MenuItem Header="Insert OU"
+                                      MouseEnter="MenuItem_AddOU_MouseEnter" 
+                                      MouseLeave="MenuItem_MouseLeave"
+                                  Click="KontextMenuItem_Click_AddOU">
+                                <MenuItem.Icon>
+                                    <Image>
+                                        <Image.Source>
+                                            <BitmapImage UriSource="/Resources/Icons/Add_OU.png"/>
+                                        </Image.Source>
+                                    </Image>
+                                </MenuItem.Icon>
+                            </MenuItem>
+
+                            <MenuItem Header="Monitoring Settings" 
+                                      MouseEnter="MenuItem_Monitoring_MouseEnter" 
+                                      MouseLeave="MenuItem_MouseLeave"
+                                      Click="KontextMenuItem_Click_Monitoring">
+                                <MenuItem.Icon>
+                                    <Image>
+                                        <Image.Source>
+                                            <BitmapImage UriSource="/Resources/Icons/Monitoring.png"/>
+                                        </Image.Source>
+                                    </Image>
+                                </MenuItem.Icon>
+                            </MenuItem>
+
+                            <MenuItem Header="Mail Settings"
+                                  MouseEnter="MenuItem_EmailSettings_MouseEnter" MouseLeave="MenuItem_MouseLeave"
+                                  Click="KontextMenuItem_Click_EmailSettings">
+                                <MenuItem.Icon>
+                                    <Image>
+                                        <Image.Source>
+                                            <BitmapImage UriSource="/Resources/Icons/Mail.png"/>
+                                        </Image.Source>
+                                    </Image>
+                                </MenuItem.Icon>
+                            </MenuItem>
+
+                            <MenuItem Header="Reset Mapping"
+                                  MouseEnter="MenuItem_ResetMapping_MouseEnter" MouseLeave="MenuItem_MouseLeave"
+                                  Click="KontextMenuItem_Click_ResetMapping">
+                                <MenuItem.Icon>
+                                    <Image>
+                                        <Image.Source>
+                                            <BitmapImage UriSource="/Resources/Icons/ResetMapping.png"/>
+                                        </Image.Source>
+                                    </Image>
+                                </MenuItem.Icon>
+                            </MenuItem>
+
+                            <MenuItem Header="Level+" 
+                                  MouseEnter="MenuItem_IncreaseLevel_MouseEnter" MouseLeave="MenuItem_MouseLeave"
+                                  Click="KontextMenuItem_Click_IncreaseLevel">
+                                <MenuItem.Icon>
+                                    <Image>
+                                        <Image.Source>
+                                            <BitmapImage UriSource="/Resources/Icons/IncreaseLevel.png"/>
+                                        </Image.Source>
+                                    </Image>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="Level-" 
+                                  MouseEnter="MenuItem_DecreaseLevel_MouseEnter" MouseLeave="MenuItem_MouseLeave"
+                                  Click="KontextMenuItem_Click_DecreaseLevel">
+                                <MenuItem.Icon>
+                                    <Image>
+                                        <Image.Source>
+                                            <BitmapImage UriSource="/Resources/Icons/DecreaseLevel.png"/>
+                                        </Image.Source>
+                                    </Image>
+                                </MenuItem.Icon>
+                            </MenuItem>
+
+                            <MenuItem Header="Maintance ON/OFF"
+                                  MouseEnter="MenuItem_Maintance_MouseEnter" MouseLeave="MenuItem_MouseLeave"
+                                  Click="KontextMenuItem_Click_Maintance">
+                                <MenuItem.Icon>
+                                    <Image>
+                                        <Image.Source>
+                                            <BitmapImage UriSource="/Resources/Icons/Maintenance.png"/>
+                                        </Image.Source>
+                                    </Image>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </ContextMenu>
+                    </TreeView.ContextMenu>
+
+                    <TreeView.ItemContainerStyle>
+                        <Style TargetType="{x:Type controls:ExtendedTreeViewItem}">
+                            <EventSetter Event="TreeViewItem.MouseRightButtonDown" Handler="TreeViewItem_MouseRightButtonDown"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type controls:ExtendedTreeViewItem}">
+                                        <Grid x:Name="ItemRoot" 
+                                              Margin="8 4" 
+                                              IsHitTestVisible="True"
+                                              AllowDrop="True" 
+                                              Drop="DropHandler"
+                                              MouseLeftButtonDown="MouseLeftButtonDownHandler" 
+                                              MouseMove="MouseMoveHandler">
+                                            <Grid.Background>
+                                                <SolidColorBrush Color="#b8d4f5" Opacity="0.25"/>
+                                            </Grid.Background>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+
+                                            <Rectangle x:Name="BorderRectOverlay" Visibility="Collapsed"  SnapsToDevicePixels="True"
+                                                       IsHitTestVisible="False" Opacity="0.15" Fill="DarkRed"/>
+
+                                            <!--Items without children are shown in a ContentPresenter.-->
+                                            <ContentPresenter Name="CntPres"
+                                                                    ContentSource="Header"
+                                                                    HorizontalAlignment="Center"
+                                                                    VerticalAlignment="Center"
+                                                                    Visibility="Collapsed" />
+
+                                            <!-- This Border contains elements which display 
+                                                 the content and child items of the TreeViewItem. -->
+                                            <!-- Items with children are shown in an Expander. -->
+                                            <Border BorderThickness="1" Padding="10" BorderBrush="{Binding Path=DataContext.IsPowerwall, Converter={StaticResource BooleanToBrushConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
+                                                <Expander Name="Exp" MinWidth="240"
+                                                          IsExpanded="{Binding IsExpanded, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type controls:ExtendedTreeViewItem}}}"
+                                                          Tag="{Binding ID}" 
+                                                          Expanded="OuHasExpanded"
+                                                          Collapsed="OuHasCollapsed"
+                                                          Margin="10 0 10 0">
+                                                    <Expander.Background>
+                                                        <SolidColorBrush Color="White" Opacity="0.25"/>
+                                                    </Expander.Background>
+                                                    <Expander.Header>
+                                                        <ContentPresenter Margin="10 0" ContentSource="Header"/>
+                                                    </Expander.Header>
+                                                    <Grid Margin="0 10 0 0">
+                                                        <panels:SpaceFillingPanel Margin="0 8 0 15" IsItemsHost="True"
+                                                                          MaxHeight="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=panels:SpaceFillingPanel}, Converter={StaticResource TreeViewItemHeightConverter}}" />
+                                                        <Rectangle SnapsToDevicePixels="True" Margin="-10 0" VerticalAlignment="Top" Height="1" HorizontalAlignment="Stretch" IsHitTestVisible="True"/>
+                                                    </Grid>
+                                                </Expander>
+
+                                            </Border>
+
+
+                                            <Rectangle x:Name="BorderRect" Visibility="Collapsed"  SnapsToDevicePixels="True"
+                                                       IsHitTestVisible="False" Margin="-2" StrokeThickness="3" RadiusX="2" RadiusY="2" Stroke="Red" />
+
+
+                                        </Grid>
+
+                                        <!--<ControlTemplate.Resources>
+
+                                            <Storyboard x:Key="SelectionHighlighting">
+                                                <DoubleAnimation To="0" Storyboard.TargetName="BorderRectOverlay" Storyboard.TargetProperty="(UIElement.Opacity)"
+                                                                 RepeatBehavior="Forever" AutoReverse="True" Duration="0:0:1" />
+                                            </Storyboard>
+
+                                        </ControlTemplate.Resources>-->
+                                        <ControlTemplate.Triggers>
+                                            <!-- If the TreeViewItem has child items,
+                                       show it in an Expander.  Otherwise
+                                       hide the Expander and show the hidden
+                                       ContentPresenter. -->
+                                            <Trigger Property="TreeViewItem.HasItems" Value="false">
+                                                <Setter 
+                                                  TargetName="Exp" 
+                                                  Property="Visibility" 
+                                                  Value="Collapsed" />
+                                                <Setter 
+                                                  TargetName="CntPres" 
+                                                  Property="Visibility" 
+                                                  Value="Visible" />
+                                            </Trigger>
+
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <!--<Trigger.EnterActions>
+                                                    <BeginStoryboard x:Name="SelectionHighlightingStart" Storyboard="{StaticResource SelectionHighlighting}" />
+                                                </Trigger.EnterActions>
+                                                <Trigger.ExitActions>
+                                                    <StopStoryboard BeginStoryboardName="SelectionHighlightingStart" />
+                                                </Trigger.ExitActions>-->
+                                                <Trigger.Setters>
+                                                    <Setter TargetName="BorderRect" 
+                                                            Property="Visibility"
+                                                            Value="Visible" />
+                                                    <Setter TargetName="BorderRectOverlay" 
+                                                            Property="Visibility"
+                                                            Value="Visible" />
+                                                </Trigger.Setters>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <!-- Make each TreeViewItem show it's children 
+                       in a StackPanel. If it is a root item then
+                       the Orientation will be 'Horizontal', else
+                       'Vertical'. -->
+
+                        </Style>
+                    </TreeView.ItemContainerStyle>
+                    <TreeView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <panels:SpaceFillingPanel Height="{Binding ActualHeight, ElementName=PowerwallCanvas, Converter={StaticResource HeightDecrementConverter}}" 
+                                                      Margin="10 0" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+                        </ItemsPanelTemplate>
+                    </TreeView.ItemsPanel>
+                </controls:ExtendedTreeView>
+            </Grid>
+
+        </Grid>
+        <menu:ApplicationMenu x:Name="MenuRoot" Background="White" Grid.Row="1" Grid.RowSpan="2"
+                  Visibility="{Binding IsMenuOpen, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" />
+
+        <Grid x:Name="StatusBar" 
+              Background="LightGray" 
+              Visibility="{Binding DataModel.IsPowerwall, Converter={StaticResource NegatedBooleanToVisibilityConverter}}"
+              MinHeight="20" 
+              VerticalAlignment="Bottom" 
+              Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal" Grid.Column="0">
+                <TextBlock Text="{x:Static resources:Strings.Critical}" FontSize="{DynamicResource FixFontSize}"/>
+                <TextBlock Text=": " FontSize="{DynamicResource FixFontSize}"/>
+                <TextBlock Text="{Binding DataModel.StatusBarInfo.Item1}" FontSize="{DynamicResource FixFontSize}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Column="1">
+                <TextBlock Text="{x:Static resources:Strings.Warning}" FontSize="{DynamicResource FixFontSize}"/>
+                <TextBlock Text=": " FontSize="{DynamicResource FixFontSize}"/>
+                <TextBlock Text="{Binding DataModel.StatusBarInfo.Item2}" FontSize="{DynamicResource FixFontSize}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Column="2">
+                <TextBlock Text="{x:Static resources:Strings.OK}" FontSize="{DynamicResource FixFontSize}"/>
+                <TextBlock Text=": " FontSize="{DynamicResource FixFontSize}"/>
+                <TextBlock Text="{Binding DataModel.StatusBarInfo.Item3}" FontSize="{DynamicResource FixFontSize}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Column="3">
+                <TextBlock Text="{x:Static resources:Strings.Maintenance}" FontSize="{DynamicResource FixFontSize}"/>
+                <TextBlock Text=": " FontSize="{DynamicResource FixFontSize}"/>
+                <TextBlock Text="{Binding DataModel.StatusBarInfo.Item4}" FontSize="{DynamicResource FixFontSize}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Column="4">
+                <TextBlock Text="{x:Static resources:Strings.Total}" FontSize="{DynamicResource FixFontSize}"/>
+                <TextBlock Text=": " FontSize="{DynamicResource FixFontSize}"/>
+                <TextBlock Text="{Binding DataModel.StatusBarInfo.Item5}" FontSize="{DynamicResource FixFontSize}"/>
+            </StackPanel>
+            <TextBlock Text="{Binding DataModel.IsSyncing, Converter={StaticResource SyncingBooleanToStringConverter}}" 
+                       Foreground="{Binding DataModel.IsSyncing, Converter={StaticResource SyncingBooleanToBrushConverter}}"
+                       HorizontalAlignment="Right" Grid.Column="5" Margin="0 0 7 0" FontSize="{DynamicResource FixFontSize}"/>
+        </Grid>
+
+        <Grid x:Name="NotShowUIRoot" Background="#DDDDDD" Grid.RowSpan="3"
+                  Visibility="{Binding DataModel.ShowUI, Converter={StaticResource NegatedBooleanToVisibilityConverter}}">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <!--<TextBlock FontWeight="Light" FontSize="30" HorizontalAlignment="Center"
+                               Text="{x:Static resources:Strings.InitSyncTitle}" Visibility="{Binding DataModel.IsPowerwall, Converter={StaticResource NegatedBooleanToVisibilityConverter}}" />
+                    <TextBlock FontWeight="Light" FontSize="20" HorizontalAlignment="Center"
+                               Text="{x:Static resources:Strings.InitSyncSubtitle}" Visibility="{Binding DataModel.IsPowerwall, Converter={StaticResource NegatedBooleanToVisibilityConverter}}" />-->
+                <Image
+                            Stretch="Fill"
+                            Width="331"
+                            Height="168"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Margin="10 40 0 10"
+                            Source="/MISD.Client;component/Resources/logo/MISD_OWL_LogoText.png" />
+                <ProgressBar IsIndeterminate="True" HorizontalAlignment="Stretch" Grid.Column="5" Margin="5" Height="10" Width="340" Foreground="#2858A2" />
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+</Window>

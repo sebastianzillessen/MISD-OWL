@@ -1,0 +1,509 @@
+USE [MISD]
+GO
+/****** Object:  User [ACID\Stupro]    Script Date: 03/17/2013 21:43:53 ******/
+CREATE USER [ACID\Stupro] FOR LOGIN [ACID\Stupro] WITH DEFAULT_SCHEMA=[dbo]
+GO
+/****** Object:  Table [dbo].[ValueString]    Script Date: 03/17/2013 21:43:53 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ValueString](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Value] [nvarchar](1024) NOT NULL,
+ CONSTRAINT [PK_ValueString] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ValueInt]    Script Date: 03/17/2013 21:43:53 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ValueInt](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Value] [int] NOT NULL,
+ CONSTRAINT [PK_ValueInt] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ValueFloat]    Script Date: 03/17/2013 21:43:53 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ValueFloat](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Value] [float] NOT NULL,
+ CONSTRAINT [PK_ValueFloat] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ValueByte]    Script Date: 03/17/2013 21:43:53 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ValueByte](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Value] [tinyint] NOT NULL,
+ CONSTRAINT [PK_ValueByte] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[User]    Script Date: 03/17/2013 21:43:53 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[User](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](64) NOT NULL,
+ CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PluginMetadata]    Script Date: 03/17/2013 21:43:53 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PluginMetadata](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](64) NOT NULL,
+	[Version] [nvarchar](64) NOT NULL,
+	[Description] [nvarchar](4000) NOT NULL,
+	[FileName] [nvarchar](256) NOT NULL,
+	[Copyright] [nvarchar](256) NULL,
+	[Company] [nchar](64) NOT NULL,
+	[Product] [nchar](64) NULL,
+	[Platform] [tinyint] NOT NULL,
+ CONSTRAINT [PK_PluginMetadata] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[OrganizationalUnit]    Script Date: 03/17/2013 21:43:53 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[OrganizationalUnit](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](64) NOT NULL,
+	[FQDN] [nvarchar](512) NOT NULL,
+	[Parent] [int] NULL,
+	[LastUpdate] [bigint] NULL,
+ CONSTRAINT [PK_OrganizationalUnit_1] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Email]    Script Date: 03/17/2013 21:43:53 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Email](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Address] [nvarchar](128) NOT NULL,
+	[ReceiverName] [nvarchar](64) NOT NULL,
+	[DailMail] [bit] NOT NULL,
+ CONSTRAINT [PK_Email] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ClusterCredential]    Script Date: 03/17/2013 21:43:53 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ClusterCredential](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[HeadNodeUrl] [nvarchar](64) NOT NULL,
+	[Username] [nvarchar](64) NULL,
+	[Password] [nvarchar](64) NULL,
+	[Platform] [tinyint] NOT NULL,
+ CONSTRAINT [PK_ClusterCredential] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Layout]    Script Date: 03/17/2013 21:43:53 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Layout](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](64) NOT NULL,
+	[Date] [datetime] NOT NULL,
+	[PreviewImage] [varbinary](max) NOT NULL,
+	[Data] [nvarchar](max) NOT NULL,
+	[UserID] [int] NOT NULL,
+ CONSTRAINT [PK_UIConfiguration] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[MonitoredSystem]    Script Date: 03/17/2013 21:43:53 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[MonitoredSystem](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[OrganizationalUnitID] [int] NOT NULL,
+	[Name] [nvarchar](64) NOT NULL,
+	[FQDN] [nvarchar](512) NOT NULL,
+	[IsAvailable] [bit] NOT NULL,
+	[IsIgnored] [bit] NOT NULL,
+	[OperatingSystem] [tinyint] NOT NULL,
+	[IsInMaintenanceMode] [bit] NOT NULL,
+	[MacAddress] [nvarchar](32) NOT NULL,
+	[Status] [tinyint] NULL,
+	[WarningEnd] [bigint] NULL,
+	[CriticalEnd] [bigint] NULL,
+	[LastUpdate] [bigint] NULL,
+ CONSTRAINT [PK_MonitoredSystem_1] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Maintenance]    Script Date: 03/17/2013 21:43:53 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Maintenance](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Beginning] [datetime] NOT NULL,
+	[End] [datetime] NULL,
+	[MonitoredSystemID] [int] NOT NULL,
+ CONSTRAINT [PK_Maintenance] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Indicator]    Script Date: 03/17/2013 21:43:53 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Indicator](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](64) NOT NULL,
+	[UpdateInterval] [bigint] NOT NULL,
+	[FilterStatement] [nvarchar](4000) NOT NULL,
+	[StatementWarning] [nvarchar](4000) NOT NULL,
+	[StatementCritical] [nvarchar](4000) NOT NULL,
+	[ValueType] [tinyint] NOT NULL,
+	[MappingDuration] [bigint] NOT NULL,
+	[StorageDuration] [bigint] NOT NULL,
+	[PluginMetadataID] [int] NOT NULL,
+	[MonitoredSystemID] [int] NOT NULL,
+	[Status] [tinyint] NULL,
+	[WarningEnd] [bigint] NULL,
+	[CriticalEnd] [bigint] NULL,
+ CONSTRAINT [PK_Indicator] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[EmailObserver]    Script Date: 03/17/2013 21:43:53 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[EmailObserver](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[EmailID] [int] NOT NULL,
+	[MonitoredSystemID] [int] NOT NULL,
+ CONSTRAINT [PK_EmailObserver] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[IndicatorValue]    Script Date: 03/17/2013 21:43:53 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[IndicatorValue](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[ValueID] [int] NOT NULL,
+	[Timestamp] [bigint] NOT NULL,
+	[Mapping] [tinyint] NOT NULL,
+	[IndicatorID] [int] NOT NULL,
+ CONSTRAINT [PK_IndicatorValue] PRIMARY KEY CLUSTERED 
+(
+	[ID] DESC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  View [dbo].[IndiValComb]    Script Date: 03/17/2013 21:43:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[IndiValComb]
+WITH SCHEMABINDING
+AS
+SELECT dbo.Indicator.ID, dbo.Indicator.Name, dbo.Indicator.UpdateInterval, dbo.Indicator.FilterStatement, dbo.Indicator.StatementWarning, dbo.Indicator.StatementCritical, 
+       dbo.Indicator.ValueType, dbo.Indicator.MappingDuration, dbo.Indicator.StorageDuration, dbo.Indicator.PluginMetadataID, dbo.Indicator.MonitoredSystemID, 
+       dbo.IndicatorValue.ID AS IVID, dbo.IndicatorValue.ValueID, dbo.IndicatorValue.Timestamp, dbo.IndicatorValue.Mapping
+FROM   dbo.Indicator INNER JOIN
+       dbo.IndicatorValue ON dbo.Indicator.ID = dbo.IndicatorValue.IndicatorID
+GO
+/****** Object:  View [dbo].[IndiVal]    Script Date: 03/17/2013 21:43:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[IndiVal]
+AS
+SELECT     dbo.Indicator.ID, dbo.Indicator.Name, dbo.Indicator.UpdateInterval, dbo.Indicator.FilterStatement, dbo.Indicator.StatementWarning, dbo.Indicator.StatementCritical, 
+                      dbo.Indicator.ValueType, dbo.Indicator.MappingDuration, dbo.Indicator.StorageDuration, dbo.Indicator.PluginMetadataID, dbo.Indicator.MonitoredSystemID, 
+                      dbo.IndicatorValue.ID AS IVID, dbo.IndicatorValue.ValueID, dbo.IndicatorValue.Timestamp, dbo.IndicatorValue.Mapping, dbo.IndicatorValue.IndicatorID
+FROM         dbo.Indicator INNER JOIN
+                      dbo.IndicatorValue ON dbo.Indicator.ID = dbo.IndicatorValue.IndicatorID
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
+Begin DesignProperties = 
+   Begin PaneConfigurations = 
+      Begin PaneConfiguration = 0
+         NumPanes = 4
+         Configuration = "(H (1[40] 4[27] 2[13] 3) )"
+      End
+      Begin PaneConfiguration = 1
+         NumPanes = 3
+         Configuration = "(H (1 [50] 4 [25] 3))"
+      End
+      Begin PaneConfiguration = 2
+         NumPanes = 3
+         Configuration = "(H (1 [50] 2 [25] 3))"
+      End
+      Begin PaneConfiguration = 3
+         NumPanes = 3
+         Configuration = "(H (4 [30] 2 [40] 3))"
+      End
+      Begin PaneConfiguration = 4
+         NumPanes = 2
+         Configuration = "(H (1 [56] 3))"
+      End
+      Begin PaneConfiguration = 5
+         NumPanes = 2
+         Configuration = "(H (2 [66] 3))"
+      End
+      Begin PaneConfiguration = 6
+         NumPanes = 2
+         Configuration = "(H (4 [50] 3))"
+      End
+      Begin PaneConfiguration = 7
+         NumPanes = 1
+         Configuration = "(V (3))"
+      End
+      Begin PaneConfiguration = 8
+         NumPanes = 3
+         Configuration = "(H (1[56] 4[18] 2) )"
+      End
+      Begin PaneConfiguration = 9
+         NumPanes = 2
+         Configuration = "(H (1 [75] 4))"
+      End
+      Begin PaneConfiguration = 10
+         NumPanes = 2
+         Configuration = "(H (1[66] 2) )"
+      End
+      Begin PaneConfiguration = 11
+         NumPanes = 2
+         Configuration = "(H (4 [60] 2))"
+      End
+      Begin PaneConfiguration = 12
+         NumPanes = 1
+         Configuration = "(H (1) )"
+      End
+      Begin PaneConfiguration = 13
+         NumPanes = 1
+         Configuration = "(V (4))"
+      End
+      Begin PaneConfiguration = 14
+         NumPanes = 1
+         Configuration = "(V (2))"
+      End
+      ActivePaneConfig = 0
+   End
+   Begin DiagramPane = 
+      Begin Origin = 
+         Top = 0
+         Left = 0
+      End
+      Begin Tables = 
+         Begin Table = "Indicator"
+            Begin Extent = 
+               Top = 6
+               Left = 38
+               Bottom = 114
+               Right = 212
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "IndicatorValue"
+            Begin Extent = 
+               Top = 6
+               Left = 250
+               Bottom = 114
+               Right = 401
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+      End
+   End
+   Begin SQLPane = 
+   End
+   Begin DataPane = 
+      Begin ParameterDefaults = ""
+      End
+   End
+   Begin CriteriaPane = 
+      Begin ColumnWidths = 11
+         Column = 1440
+         Alias = 900
+         Table = 2595
+         Output = 720
+         Append = 1400
+         NewValue = 1170
+         SortType = 1350
+         SortOrder = 1410
+         GroupBy = 1350
+         Filter = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+      End
+   End
+End
+' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'IndiVal'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'IndiVal'
+GO
+/****** Object:  ForeignKey [FK_EmailObserver_Email]    Script Date: 03/17/2013 21:43:53 ******/
+ALTER TABLE [dbo].[EmailObserver]  WITH CHECK ADD  CONSTRAINT [FK_EmailObserver_Email] FOREIGN KEY([EmailID])
+REFERENCES [dbo].[Email] ([ID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[EmailObserver] CHECK CONSTRAINT [FK_EmailObserver_Email]
+GO
+/****** Object:  ForeignKey [FK_EmailObserver_MonitoredSystem]    Script Date: 03/17/2013 21:43:53 ******/
+ALTER TABLE [dbo].[EmailObserver]  WITH CHECK ADD  CONSTRAINT [FK_EmailObserver_MonitoredSystem] FOREIGN KEY([MonitoredSystemID])
+REFERENCES [dbo].[MonitoredSystem] ([ID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[EmailObserver] CHECK CONSTRAINT [FK_EmailObserver_MonitoredSystem]
+GO
+/****** Object:  ForeignKey [FK_Indicator_MonitoredSystem]    Script Date: 03/17/2013 21:43:53 ******/
+ALTER TABLE [dbo].[Indicator]  WITH CHECK ADD  CONSTRAINT [FK_Indicator_MonitoredSystem] FOREIGN KEY([MonitoredSystemID])
+REFERENCES [dbo].[MonitoredSystem] ([ID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Indicator] CHECK CONSTRAINT [FK_Indicator_MonitoredSystem]
+GO
+/****** Object:  ForeignKey [FK_Indicator_PluginMetadata]    Script Date: 03/17/2013 21:43:53 ******/
+ALTER TABLE [dbo].[Indicator]  WITH CHECK ADD  CONSTRAINT [FK_Indicator_PluginMetadata] FOREIGN KEY([PluginMetadataID])
+REFERENCES [dbo].[PluginMetadata] ([ID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Indicator] CHECK CONSTRAINT [FK_Indicator_PluginMetadata]
+GO
+/****** Object:  ForeignKey [FK_IndicatorValue_Indicator]    Script Date: 03/17/2013 21:43:53 ******/
+ALTER TABLE [dbo].[IndicatorValue]  WITH CHECK ADD  CONSTRAINT [FK_IndicatorValue_Indicator] FOREIGN KEY([IndicatorID])
+REFERENCES [dbo].[Indicator] ([ID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[IndicatorValue] CHECK CONSTRAINT [FK_IndicatorValue_Indicator]
+GO
+/****** Object:  ForeignKey [FK_IndicatorValue_ValueByte]    Script Date: 03/17/2013 21:43:53 ******/
+ALTER TABLE [dbo].[IndicatorValue]  WITH NOCHECK ADD  CONSTRAINT [FK_IndicatorValue_ValueByte] FOREIGN KEY([ValueID])
+REFERENCES [dbo].[ValueByte] ([ID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[IndicatorValue] NOCHECK CONSTRAINT [FK_IndicatorValue_ValueByte]
+GO
+/****** Object:  ForeignKey [FK_IndicatorValue_ValueFloat]    Script Date: 03/17/2013 21:43:53 ******/
+ALTER TABLE [dbo].[IndicatorValue]  WITH NOCHECK ADD  CONSTRAINT [FK_IndicatorValue_ValueFloat] FOREIGN KEY([ValueID])
+REFERENCES [dbo].[ValueFloat] ([ID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[IndicatorValue] NOCHECK CONSTRAINT [FK_IndicatorValue_ValueFloat]
+GO
+/****** Object:  ForeignKey [FK_IndicatorValue_ValueInt]    Script Date: 03/17/2013 21:43:53 ******/
+ALTER TABLE [dbo].[IndicatorValue]  WITH NOCHECK ADD  CONSTRAINT [FK_IndicatorValue_ValueInt] FOREIGN KEY([ValueID])
+REFERENCES [dbo].[ValueInt] ([ID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[IndicatorValue] NOCHECK CONSTRAINT [FK_IndicatorValue_ValueInt]
+GO
+/****** Object:  ForeignKey [FK_IndicatorValue_ValueString]    Script Date: 03/17/2013 21:43:53 ******/
+ALTER TABLE [dbo].[IndicatorValue]  WITH NOCHECK ADD  CONSTRAINT [FK_IndicatorValue_ValueString] FOREIGN KEY([ValueID])
+REFERENCES [dbo].[ValueString] ([ID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[IndicatorValue] NOCHECK CONSTRAINT [FK_IndicatorValue_ValueString]
+GO
+/****** Object:  ForeignKey [FK_UIConfiguration_User]    Script Date: 03/17/2013 21:43:53 ******/
+ALTER TABLE [dbo].[Layout]  WITH CHECK ADD  CONSTRAINT [FK_UIConfiguration_User] FOREIGN KEY([UserID])
+REFERENCES [dbo].[User] ([ID])
+GO
+ALTER TABLE [dbo].[Layout] CHECK CONSTRAINT [FK_UIConfiguration_User]
+GO
+/****** Object:  ForeignKey [FK_Maintenance_MonitoredSystem1]    Script Date: 03/17/2013 21:43:53 ******/
+ALTER TABLE [dbo].[Maintenance]  WITH CHECK ADD  CONSTRAINT [FK_Maintenance_MonitoredSystem1] FOREIGN KEY([MonitoredSystemID])
+REFERENCES [dbo].[MonitoredSystem] ([ID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Maintenance] CHECK CONSTRAINT [FK_Maintenance_MonitoredSystem1]
+GO
+/****** Object:  ForeignKey [FK_MonitoredSystem_OrganizationalUnit]    Script Date: 03/17/2013 21:43:53 ******/
+ALTER TABLE [dbo].[MonitoredSystem]  WITH CHECK ADD  CONSTRAINT [FK_MonitoredSystem_OrganizationalUnit] FOREIGN KEY([OrganizationalUnitID])
+REFERENCES [dbo].[OrganizationalUnit] ([ID])
+GO
+ALTER TABLE [dbo].[MonitoredSystem] CHECK CONSTRAINT [FK_MonitoredSystem_OrganizationalUnit]
+GO
+/****** Object:  ForeignKey [FK_OrganizationalUnit_OrganizationalUnit]    Script Date: 03/17/2013 21:43:53 ******/
+ALTER TABLE [dbo].[OrganizationalUnit]  WITH CHECK ADD  CONSTRAINT [FK_OrganizationalUnit_OrganizationalUnit] FOREIGN KEY([Parent])
+REFERENCES [dbo].[OrganizationalUnit] ([ID])
+GO
+ALTER TABLE [dbo].[OrganizationalUnit] CHECK CONSTRAINT [FK_OrganizationalUnit_OrganizationalUnit]
+GO
+/****** Object:  ForeignKey [FK_PluginMetadata_PluginMetadata]    Script Date: 03/17/2013 21:43:53 ******/
+ALTER TABLE [dbo].[PluginMetadata]  WITH CHECK ADD  CONSTRAINT [FK_PluginMetadata_PluginMetadata] FOREIGN KEY([ID])
+REFERENCES [dbo].[PluginMetadata] ([ID])
+GO
+ALTER TABLE [dbo].[PluginMetadata] CHECK CONSTRAINT [FK_PluginMetadata_PluginMetadata]
+GO

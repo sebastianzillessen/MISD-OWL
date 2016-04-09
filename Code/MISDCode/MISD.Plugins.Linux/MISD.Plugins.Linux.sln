@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MISD.Core", "..\MISD.Core\MISD.Core.csproj", "{B8C8677E-FE2E-46ED-BAA1-537A076EF164}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RAM", "RAM\RAM.csproj", "{F51A5514-2A09-4E5B-9565-AC56CD4BD595}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CPU", "CPU\CPU.csproj", "{C66533C9-8FB0-452B-B287-69F638701A81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GPU", "Gpu\GPU.csproj", "{E2DBF5C8-9478-451A-8041-7111F4539AED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkAdapter", "Network\NetworkAdapter.csproj", "{91EB2CCF-99FD-4502-B510-AB5F13504FA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OS", "OS\OS.csproj", "{4570A394-C040-415A-B180-43F00A46108A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Events", "Events\Events.csproj", "{55C99C11-5E01-4686-87BE-6428B269CDAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Storage", "Storage\Storage.csproj", "{FC03619A-0DD6-4C9F-92BE-B9ABBD3DDF73}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4570A394-C040-415A-B180-43F00A46108A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4570A394-C040-415A-B180-43F00A46108A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4570A394-C040-415A-B180-43F00A46108A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4570A394-C040-415A-B180-43F00A46108A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55C99C11-5E01-4686-87BE-6428B269CDAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55C99C11-5E01-4686-87BE-6428B269CDAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55C99C11-5E01-4686-87BE-6428B269CDAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55C99C11-5E01-4686-87BE-6428B269CDAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91EB2CCF-99FD-4502-B510-AB5F13504FA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91EB2CCF-99FD-4502-B510-AB5F13504FA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91EB2CCF-99FD-4502-B510-AB5F13504FA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91EB2CCF-99FD-4502-B510-AB5F13504FA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8C8677E-FE2E-46ED-BAA1-537A076EF164}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8C8677E-FE2E-46ED-BAA1-537A076EF164}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8C8677E-FE2E-46ED-BAA1-537A076EF164}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8C8677E-FE2E-46ED-BAA1-537A076EF164}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C66533C9-8FB0-452B-B287-69F638701A81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C66533C9-8FB0-452B-B287-69F638701A81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C66533C9-8FB0-452B-B287-69F638701A81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C66533C9-8FB0-452B-B287-69F638701A81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2DBF5C8-9478-451A-8041-7111F4539AED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2DBF5C8-9478-451A-8041-7111F4539AED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2DBF5C8-9478-451A-8041-7111F4539AED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2DBF5C8-9478-451A-8041-7111F4539AED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F51A5514-2A09-4E5B-9565-AC56CD4BD595}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F51A5514-2A09-4E5B-9565-AC56CD4BD595}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F51A5514-2A09-4E5B-9565-AC56CD4BD595}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F51A5514-2A09-4E5B-9565-AC56CD4BD595}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC03619A-0DD6-4C9F-92BE-B9ABBD3DDF73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC03619A-0DD6-4C9F-92BE-B9ABBD3DDF73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC03619A-0DD6-4C9F-92BE-B9ABBD3DDF73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC03619A-0DD6-4C9F-92BE-B9ABBD3DDF73}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = CPU\CPU.csproj
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

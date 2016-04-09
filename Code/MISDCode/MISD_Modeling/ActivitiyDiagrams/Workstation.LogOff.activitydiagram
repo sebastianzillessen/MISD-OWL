@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="33a56997-2025-4d69-9750-322b455a71e3" name="Workstation.LogOff" linkedPackageId="87fae1ea-d71b-47bc-aa8d-c3b032b00dac" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="163d11e5-37c3-493c-b51a-3bdfe045d6e5" name="Workstation.LogOff" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="b23cf106-bfd6-4eab-b2e7-913ae69efe52" />
+        <nodes>
+          <initialNode Id="cb81dc06-0255-4111-a271-1c6523a68971" name="Initial1" isLeaf="false">
+            <elementDefinition Id="549ac7ea-25aa-4be6-9766-1b8e7bad883e" />
+            <objectFlowTargets>
+              <objectFlow Id="298511b2-a314-4250-9e9f-e3b64e64be98" isLeaf="false" isMulticast="false" isMultireceive="false">
+                <inputPinMoniker Id="52cd5260-a72e-494e-aaf1-9b08fc9a4446" LastKnownName="FQDN" />
+                <elementDefinition Id="e2b822e5-1745-43cd-9993-0ff1ff7d752c" />
+              </objectFlow>
+            </objectFlowTargets>
+          </initialNode>
+          <activityFinalNode Id="918ce861-c4ba-428e-8813-d4b5a40f8647" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="a7a1397a-2c45-4ed2-9b2b-f2dfbe1388a5" />
+          </activityFinalNode>
+          <sendSignalAction Id="2e4d87ee-4884-429b-a496-03b51324fcce" name="send log off signal to server" isLeaf="false">
+            <elementDefinition Id="82d3333e-07c6-41a6-a8fc-9dc88eff0b48" />
+            <flowNodeTargets>
+              <controlFlow Id="129b7134-7a4c-43df-9836-e5d1e40de0a9" isLeaf="false">
+                <activityFinalNodeMoniker Id="918ce861-c4ba-428e-8813-d4b5a40f8647" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="a1638074-58e9-446f-87d0-212b110f265c" />
+              </controlFlow>
+            </flowNodeTargets>
+            <pins>
+              <sendSignalActionHasTarget>
+                <inputPin Id="52cd5260-a72e-494e-aaf1-9b08fc9a4446" name="FQDN" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="d2c45873-38bc-4753-87c4-fc4b4950bf7c" />
+                  <upperBound>
+                    <literalInteger Id="893a395a-cee9-40e7-8266-ae81e1f7f96e" name="2147483647" value="2147483647">
+                      <elementDefinition Id="9c609f14-c3f5-4bc0-bafa-f9f014e3e60c" />
+                    </literalInteger>
+                  </upperBound>
+                </inputPin>
+              </sendSignalActionHasTarget>
+            </pins>
+          </sendSignalAction>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="87fae1ea-d71b-47bc-aa8d-c3b032b00dac" name="MISD_Modeling">
+    <elementDefinition Id="57152138-29c8-467d-80d5-86353decd659" />
+    <profileInstances>
+      <packageHasProfileInstances Id="dfa387e1-b662-4552-91c3-afcfa7151655">
+        <profileInstance Id="eb5a7004-c357-4ec8-aae2-19187658b3d4" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="5b34551e-0df4-403e-b616-a3e45fa095a2">
+        <profileInstance Id="9fb8dfe4-7774-4a21-87cc-10fcb633c4a1" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</activityRootModel>

@@ -1,0 +1,858 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ClientWebService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://acid.visus.uni-stuttgart.de:8001/clientWebService?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://acid.visus.uni-stuttgart.de:8001/clientWebService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://acid.visus.uni-stuttgart.de:8001/clientWebService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://acid.visus.uni-stuttgart.de:8001/clientWebService?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MISD.Core" />
+      <xsd:import schemaLocation="http://acid.visus.uni-stuttgart.de:8001/clientWebService?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IClientWebService_DeleteCluster_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCluster" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_DeleteCluster_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteClusterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetClusters_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClusters" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetClusters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClustersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetPluginList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPluginList" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetPluginList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPluginListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_DownloadPlugins_InputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadPlugins" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_DownloadPlugins_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadPluginsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetIndicatorSetting_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIndicatorSetting" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetIndicatorSetting_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIndicatorSettingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_SetIndicatorSetting_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetIndicatorSetting" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_SetIndicatorSetting_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetIndicatorSettingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_ResetMapping_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResetMapping" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_ResetMapping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResetMappingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_ActivateMaintenanceMode_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActivateMaintenanceMode" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_ActivateMaintenanceMode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActivateMaintenanceModeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_DeactivateMaintenanceMode_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeactivateMaintenanceMode" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_DeactivateMaintenanceMode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeactivateMaintenanceModeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_MoveMonitoredSystem_InputMessage">
+    <wsdl:part name="parameters" element="tns:MoveMonitoredSystem" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_MoveMonitoredSystem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MoveMonitoredSystemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_ChangeWorkstationName_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeWorkstationName" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_ChangeWorkstationName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeWorkstationNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetUIConfigurationList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUIConfigurationList" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetUIConfigurationList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUIConfigurationListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_AddUIConfiguration_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUIConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_AddUIConfiguration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUIConfigurationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_RemoveUIConfiguration_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUIConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_RemoveUIConfiguration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUIConfigurationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_UpdateUIConfiguration_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUIConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_UpdateUIConfiguration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUIConfigurationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_AddMonitoredSystemsToIgnoreList_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMonitoredSystemsToIgnoreList" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_AddMonitoredSystemsToIgnoreList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddMonitoredSystemsToIgnoreListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_RemoveMonitoredSystemsFromIgnoreList_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveMonitoredSystemsFromIgnoreList" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_RemoveMonitoredSystemsFromIgnoreList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveMonitoredSystemsFromIgnoreListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetIgnoredMonitoredSystems_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIgnoredMonitoredSystems" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetIgnoredMonitoredSystems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIgnoredMonitoredSystemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_AddEMail_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEMail" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_AddEMail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_RemoveEMail_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveEMail" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_RemoveEMail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveEMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_AddMailObserver_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMailObserver" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_AddMailObserver_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddMailObserverResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_RemoveMailObserver_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveMailObserver" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_RemoveMailObserver_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveMailObserverResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_AddDailyMail_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDailyMail" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_AddDailyMail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDailyMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_DeleteDailyMail_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDailyMail" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_DeleteDailyMail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDailyMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetAllMailData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMailData" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetAllMailData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMailDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetObserver_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetObserver" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetObserver_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetObserverResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_ChangeEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeEmail" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_ChangeEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_ChangeOUName_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeOUName" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_ChangeOUName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeOUNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_DeleteOU_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOU" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_DeleteOU_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOUResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_AddOU_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOU" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_AddOU_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOUResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_AssignToOU_InputMessage">
+    <wsdl:part name="parameters" element="tns:AssignToOU" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_AssignToOU_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AssignToOUResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetAllOUs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOUs" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetAllOUs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOUsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_ChangeParent_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeParent" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_ChangeParent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeParentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetAllPlatformTyps_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPlatformTyps" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetAllPlatformTyps_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPlatformTypsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetMonitoredSystemIDs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMonitoredSystemIDs" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetMonitoredSystemIDs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMonitoredSystemIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetWorkstationMACs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkstationMACs" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetWorkstationMACs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkstationMACsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetMonitoredSystemInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMonitoredSystemInfo" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetMonitoredSystemInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMonitoredSystemInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetLatestMonitoredSystemData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLatestMonitoredSystemData" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetLatestMonitoredSystemData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLatestMonitoredSystemDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetPluginData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPluginData" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetPluginData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPluginDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetCompletePluginDataList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompletePluginDataList" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetCompletePluginDataList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompletePluginDataListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetClusterTyps_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClusterTyps" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_GetClusterTyps_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClusterTypsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_AddCluster_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCluster" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_AddCluster_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddClusterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_ChangeCluster_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeCluster" />
+  </wsdl:message>
+  <wsdl:message name="IClientWebService_ChangeCluster_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeClusterResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IClientWebService">
+    <wsdl:operation name="DeleteCluster">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/DeleteCluster" message="tns:IClientWebService_DeleteCluster_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/DeleteClusterResponse" message="tns:IClientWebService_DeleteCluster_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClusters">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/GetClusters" message="tns:IClientWebService_GetClusters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/GetClustersResponse" message="tns:IClientWebService_GetClusters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPluginList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/GetPluginList" message="tns:IClientWebService_GetPluginList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/GetPluginListResponse" message="tns:IClientWebService_GetPluginList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadPlugins">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/DownloadPlugins" message="tns:IClientWebService_DownloadPlugins_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/DownloadPluginsResponse" message="tns:IClientWebService_DownloadPlugins_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIndicatorSetting">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/GetIndicatorSetting" message="tns:IClientWebService_GetIndicatorSetting_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/GetIndicatorSettingResponse" message="tns:IClientWebService_GetIndicatorSetting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetIndicatorSetting">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/SetIndicatorSetting" message="tns:IClientWebService_SetIndicatorSetting_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/SetIndicatorSettingResponse" message="tns:IClientWebService_SetIndicatorSetting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetMapping">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/ResetMapping" message="tns:IClientWebService_ResetMapping_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/ResetMappingResponse" message="tns:IClientWebService_ResetMapping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActivateMaintenanceMode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/ActivateMaintenanceMode" message="tns:IClientWebService_ActivateMaintenanceMode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/ActivateMaintenanceModeResponse" message="tns:IClientWebService_ActivateMaintenanceMode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeactivateMaintenanceMode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/DeactivateMaintenanceMode" message="tns:IClientWebService_DeactivateMaintenanceMode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/DeactivateMaintenanceModeResponse" message="tns:IClientWebService_DeactivateMaintenanceMode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MoveMonitoredSystem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/MoveMonitoredSystem" message="tns:IClientWebService_MoveMonitoredSystem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/MoveMonitoredSystemResponse" message="tns:IClientWebService_MoveMonitoredSystem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeWorkstationName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/ChangeWorkstationName" message="tns:IClientWebService_ChangeWorkstationName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/ChangeWorkstationNameResponse" message="tns:IClientWebService_ChangeWorkstationName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUIConfigurationList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/GetUIConfigurationList" message="tns:IClientWebService_GetUIConfigurationList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/GetUIConfigurationListResponse" message="tns:IClientWebService_GetUIConfigurationList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUIConfiguration">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/AddUIConfiguration" message="tns:IClientWebService_AddUIConfiguration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/AddUIConfigurationResponse" message="tns:IClientWebService_AddUIConfiguration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUIConfiguration">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/RemoveUIConfiguration" message="tns:IClientWebService_RemoveUIConfiguration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/RemoveUIConfigurationResponse" message="tns:IClientWebService_RemoveUIConfiguration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUIConfiguration">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/UpdateUIConfiguration" message="tns:IClientWebService_UpdateUIConfiguration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/UpdateUIConfigurationResponse" message="tns:IClientWebService_UpdateUIConfiguration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMonitoredSystemsToIgnoreList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/AddMonitoredSystemsToIgnoreList" message="tns:IClientWebService_AddMonitoredSystemsToIgnoreList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/AddMonitoredSystemsToIgnoreListResponse" message="tns:IClientWebService_AddMonitoredSystemsToIgnoreList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveMonitoredSystemsFromIgnoreList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/RemoveMonitoredSystemsFromIgnoreList" message="tns:IClientWebService_RemoveMonitoredSystemsFromIgnoreList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/RemoveMonitoredSystemsFromIgnoreListResponse" message="tns:IClientWebService_RemoveMonitoredSystemsFromIgnoreList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIgnoredMonitoredSystems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/GetIgnoredMonitoredSystems" message="tns:IClientWebService_GetIgnoredMonitoredSystems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/GetIgnoredMonitoredSystemsResponse" message="tns:IClientWebService_GetIgnoredMonitoredSystems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEMail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/AddEMail" message="tns:IClientWebService_AddEMail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/AddEMailResponse" message="tns:IClientWebService_AddEMail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveEMail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/RemoveEMail" message="tns:IClientWebService_RemoveEMail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/RemoveEMailResponse" message="tns:IClientWebService_RemoveEMail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMailObserver">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/AddMailObserver" message="tns:IClientWebService_AddMailObserver_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/AddMailObserverResponse" message="tns:IClientWebService_AddMailObserver_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveMailObserver">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/RemoveMailObserver" message="tns:IClientWebService_RemoveMailObserver_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/RemoveMailObserverResponse" message="tns:IClientWebService_RemoveMailObserver_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDailyMail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/AddDailyMail" message="tns:IClientWebService_AddDailyMail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/AddDailyMailResponse" message="tns:IClientWebService_AddDailyMail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDailyMail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/DeleteDailyMail" message="tns:IClientWebService_DeleteDailyMail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/DeleteDailyMailResponse" message="tns:IClientWebService_DeleteDailyMail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMailData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/GetAllMailData" message="tns:IClientWebService_GetAllMailData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/GetAllMailDataResponse" message="tns:IClientWebService_GetAllMailData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetObserver">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/GetObserver" message="tns:IClientWebService_GetObserver_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/GetObserverResponse" message="tns:IClientWebService_GetObserver_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/ChangeEmail" message="tns:IClientWebService_ChangeEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/ChangeEmailResponse" message="tns:IClientWebService_ChangeEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeOUName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/ChangeOUName" message="tns:IClientWebService_ChangeOUName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/ChangeOUNameResponse" message="tns:IClientWebService_ChangeOUName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOU">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/DeleteOU" message="tns:IClientWebService_DeleteOU_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/DeleteOUResponse" message="tns:IClientWebService_DeleteOU_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOU">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/AddOU" message="tns:IClientWebService_AddOU_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/AddOUResponse" message="tns:IClientWebService_AddOU_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignToOU">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/AssignToOU" message="tns:IClientWebService_AssignToOU_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/AssignToOUResponse" message="tns:IClientWebService_AssignToOU_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOUs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/GetAllOUs" message="tns:IClientWebService_GetAllOUs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/GetAllOUsResponse" message="tns:IClientWebService_GetAllOUs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeParent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/ChangeParent" message="tns:IClientWebService_ChangeParent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/ChangeParentResponse" message="tns:IClientWebService_ChangeParent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPlatformTyps">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/GetAllPlatformTyps" message="tns:IClientWebService_GetAllPlatformTyps_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/GetAllPlatformTypsResponse" message="tns:IClientWebService_GetAllPlatformTyps_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMonitoredSystemIDs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/GetMonitoredSystemIDs" message="tns:IClientWebService_GetMonitoredSystemIDs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/GetMonitoredSystemIDsResponse" message="tns:IClientWebService_GetMonitoredSystemIDs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkstationMACs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/GetWorkstationMACs" message="tns:IClientWebService_GetWorkstationMACs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/GetWorkstationMACsResponse" message="tns:IClientWebService_GetWorkstationMACs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMonitoredSystemInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/GetMonitoredSystemInfo" message="tns:IClientWebService_GetMonitoredSystemInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/GetMonitoredSystemInfoResponse" message="tns:IClientWebService_GetMonitoredSystemInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestMonitoredSystemData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/GetLatestMonitoredSystemData" message="tns:IClientWebService_GetLatestMonitoredSystemData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/GetLatestMonitoredSystemDataResponse" message="tns:IClientWebService_GetLatestMonitoredSystemData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPluginData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/GetPluginData" message="tns:IClientWebService_GetPluginData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/GetPluginDataResponse" message="tns:IClientWebService_GetPluginData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompletePluginDataList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/GetCompletePluginDataList" message="tns:IClientWebService_GetCompletePluginDataList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/GetCompletePluginDataListResponse" message="tns:IClientWebService_GetCompletePluginDataList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/GetData" message="tns:IClientWebService_GetData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/GetDataResponse" message="tns:IClientWebService_GetData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClusterTyps">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/GetClusterTyps" message="tns:IClientWebService_GetClusterTyps_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/GetClusterTypsResponse" message="tns:IClientWebService_GetClusterTyps_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCluster">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/AddCluster" message="tns:IClientWebService_AddCluster_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/AddClusterResponse" message="tns:IClientWebService_AddCluster_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeCluster">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientWebService/ChangeCluster" message="tns:IClientWebService_ChangeCluster_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientWebService/ChangeClusterResponse" message="tns:IClientWebService_ChangeCluster_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IClientWebService" type="tns:IClientWebService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DeleteCluster">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/DeleteCluster" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClusters">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/GetClusters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPluginList">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/GetPluginList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadPlugins">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/DownloadPlugins" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIndicatorSetting">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/GetIndicatorSetting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetIndicatorSetting">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/SetIndicatorSetting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetMapping">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/ResetMapping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActivateMaintenanceMode">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/ActivateMaintenanceMode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeactivateMaintenanceMode">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/DeactivateMaintenanceMode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoveMonitoredSystem">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/MoveMonitoredSystem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeWorkstationName">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/ChangeWorkstationName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUIConfigurationList">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/GetUIConfigurationList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUIConfiguration">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/AddUIConfiguration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUIConfiguration">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/RemoveUIConfiguration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUIConfiguration">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/UpdateUIConfiguration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMonitoredSystemsToIgnoreList">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/AddMonitoredSystemsToIgnoreList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveMonitoredSystemsFromIgnoreList">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/RemoveMonitoredSystemsFromIgnoreList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIgnoredMonitoredSystems">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/GetIgnoredMonitoredSystems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEMail">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/AddEMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveEMail">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/RemoveEMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMailObserver">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/AddMailObserver" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveMailObserver">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/RemoveMailObserver" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDailyMail">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/AddDailyMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDailyMail">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/DeleteDailyMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMailData">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/GetAllMailData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetObserver">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/GetObserver" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeEmail">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/ChangeEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeOUName">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/ChangeOUName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOU">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/DeleteOU" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOU">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/AddOU" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignToOU">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/AssignToOU" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOUs">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/GetAllOUs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeParent">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/ChangeParent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPlatformTyps">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/GetAllPlatformTyps" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonitoredSystemIDs">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/GetMonitoredSystemIDs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkstationMACs">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/GetWorkstationMACs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonitoredSystemInfo">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/GetMonitoredSystemInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestMonitoredSystemData">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/GetLatestMonitoredSystemData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPluginData">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/GetPluginData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompletePluginDataList">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/GetCompletePluginDataList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClusterTyps">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/GetClusterTyps" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCluster">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/AddCluster" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeCluster">
+      <soap:operation soapAction="http://tempuri.org/IClientWebService/ChangeCluster" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ClientWebService">
+    <wsdl:port name="BasicHttpBinding_IClientWebService" binding="tns:BasicHttpBinding_IClientWebService">
+      <soap:address location="http://acid.visus.uni-stuttgart.de:8001/clientWebService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

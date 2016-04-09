@@ -1,0 +1,43 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="MISD.Test.Plugins.Linux/EventsTest.cs">
+    <Files>
+      <File FileName="MISD.Test.Plugins.Linux/EventsTest.cs" Line="126" Column="4" />
+      <File FileName="../MISD.Plugins.Linux/Events/Events.cs" Line="189" Column="51" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Events" expanded="True" />
+          <Node name="GPU" expanded="True" />
+          <Node name="MISD.Test.Plugins.Linux" expanded="True">
+            <Node name="EventsTest.cs" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State expanded="True">
+          <Node name="MISD.Test.Plugins.Linux" expanded="True">
+            <Node name="MISD" expanded="True">
+              <Node name="Workstation" expanded="True">
+                <Node name="Linux" expanded="True">
+                  <Node name="EventsTest" expanded="True" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

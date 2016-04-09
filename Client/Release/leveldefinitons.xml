@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ArrayOfLevelDefinition xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <LevelDefinition>
+    <ID>fd03e7b1-014a-47a4-969a-75821357e9f4</ID>
+    <UseCustomUI>false</UseCustomUI>
+    <HasStatusBar>false</HasStatusBar>
+    <Rows>0</Rows>
+  </LevelDefinition>
+  <LevelDefinition>
+    <ID>f8ff6ef9-3ccb-4eb0-bd1e-7b669633e05f</ID>
+    <UseCustomUI>false</UseCustomUI>
+    <HasStatusBar>true</HasStatusBar>
+    <Rows>6</Rows>
+  </LevelDefinition>
+  <LevelDefinition>
+    <ID>b417be3e-e241-453b-b601-dbb4d9c99b78</ID>
+    <UseCustomUI>true</UseCustomUI>
+    <HasStatusBar>false</HasStatusBar>
+    <Rows>12</Rows>
+  </LevelDefinition>
+</ArrayOfLevelDefinition>

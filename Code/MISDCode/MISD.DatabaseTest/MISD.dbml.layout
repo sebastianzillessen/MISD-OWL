@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.75, 19.25" name="MISD">
+  <DataContextMoniker Name="/MISDDataContext" />
+  <nestedChildShapes>
+    <classShape Id="5937c749-1d60-442a-afce-9e96888de8e8" absoluteBounds="6.75, 4.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/MISDDataContext/Email" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ff2bfab5-0c4b-4f09-8dd1-59e83e387ba7" absoluteBounds="6.765, 5.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ebaa64f6-2c92-4dbe-8351-3420ee0ec941" absoluteBounds="3.5, 5.125, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/MISDDataContext/ValueString" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fa5d8c2f-7158-4214-bf82-53d1dfb51f13" absoluteBounds="3.515, 5.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="38ba71a1-02c2-4485-b5d5-88593cd7d3d1" absoluteBounds="9.5, 5.375, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/MISDDataContext/EmailObserver" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6fb9ed81-de55-4126-b62c-086b0e3e392c" absoluteBounds="9.515, 5.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c4802503-653c-4245-b003-40ef30290541" absoluteBounds="3.5, 1, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/MISDDataContext/Indicator" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c8d12c39-46fd-43db-b243-78814742cdf5" absoluteBounds="3.515, 1.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b3b3ebf4-f347-43c2-bf3a-4345d54c2dba" absoluteBounds="6.25, 1.375, 2, 1.7708968098958329">
+      <DataClassMoniker Name="/MISDDataContext/IndicatorValue" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c9acbdff-aa19-4e96-9bbe-fe2eeadcc576" absoluteBounds="6.265, 1.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="53a00c09-c37d-4812-9a2b-e2cf43ebb51c" absoluteBounds="3.5, 17.375, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/MISDDataContext/Maintenance" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b43ac625-b6ce-44fc-bb08-6d35ea4f3e30" absoluteBounds="3.515, 17.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="69783482-b245-4bee-aea1-2ff1afa9e534" absoluteBounds="0.75, 5.125, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/MISDDataContext/MonitoredSystem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="98998c8a-1f76-46e3-9275-07da7e44f28d" absoluteBounds="0.765, 5.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="51e71b8b-c527-4722-b11c-0aad9080324f" absoluteBounds="1.5, 8.375, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/MISDDataContext/OrganizationalUnit" />
+      <nestedChildShapes>
+        <elementListCompartment Id="210428ca-0544-44cd-9ee7-0a71e3fa511c" absoluteBounds="1.5150000000000001, 8.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="03be1f40-716a-4a17-9f8d-ecf6e45d0b54" absoluteBounds="0.75, 1.25, 2, 1.9631982421875003">
+      <DataClassMoniker Name="/MISDDataContext/PluginMetadata" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3f18dcf9-29f5-4b87-9c2a-582a5c939037" absoluteBounds="0.765, 1.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="81d35ab7-13b1-48fa-8741-964dcad310d2" absoluteBounds="7.5, 7.875, 2, 1.9631982421874996">
+      <DataClassMoniker Name="/MISDDataContext/UIConfiguration" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c622be7a-1991-4545-aeb9-528d4044bef1" absoluteBounds="7.515, 8.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9f3d5e7e-dd38-4983-95ae-1b350fcf8b12" absoluteBounds="4.75, 8.25, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/MISDDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0cf7fec4-c410-4e67-9d1d-08f5e8cb1fea" absoluteBounds="4.765, 8.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="84a28781-5715-4d83-bf8e-02241a8ff301" absoluteBounds="3.5, 11.125, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/MISDDataContext/ValueByte" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0d4b7ce5-8bef-460f-b52c-9c70c14f656b" absoluteBounds="3.515, 11.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f4ff92dc-6804-4caf-ab81-141df07bb7e6" absoluteBounds="3.5, 13, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/MISDDataContext/ValueFloat" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2e2c152f-ba84-4aff-9e24-33ba070c4fa6" absoluteBounds="3.515, 13.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7d66bf3f-c78d-4884-b29d-f9d9ec90311f" absoluteBounds="3.5, 15, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/MISDDataContext/ValueInt" />
+      <nestedChildShapes>
+        <elementListCompartment Id="62594720-b4b2-4dc2-b4f7-2329322f7da2" absoluteBounds="3.515, 15.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.75 : 5.91429768880208); (9.5 : 5.91429768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MISDDataContext/Email/Email_EmailObserver" />
+      <nodes>
+        <classShapeMoniker Id="5937c749-1d60-442a-afce-9e96888de8e8" />
+        <classShapeMoniker Id="38ba71a1-02c2-4485-b5d5-88593cd7d3d1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 2.26044840494792); (6.25 : 2.26044840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MISDDataContext/Indicator/Indicator_IndicatorValue" />
+      <nodes>
+        <classShapeMoniker Id="c4802503-653c-4245-b003-40ef30290541" />
+        <classShapeMoniker Id="b3b3ebf4-f347-43c2-bf3a-4345d54c2dba" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 5.125); (5.875 : 4.75); (5.875 : 2.73442460742187); (6.25 : 2.73442460742187)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MISDDataContext/ValueString/ValueString_IndicatorValue" />
+      <nodes>
+        <classShapeMoniker Id="ebaa64f6-2c92-4dbe-8351-3420ee0ec941" />
+        <classShapeMoniker Id="b3b3ebf4-f347-43c2-bf3a-4345d54c2dba" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 6.63869466145833); (6.16666666666667 : 6.63869466145833 : JumpStart); (6.33333333333333 : 6.63869466145833 : JumpEnd); (9.5 : 6.63869466145833)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MISDDataContext/MonitoredSystem/MonitoredSystem_EmailObserver" />
+      <nodes>
+        <classShapeMoniker Id="69783482-b245-4bee-aea1-2ff1afa9e534" />
+        <classShapeMoniker Id="38ba71a1-02c2-4485-b5d5-88593cd7d3d1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 5.12653746153846); (3.125 : 4.75153746153846); (3.125 : 2.27005126953125); (3.5 : 2.27005126953125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MISDDataContext/MonitoredSystem/MonitoredSystem_Indicator" />
+      <nodes>
+        <classShapeMoniker Id="69783482-b245-4bee-aea1-2ff1afa9e534" />
+        <classShapeMoniker Id="c4802503-653c-4245-b003-40ef30290541" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.09375 : 7.28049967447917); (1.09375 : 18.1642976888021); (3.5 : 18.1642976888021)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MISDDataContext/MonitoredSystem/MonitoredSystem_Maintenance" />
+      <nodes>
+        <classShapeMoniker Id="69783482-b245-4bee-aea1-2ff1afa9e534" />
+        <classShapeMoniker Id="53a00c09-c37d-4812-9a2b-e2cf43ebb51c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.125 : 8.375); (2.125 : 7.28049967447917)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MISDDataContext/OrganizationalUnit/OrganizationalUnit_MonitoredSystem" />
+      <nodes>
+        <classShapeMoniker Id="51e71b8b-c527-4722-b11c-0aad9080324f" />
+        <classShapeMoniker Id="69783482-b245-4bee-aea1-2ff1afa9e534" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.20242346379207 : 9.95359537760417); (2.20242346379207 : 10.2035953776042); (2.81174684745593 : 10.2035953776042); (2.81174684745593 : 9.95359537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MISDDataContext/OrganizationalUnit/OrganizationalUnit_OrganizationalUnit" />
+      <nodes>
+        <classShapeMoniker Id="51e71b8b-c527-4722-b11c-0aad9080324f" />
+        <classShapeMoniker Id="51e71b8b-c527-4722-b11c-0aad9080324f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 1.69752563476563); (3.5 : 1.69752563476563)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MISDDataContext/PluginMetadata/PluginMetadata_Indicator" />
+      <nodes>
+        <classShapeMoniker Id="03be1f40-716a-4a17-9f8d-ecf6e45d0b54" />
+        <classShapeMoniker Id="c4802503-653c-4245-b003-40ef30290541" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.75 : 8.84699625651042); (6.91666666666667 : 8.84699625651042 : JumpStart); (7.08333333333333 : 8.84699625651042 : JumpEnd); (7.5 : 8.84699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MISDDataContext/User/User_UIConfiguration" />
+      <nodes>
+        <classShapeMoniker Id="9f3d5e7e-dd38-4983-95ae-1b350fcf8b12" />
+        <classShapeMoniker Id="81d35ab7-13b1-48fa-8741-964dcad310d2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 11.7219962565104); (6.91666666666667 : 11.7219962565104 : JumpStart); (7.08333333333333 : 11.7219962565104 : JumpEnd); (7.25 : 11.7219962565104); (7.25 : 6.95359537760417); (7.08333333333333 : 6.95359537760417 : JumpStart); (6.91666666666667 : 6.95359537760417 : JumpEnd); (6.5 : 6.95359537760417); (6.5 : 3.52089680989583); (7.25 : 3.52089680989583); (7.25 : 3.14589680989583)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MISDDataContext/ValueByte/ValueByte_IndicatorValue" />
+      <nodes>
+        <classShapeMoniker Id="84a28781-5715-4d83-bf8e-02241a8ff301" />
+        <classShapeMoniker Id="b3b3ebf4-f347-43c2-bf3a-4345d54c2dba" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 13.5969962565104); (7 : 13.5969962565104); (7 : 6.82859537760417); (6.25 : 6.82859537760417); (6.25 : 3.77089680989583); (7.781252 : 3.77089680989583); (7.781252 : 3.14589680989583)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MISDDataContext/ValueFloat/ValueFloat_IndicatorValue" />
+      <nodes>
+        <classShapeMoniker Id="f4ff92dc-6804-4caf-ab81-141df07bb7e6" />
+        <classShapeMoniker Id="b3b3ebf4-f347-43c2-bf3a-4345d54c2dba" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 15.5969962565104); (7.375 : 15.5969962565104); (7.375 : 7.07859537760417); (7.33333333333333 : 7.07859537760417 : JumpStart); (7.16666666666667 : 7.07859537760417 : JumpEnd); (7.08333333333333 : 7.07859537760417 : JumpStart); (6.91666666666667 : 7.07859537760417 : JumpEnd); (6.625 : 7.07859537760417); (6.625 : 3.64589680989583); (6.8437475 : 3.64589680989583); (6.8437475 : 3.14589680989583)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MISDDataContext/ValueInt/ValueInt_IndicatorValue" />
+      <nodes>
+        <classShapeMoniker Id="7d66bf3f-c78d-4884-b29d-f9d9ec90311f" />
+        <classShapeMoniker Id="b3b3ebf4-f347-43c2-bf3a-4345d54c2dba" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

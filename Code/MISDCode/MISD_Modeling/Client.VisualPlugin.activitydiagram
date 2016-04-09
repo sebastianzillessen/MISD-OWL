@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="2650042d-b3dd-419b-ae81-6667bfa8415f" name="Client.VisualPlugin" linkedPackageId="2b29928b-3573-4da5-b5f2-7a2264c2c4c6" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="a695cd77-3da3-4dd7-96c9-41cc7bf514a3">
+      <profileInstance Id="b070d217-beb1-431f-9821-3c6ece130060" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="0339a213-a811-4f3c-b1b3-48d58152985a">
+      <profileInstance Id="a5386e0b-c8c0-4ff2-852e-1ad43abd444c" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="15bde31d-c0f4-4d27-95ef-225b4624023a" name="Client.VisualPlugin" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="a32339f7-21bc-416b-8de2-f3325377157a" />
+        <nodes>
+          <initialNode Id="a60e99a6-db44-47ff-9d65-216fe593573f" name="Initial1" isLeaf="false">
+            <elementDefinition Id="d8aacb1e-20b6-4cd7-9c33-0b10a78ac6c6" />
+            <flowNodeTargets>
+              <controlFlow Id="09faa41a-5528-4657-8105-65649e554c0e" isLeaf="false">
+                <opaqueActionMoniker Id="4e3d5ba9-438e-4170-a637-5fe2afe11da0" LastKnownName="request to Server" />
+                <elementDefinition Id="0cac7249-a45d-4689-be11-72f3c7018a94" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <activityFinalNode Id="429bac57-e140-49e6-a839-eb6146e0d376" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="52a894dd-fb23-4c66-b2b2-f4a6a5b04d2c" />
+          </activityFinalNode>
+          <opaqueAction Id="4e3d5ba9-438e-4170-a637-5fe2afe11da0" name="request to Server" isLeaf="false">
+            <elementDefinition Id="4eb1e278-fdc3-4788-8569-b98b7cd45fc8" />
+            <flowNodeTargets>
+              <controlFlow Id="47fb704e-a750-4e9f-bc1d-7efa7e3f30b8" isLeaf="false">
+                <acceptEventActionMoniker Id="959cabb5-f142-416f-a703-7efe231e31a3" LastKnownName="Get List from Server" />
+                <elementDefinition Id="6605578f-adf5-4768-8955-5ee2dc34f474" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <acceptEventAction Id="959cabb5-f142-416f-a703-7efe231e31a3" name="Get List from Server" isLeaf="false" isUnmarshall="false">
+            <elementDefinition Id="1bf3ba0c-97cc-49f9-91dc-ddceeef696ff" />
+            <flowNodeTargets>
+              <controlFlow Id="cdd0423b-ab21-4552-9251-5040874c6010" isLeaf="false">
+                <opaqueActionMoniker Id="306d3f58-ebaa-4e32-abf5-f294d698d612" LastKnownName="search List for new plugn" />
+                <elementDefinition Id="597be907-fccd-42d0-a552-52b0b7f5f070" />
+              </controlFlow>
+            </flowNodeTargets>
+          </acceptEventAction>
+          <opaqueAction Id="306d3f58-ebaa-4e32-abf5-f294d698d612" name="search List for new plugn" isLeaf="false">
+            <elementDefinition Id="cf708b99-9248-44d1-ba66-5cbe48eb3b73" />
+            <flowNodeTargets>
+              <controlFlow Id="e9fc4f5e-d355-4c8a-81ea-3b9965f8117c" isLeaf="false">
+                <decisionNodeMoniker Id="01e002d1-10a8-4c45-95c9-daf1048ab951" LastKnownName="Decision1" />
+                <elementDefinition Id="70015489-9ce8-40bb-b28a-70c518f0bd54" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="0065ccc4-baeb-460c-b425-cd91b56bef55" name="download" isLeaf="false">
+            <elementDefinition Id="980ae2b2-494f-496b-bdd4-89367a4dc5a6" />
+            <flowNodeTargets>
+              <controlFlow Id="d49e7dc1-2b26-4f2a-bb72-ba8aa0917c16" isLeaf="false">
+                <opaqueActionMoniker Id="8e62d8ef-d1b9-49ab-b249-8ef71bc528a8" LastKnownName="Load new plugin" />
+                <elementDefinition Id="45875cc8-87f6-4f0e-8803-b217ed224e0a" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="8e62d8ef-d1b9-49ab-b249-8ef71bc528a8" name="Load new plugin" isLeaf="false">
+            <elementDefinition Id="9b9c585c-8d41-49d9-ad44-7ac763ac30bb" />
+            <flowNodeTargets>
+              <controlFlow Id="99294fe7-42cd-4793-b0d9-c6c5ea792c88" isLeaf="false">
+                <opaqueActionMoniker Id="306d3f58-ebaa-4e32-abf5-f294d698d612" LastKnownName="search List for new plugn" />
+                <elementDefinition Id="acd63dc6-7d53-4b23-9d42-84d24da42a5e" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="01e002d1-10a8-4c45-95c9-daf1048ab951" name="Decision1" isLeaf="false">
+            <elementDefinition Id="a2a8e4f3-0f52-4537-bc3a-f0b786cf8ef9" />
+            <flowNodeTargets>
+              <controlFlow Id="07ab1d57-bc7e-4614-ad55-9473adf7943a" guard="new Plugin" isLeaf="false">
+                <opaqueActionMoniker Id="0065ccc4-baeb-460c-b425-cd91b56bef55" LastKnownName="download" />
+                <elementDefinition Id="9e8592c7-d4ac-4847-a885-724ea67b1d23" />
+              </controlFlow>
+              <controlFlow Id="5b52bb67-3799-4102-bcf4-986a978f9b3c" guard="no new one" isLeaf="false">
+                <activityFinalNodeMoniker Id="429bac57-e140-49e6-a839-eb6146e0d376" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="4ba820c1-9933-4cf4-8a86-2977f4bd5510" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="2b29928b-3573-4da5-b5f2-7a2264c2c4c6" name="MISD_Modeling">
+    <elementDefinition Id="57152138-29c8-467d-80d5-86353decd659" />
+  </package>
+</activityRootModel>

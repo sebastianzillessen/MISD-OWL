@@ -1,0 +1,1840 @@
+﻿<UserControl x:Class="MISD.Client.Controls.Menu.ApplicationMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:resources="clr-namespace:MISD.Client.Model.Resources;assembly=MISD.Client.Model"
+             xmlns:fonts="http://schemas.microsoft.com/winfx/2006/xaml/presentation, http://schemas.microsoft.com/netfx/2007/xaml/presentation"
+             xmlns:converter="clr-namespace:MISD.Client.ViewModel.Converters;assembly=MISD.Client.ViewModel"
+             xmlns:viewModel="clr-namespace:MISD.Client.ViewModel;assembly=MISD.Client.ViewModel"
+             xmlns:model="clr-namespace:MISD.Client.Model;assembly=MISD.Client.Model"
+             xmlns:selectors="clr-namespace:MISD.Client.ViewModel.Selectors;assembly=MISD.Client.ViewModel"
+             xmlns:controls="clr-namespace:MISD.Client.Controls"
+             xmlns:picker="clr-namespace:MISD.Client.Controls.NumUpDown"
+             xmlns:layout="clr-namespace:MISD.Client.Managers;assembly=MISD.Client.Model"
+             xmlns:regexgenlist="clr-namespace:MISD.Client.Controls.RegExGenList"
+             xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="800" Foreground="#FFA6A6A6">
+
+    <UserControl.Resources>
+        <!--Converters-->
+        <converter:IntIncrementerConverter x:Key="IntIncrementerConverter"/>
+        <converter:MenuOpenItemToIntConverter x:Key="MenuOpenItemToIntConverter"/>
+        <converter:MonitoredSystemWhiteListToBlackListConverter x:Key="ConvertToBlackList"/>
+        <converter:NegatedBooleanToBoolean x:Key="NegatedBooleanToBoolean"/>
+        <converter:TimeSpanToIntConverter x:Key="TimeSpanToIntConverter"/>
+        <converter:RegExConverter x:Key="RegExConverter"/>
+        <converter:IsMonitoredSystemT0VisibilityConverter x:Key="IsMonitoredSystemT0VisibilityConverter"/>
+        <converter:NegatedSearchStringToVisibilityConverter x:Key="NegatedSearchStringToVisibilityConverter"/>
+        <converter:SearchStringToVisibilityConverter x:Key="SearchStringToVisibilityConverter"/>
+        <converter:MultiObjectStringSelectorConverter x:Key="MultiObjectStringSelectorConverter"/>
+        <converter:MultiObjectToIntStringSelectorConverter x:Key="MultiObjectToIntStringSelectorConverter"/>
+
+        <!--Control colors.-->
+        <Color x:Key="WindowColor">#FFE8EDF9</Color>
+        <Color x:Key="ContentAreaColorLight">#FFC5CBF9</Color>
+        <Color x:Key="ContentAreaColorDark">#FF7381F9</Color>
+
+        <Color x:Key="DisabledControlLightColor">#FFE8EDF9</Color>
+        <Color x:Key="DisabledControlDarkColor">#FFC5CBF9</Color>
+        <Color x:Key="DisabledForegroundColor">#FF888888</Color>
+
+        <Color x:Key="SelectedBackgroundColor">#FFC5CBF9</Color>
+        <Color x:Key="SelectedUnfocusedColor">#FFDDDDDD</Color>
+
+        <Color x:Key="ControlLightColor">White</Color>
+        <Color x:Key="ControlMediumColor">#FF7381F9</Color>
+        <Color x:Key="ControlDarkColor">#FF211AA9</Color>
+
+        <Color x:Key="ControlMouseOverColor">#FF3843C4</Color>
+        <Color x:Key="ControlPressedColor">#FF211AA9</Color>
+
+        <Color x:Key="GlyphColor">#FF444444</Color>
+        <Color x:Key="GlyphMouseOver">sc#1, 0.004391443, 0.002428215, 0.242281124</Color>
+
+        <!--Border colors-->
+        <Color x:Key="BorderLightColor">#FFCCCCCC</Color>
+        <Color x:Key="BorderMediumColor">#FF888888</Color>
+        <Color x:Key="BorderDarkColor">#FF444444</Color>
+
+        <Color x:Key="PressedBorderLightColor">#FF888888</Color>
+        <Color x:Key="PressedBorderDarkColor">#FF444444</Color>
+
+        <Color x:Key="DisabledBorderLightColor">#FFAAAAAA</Color>
+        <Color x:Key="DisabledBorderDarkColor">#FF888888</Color>
+
+        <Color x:Key="DefaultBorderBrushDarkColor">Black</Color>
+
+        <!--Control-specific resources.-->
+        <Color x:Key="HeaderTopColor">#FFC5CBF9</Color>
+        <Color x:Key="DatagridCurrentCellBorderColor">Black</Color>
+        <Color x:Key="SliderTrackDarkColor">#FFC5CBF9</Color>
+
+        <Color x:Key="NavButtonFrameColor">#FF3843C4</Color>
+
+        <LinearGradientBrush x:Key="MenuPopupBrush"
+                     EndPoint="0.5,1"
+                     StartPoint="0.5,0">
+            <GradientStop Color="{DynamicResource ControlLightColor}"
+                Offset="0" />
+            <GradientStop Color="{DynamicResource ControlMediumColor}"
+                Offset="0.5" />
+            <GradientStop Color="{DynamicResource ControlLightColor}"
+                Offset="1" />
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="ProgressBarIndicatorAnimatedFill"
+                     StartPoint="0,0"
+                     EndPoint="1,0">
+            <LinearGradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop Color="#000000FF"
+                    Offset="0" />
+                    <GradientStop Color="#600000FF"
+                    Offset="0.4" />
+                    <GradientStop Color="#600000FF"
+                    Offset="0.6" />
+                    <GradientStop Color="#000000FF"
+                    Offset="1" />
+                </GradientStopCollection>
+            </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+
+        <!--RegExTabControl/RegExTabItem Colors-->
+        <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#FFF" />
+        <SolidColorBrush x:Key="SolidBorderBrush" Color="#888" />
+        <SolidColorBrush x:Key="DisabledForegroundBrush" Color="#888" />
+        <SolidColorBrush x:Key="DisabledBorderBrush" Color="#AAA" />
+        <SolidColorBrush x:Key="DisabledBackgroundBrush" Color="#EEE" />
+        <LinearGradientBrush x:Key="LightBrush" StartPoint="0,0" EndPoint="0,1">
+            <GradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop Color="#FFF" Offset="0.0"/>
+                    <GradientStop Color="#EEE" Offset="1.0"/>
+                </GradientStopCollection>
+            </GradientBrush.GradientStops>
+        </LinearGradientBrush>
+
+        <!--PriorityListBoxItemStyle-->
+        <SolidColorBrush x:Key="SelectedBackgroundBrush" Color="#DDD" />
+
+        <!--GroupBox Colors-->
+        <SolidColorBrush x:Key="ApplicationMenuBorderColor" Color="LightGray"/>
+
+        <!--ApplicationMenuTab Styles-->
+        <Style  TargetType="{x:Type TabControl}" x:Key="ApplicationMenuTabControlStyle">
+            <Setter Property="OverridesDefaultStyle"
+          Value="True" />
+            <Setter Property="SnapsToDevicePixels"
+          Value="True" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabControl}">
+                        <Grid KeyboardNavigation.TabNavigation="Local">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition MinWidth="140" Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="Border"
+                                                Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)">
+                                                <EasingColorKeyFrame KeyTime="0"
+                                                                     Value="#FFAAAAAA" />
+                                            </ColorAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Rectangle Fill="{StaticResource ApplicationMenuLeftPaneBackgroundBrush}" />
+                            <StackPanel 
+                                Margin="0 10" 
+                                x:Name="HeaderPanel"
+                                Grid.Column="0" 
+                                Panel.ZIndex="1"
+                                IsItemsHost="True"
+                                Orientation="Vertical"
+                                KeyboardNavigation.TabIndex="1"
+                                Background="Transparent" />
+                            <Rectangle 
+                                Fill="LightGray" 
+                                Width="1" 
+                                HorizontalAlignment="Right" 
+                                VerticalAlignment="Stretch" />
+                            <Border 
+                                x:Name="Border" 
+                                Background="White"
+                                Grid.Column="1"
+                                KeyboardNavigation.TabNavigation="Local"
+                                KeyboardNavigation.DirectionalNavigation="Contained"
+                                KeyboardNavigation.TabIndex="2">
+                                <ContentPresenter 
+                                x:Name="PART_SelectedContentHost"
+                                Margin="4"
+                                ContentSource="SelectedContent" />
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="{x:Type TabItem}" x:Key="ApplicationMenuTabItemStyle">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Grid x:Name="Root" Height="36">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="SelectionStates">
+                                    <VisualState x:Name="Unselected" />
+                                    <VisualState x:Name="Selected">
+                                        <Storyboard>
+                                            <ColorAnimation To="{StaticResource ApplicationMenuColor}"
+                                                            Duration="0" Storyboard.TargetName="BackgroundBrush"
+                                                            Storyboard.TargetProperty="Color" />
+                                            <ColorAnimation To="White"
+                                                            Duration="0" Storyboard.TargetName="ForegroundBrush"
+                                                            Storyboard.TargetProperty="Color" />
+                                            <DoubleAnimation To="0.65" 
+                                                             Duration="0" Storyboard.TargetName="UpperBorder"
+                                                             Storyboard.TargetProperty="(UIElement.Opacity)" />
+                                            <DoubleAnimation To="0.65" 
+                                                             Duration="0" Storyboard.TargetName="LowerBorder"
+                                                             Storyboard.TargetProperty="(UIElement.Opacity)" />
+                                            <DoubleAnimation To="0.7" 
+                                                             Duration="0" Storyboard.TargetName="RadialBrush"
+                                                             Storyboard.TargetProperty="(UIElement.Opacity)" />
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal" />
+                                    <VisualState x:Name="MouseOver" />
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Border>
+                                <Border.Background>
+                                    <SolidColorBrush x:Name="BackgroundBrush" Color="Transparent" />
+                                </Border.Background>
+                                <TextBlock FontSize="12.5" 
+                                           VerticalAlignment="Center" 
+                                           HorizontalAlignment="Left" 
+                                           Text="{TemplateBinding Header}"
+                                           Margin="20 0">
+                                    <TextBlock.Foreground>
+                                        <SolidColorBrush x:Name="ForegroundBrush" Color="Black" />
+                                    </TextBlock.Foreground>
+                                </TextBlock>
+                            </Border>
+                            <Rectangle x:Name="RadialBrush" Fill="{StaticResource ApplicationMenuSelectedButtonBrush}" Opacity="0" />
+                            <Rectangle x:Name="UpperBorder" Height="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Fill="Black" Opacity="0" />
+                            <Rectangle x:Name="LowerBorder" Height="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Fill="Black" Opacity="0" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Panel.ZIndex" Value="100" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--RegExTab Styles-->
+        <Style  TargetType="{x:Type TabControl}" x:Key="RegExTabControlStyle">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabControl}">
+                        <Grid KeyboardNavigation.TabNavigation="Local">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <TabPanel 
+                                Name="HeaderPanel"
+                                Grid.Row="0"
+                                Panel.ZIndex="1" 
+                                Margin="0,0,4,-1" 
+                                IsItemsHost="True"
+                                KeyboardNavigation.TabIndex="1"
+                                Background="Transparent" />
+                            <Border 
+                                    Name="Border" 
+                                    Grid.Row="1" 
+                                    Background="{StaticResource WindowBackgroundBrush}" 
+                                    BorderBrush="{StaticResource SolidBorderBrush}" 
+                                    BorderThickness="0" 
+                                    KeyboardNavigation.TabNavigation="Local"
+                                    KeyboardNavigation.DirectionalNavigation="Contained"
+                                    KeyboardNavigation.TabIndex="2" >
+                                <ContentPresenter 
+                                  Name="PART_SelectedContentHost"
+                                  Margin="4"
+                                  ContentSource="SelectedContent" />
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="{StaticResource DisabledForegroundBrush}" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource DisabledBorderBrush}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="{x:Type TabItem}" x:Key="RegExTabItemStyle">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Grid>
+                            <Border 
+                                Name="Border"
+                                Margin="0,10,-4,20" 
+                                Background="{StaticResource LightBrush}"
+                                BorderBrush="{StaticResource SolidBorderBrush}" 
+                                BorderThickness="1,1,1,1" 
+                                CornerRadius="4,4,4,4" >
+                                <ContentPresenter 
+                                x:Name="ContentSite"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                ContentSource="Header"
+                                Margin="6,3,6,3"
+                                RecognizesAccessKey="True"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Panel.ZIndex" Value="100" />
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource WindowBackgroundBrush}" />
+                                <Setter TargetName="Border" Property="BorderThickness" Value="1,1,1,1" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource DisabledBackgroundBrush}" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource DisabledBorderBrush}" />
+                                <Setter Property="Foreground" Value="{StaticResource DisabledForegroundBrush}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--Priority List Styles-->
+        <Style TargetType="{x:Type ListBoxItem}" x:Key="PriorityListBoxItemStyle">
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border 
+                                  Name="Border"
+                                  Padding="2"
+                                  SnapsToDevicePixels="true">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Margin="10 0 2 0" HorizontalAlignment="Right" Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(ItemsControl.AlternationIndex), Converter={StaticResource IntIncrementerConverter}}" Grid.Column="0"/>
+                                <TextBlock Margin="2 0 10 0" Grid.Column="1" Text=". "/>
+                                <ContentPresenter Grid.Column="2" />
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="true">
+                                <Setter TargetName="Border" 
+                                            Property="Background"
+                                            Value="{StaticResource SelectedBackgroundBrush}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground"
+                                            Value="{StaticResource DisabledForegroundBrush}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <!--filterd list box style-->
+        <Style x:Key="FilteredListBoxItemStyle" TargetType="ListBoxItem">
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border Name="Border"
+                                Padding="2"
+                                SnapsToDevicePixels="true">
+                            <ContentPresenter />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="true">
+                                <Setter TargetName="Border" Property="Background"
+                                        Value="Red"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground"
+                                        Value="{StaticResource DisabledForegroundBrush}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--Workstation TreView Styles and Ressources-->
+        <Style x:Key="TreeViewItemFocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Border>
+                            <Rectangle Margin="0,0,0,0"
+                                       StrokeThickness="5"
+                                       Stroke="Black"
+                                       StrokeDashArray="1 2"
+                                       Opacity="0" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <HierarchicalDataTemplate x:Key="OrganizationalUnitListTemplate" ItemsSource="{Binding Elements}">
+            <TextBlock Text="{Binding Name}" />
+        </HierarchicalDataTemplate>
+
+        <DataTemplate x:Key="MonitoredSystemListTemplate">
+            <TextBlock Text="{Binding Name}"/>
+        </DataTemplate>
+
+        <DataTemplate x:Key="SingleOrganizationalUnitListTemplate">
+            <TextBlock Text="{Binding Name}"/>
+        </DataTemplate>
+
+        <selectors:TreeViewTemplateSelector x:Key="TreeViewListTemplateSelector"
+                                            MonitoredSystemTemplate="{StaticResource MonitoredSystemListTemplate}"
+                                            OrganizationalUnitTemplate="{StaticResource OrganizationalUnitListTemplate}" />
+
+        <!--Ou TreeView Style-->
+        <Style x:Key="OnlyOUExtendedTreViewItemStyle" TargetType="{x:Type controls:ExtendedTreeViewItem}">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="HorizontalContentAlignment" Value="{Binding Path=HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+            <Setter Property="VerticalContentAlignment" Value="{Binding Path=VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+            <Setter Property="Padding" Value="1,0,0,0" />
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+            <Setter Property="FocusVisualStyle" Value="{StaticResource TreeViewItemFocusVisual}" />
+            <Setter Property="IsExpanded" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type controls:ExtendedTreeViewItem}">
+
+                        <Grid Visibility="{Binding Converter={StaticResource IsMonitoredSystemT0VisibilityConverter}}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition MinWidth="19" Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="ExpansionStates">
+                                    <VisualState x:Name="Expanded">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)"
+                                                 Storyboard.TargetName="ItemsHost">
+                                                <DiscreteObjectKeyFrame KeyTime="0"
+                                            Value="{x:Static Visibility.Visible}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Collapsed" />
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ToggleButton x:Name="Expander"
+                                      Style="{StaticResource ExpandCollapseToggleStyle}"
+                                      ClickMode="Press"
+                                      IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Border x:Name="Bd"
+                                Grid.Column="1"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Padding="{TemplateBinding Padding}">
+                                <ContentPresenter x:Name="PART_Header"
+                                              ContentSource="Header"
+                                              Height="auto"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
+                            </Border>
+                            <ItemsPresenter x:Name="ItemsHost"
+                                        Grid.Row="1"
+                                        Grid.Column="1"
+                                        Grid.ColumnSpan="2"
+                                        Visibility="Collapsed" />
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Trigger.Setters>
+                                    <Setter Property="Background" TargetName="Bd" Value="Red"/>
+                                </Trigger.Setters>
+                            </Trigger>
+                            <Trigger Property="HasItems" Value="false">
+                                <Setter TargetName="Expander" Property="Visibility" Value="Hidden" />
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="HasHeader" Value="false" />
+                                    <Condition Property="Width" Value="Auto" />
+                                </MultiTrigger.Conditions>
+                                <Setter TargetName="PART_Header" Property="MinWidth" Value="75" />
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="HasHeader" Value="false" />
+                                    <Condition Property="Height" Value="Auto" />
+                                </MultiTrigger.Conditions>
+                                <Setter TargetName="PART_Header" Property="MinHeight" Value="19" />
+                            </MultiTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <DataTemplate x:Key="NoMonitoredSystemListTemplate">
+            <Grid Height="0"/>
+        </DataTemplate>
+
+        <selectors:TreeViewTemplateSelector x:Key="OnlyOUTreeViewListTemplateSelector"
+                                            MonitoredSystemTemplate="{StaticResource NoMonitoredSystemListTemplate}"
+                                            OrganizationalUnitTemplate="{StaticResource OrganizationalUnitListTemplate}" />
+
+        <!--data templates-->
+
+        <DataTemplate x:Key="ElementNameDataTemplate">
+            <TextBlock Text="{Binding Name}"/>
+        </DataTemplate>
+
+        <DataTemplate x:Key="EmailAdressDataTemplate">
+            <TextBlock Text="{Binding Email}"/>
+        </DataTemplate>
+
+        <DataTemplate x:Key="IgnoredMSNameDataTemplate">
+            <TextBlock Text="{Binding Item2}"/>
+        </DataTemplate>
+
+        <DataTemplate x:Key="ClusterHeadNodeDataTemplate">
+            <TextBlock Text="{Binding HeadnodeAddress}"/>
+        </DataTemplate>
+
+        <DataTemplate x:Key="OberserverListDataTemplate">
+            <TextBlock Text="{Binding Item3}"/>
+        </DataTemplate>
+
+        <!--collection view sources-->
+        <CollectionViewSource x:Key="LevelViewSource"
+                              Source="{Binding DataModel.LevelDefinitions}">
+            <CollectionViewSource.SortDescriptions>
+                <scm:SortDescription PropertyName="Level"/>
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+
+    </UserControl.Resources>
+
+    <!--ApplicationMenu-->
+    <Grid x:Name="LayoutRoot">
+
+        <TabControl Style="{StaticResource ApplicationMenuTabControlStyle}"
+                    SelectedIndex="{Binding IsMenuItemOpen, Mode=OneWay, Converter={StaticResource MenuOpenItemToIntConverter}}"
+                    FontSize="{Binding FixFontSize}">
+
+            <TabItem Header="{x:Static resources:Strings.Monitoring}" Style="{StaticResource ApplicationMenuTabItemStyle}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="280"/>
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <!--left part-->
+                    <GroupBox
+                        Header="{x:Static resources:Strings.MonitoredSystems}" 
+                        Grid.Column="0"  
+                        BorderBrush="{StaticResource ApplicationMenuBorderColor}" 
+                        BorderThickness="1,1,1,1"  
+                        Margin=" 0 10 0 40"
+                        MinHeight="380"
+                        Height="Auto">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <TextBox Grid.Row="0" Text="{Binding MonitoredSystemFilterString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  
+                                     Margin="0 5 0 5" 
+                                     VerticalAlignment="Center" />
+                            <controls:ExtendedTreeView x:Name="MonitoringMSList"
+                                                       SelectionMode="Multiple"
+                                                       Grid.Row="1" 
+                                                       HorizontalAlignment="Stretch" 
+                                                       Height="Auto" 
+                                                       Margin="0 5 0 5"
+                                                       Visibility="{Binding MonitoredSystemFilterString, Converter={StaticResource SearchStringToVisibilityConverter}}"
+                                                       SelectedItems="{Binding SelectedElements, Mode=TwoWay}"
+                                                       ItemsSource="{Binding DataModel.Elements}"
+                                                       ItemTemplateSelector="{StaticResource TreeViewListTemplateSelector}"/>
+                            <ListBox x:Name="MonitoringMSFilterdList"
+                                     SelectionMode="Extended"
+                                     Grid.Row="1" 
+                                     HorizontalAlignment="Stretch" 
+                                     Height="Auto" 
+                                     Margin="0 5 0 5"
+                                     Visibility="{Binding MonitoredSystemFilterString, Converter={StaticResource NegatedSearchStringToVisibilityConverter}}"
+                                     ItemsSource="{Binding ElementsView}"
+                                     ItemTemplate="{StaticResource MonitoredSystemListTemplate}"
+                                     ItemContainerStyle="{StaticResource FilteredListBoxItemStyle}"
+                                     SelectionChanged="MonitoringMSFilterdList_SelectionChanged"/>
+                            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                                <TextBlock Text="{x:Static resources:Strings.Selected}" />
+                                <TextBlock>
+                                    <TextBlock.Text>
+                                        <MultiBinding Converter="{StaticResource MultiObjectToIntStringSelectorConverter}">
+                                            <Binding Path="SelectedElements.Count"/>
+                                            <Binding Path="SelectedMSFilterdCount"/>
+                                            <Binding Path="MonitoredSystemFilterString"/>
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                            </StackPanel>
+                        </Grid>
+                    </GroupBox>
+
+                    <!--right part-->
+                    <StackPanel Grid.Column="1" Orientation="Vertical" Margin="20 0 20 0">
+                        <Grid>
+                            <Grid.RowDefinitions >
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <!--Box Plugin/Indicator selection-->
+                            <StackPanel Grid.Row="0" Margin=" 0 10 0 10">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="105"/>
+                                        <ColumnDefinition Width="210"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackPanel Grid.Row="0" Grid.Column="0" >
+                                        <TextBlock Text="{x:Static resources:Strings.Plugin}" Margin=" 0 5 0 5"/>
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Row="0" Grid.Column="1">
+                                        <ComboBox x:Name="MonitoringPluginList"
+                                                  Width="190" 
+                                                  Height="21"
+                                                  ItemTemplate="{StaticResource ElementNameDataTemplate}"
+                                                  SelectedIndex="0">
+                                            <ComboBox.ItemsSource>
+                                                <MultiBinding Converter="{StaticResource MultiObjectStringSelectorConverter}" Mode="OneWay">
+                                                    <Binding ElementName="MonitoringMSList" Path="SelectedItem.Plugins"/>
+                                                    <Binding ElementName="MonitoringMSFilterdList" Path="SelectedItem.Plugins"/>
+                                                    <Binding Path="MonitoredSystemFilterString"/>
+                                                </MultiBinding>
+                                            </ComboBox.ItemsSource>
+                                        </ComboBox>
+                                    </StackPanel>
+                                    <!--ItemsSource="{Binding ElementName=MonitoringMSList, Path=SelectedItem.Plugins}"-->
+
+                                    <StackPanel Grid.Row="1" Grid.Column="0" >
+                                        <TextBlock Text="{x:Static resources:Strings.Indicator}" Margin=" 0 5 0 5"></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Grid.Column="1" >
+                                        <ComboBox x:Name="MonitoringIndicatorList" 
+                                                  Width="190" 
+                                                  Height="21"
+                                                  ItemsSource="{Binding ElementName=MonitoringPluginList, Path=SelectedItem.Indicators}"
+                                                  ItemTemplate="{StaticResource ElementNameDataTemplate}"
+                                                  SelectedIndex="0"
+                                                  />
+                                    </StackPanel>
+
+                                </Grid>
+                            </StackPanel>
+
+                            <!--Box Intervalls-->
+                            <GroupBox 
+                                Header="{x:Static resources:Strings.Intervalls}" 
+                                Grid.Row="1"  
+                                BorderBrush="{StaticResource ApplicationMenuBorderColor}" 
+                                BorderThickness="1,1,1,1"  
+                                Margin=" 0 10 0 10"
+                                MinWidth="300"
+                                MaxWidth="400">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="105"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Row="0" Grid.Column="0" >
+                                        <TextBlock Text="{x:Static resources:Strings.Update}" Margin=" 0 2 0 2"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="1">
+                                        <picker:TimeControl x:Name="UpdateInterval" 
+                                                            HorizontalAlignment="Left"
+                                                            Value="{Binding ElementName=MonitoringIndicatorList, Path=SelectedItem.UpdateInterval, Mode=TwoWay}"/>
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Row="1" Grid.Column="0" >
+                                        <TextBlock Text="{x:Static resources:Strings.Mapping}" Margin=" 0 2 0 2"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Grid.Column="1" >
+                                        <picker:TimeControl x:Name="MappingDuration" 
+                                                            HorizontalAlignment="Left"
+                                                            Value="{Binding ElementName=MonitoringIndicatorList, Path=SelectedItem.MappingDuration, Mode=TwoWay}"/>
+                                    </StackPanel>
+                                </Grid>
+                            </GroupBox>
+
+                            <!--Box Storage Duration-->
+                            <GroupBox 
+                                Header="{x:Static resources:Strings.StorageDuration}" 
+                                Grid.Row="2"  
+                                BorderBrush="{StaticResource ApplicationMenuBorderColor}" 
+                                BorderThickness="1,1,1,1"  
+                                Margin=" 0 10 0 10"
+                                MinWidth="300"
+                                MaxWidth="400">
+                                <Grid>
+                                    <picker:NumericBox x:Name="StorageDuration"
+                                                       HorizontalAlignment="Left"
+                                                       Minimum="0"
+                                                       ValueFormat="0 Tage"
+                                                       Value="{Binding ElementName=MonitoringIndicatorList, Path=SelectedItem.StorageDuration, Mode=TwoWay, Converter={StaticResource TimeSpanToIntConverter}}"/>
+                                </Grid>
+                            </GroupBox>
+
+                            <!--Box RegEx-->
+                            <GroupBox Header="{x:Static resources:Strings.RegEX}" 
+                                      Grid.Row="3"  
+                                      BorderBrush="{StaticResource ApplicationMenuBorderColor}" 
+                                      BorderThickness="1,1,1,1"  
+                                      Margin=" 0 10 0 10"
+                                      MinWidth="300"
+                                      MaxWidth="800">
+                                <TabControl Style="{StaticResource RegExTabControlStyle}">
+                                    <!--RegEx Tab RegEx-->
+                                    <TabItem Header="{x:Static resources:Strings.RegEX}" Style="{StaticResource RegExTabItemStyle}">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="95"/>
+                                                <!--Label-->
+                                                <ColumnDefinition Width="*" MinWidth="175" MaxWidth="700"/>
+                                                <!--TextBox-->
+                                            </Grid.ColumnDefinitions>
+                                            <StackPanel Grid.Row="0" Grid.Column="0" >
+                                                <TextBlock Text="{x:Static resources:Strings.Filter}" Margin=" 0 5 0 5"/>
+                                            </StackPanel>
+                                            <StackPanel Grid.Row="0" Grid.Column="1">
+                                                <TextBox x:Name="FilterStatemntRegExTextBox" 
+                                                         Width="Auto" 
+                                                         Height="21"
+                                                         Text="{Binding ElementName=MonitoringIndicatorList, Path=SelectedItem.FilterStatement, Mode=TwoWay}"/>
+                                            </StackPanel>
+
+                                            <StackPanel Grid.Row="1" Grid.Column="0" >
+                                                <TextBlock Text="{x:Static resources:Strings.MetricWarning}" Margin=" 0 5 0 5"></TextBlock>
+                                            </StackPanel>
+                                            <StackPanel Grid.Row="1" Grid.Column="1">
+                                                <TextBox x:Name="WarningStatemntRegExTextBox" 
+                                                         Width="Auto" 
+                                                         Height="21"
+                                                         Text="{Binding ElementName=MonitoringIndicatorList, Path=SelectedItem.StatementWarning, Mode=TwoWay}"/>
+                                            </StackPanel>
+
+                                            <StackPanel Grid.Row="2" Grid.Column="0" >
+                                                <TextBlock Text="{x:Static resources:Strings.MetricCritical}" Margin=" 0 5 0 5"></TextBlock>
+                                            </StackPanel>
+                                            <StackPanel Grid.Row="2" Grid.Column="1">
+                                                <TextBox x:Name="CrtitcalStatemntRegExTextBox" 
+                                                         Width="Auto" 
+                                                         Height="21"
+                                                         Text="{Binding ElementName=MonitoringIndicatorList, Path=SelectedItem.StatementCritical, Mode=TwoWay}"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </TabItem>
+
+                                    <!--RegEx Tab Normal-->
+                                    <TabItem Header="{x:Static resources:Strings.Normal}" 
+                                             Style="{StaticResource RegExTabItemStyle}">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="95"/>
+                                                <!--Label-->
+                                                <ColumnDefinition Width="40"/>
+                                                <ColumnDefinition Width="*" MinWidth="140" MaxWidth="700"/>
+                                                <!--ListBox-->
+                                                <ColumnDefinition Width="25"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <TextBlock Text="{x:Static resources:Strings.Filter}" 
+                                                       Margin=" 0 5 0 5"
+                                                       Grid.Column="0"
+                                                       Grid.Row="0"/>
+                                            <TextBox Text="{Binding ElementName=MonitoringIndicatorList, Path=SelectedItem.FilterStatement, Mode=OneWay}" 
+                                                     Grid.Column="1" 
+                                                     Grid.ColumnSpan="2"
+                                                     Grid.Row="0" 
+                                                     Width="auto"
+                                                     MaxWidth="300"
+                                                     Height="auto"
+                                                     IsEnabled="False"
+                                                     Margin="0 0 0 1"/>
+                                            <RibbonButton x:Name="RegExFilterGenDelete"
+                                                          SmallImageSource="/MISD.Client;component/Resources/Icons/Annotate_Disabled.ico"  
+                                                          Margin="2 0 2 1"
+                                                          Grid.Row="0"
+                                                          Grid.Column="3"
+                                                          Click="RegExFilterGenDelete_Click"/>
+                                            <ComboBox Name="RegExGenFilterOp" 
+                                                      VerticalAlignment="Center" 
+                                                      HorizontalAlignment="Center" 
+                                                      Margin="0 0 0 5"
+                                                      Width="40" 
+                                                      Height="21" 
+                                                      Grid.Row="1"
+                                                      Grid.Column="1"
+                                                      SelectedItem="&gt;">
+                                                <ComboBoxItem Content="&gt;"/>
+                                                <ComboBoxItem Content="&lt;"/>
+                                                <ComboBoxItem Content="="/>
+                                                <ComboBoxItem Content="&#8712;"/>
+                                                <ComboBoxItem Content="&#8713;"/>
+                                            </ComboBox>
+                                            <TextBox x:Name="RegExGeneratorFilter"
+                                                     Grid.Row="1"
+                                                     Grid.Column="2"
+                                                     Margin="0 0 0 5"
+                                                     BorderBrush="Blue"/>
+                                            <RibbonButton x:Name="RegExFilterGenAdd"
+                                                          SmallImageSource="/MISD.Client;component/Resources/Icons/112_Plus_Green.ico"  
+                                                          Margin="2 0 2 5"
+                                                          Grid.Row="1"
+                                                          Grid.Column="3"
+                                                          Click="RegExFilterGenAdd_Click"/>
+
+                                            <TextBlock Text="{x:Static resources:Strings.MetricWarning}" 
+                                                       Margin=" 0 5 0 5"
+                                                       Grid.Column="0"
+                                                       Grid.Row="2"/>
+                                            <TextBox Text="{Binding ElementName=MonitoringIndicatorList, Path=SelectedItem.StatementWarning, Mode=OneWay}" 
+                                                     Grid.Column="1" 
+                                                     Grid.ColumnSpan="2"
+                                                     Grid.Row="2"
+                                                     Width="auto" 
+                                                     MaxWidth="300"
+                                                     Height="auto"
+                                                     Margin="0 0 0 1"
+                                                     IsEnabled="False"/>
+                                            <RibbonButton x:Name="RegExMetricWarningGenDelete"
+                                                          SmallImageSource="/MISD.Client;component/Resources/Icons/Annotate_Disabled.ico"  
+                                                          Margin="2 0 2 1"
+                                                          Grid.Row="2"
+                                                          Grid.Column="3"
+                                                          Click="RegExMetricWarningGenDelete_Click"/>
+                                            <ComboBox Name="RegExGenMetricWarningOp" 
+                                                      VerticalAlignment="Center" 
+                                                      HorizontalAlignment="Center" 
+                                                      Margin="0 0 0 5"
+                                                      Width="40" 
+                                                      Height="21" 
+                                                      Grid.Row="3"
+                                                      Grid.Column="1"
+                                                      SelectedItem="&gt;">
+                                                <ComboBoxItem Content="&gt;"/>
+                                                <ComboBoxItem Content="&lt;"/>
+                                                <ComboBoxItem Content="="/>
+                                                <ComboBoxItem Content="&#8712;"/>
+                                                <ComboBoxItem Content="&#8713;"/>
+                                            </ComboBox>
+                                            <TextBox x:Name="RegExGeneratorMetricWarning"
+                                                     Grid.Row="3"
+                                                     Grid.Column="2"
+                                                     Margin="0 0 0 5"
+                                                     BorderBrush="Blue"/>
+                                            <RibbonButton x:Name="RegExMetricWarningGenAdd"
+                                                          SmallImageSource="/MISD.Client;component/Resources/Icons/112_Plus_Green.ico"  
+                                                          Margin="2 0 2 5"
+                                                          Grid.Row="3"
+                                                          Grid.Column="3"
+                                                          Click="RegExMetricWarningGenAdd_Click"/>
+
+                                            <TextBlock Text="{x:Static resources:Strings.MetricCritical}" 
+                                                       Margin=" 0 5 0 5"
+                                                       Grid.Column="0"
+                                                       Grid.Row="4"/>
+                                            <TextBox Text="{Binding ElementName=MonitoringIndicatorList, Path=SelectedItem.StatementCritical, Mode=OneWay}" 
+                                                     Grid.Column="1" 
+                                                     Grid.ColumnSpan="2"
+                                                     Grid.Row="4" 
+                                                     Margin="0 0 0 1"
+                                                     Width="auto" 
+                                                     MaxWidth="300"
+                                                     Height="auto"
+                                                     IsEnabled="False"/>
+                                            <RibbonButton x:Name="RegExMetricCriticalGenDelete"
+                                                          SmallImageSource="/MISD.Client;component/Resources/Icons/Annotate_Disabled.ico"  
+                                                          Margin="2 0 2 1"
+                                                          Grid.Row="4"
+                                                          Grid.Column="3"
+                                                          Click="RegExMetricCriticalGenDelete_Click"/>
+                                            <ComboBox Name="RegExGenMetricCriticalOp" 
+                                                      VerticalAlignment="Center" 
+                                                      HorizontalAlignment="Center" 
+                                                      Margin="0 0 0 5"
+                                                      Width="40" 
+                                                      Height="21" 
+                                                      Grid.Row="5"
+                                                      Grid.Column="1"
+                                                      SelectedItem="&gt;">
+                                                <ComboBoxItem Content="&gt;"/>
+                                                <ComboBoxItem Content="&lt;"/>
+                                                <ComboBoxItem Content="="/>
+                                                <ComboBoxItem Content="&#8712;"/>
+                                                <ComboBoxItem Content="&#8713;"/>
+                                            </ComboBox>
+                                            <TextBox x:Name="RegExGeneratorMetricCritical"
+                                                     Grid.Row="5"
+                                                     Grid.Column="2"
+                                                     Margin="0 0 0 5"
+                                                     BorderBrush="Blue"/>
+                                            <RibbonButton x:Name="RegExMetricCriticalGenAdd"
+                                                          SmallImageSource="/MISD.Client;component/Resources/Icons/112_Plus_Green.ico"  
+                                                          Margin="2 0 2 5"
+                                                          Grid.Row="5"
+                                                          Grid.Column="3"
+                                                          Click="RegExMetricCriticalGenAdd_Click"/>
+                                        </Grid>
+                                    </TabItem>
+                                </TabControl>
+                            </GroupBox>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="{x:Static resources:Strings.Administration}" Style="{StaticResource ApplicationMenuTabItemStyle}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <GroupBox Header="{x:Static resources:Strings.IgnoreList}" 
+                              Grid.Row="0"  
+                              Grid.Column="0"
+                              BorderBrush="{StaticResource ApplicationMenuBorderColor}" 
+                              BorderThickness="1,1,1,1"  
+                              Margin=" 0 5 0 5">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="210"/>
+                                <ColumnDefinition Width="90"/>
+                                <ColumnDefinition Width="210"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{x:Static resources:Strings.NotIgnored}" Grid.Row="0" Grid.Column="0" Margin=" 10 5 0 5"/>
+                            <TextBox Text="{Binding MonitoredSystemFilterString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                     Grid.Row="1"
+                                     Margin=" 0 5 0 5"/>
+                            <controls:ExtendedTreeView x:Name="UnignoredMSList" 
+                                                       SelectionMode="Extended"
+                                                       Height="auto" 
+                                                       Width="auto" 
+                                                       Grid.Column="0"
+                                                       Grid.Row="2"
+                                                       Visibility="{Binding MonitoredSystemFilterString, Converter={StaticResource SearchStringToVisibilityConverter}}"
+                                                       SelectedItems="{Binding SelectedElements, Mode=TwoWay}"
+                                                       ItemsSource="{Binding DataModel.Elements}"
+                                                       ItemTemplateSelector="{StaticResource TreeViewListTemplateSelector}"/>
+                            <ListBox x:Name="UnignoredMSFilterdList"
+                                     SelectionMode="Extended"
+                                     Height="Auto"
+                                     Width="auto"
+                                     Grid.Column="0"
+                                     Grid.Row="2"
+                                     Visibility="{Binding MonitoredSystemFilterString, Converter={StaticResource NegatedSearchStringToVisibilityConverter}}"
+                                     ItemsSource="{Binding ElementsView}"
+                                     ItemTemplate="{StaticResource MonitoredSystemListTemplate}"
+                                     ItemContainerStyle="{StaticResource FilteredListBoxItemStyle}"
+                                     SelectionChanged="UnignoredMSFilterdList_SelectionChanged"/>
+                            <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal">
+                                <TextBlock Text="{x:Static resources:Strings.Selected}"  Margin=" 10 5 0 5"/>
+                                <TextBlock Margin="0 5 0 5">
+                                    <TextBlock.Text>
+                                        <MultiBinding Converter="{StaticResource MultiObjectToIntStringSelectorConverter}" Mode="OneWay">
+                                            <Binding Path="SelectedElements.Count"/>
+                                            <Binding Path="SelectedUnignoredMSFilterdCount"/>
+                                            <Binding Path="MonitoredSystemFilterString"/>
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                            </StackPanel>
+
+                            <Grid Grid.Row="2" Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <RibbonButton Name="IgnoredOn" 
+                                              LargeImageSource="/MISD.Client;component/Resources/Icons/112_RightArrowLong_Grey_48x48_72.png"  
+                                              Grid.Row="0"
+                                              Click="IgnoredOn_Click"/>
+                                <RibbonButton Name="IgnoredOff" 
+                                              LargeImageSource="/MISD.Client;component/Resources/Icons/112_LeftArrowLong_Grey_48x48_72.png"  
+                                              Grid.Row="1"
+                                              Click="IgnoredOff_Click"/>
+                            </Grid>
+
+                            <TextBlock Text="{x:Static resources:Strings.Ignored}" Grid.Row="0" Grid.Column="2" Margin=" 10 5 0 5"/>
+                            <TextBox Text="{Binding IgnoredMonitoredSystemFilterString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                       Grid.Row="1" Grid.Column="2"
+                                       Margin=" 5 5 5 5"/>
+                            <ListBox x:Name="IgnoredMSList"
+                                     Height="auto" 
+                                     Width="200" 
+                                     Grid.Row="2" 
+                                     Grid.Column="2"
+                                     SelectionMode="Extended"
+                                     ItemsSource="{Binding IgnoredMonitoredSystemView}"
+                                     ItemTemplate="{StaticResource IgnoredMSNameDataTemplate}"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="{x:Static resources:Strings.Cluster}" 
+                              Grid.Row="1"  
+                              Grid.Column="0"
+                              BorderBrush="{StaticResource ApplicationMenuBorderColor}" 
+                              BorderThickness="1,1,1,1"  
+                              Margin=" 0 5 0 5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="210"/>
+                                <ColumnDefinition Width="330"/>
+                                <ColumnDefinition Width="60"/>
+                            </Grid.ColumnDefinitions>
+                            <!--Cluster Administration Selection-->
+                            <Grid Grid.Column="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="{x:Static resources:Strings.GivenClusters}" Grid.Row="0" Margin=" 10 5 0 5"/>
+                                <TextBox Text="{Binding ClusterFilterString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                         Grid.Row="1"
+                                         Margin=" 5 5 5 5"/>
+                                <ListBox x:Name="AdministrationClusterList" 
+                                         Height="auto" 
+                                         Width="200" 
+                                         Grid.Row="2"
+                                         ItemsSource="{Binding DataModel.Clusters}"
+                                         SelectedIndex="0"
+                                         ItemTemplate="{StaticResource ClusterHeadNodeDataTemplate}"
+                                         />
+                            </Grid>
+                            <!--Cluster Administration Details-->
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="210"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{x:Static resources:Strings.Type}" Grid.Row="0" Grid.Column="0" Margin="10 0 5 0"/>
+                                <ComboBox Width="190" 
+                                          Height="21" 
+                                          Grid.Row="0" 
+                                          Grid.Column="1" 
+                                          Margin="10 0 5 5"
+                                          IsEnabled="{Binding ElementName=AdministrationClusterList, Path=SelectedItems.IsEmpty, Converter={StaticResource NegatedBooleanToBoolean}}"
+                                          ItemsSource="{Binding DataModel.ClusterPlatforms}"
+                                          SelectedItem="{Binding ElementName=AdministrationClusterList, Path=SelectedItem.CurrentPlatform, Mode=TwoWay}"/>
+
+                                <TextBlock Text="Head-Node-Adresse:" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="10 5 5 0"/>
+                                <TextBox Name="ClusterHeadNodeAdress" 
+                                         Grid.Row="2" Grid.Column="0" 
+                                         Grid.ColumnSpan="2" 
+                                         Width="auto" 
+                                         Height="21" 
+                                         IsEnabled="{Binding ElementName=AdministrationClusterList, Path=SelectedItems.IsEmpty, Converter={StaticResource NegatedBooleanToBoolean}}"
+                                         Margin="10 0 5 5"
+                                         Text="{Binding ElementName=AdministrationClusterList, UpdateSourceTrigger=PropertyChanged,  Path=SelectedItem.HeadnodeAddress, Mode=TwoWay}"/>
+
+
+                                <TextBlock Text="{x:Static resources:Strings.User}"  Grid.Row="5" Grid.Column="0" Width="auto" Height="21" Margin="10 5 5 0"/>
+                                <TextBox Name="ClusterUser" 
+                                         Grid.Row="5" 
+                                         Grid.Column="1"  
+                                         Width="auto"
+                                         Height="21" 
+                                         Margin="10 5 5 0"
+                                         IsEnabled="{Binding ElementName=AdministrationClusterList, Path=SelectedItems.IsEmpty, Converter={StaticResource NegatedBooleanToBoolean}}"
+                                         Text="{Binding ElementName=AdministrationClusterList, UpdateSourceTrigger=PropertyChanged,  Path=SelectedItem.UserName, Mode=TwoWay}"/>
+
+                                <TextBlock Text="{x:Static resources:Strings.Password}"  Grid.Row="6" Grid.Column="0" Width="auto" Height="21" Margin="10 5 5 0"/>
+                                <TextBox Name="ClusterPassword" 
+                                         Grid.Row="6" 
+                                         Grid.Column="1"  
+                                         Width="auto" 
+                                         Height="21" 
+                                         IsEnabled="{Binding ElementName=AdministrationClusterList, Path=SelectedItems.IsEmpty, Converter={StaticResource NegatedBooleanToBoolean}}"
+                                         Margin="10 5 5 0"
+                                         Text="{Binding ElementName=AdministrationClusterList,  UpdateSourceTrigger=PropertyChanged, Path=SelectedItem.Password, Mode=TwoWay}"/>
+                            </Grid>
+                            <!--Cluster Add/Submit-->
+                            <Grid Grid.Column="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <RibbonButton Name="ClusterAdd" 
+                                              LargeImageSource="/MISD.Client;component/Resources/Icons/112_Plus_Green.ico"  
+                                              Grid.Row="0"
+                                              Click="ClusterAdd_Click"/>
+                                <RibbonButton Name="ClusterDelete" 
+                                              LargeImageSource="/MISD.Client;component/Resources/Icons/112_Minus_Orange.ico"  
+                                              Grid.Row="1"
+                                              Click="ClusterDelete_Click"/>
+                            </Grid>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="{x:Static resources:Strings.OUs}" 
+                              Grid.Row="2"
+                              Grid.Column="0"
+                              BorderBrush="{StaticResource ApplicationMenuBorderColor}" 
+                              BorderThickness="1,1,1,1"  
+                              Margin=" 0 5 0 40">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="210"/>
+                                <ColumnDefinition Width="330"/>
+                                <ColumnDefinition Width="60"/>
+                            </Grid.ColumnDefinitions>
+                            <!--OU Administration Selection-->
+                            <Grid Grid.Column="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25"/>
+                                    <RowDefinition Height="25"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="{x:Static resources:Strings.ExistOU}" 
+                                           Grid.Row="0" 
+                                           Margin=" 10 5 0 5"/>
+                                <TextBox Text="{Binding OrganisationUnitFilterString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                         Grid.Row="1"
+                                         Margin=" 5 5 5 0"/>
+                                <controls:ExtendedTreeView x:Name="AdministrationOUList"
+                                                           SelectionMode="Multiple"
+                                                           Grid.Row="2" 
+                                                           Height="Auto" 
+                                                           Width="200"
+                                                           Margin="0 5 0 5"
+                                                           Visibility="{Binding OrganisationUnitFilterString, Converter={StaticResource SearchStringToVisibilityConverter}}"
+                                                           SelectedItems="{Binding SelectedElements, Mode=TwoWay}"
+                                                           ItemsSource="{Binding DataModel.Elements}"
+                                                           ItemTemplateSelector="{StaticResource OnlyOUTreeViewListTemplateSelector}"
+                                                           ItemContainerStyle="{StaticResource OnlyOUExtendedTreViewItemStyle}"/>
+                                <ListBox x:Name="AdministrationOUFilterdList"
+                                         SelectionMode="Extended"
+                                         Height="Auto"
+                                         Width="200"
+                                         Grid.Row="2"
+                                         Margin="0 5 0 5"
+                                         Visibility="{Binding OrganisationUnitFilterString, Converter={StaticResource NegatedSearchStringToVisibilityConverter}}"
+                                         ItemsSource="{Binding OUView}"
+                                         ItemTemplate="{StaticResource SingleOrganizationalUnitListTemplate}"
+                                         ItemContainerStyle="{StaticResource FilteredListBoxItemStyle}"
+                                         SelectionChanged="AdministrationOUFilterdList_SelectionChanged"/>
+
+                                <StackPanel Grid.Row="3" Orientation="Horizontal">
+                                    <TextBlock Text="{x:Static resources:Strings.Selected}"  Margin=" 10 5 0 5"/>
+                                    <TextBlock Margin=" 0 5 0 5">
+                                        <TextBlock.Text>
+                                            <MultiBinding Converter="{StaticResource MultiObjectToIntStringSelectorConverter}" Mode="OneWay">
+                                                <Binding Path="SelectedElements.Count"/>
+                                                <Binding Path="SelectedOUFilterdCount"/>
+                                                <Binding Path="OrganisationUnitFilterString"/>
+                                            </MultiBinding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </StackPanel>
+                            </Grid>
+
+                            <!--OU Administration Details-->
+                            <Grid Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="210"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="{x:Static resources:Strings.Name}" Grid.Column="0" Grid.Row="1" Width="auto" Height="21" Margin="10 5 5 0"/>
+                                <TextBox Name="OUName" 
+                                         Grid.Column="1"  
+                                         Grid.Row="1"
+                                         Width="auto" 
+                                         Height="21" 
+                                         Margin="10 5 5 0">
+                                    <TextBox.Text>
+                                        <MultiBinding Converter="{StaticResource MultiObjectStringSelectorConverter}" Mode="TwoWay">
+                                            <Binding ElementName="AdministrationOUList" Path="SelectedItem.Name" Mode="TwoWay"/>
+                                            <Binding ElementName="AdministrationOUFilterdList" Path="SelectedItem.Name" Mode="TwoWay"/>
+                                            <Binding Path="OrganisationUnitFilterString" Mode="OneWay"/>
+                                        </MultiBinding>
+                                    </TextBox.Text>
+                                </TextBox>
+                            </Grid>
+                            <!--OU Add/Submit-->
+                            <Grid Grid.Column="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <RibbonButton Name="OUAdd" 
+                                              LargeImageSource="/MISD.Client;component/Resources/Icons/112_Plus_Green.ico"  
+                                              Grid.Row="0"
+                                              Click="OUAdd_Click"/>
+                                <RibbonButton Name="OUDelete" 
+                                              LargeImageSource="/MISD.Client;component/Resources/Icons/112_Minus_Orange.ico"  
+                                              Grid.Row="1"
+                                              Click="OUDelete_Click"/>
+                            </Grid>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="{x:Static resources:Strings.Email}" Style="{StaticResource ApplicationMenuTabItemStyle}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <GroupBox Header="{x:Static resources:Strings.MailSettings}" 
+                              Grid.Row="0"
+                              Grid.Column="0"
+                              BorderBrush="{StaticResource ApplicationMenuBorderColor}" 
+                              BorderThickness="1,1,1,1"  
+                              Margin=" 0 10 0 10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="210"/>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="230"/>
+                                <ColumnDefinition Width="60"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <!--Search Mail-->
+                            <TextBlock Text="{x:Static resources:Strings.AvailableEMails}" Grid.Column="0" Grid.Row="0" Margin=" 10 5 0 5"/>
+                            <TextBox Text="{Binding MailUserFilterString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                     Grid.Column="0" 
+                                     Grid.Row="1" 
+                                     Margin="5 5 5 5"/>
+                            <ListBox x:Name="EmailAdressList" 
+                                     Height="auto" 
+                                     Width="200" 
+                                     Grid.Column="0" 
+                                     Grid.Row="2" 
+                                     Grid.RowSpan="4"
+                                     ItemsSource="{Binding MailUserView}"
+                                     ItemTemplate="{StaticResource ElementNameDataTemplate}"
+                                     SelectedIndex="0"
+                                     SelectionChanged="EmailAdressList_SelectionChanged"/>
+                            <!--Details-->
+                            <TextBlock Text="{x:Static resources:Strings.Name}" Grid.Column="1" Grid.Row="1" Margin=" 10 5 0 5"/>
+                            <TextBox x:Name="UserName"  
+                                     Grid.Column="2" 
+                                     Grid.Row="1" 
+                                     Width="auto" 
+                                     Height="21" 
+                                     Margin="10 0 5 0"
+                                     IsEnabled="{Binding ElementName=EmailAdressList, Path=SelectedItems.IsEmpty, Converter={StaticResource NegatedBooleanToBoolean}}"
+                                     Text="{Binding ElementName=EmailAdressList, UpdateSourceTrigger=PropertyChanged,  Path=SelectedItem.Name, Mode=TwoWay}"/>
+
+                            <TextBlock Text="{x:Static resources:Strings.Email}" Grid.Column="1" Grid.Row="2" Margin=" 10 5 0 5"/>
+                            <TextBox x:Name="UserEmailAdress"  
+                                     Grid.Column="2" Grid.Row="2" 
+                                     Width="auto" Height="21" 
+                                     Margin="10 0 5 0"
+                                     IsEnabled="{Binding ElementName=EmailAdressList, Path=SelectedItems.IsEmpty, Converter={StaticResource NegatedBooleanToBoolean}}"
+                                     Text="{Binding ElementName=EmailAdressList,  UpdateSourceTrigger=PropertyChanged,  Path=SelectedItem.Email, Mode=TwoWay}"/>
+
+                            <TextBlock Text="{x:Static resources:Strings.DailyMail}" Grid.Column="1" Grid.Row="3" Margin=" 10 5 0 5"/>
+
+                            <CheckBox x:Name="DailyMailOn" 
+                                         Grid.Column="2" Grid.Row="3" 
+                                         Margin=" 10 5 0 5" 
+                                         IsEnabled="{Binding ElementName=EmailAdressList, Path=SelectedItems.IsEmpty, Converter={StaticResource NegatedBooleanToBoolean}}"
+                                         IsChecked="{Binding ElementName=EmailAdressList, UpdateSourceTrigger=PropertyChanged,  Path=SelectedItem.DailyMail, Mode=TwoWay}"/>
+
+                            <!--Buttons-->
+                            <RibbonButton Name="EmailAdd" 
+                                          LargeImageSource="/MISD.Client;component/Resources/Icons/112_Plus_Green.ico" 
+                                          Grid.Column="3"
+                                          Grid.Row="1"
+                                          Grid.RowSpan="3"
+                                          Click="EmailAdd_Click"/>
+                            <RibbonButton Name="EmailDelete" 
+                                          LargeImageSource="/MISD.Client;component/Resources/Icons/112_Minus_Orange.ico"  
+                                          Grid.Column="3"
+                                          Grid.Row="4"
+                                          Grid.RowSpan="2"
+                                          VerticalAlignment="Top"
+                                          Click="EmailDelete_Click"/>
+
+
+
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="{x:Static resources:Strings.MailWarning}" 
+                              Grid.Row="1" 
+                              Grid.Column="0"
+                              BorderBrush="{StaticResource ApplicationMenuBorderColor}" 
+                              BorderThickness="1,1,1,1"  
+                              Margin=" 0 10 0 40">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="210"/>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="210"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <!--Search Monitored Systems-->
+                            <TextBlock Text="{x:Static resources:Strings.NotRegisterd}" Grid.Column="0" Grid.Row="0" Margin=" 10 5 0 5"/>
+                            <TextBox Text="{Binding UnObservedMonitoredSystemFilterString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                       Grid.Column="0" Grid.Row="1" 
+                                       Margin="10 0 0 5"/>
+                            <ListBox Name="EmailUnregisterdMSList"
+                                     Grid.Column="0"
+                                     Grid.Row="2"
+                                     Width="auto"
+                                     Height="auto"
+                                     Margin="10 0 0 10"
+                                     SelectionMode="Extended"
+                                     ItemsSource="{Binding UnObservedMonitoredSystemView}"
+                                     ItemTemplate="{StaticResource OberserverListDataTemplate}"/>
+                            <StackPanel Grid.Column="0" Grid.Row="3" Margin=" 10 5 0 5" Orientation="Horizontal">
+                                <TextBlock Text="{x:Static resources:Strings.Selected}" />
+                                <TextBlock Text="{Binding ElementName=EmailUnregisterdMSList, Path=SelectedItems.Count, FallbackValue=0}"/>
+                            </StackPanel>
+
+
+                            <!--Select ON/OF-->
+                            <Grid Grid.Column="1" Grid.Row="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <RibbonButton Name="EmailObserverOn" 
+                                              LargeImageSource="/MISD.Client;component/Resources/Icons/112_RightArrowLong_Grey_48x48_72.png" 
+                                              Grid.Row="0"
+                                              Click="EmailObserverOn_Click"/>
+                                <RibbonButton Name="EmailObserverOff" 
+                                              LargeImageSource="/MISD.Client;component/Resources/Icons/112_LeftArrowLong_Grey_48x48_72.png"  
+                                              Grid.Row="1"
+                                              Click="EmailObserverOff_Click"/>
+                            </Grid>
+
+                            <!--Search User2-->
+                            <TextBlock Text="{x:Static resources:Strings.Registerd}" Grid.Column="2" Grid.Row="0" Margin=" 10 5 0 5"/>
+                            <TextBox Text="{Binding ObservedMonitoredSystemFilterString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                       Grid.Column="2" Grid.Row="1"
+                                       Margin=" 10 0 0 5"/>
+                            <ListBox x:Name="EmailRegisterdMSList"
+                                     Grid.Column="2"
+                                     Grid.Row="2"
+                                     Width="auto"
+                                     Height="auto"
+                                     Margin="10 0 0 10"
+                                     SelectionMode="Extended"
+                                     ItemsSource="{Binding ObservedMonitoredSystemView}"
+                                     ItemTemplate="{StaticResource OberserverListDataTemplate}"/>
+                            <StackPanel Grid.Column="2" Grid.Row="3" Margin=" 10 5 0 5" Orientation="Horizontal">
+                                <TextBlock Text="{x:Static resources:Strings.Selected}" />
+                                <TextBlock Text="{Binding ElementName=EmailRegisterdMSList, Path=SelectedItems.Count, FallbackValue=0}"/>
+                            </StackPanel>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="{x:Static resources:Strings.View}" Style="{StaticResource ApplicationMenuTabItemStyle}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <GroupBox Header="{x:Static resources:Strings.PrioPlugins}" 
+                              Grid.Row="0" 
+                              Grid.Column="0"
+                              Grid.RowSpan="2"
+                              BorderBrush="{StaticResource ApplicationMenuBorderColor}" 
+                              BorderThickness="1,1,1,1"  
+                              Margin=" 0 10 10 40">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="230"/>
+                                <ColumnDefinition Width="60"/>
+                            </Grid.ColumnDefinitions>
+                            <ListBox x:Name="PriorityPlugins" 
+                                     Grid.Row="0" 
+                                     Grid.RowSpan="3" 
+                                     Grid.Column="0" 
+                                     Width="200" 
+                                     ItemContainerStyle="{StaticResource PriorityListBoxItemStyle}"
+                                     AlternationCount="{Binding PluginPriority.Count}"
+                                     Height="auto" 
+                                     Margin="10 10 5 10"
+                                     ItemsSource="{Binding PluginPriority, Mode=TwoWay}"/>
+
+                            <RibbonButton Name="PluginUp" 
+                                          LargeImageSource="/MISD.Client;component/Resources/Icons/112_UpArrowLong_Grey_48x48_72.png"  
+                                          Grid.Row="0"
+                                          Grid.Column="1"
+                                          VerticalAlignment="Bottom"
+                                          Click="PluginUp_Click"/>
+                            <RibbonButton Name="PluginDown" 
+                                          LargeImageSource="/MISD.Client;component/Resources/Icons/112_DownArrowLong_Grey_48x48_72.png"  
+                                          Grid.Row="1"
+                                          Grid.Column="1"
+                                          VerticalAlignment="Top"
+                                          Click="PluginDown_Click"/>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox Header="Level Definitions" Visibility="Collapsed"
+                              BorderBrush="{StaticResource ApplicationMenuBorderColor}" 
+                              BorderThickness="1,1,1,1"
+                              Margin=" 10 10 5 10"
+                              Grid.Column="1">
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="160" />
+                                <ColumnDefinition Width="240"/>
+                                <ColumnDefinition Width="60" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <ListBox x:Name="LevelDefinitionsListBox" 
+                                     ItemsSource="{Binding Source={StaticResource LevelViewSource}}"
+                                     Width="auto"
+                                     Margin="10 10 10 10"
+                                     Grid.Column="0"
+                                     Grid.Row="0"
+                                     Grid.RowSpan="6">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{x:Static resources:Strings.Level}" />
+                                            <TextBlock Text=": " />
+                                            <TextBlock Text="{Binding Name}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+
+                            <!--level details-->
+                            <Grid Grid.Column="1" Grid.Row="0">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{x:Static resources:Strings.Name}" Margin=" 5 5 0 0"/>
+                                    <TextBlock Text=": " Margin=" 5 5 0 0" />
+                                    <TextBlock Text="{Binding SelectedValue.Name, ElementName=LevelDefinitionsListBox, Mode=OneWay}" 
+                                             Width="210"
+                                             Height="21"
+                                             Margin=" 5 5 0 0" />
+                                </StackPanel>
+                            </Grid>
+                            <Grid Grid.Column="1" Grid.Row="1">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{x:Static resources:Strings.Level}" Margin=" 5 5 0 0"/>
+                                    <TextBlock Text=": " Margin=" 5 5 0 0" />
+                                    <TextBlock Text="{Binding SelectedValue.Level, ElementName=LevelDefinitionsListBox, Mode=OneWay}"
+                                             Margin=" 5 5 0 0"/>
+                                </StackPanel>
+                            </Grid>
+                            <Grid Grid.Column="1" Grid.Row="2">
+                                <StackPanel Orientation="Horizontal">
+                                    <CheckBox IsChecked="{Binding SelectedValue.UseCustomUI, ElementName=LevelDefinitionsListBox, Mode=TwoWay}"
+                                              Margin=" 5 5 0 0"/>
+                                    <TextBlock Text="{x:Static resources:Strings.UseCustomUI}" Margin=" 5 5 0 0"/>
+                                </StackPanel>
+                            </Grid>
+                            <Grid Grid.Column="1" Grid.Row="3">
+                                <StackPanel Orientation="Horizontal">
+                                    <CheckBox IsChecked="{Binding SelectedValue.HasStatusBar, ElementName=LevelDefinitionsListBox, Mode=TwoWay}"
+                                              Margin=" 5 5 0 0"/>
+                                    <TextBlock Text="{x:Static resources:Strings.ShowTileStatusBar}" Margin=" 5 5 0 0"/>
+                                </StackPanel>
+                            </Grid>
+                            <Grid Grid.Column="1" Grid.Row="4">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{x:Static resources:Strings.NumberOfRows}" Margin=" 5 5 0 0" VerticalAlignment="Center"/>
+                                    <TextBlock Text=": " Margin=" 5 5 0 0" VerticalAlignment="Center"/>
+                                    <picker:NumericBox Value="{Binding SelectedValue.Rows, ElementName=LevelDefinitionsListBox, Mode=TwoWay}"
+                                                       VerticalAlignment="Center"
+                                                       ValueFormat="0"
+                                                       Margin=" 5 5 0 0"/>
+                                </StackPanel>
+                            </Grid>
+
+                            <Grid Grid.Column="2" Grid.Row="1" Grid.RowSpan="4">
+                                <StackPanel Orientation="Vertical">
+                                    <RibbonButton Name="LevelAdd" 
+                                                  LargeImageSource="/MISD.Client;component/Resources/Icons/112_Plus_Green.ico"
+                                                  Click="LevelAdd_Click"/>
+                                    <RibbonButton Name="LevelDelete" 
+                                                  LargeImageSource="/MISD.Client;component/Resources/Icons/112_Minus_Orange.ico"
+                                                  Click="LevelDelete_Click"/>
+                                </StackPanel>
+                            </Grid>
+
+                        </Grid>
+
+                    </GroupBox>
+
+                    <GroupBox Header="{x:Static resources:Strings.TextStyle}" 
+                              Grid.Column="1"
+                              BorderBrush="{StaticResource ApplicationMenuBorderColor}" 
+                              BorderThickness="1,1,1,1"  
+                              Margin=" 10 10 0 40">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="115"/>
+                                <ColumnDefinition Width="115"/>
+                                <ColumnDefinition Width="115"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!--Font-->
+                            <TextBlock Text="{x:Static resources:Strings.Font}" Grid.Column="0" Grid.Row="0" Margin=" 5 5 0 0"/>
+                            <ComboBox Name="Font"
+                                      Height="21"
+                                      Grid.Column="1"
+                                      Grid.ColumnSpan="2"
+                                      Grid.Row="0"
+                                      Margin="5 5 5 5"
+                                      ItemsSource="{x:Static Fonts.SystemFontFamilies}"
+                                      SelectedValue="{Binding ApplicationFont}"/>
+
+                            <!--Font Size-->
+                            <TextBlock Text="{x:Static resources:Strings.FontSize}" Grid.Column="0" Grid.Row="1" Margin=" 5 5 0 0"/>
+                            <StackPanel Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Orientation="Horizontal">
+                                <ComboBox Width="50" 
+                                          Height="21" 
+                                          Margin="5 0 5 5"
+                                          ItemsSource="{Binding FontSizes}"
+                                          SelectedValue="{Binding FontSize, Mode=TwoWay}"/>
+                                <Button Content="A+"
+                                        Name="FontSizeUp"
+                                        Width="21"
+                                        Height="21"
+                                        Margin="5 0 5 5"
+                                        Click="FontSizeUp_Click"/>
+                                <Button Content="A-"
+                                        Name="FonSizeDown"
+                                        Width="21"
+                                        Height="21"
+                                        Margin="5 0 5 5"
+                                        Click="FonSizeDown_Click"/>
+
+                            </StackPanel>
+
+                            <!--Number of Characters-->
+                            <TextBlock Text="{x:Static resources:Strings.NumberOfChar}" 
+                                       Grid.Column="0"
+                                       Grid.ColumnSpan="2"
+                                       Grid.Row="2" 
+                                       Margin=" 5 5 0 5"/>
+                            <picker:NumericBox x:Name="NumberOfCharacters" 
+                                               Value="{Binding NumberOfCharactersInTileName, Mode=TwoWay}" 
+                                               Minimum="0"
+                                               ValueFormat="{x:Static resources:Strings.CharFormat}"
+                                               Grid.Column="2" 
+                                               Grid.Row="2" 
+                                               HorizontalAlignment="Left"
+                                               Margin="5 0 5 5"/>
+
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="{x:Static resources:Strings.Options}" Style="{StaticResource ApplicationMenuTabItemStyle}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <GroupBox Header="{x:Static resources:Strings.Intervalls}" 
+                              Grid.Row="0" 
+                              Grid.Column="0"
+                              BorderBrush="{StaticResource ApplicationMenuBorderColor}" 
+                              BorderThickness="1,1,1,1"  
+                              Margin=" 0 10 0 10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="165"/>
+                                <ColumnDefinition Width="230"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!--MS Intervall-->
+                            <TextBlock Text="{x:Static resources:Strings.MainInterval}" Grid.Column="0" Grid.Row="0" Margin=" 10 5 0 5"/>
+                            <picker:TimeControl x:Name="MainInterval" Grid.Column="1" Grid.Row="0"
+                                                            HorizontalAlignment="Left"
+                                                            Value="{Binding DataModel.MainInterval, Mode=TwoWay}"/>
+                            <!--MS Intervall-->
+                            <TextBlock Text="{x:Static resources:Strings.MonitoredSystemIntervall}" Grid.Column="0" Grid.Row="1" Margin=" 10 5 0 5"/>
+                            <picker:TimeControl x:Name="MonitoredSystemIntervall" Grid.Column="1" Grid.Row="1"
+                                                            HorizontalAlignment="Left"
+                                                            Value="{Binding DataModel.MonitoredSystemInterval, Mode=TwoWay}"/>
+                            <!--Plugin Intervall-->
+                            <TextBlock Text="{x:Static resources:Strings.PluginIntervall}" Grid.Column="0" Grid.Row="2" Margin=" 10 5 0 5"/>
+                            <picker:TimeControl x:Name="PluginIntervall" Grid.Column="1" Grid.Row="2"
+                                                            HorizontalAlignment="Left"
+                                                            Value="{Binding DataModel.PluginInterval, Mode=TwoWay}"/>
+                            <!--Options Intervall-->
+                            <TextBlock Text="{x:Static resources:Strings.OptionsIntervall}" Grid.Column="0" Grid.Row="3" Margin=" 10 5 0 5"/>
+                            <picker:TimeControl x:Name="OptionsIntervall" Grid.Column="1" Grid.Row="3"
+                                                            HorizontalAlignment="Left"
+                                                            Value="{Binding DataModel.SettingsInterval, Mode=TwoWay}"/>
+
+                        </Grid>
+                    </GroupBox>
+
+
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="{x:Static resources:Strings.Info}" Style="{StaticResource ApplicationMenuTabItemStyle}">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                    <StackPanel>
+                        <Image Stretch="Fill"
+                            Width="331"
+                            Height="168"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Margin="10 40 0 10"
+                            Source="/MISD.Client;component/Resources/logo/MISD_OWL_LogoText.png" />
+                        <TextBlock
+                            Margin="10 10 0 0">
+                            Copyright 2012 Paul Brombosch, Ehssan Doust, David Krauss,<LineBreak />
+                            Fabian Müller, Yannic Noller, Hanna Schäfer, Jonas Scheurich,<LineBreak />
+                            Arno Schneider, Sebastian Zillessen<LineBreak />
+                            <LineBreak />
+                            This Software-System is part of MISD-OWL, a project of the<LineBreak />
+                            University of Stuttgart (Institution VISUS, Studienprojekt Spring 2012).<LineBreak />
+                            <LineBreak />
+                            MISD-OWL is published under GNU Lesser General Public License Version 3.<LineBreak />
+                            MISD-OWL is free software, you are allowed to redistribute and/or<LineBreak />
+                            modify it under the terms of the GNU Lesser General Public License<LineBreak />
+                            Version 3 or any later version. For details see here:<LineBreak />
+                            http://www.gnu.org/licenses/lgpl.html<LineBreak />
+                            <LineBreak />
+                            MISD-OWL is distributed without any warranty, without even the<LineBreak />
+                            implied warranty of merchantability or fitness for a particular purpose.<LineBreak /><LineBreak />
+                            External sources that are used in MISD OWL:
+                        </TextBlock>
+                        
+                        
+                        <Grid MaxWidth="700" HorizontalAlignment="Left" Margin="10 20 20 50">
+                            <Grid.Resources>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Foreground" Value="Black" />
+                                    <Setter Property="TextWrapping" Value="Wrap" />
+                                    <Setter Property="Margin" Value="5 0 5 5"/>
+                                </Style>
+                            </Grid.Resources>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <!-- Title row for the table. -->
+                            <Rectangle Fill="CornflowerBlue" Grid.ColumnSpan="4" />
+
+                            <!-- Header row for the table. -->
+                            <TextBlock Margin="5 5 5 5" Grid.Column="0" Grid.Row="0" FontSize="8pt" FontWeight="Bold">Modul</TextBlock>
+                            <TextBlock Margin="5 5 5 5" Grid.Column="1" Grid.Row="0" FontSize="8pt" FontWeight="Bold">Description</TextBlock>
+                            <TextBlock Margin="5 5 5 5" Grid.Column="2" Grid.Row="0" FontSize="8pt" FontWeight="Bold">License</TextBlock>
+                            <TextBlock Margin="5 5 5 5" Grid.Column="3" Grid.Row="0" FontSize="8pt" FontWeight="Bold">Link</TextBlock>
+
+                            <!-- Sub-title row for the server classes. -->
+                            <TextBlock Background="LightBlue" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1" FontSize="8pt" FontWeight="Bold">Server Classes</TextBlock>
+
+                            <!-- Four data rows  -->
+                            <TextBlock Margin="5 5 5 5" Grid.Column="0" Grid.Row="2" FontSize="8pt">Email.WarningMailParser</TextBlock>
+                            <TextBlock Margin="5 5 5 5" Grid.Column="1" Grid.Row="2" FontSize="8pt">Constructs the text of the warning mails</TextBlock>
+                            <TextBlock Margin="5 5 5 5" Grid.Column="2" Grid.Row="2" FontSize="8pt">CPOL</TextBlock>
+                            <TextBlock Margin="5 5 5 5" Grid.Column="3" Grid.Row="2" FontSize="8pt">http://www.codeproject.com/Articles/9010/A-Text-Template-Class-for-C</TextBlock>
+
+
+                            <TextBlock Margin="5 5 5 5" Grid.Column="0" Grid.Row="3" FontSize="8pt">MISD.Server.Cluster.*</TextBlock>
+                            <TextBlock Margin="5 5 5 5" Grid.Column="1" Grid.Row="3" FontSize="8pt">SSH Library for requests on the Bright Cluster</TextBlock>
+                            <TextBlock Margin="5 5 5 5" Grid.Column="2" Grid.Row="3" FontSize="8pt">New BSD License (BSD)</TextBlock>
+                            <TextBlock Margin="5 5 5 5" Grid.Column="3" Grid.Row="3" FontSize="8pt">http://sshnet.codeplex.com/</TextBlock>
+
+                            <!-- Sub-title row for the Client classes. -->
+                            <TextBlock Background="LightBlue" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="4" FontSize="8pt" FontWeight="Bold">Client Classes</TextBlock>
+
+                            <!-- Four data rows -->
+                            <TextBlock Margin="5 5 5 5" Grid.Column="0" Grid.Row="5" FontSize="8pt">Contextmenu</TextBlock>
+                            <TextBlock Margin="5 5 5 5" Grid.Column="1" Grid.Row="5" FontSize="8pt">Icons used in the contextmenu.</TextBlock>
+                            <TextBlock Margin="5 5 5 5" Grid.Column="2" Grid.Row="5" FontSize="8pt">Creative Commons Attribution 3.0</TextBlock>
+                            <TextBlock Margin="5 5 5 5" Grid.Column="3" Grid.Row="5" FontSize="8pt">http://pc.de/icons/</TextBlock>
+
+                            <TextBlock Margin="5 5 5 5" Grid.Column="0" Grid.Row="6" FontSize="8pt">MISD.Plugins.Visualization.*</TextBlock>
+                            <TextBlock Margin="5 5 5 5" Grid.Column="1" Grid.Row="6" FontSize="8pt">Diagrams of the visualization plugins are constructed with the WPF Toolkit.</TextBlock>
+                            <TextBlock Margin="5 5 5 5" Grid.Column="2" Grid.Row="6" FontSize="8pt">Microsoft Public License (Ms-PL)</TextBlock>
+                            <TextBlock Margin="5 5 5 5" Grid.Column="3" Grid.Row="6" FontSize="8pt">http://wpf.codeplex.com/</TextBlock>
+
+                            <TextBlock Margin="5 5 5 5" Grid.Column="0" Grid.Row="7" FontSize="8pt">MISD.Client.Controls</TextBlock>
+                            <TextBlock Margin="5 5 5 5" Grid.Column="1" Grid.Row="7" FontSize="8pt">Visual control for in-/decrementing timespans</TextBlock>
+                            <TextBlock Margin="5 5 5 5" Grid.Column="2" Grid.Row="7" FontSize="8pt">Entry in forum.</TextBlock>
+                            <TextBlock Margin="5 5 5 5" Grid.Column="3" Grid.Row="7" FontSize="8pt">http://stackoverflow.com/questions/1833357/what-is-currently-the-best-free-time-picker-for-wpf</TextBlock>
+
+                            <!-- Sub-title row for the Workstation classes -->
+                            <TextBlock Background="LightBlue" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="8" FontSize="8pt" FontWeight="Bold">Workstation classes</TextBlock>
+
+                            <!-- Four data rows  -->
+                            <TextBlock Margin="5 5 5 5" Grid.Column="0" Grid.Row="9" FontSize="8pt">MISD.Plugins.Windows.*</TextBlock>
+                            <TextBlock Margin="5 5 5 5" Grid.Column="1" Grid.Row="9" FontSize="8pt">OpenHardwareMonitor collects data within the windows workstations.</TextBlock>
+                            <TextBlock Margin="5 5 5 5" Grid.Column="2" Grid.Row="9" FontSize="8pt">Mozilla Public License 2.0 (MPL)</TextBlock>
+                            <TextBlock Margin="5 5 5 5" Grid.Column="3" Grid.Row="9" FontSize="8pt">http://openhardwaremonitor.org</TextBlock>
+                        </Grid>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+
+            <TabItem Header="{x:Static resources:Strings.Exit}" MouseLeftButtonUp="ExitApplicationMenuItem_Click" Style="{StaticResource ApplicationMenuTabItemStyle}">
+
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</UserControl>

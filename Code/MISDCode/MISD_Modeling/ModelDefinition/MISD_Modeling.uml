@@ -1,0 +1,3025 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner"
+  dslVersion="1.0.0.0"
+  Id="57152138-29c8-467d-80d5-86353decd659"
+  name="MISD_Modeling" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <ownedCommentsInternal>
+    <comment
+      Id="0fe04f68-1b52-4b0b-bbdb-a237d64c773b">
+      <body>Notifications
+Data Binding
+Commands</body>
+    </comment>
+    <comment
+      Id="50a3644c-2684-42ef-a495-d2b6c1954fa9">
+      <body>add a new UI Configuration</body>
+    </comment>
+    <comment
+      Id="1440ea3d-fd0f-487b-8e3a-86c6c46b96ad">
+      <body>load a UI configuartion
+</body>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <component
+        Id="dbac6bac-a51c-4c2c-a594-2150e376b234"
+        name="Component1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="e7f3c871-adbc-4f8f-bfe9-e07d4b36553d"
+        LastKnownName="View"
+        LastKnownLocation="Package_1601.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="2974ecff-d208-4659-b381-983adf5dd379"
+        LastKnownName="ViewModel"
+        LastKnownLocation="Package1_1601.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="3237485e-79f4-404d-9bde-6b74f910708d"
+        LastKnownName="Model"
+        LastKnownLocation="Package2_1601.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="afb97767-e5af-4bf3-ac44-9fe60dcf380a"
+        name="Client.Config"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="ffa1cbae-1706-429b-969c-3c84d6b51edd"
+            name="Initial1"
+            isLeaf="false" />
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="dd34fa4e-eb0c-4d40-ab6c-5a1ba2aa12d2"
+        name="Client.UIConfig.add"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="08522bd1-4569-42f5-af2b-3fe8798b4694"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="1bb70121-5e88-4ace-b072-af648cc11e8a"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="ea79602f-5dcc-45a5-8a60-5c9e1ced49eb"
+                  LastKnownName="Input: Name"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="ea79602f-5dcc-45a5-8a60-5c9e1ced49eb"
+            name="Input: Name"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="dc6d9f17-0330-433c-9991-f03cbf12c4e7"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="1bc9abe2-8813-4709-95a2-659aff4b37c0"
+                  LastKnownName="Input: Description"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+            <pins>
+              <opaqueActionHasInputValues>
+                <inputPin
+                  Id="3bd4c257-22fd-4618-908d-e48fd207d28f"
+                  name="Name"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <upperBound>
+                    <literalInteger
+                      Id="c33588e3-e297-420f-aae7-43acd4640cb6"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </inputPin>
+              </opaqueActionHasInputValues>
+            </pins>
+          </opaqueAction>
+          <opaqueAction
+            Id="1bc9abe2-8813-4709-95a2-659aff4b37c0"
+            name="Input: Description"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="0118a620-eaa8-4669-a0fb-a2bc239da61b"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="2eefedd3-811c-46bf-867c-fe36148d75a6"
+                  LastKnownName="create Preview"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+            <pins>
+              <opaqueActionHasInputValues>
+                <inputPin
+                  Id="7d5ede6b-c715-4481-9e93-a5b397fd5b1c"
+                  name="Description"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <upperBound>
+                    <literalInteger
+                      Id="9b8e98f4-9e3c-4f08-b11d-56b3df7a9aef"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </inputPin>
+              </opaqueActionHasInputValues>
+            </pins>
+          </opaqueAction>
+          <opaqueAction
+            Id="2eefedd3-811c-46bf-867c-fe36148d75a6"
+            name="create Preview"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="9e1fca64-d34f-4061-b663-925e98bbf559"
+                isLeaf="false">
+                <sendSignalActionMoniker
+                  Id="a1a9874a-eb97-47ef-a9d3-ffc0032ed257"
+                  LastKnownName="Send UI configuration"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <sendSignalAction
+            Id="a1a9874a-eb97-47ef-a9d3-ffc0032ed257"
+            name="Send UI configuration"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="7e22c7a3-ab9c-44b3-8a49-51f965e6693a"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="f20abc10-8f4c-47ea-aff9-5f564770429f"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </sendSignalAction>
+          <activityFinalNode
+            Id="f20abc10-8f4c-47ea-aff9-5f564770429f"
+            name="ActivityFinal1"
+            isLeaf="false" />
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="d97ab607-c5c8-4e32-b131-7d825fac8f73"
+        name="Client.SystemConfig.update"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="a088b573-aef6-4b9b-b910-29d65d7df6cd"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="9fe43963-1fc7-49be-b819-1298d563168e"
+                isLeaf="false">
+                <acceptEventActionMoniker
+                  Id="102972b1-6966-4ef9-8f9a-af0f321aade4"
+                  LastKnownName="SystemSettings"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <acceptEventAction
+            Id="102972b1-6966-4ef9-8f9a-af0f321aade4"
+            name="SystemSettings"
+            isLeaf="false"
+            isUnmarshall="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="99685b52-0c1c-4146-a797-640c2c1d4e4e"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="856971e7-0d3a-48b1-b85f-83079e393755"
+                  LastKnownName="Merge1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </acceptEventAction>
+          <opaqueAction
+            Id="5f3f7cc6-d929-4278-af9b-cf92a92af08f"
+            name="GUI Update"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="d9cac652-2359-4df9-8bff-62b565d13dc9"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="33eb2b85-23b4-40c8-a54d-ae72ff66ec83"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="882f1c50-fe13-49c5-afd0-bf8636ccf89c"
+            name="locale SystemSettings Update"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="0d517dc7-c9ee-441e-8ec5-879ef1e5f62b"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="da4a156d-ad99-4e00-a11c-202b67d944e0"
+                  LastKnownName="release locale SystemSettings"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode
+            Id="33eb2b85-23b4-40c8-a54d-ae72ff66ec83"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <objectNode
+            Id="e2f9e8c2-7d01-495e-9963-9e93221f6fca"
+            name="UpdateIntervall"
+            isLeaf="false"
+            ordering="Unordered"
+            isControlType="false">
+            <upperBound>
+              <literalInteger
+                Id="c0f4f320-91ce-4b21-94e7-1b687f9f2cdb"
+                name="2147483647"
+                value="2147483647" />
+            </upperBound>
+          </objectNode>
+          <opaqueAction
+            Id="0c3e8392-32ed-4adc-9fbd-5ae6c47dcf1c"
+            name="block locale SystemSettings"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="1123c5f1-b54e-4150-b314-b039de46f5ec"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="b2f97c6b-e76a-4909-bed7-dc8cb0908df9"
+                  LastKnownName="Decision1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="da4a156d-ad99-4e00-a11c-202b67d944e0"
+            name="release locale SystemSettings"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="b56c5cd1-d9ed-4ae7-86cb-a07609383c57"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="5f3f7cc6-d929-4278-af9b-cf92a92af08f"
+                  LastKnownName="GUI Update"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <mergeNode
+            Id="856971e7-0d3a-48b1-b85f-83079e393755"
+            name="Merge1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="458935c0-84d3-4fb5-a53f-0b2f9896abf8"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="0c3e8392-32ed-4adc-9fbd-5ae6c47dcf1c"
+                  LastKnownName="block locale SystemSettings"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </mergeNode>
+          <decisionNode
+            Id="b2f97c6b-e76a-4909-bed7-dc8cb0908df9"
+            name="Decision1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="dbcfee11-9e8d-4f3a-acc4-b552a06c6bac"
+                guard="can`t block locale SystemSettings"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="856971e7-0d3a-48b1-b85f-83079e393755"
+                  LastKnownName="Merge1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="65798671-5d08-481d-a988-e2d24febf94c"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="882f1c50-fe13-49c5-afd0-bf8636ccf89c"
+                  LastKnownName="locale SystemSettings Update"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="b4368172-e4c2-4d26-a4a8-640d7af51d8e"
+        name="Client.UIConfig.load"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="e26f749c-ef43-4183-a2e3-e4dc0e514304"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="a1007e2e-baf6-4aba-bd87-5a0384903d7f"
+                isLeaf="false">
+                <acceptEventActionMoniker
+                  Id="c0798bb5-5c65-4002-aa23-bfef7078421b"
+                  LastKnownName="UI configurations"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <acceptEventAction
+            Id="c0798bb5-5c65-4002-aa23-bfef7078421b"
+            name="UI configurations"
+            isLeaf="false"
+            isUnmarshall="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="b95046ee-4f38-4b31-a1f7-7f568c50f2f5"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="e94d60c7-07b6-464c-ba28-c78cb1820d37"
+                  LastKnownName="show UI configurations&#xD;&#xA;- name&#xD;&#xA;- preview&#xD;&#xA;- Description"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </acceptEventAction>
+          <opaqueAction
+            Id="822425b2-3e70-42a7-a9e8-1cbfb3b99bb5"
+            name="select one UI configuration"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="9d7b7fcd-b8b0-4a9d-9151-ff249bb738ba"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="2efa6fdb-7821-471a-8584-530aec4e5fb6"
+                  LastKnownName="Merge2"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="e94d60c7-07b6-464c-ba28-c78cb1820d37"
+            name="show UI configurations&#xD;&#xA;- name&#xD;&#xA;- preview&#xD;&#xA;- Description"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="d743512a-83ca-41cb-983a-29c1994cac25"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="822425b2-3e70-42a7-a9e8-1cbfb3b99bb5"
+                  LastKnownName="select one UI configuration"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode
+            Id="eb915ee1-c6fc-42de-9983-86263f092d28"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <decisionNode
+            Id="9edd67f9-c506-40fb-9f81-ddc8f55a9521"
+            name="Decision1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="5e20204d-a27e-4e4c-b0ea-8252c01c1cc9"
+                guard="Element is part of the Layout"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="7b5b0a50-2966-4ba2-92d5-18a206dcce76"
+                  LastKnownName="Reogranize Element"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="8e2bc559-0fe8-42e8-add5-a4ef9dd72b1f"
+                guard="Element is not part of the Layout"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="c7ecaa7c-e2a8-4922-a102-81070820af86"
+                  LastKnownName="Organize Element like the Active Directory"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="7b5b0a50-2966-4ba2-92d5-18a206dcce76"
+            name="Reogranize Element"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="a95498dc-7e32-47ba-ad9a-5d3031f9e4be"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="aae5dc97-f8a3-4991-966a-f3d8c23d3ba4"
+                  LastKnownName="Merge1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="c7ecaa7c-e2a8-4922-a102-81070820af86"
+            name="Organize Element like the Active Directory"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="2ce7b9a5-1e64-4261-9266-a325484dbbb5"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="aae5dc97-f8a3-4991-966a-f3d8c23d3ba4"
+                  LastKnownName="Merge1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <mergeNode
+            Id="aae5dc97-f8a3-4991-966a-f3d8c23d3ba4"
+            name="Merge1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="25f148e7-63ff-493f-be68-4fcb7b3787f3"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="6f90ffa6-1448-4dd4-a904-cf393dd00dec"
+                  LastKnownName="Decision2"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </mergeNode>
+          <decisionNode
+            Id="6f90ffa6-1448-4dd4-a904-cf393dd00dec"
+            name="Decision2"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="b2b27a77-5c75-4466-9dd9-fefd85e3fd7f"
+                guard="execute next Element"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="2efa6fdb-7821-471a-8584-530aec4e5fb6"
+                  LastKnownName="Merge2"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="0dbecfb7-6f8d-46e3-8fed-1e41827a2cda"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="eb915ee1-c6fc-42de-9983-86263f092d28"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <mergeNode
+            Id="2efa6fdb-7821-471a-8584-530aec4e5fb6"
+            name="Merge2"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="b5c0107d-20da-47fa-9dce-c11eedfa02e3"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="9edd67f9-c506-40fb-9f81-ddc8f55a9521"
+                  LastKnownName="Decision1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </mergeNode>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="521ac009-3b36-4ee0-847f-334485aec18a"
+        name="Workstation.SendData"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="80d311e8-c677-46dd-9e7f-e8c453f1b9d8"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="6c45be1b-ca6a-45a1-a722-80e0a54648cc"
+                isLeaf="false">
+                <acceptEventActionMoniker
+                  Id="108b3d85-a846-4689-8760-ed3788fb3a19"
+                  LastKnownName="indicator's interval expired"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="7b853aad-0b92-4982-bcb9-3033330f3722"
+            name="get indicator value"
+            isLeaf="false">
+            <pins>
+              <opaqueActionHasOutputValues>
+                <outputPin
+                  Id="ed2faf7c-df86-483c-ba01-f6447e16f501"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <objectFlowTargets>
+                    <objectFlow
+                      Id="896aac43-0e49-4124-8b1f-1e8c3ebffb6b"
+                      isLeaf="false"
+                      isMulticast="false"
+                      isMultireceive="false">
+                      <inputPinMoniker
+                        Id="ff078ad4-a3be-4fff-a5ac-e7bf1590f9ce"
+                        LastKnownName="value"
+                        LastKnownLocation="MISD_Modeling.uml" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger
+                      Id="b1ad03fe-9094-452f-8ffa-7bcc1a13fb87"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </outputPin>
+              </opaqueActionHasOutputValues>
+            </pins>
+          </opaqueAction>
+          <opaqueAction
+            Id="3f439b33-89ef-4fe5-b24c-b5fc3eff4c88"
+            name="filter value"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="20ad969d-fbd5-4e17-af29-2203b17f1c57"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="16a96935-cfac-48e4-ab6d-9ccea2043fdd"
+                  LastKnownName="Decision1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+            <pins>
+              <opaqueActionHasInputValues>
+                <inputPin
+                  Id="ff078ad4-a3be-4fff-a5ac-e7bf1590f9ce"
+                  name="value"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <upperBound>
+                    <literalInteger
+                      Id="0c3b3ba7-7d12-4a1d-ba77-00b6f5e088d9"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </inputPin>
+              </opaqueActionHasInputValues>
+            </pins>
+          </opaqueAction>
+          <decisionNode
+            Id="16a96935-cfac-48e4-ab6d-9ccea2043fdd"
+            name="Decision1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="b7f16712-031d-4833-a45f-890475243485"
+                guard="filtered out"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="c70a40f6-877d-47da-8ad0-751c3b882519"
+                  LastKnownName="Merge1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+            <objectFlowTargets>
+              <objectFlow
+                Id="c5ce07eb-305f-4ad9-8781-48e9fc16ce18"
+                guard="not filtered out"
+                isLeaf="false"
+                isMulticast="false"
+                isMultireceive="false">
+                <inputPinMoniker
+                  Id="d538cc7c-ca3d-4ac1-b61d-f3c72e563322"
+                  LastKnownName="value"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </objectFlow>
+            </objectFlowTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="053c6c39-e099-41c4-8cc1-af42003784de"
+            name="send Value"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="e766624e-9ee0-4510-8bfd-537caa9f41d8"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="c70a40f6-877d-47da-8ad0-751c3b882519"
+                  LastKnownName="Merge1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+            <pins>
+              <opaqueActionHasInputValues>
+                <inputPin
+                  Id="d538cc7c-ca3d-4ac1-b61d-f3c72e563322"
+                  name="value"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <upperBound>
+                    <literalInteger
+                      Id="d127c96d-9a35-4b0d-9356-f2761871308f"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </inputPin>
+              </opaqueActionHasInputValues>
+            </pins>
+          </opaqueAction>
+          <activityFinalNode
+            Id="9180b446-1152-40db-b54d-44d0d93a0ce4"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <mergeNode
+            Id="c70a40f6-877d-47da-8ad0-751c3b882519"
+            name="Merge1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="31df4eb2-8190-4b07-a8ed-3436e437b06d"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="9180b446-1152-40db-b54d-44d0d93a0ce4"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </mergeNode>
+          <acceptEventAction
+            Id="108b3d85-a846-4689-8760-ed3788fb3a19"
+            name="indicator's interval expired"
+            isLeaf="false"
+            isUnmarshall="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="10cdd22e-dc77-41f5-8e00-bcd8d24708fd"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="fa35d71f-ecda-4c14-b810-e028e3f37dc2"
+                  LastKnownName="Decision2"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </acceptEventAction>
+          <decisionNode
+            Id="fa35d71f-ecda-4c14-b810-e028e3f37dc2"
+            name="Decision2"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="b662b1fd-877c-44b6-b4b8-8739c215e5af"
+                guard="logged on"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="7b853aad-0b92-4982-bcb9-3033330f3722"
+                  LastKnownName="get indicator value"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="d9cfa2d3-cfe8-4585-86a8-9d27146c852f"
+                guard="not logged on"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="6a38a9f4-9039-4151-bc4d-287eee0629c1"
+                  LastKnownName="log on at server"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="6a38a9f4-9039-4151-bc4d-287eee0629c1"
+            name="log on at server"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="a25364f0-3d24-484b-a38b-2d5225dd5fab"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="7b853aad-0b92-4982-bcb9-3033330f3722"
+                  LastKnownName="get indicator value"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="c036cce6-0b03-4ece-beb0-c51be41d6f34"
+        name="Workstation.CheckIn"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="11a19503-67ef-4259-9786-d96a4816a268"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="45440880-f955-48bb-9296-fa99fd0b6995"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="0e302422-9715-4133-a27a-52da53480bf6"
+                  LastKnownName="check in at the server using the certificate"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <activityFinalNode
+            Id="98ba0e5a-e645-4337-a3b8-eefe08ed51bb"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <opaqueAction
+            Id="0e302422-9715-4133-a27a-52da53480bf6"
+            name="check in at the server using the certificate"
+            isLeaf="false">
+            <pins>
+              <opaqueActionHasOutputValues>
+                <outputPin
+                  Id="604ffaa4-3eb5-4a91-bd41-c64ba4b33cc7"
+                  name="FQDN"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <objectFlowTargets>
+                    <objectFlow
+                      Id="b320b7c0-e2ee-457d-9148-13dbd4f74361"
+                      isLeaf="false"
+                      isMulticast="false"
+                      isMultireceive="false">
+                      <inputPinMoniker
+                        Id="b64aee29-047d-422c-bf82-a55e2bec4326"
+                        LastKnownLocation="MISD_Modeling.uml" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger
+                      Id="ff765b7b-9b10-4db2-a7f7-6fdd0a7bd66d"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </outputPin>
+              </opaqueActionHasOutputValues>
+            </pins>
+          </opaqueAction>
+          <opaqueAction
+            Id="8e20429c-eeb5-4b38-9a6a-71ddf0db5635"
+            name="get plugin list from server"
+            isLeaf="false">
+            <pins>
+              <opaqueActionHasInputValues>
+                <inputPin
+                  Id="b64aee29-047d-422c-bf82-a55e2bec4326"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <upperBound>
+                    <literalInteger
+                      Id="cb5673ea-1301-4d50-afae-be39c57ea211"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </inputPin>
+              </opaqueActionHasInputValues>
+              <opaqueActionHasOutputValues>
+                <outputPin
+                  Id="88c7eb1e-c411-473c-b0e3-e5c0373bef6b"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <objectFlowTargets>
+                    <objectFlow
+                      Id="1563df36-5ad3-49d7-b104-69a5cc878caf"
+                      isLeaf="false"
+                      isMulticast="false"
+                      isMultireceive="false">
+                      <inputPinMoniker
+                        Id="c7c5b4d3-5b9c-47aa-be1b-c44a390ec0b6"
+                        LastKnownName="list"
+                        LastKnownLocation="MISD_Modeling.uml" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger
+                      Id="4362d421-80e7-45e1-8a0e-c0eaace7f9a0"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </outputPin>
+              </opaqueActionHasOutputValues>
+            </pins>
+          </opaqueAction>
+          <opaqueAction
+            Id="86762755-3328-40bc-a236-79bcd0d83555"
+            name="search list for plugins to delete"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="487ed97a-7d2d-477a-90b7-df117f796e7c"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="1375791b-c762-47de-ba6a-66adab31d226"
+                  LastKnownName="Decision1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+            <pins>
+              <opaqueActionHasInputValues>
+                <inputPin
+                  Id="c7c5b4d3-5b9c-47aa-be1b-c44a390ec0b6"
+                  name="list"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <upperBound>
+                    <literalInteger
+                      Id="dc7a5092-d4ed-4b1f-8c34-47112f83f61e"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </inputPin>
+              </opaqueActionHasInputValues>
+            </pins>
+          </opaqueAction>
+          <decisionNode
+            Id="1375791b-c762-47de-ba6a-66adab31d226"
+            name="Decision1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="bf0d9548-e223-4c00-afe8-aaabff1753fd"
+                guard="found obsolete"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="c968dd7e-00bf-4c2b-ac9c-75a76bd9c9de"
+                  LastKnownName="unload and delete all obsolete&#xD;&#xA;"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+            <objectFlowTargets>
+              <objectFlow
+                Id="a90dab7d-ab17-4061-9b34-a2b417ecbdb8"
+                guard="not found"
+                isLeaf="false"
+                isMulticast="false"
+                isMultireceive="false">
+                <inputPinMoniker
+                  Id="eb5ed42e-da51-481d-93b8-14f586c8e3dd"
+                  LastKnownName="list"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </objectFlow>
+            </objectFlowTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="c968dd7e-00bf-4c2b-ac9c-75a76bd9c9de"
+            name="unload and delete all obsolete&#xD;&#xA;"
+            isLeaf="false">
+            <objectFlowTargets>
+              <objectFlow
+                Id="7874a771-d32b-4601-b4ba-9f47a225112d"
+                isLeaf="false"
+                isMulticast="false"
+                isMultireceive="false">
+                <inputPinMoniker
+                  Id="eb5ed42e-da51-481d-93b8-14f586c8e3dd"
+                  LastKnownName="list"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </objectFlow>
+            </objectFlowTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="937d89f4-6401-4837-ab7f-ad143d6ebdeb"
+            name="search for new plugins to download"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="575d1fdc-6589-4e6c-8e9f-26fc203416dc"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="d45fe2d6-f011-4522-8186-eb91dbeecc88"
+                  LastKnownName="Decision2"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+            <pins>
+              <opaqueActionHasInputValues>
+                <inputPin
+                  Id="eb5ed42e-da51-481d-93b8-14f586c8e3dd"
+                  name="list"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <upperBound>
+                    <literalInteger
+                      Id="98093881-bc50-4d4c-8e36-6cc19fedf31e"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </inputPin>
+              </opaqueActionHasInputValues>
+            </pins>
+          </opaqueAction>
+          <opaqueAction
+            Id="7bb6dac9-72f4-4a95-b8e3-fc32a3899236"
+            name="download and initialize"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="fe7109c1-dc0a-4a0d-8fb9-c16573370f67"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="98ba0e5a-e645-4337-a3b8-eefe08ed51bb"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="d45fe2d6-f011-4522-8186-eb91dbeecc88"
+            name="Decision2"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="cf2e1095-3092-449b-8c0a-852788e37835"
+                guard="not found"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="98ba0e5a-e645-4337-a3b8-eefe08ed51bb"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="e138ce54-d541-43b0-b6d5-473cb03aa0e1"
+                guard="found new"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="7bb6dac9-72f4-4a95-b8e3-fc32a3899236"
+                  LastKnownName="download and initialize"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="b23cf106-bfd6-4eab-b2e7-913ae69efe52"
+        name="Workstation.LogOff"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="549ac7ea-25aa-4be6-9766-1b8e7bad883e"
+            name="Initial1"
+            isLeaf="false">
+            <objectFlowTargets>
+              <objectFlow
+                Id="e2b822e5-1745-43cd-9993-0ff1ff7d752c"
+                isLeaf="false"
+                isMulticast="false"
+                isMultireceive="false">
+                <inputPinMoniker
+                  Id="d2c45873-38bc-4753-87c4-fc4b4950bf7c"
+                  LastKnownName="FQDN"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </objectFlow>
+            </objectFlowTargets>
+          </initialNode>
+          <activityFinalNode
+            Id="a7a1397a-2c45-4ed2-9b2b-f2dfbe1388a5"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <sendSignalAction
+            Id="82d3333e-07c6-41a6-a8fc-9dc88eff0b48"
+            name="send log off signal to server"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="a1638074-58e9-446f-87d0-212b110f265c"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="a7a1397a-2c45-4ed2-9b2b-f2dfbe1388a5"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+            <pins>
+              <sendSignalActionHasTarget>
+                <inputPin
+                  Id="d2c45873-38bc-4753-87c4-fc4b4950bf7c"
+                  name="FQDN"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <upperBound>
+                    <literalInteger
+                      Id="9c609f14-c3f5-4bc0-bafa-f9f014e3e60c"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </inputPin>
+              </sendSignalActionHasTarget>
+            </pins>
+          </sendSignalAction>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="42b0f03a-bcb4-4a98-a506-15330b7b5ac4"
+        name="Client"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="dd44a939-7e9f-4c56-a5c9-70255beeaf90"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="e7bee79f-c8a8-43b4-9d0c-e76149723208"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="3368ea44-a7b2-4d89-9130-bd7ab4ce7752"
+                  LastKnownName="Decision1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="676abc13-c2a7-4ae9-a342-0870546fad35"
+            name="generate name"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="0528f7a8-d8b0-4dd2-8705-44cbc5859ed8"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="50e5870d-eb05-4d5c-8ed1-f7ace1d334fa"
+                  LastKnownName="Merge1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="3368ea44-a7b2-4d89-9130-bd7ab4ce7752"
+            name="Decision1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="28f89d53-3b82-4604-8dba-5767c5fab4e3"
+                guard="Powerwall"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="676abc13-c2a7-4ae9-a342-0870546fad35"
+                  LastKnownName="generate name"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="8470b4ea-1a39-4544-9166-7f3d2656a70f"
+                guard="Desktop System"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="dd72a359-b7dc-4aaa-98c7-6a48ab20c2d4"
+                  LastKnownName="Input name"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <mergeNode
+            Id="50e5870d-eb05-4d5c-8ed1-f7ace1d334fa"
+            name="Merge1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="4a7f3e8a-8b3d-4674-ad87-e6cfd6a65b10"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="ef006f74-7756-4191-9e41-3ef3aae2137f"
+                  LastKnownName="create preciew"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </mergeNode>
+          <opaqueAction
+            Id="ef006f74-7756-4191-9e41-3ef3aae2137f"
+            name="create preciew"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="43bdda7b-ff79-4e8c-9949-604bcc0add20"
+                isLeaf="false">
+                <sendSignalActionMoniker
+                  Id="78fb1c59-1bd8-49ea-a209-fc54cd23edea"
+                  LastKnownName="send UI configuration"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <sendSignalAction
+            Id="78fb1c59-1bd8-49ea-a209-fc54cd23edea"
+            name="send UI configuration"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="2306c6d2-b889-4e61-bfc2-930c45a52aa6"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="d468c15b-570d-4280-a2de-5c6fa39341e6"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </sendSignalAction>
+          <activityFinalNode
+            Id="d468c15b-570d-4280-a2de-5c6fa39341e6"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <opaqueAction
+            Id="dd72a359-b7dc-4aaa-98c7-6a48ab20c2d4"
+            name="Input name"
+            isLeaf="false">
+            <pins>
+              <opaqueActionHasOutputValues>
+                <outputPin
+                  Id="f9569d87-a346-412a-9d4e-fc86ef0597e0"
+                  name="name"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <objectFlowTargets>
+                    <objectFlow
+                      Id="e1522936-14f5-4817-803d-372303b32d23"
+                      isLeaf="false"
+                      isMulticast="false"
+                      isMultireceive="false">
+                      <mergeNodeMoniker
+                        Id="50e5870d-eb05-4d5c-8ed1-f7ace1d334fa"
+                        LastKnownName="Merge1"
+                        LastKnownLocation="MISD_Modeling.uml" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger
+                      Id="81168b94-b4cb-47dc-890c-64641b4d2510"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </outputPin>
+              </opaqueActionHasOutputValues>
+            </pins>
+          </opaqueAction>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="3081ecaf-9898-4245-b4d1-7431f47a9637"
+        name="Clientlayout"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="e19e2106-1193-463e-8eef-b7d812573c22"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="54366a2e-e751-4955-ac8a-2ac601d86dfe"
+                isLeaf="false">
+                <acceptEventActionMoniker
+                  Id="2269ad84-7dd5-4225-a20a-a910ae11e86d"
+                  LastKnownName="UI configurations"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <acceptEventAction
+            Id="2269ad84-7dd5-4225-a20a-a910ae11e86d"
+            name="UI configurations"
+            isLeaf="false"
+            isUnmarshall="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="97b42892-4df1-47d9-b385-a330489dbd77"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="f8096068-dab9-4118-8604-8fb0a991b83a"
+                  LastKnownName="show UI configurations&#xD;&#xA;- name&#xD;&#xA;- preview"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </acceptEventAction>
+          <opaqueAction
+            Id="f8096068-dab9-4118-8604-8fb0a991b83a"
+            name="show UI configurations&#xD;&#xA;- name&#xD;&#xA;- preview"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="6850201e-f01d-4f1c-a42a-a0e0c3963af3"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="1d878309-881e-4a3c-b7a5-246df5b788e4"
+                  LastKnownName="select one configuration"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="1d878309-881e-4a3c-b7a5-246df5b788e4"
+            name="select one configuration"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="03ba1bd7-1c1a-43c3-a59c-9284311a50cf"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="9a25c8bb-80ea-4e60-9a87-f744206330ce"
+                  LastKnownName="Merge3"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="1b8fcf75-606f-4019-9452-bc4aa76252d9"
+            name="Decision1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="090a1e15-6611-4b78-be24-f20fffd4666b"
+                guard="element is part of the layout"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="cbeac987-a863-414b-b12b-fce2fbdb446d"
+                  LastKnownName="reorganize element"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="b653bd1f-f5f9-4e98-8891-47ae9b88aae4"
+                guard="element is not part of the layout"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="c8687caf-db2b-4228-8b4d-c3f88623a2c4"
+                  LastKnownName="organize the element as last element of the organisation unit"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="cbeac987-a863-414b-b12b-fce2fbdb446d"
+            name="reorganize element"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="04547c5a-ea7e-472d-82dd-db206c342c4e"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="53cb06b6-1efe-4579-a3be-2a6e5f30c971"
+                  LastKnownName="Merge1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="c8687caf-db2b-4228-8b4d-c3f88623a2c4"
+            name="organize the element as last element of the organisation unit"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="4c90b731-b7e3-4484-9fad-02a81529ce4e"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="53cb06b6-1efe-4579-a3be-2a6e5f30c971"
+                  LastKnownName="Merge1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <mergeNode
+            Id="53cb06b6-1efe-4579-a3be-2a6e5f30c971"
+            name="Merge1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="46044784-ee6d-495a-afad-507067be4048"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="52972eea-a712-4ab9-9d78-725c2ee780ca"
+                  LastKnownName="Decision2"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </mergeNode>
+          <activityFinalNode
+            Id="0a758a1b-e9b3-4112-9556-a0f598220e20"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <mergeNode
+            Id="9a25c8bb-80ea-4e60-9a87-f744206330ce"
+            name="Merge3"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="ad912f04-3a18-4c94-8319-5925b86a855b"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="1b8fcf75-606f-4019-9452-bc4aa76252d9"
+                  LastKnownName="Decision1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </mergeNode>
+          <decisionNode
+            Id="52972eea-a712-4ab9-9d78-725c2ee780ca"
+            name="Decision2"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="30c56ca4-5497-4117-af76-9018c99a1d97"
+                guard="execute next element"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="9a25c8bb-80ea-4e60-9a87-f744206330ce"
+                  LastKnownName="Merge3"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="419e24fc-c920-4202-971a-f7dd6eac3224"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="0a758a1b-e9b3-4112-9556-a0f598220e20"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="5e7bd623-bf0f-4773-b7e8-52e275dedb07"
+        name="clientc"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="1d2fcef5-3929-4c63-9da4-3471f2e44a60"
+            name="Initial1"
+            isLeaf="false" />
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="c5c06cda-a357-4fde-a6bf-af2eb6d4dec2"
+        name="workstationstate"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="3be4bfcb-55b1-48b1-9bfe-6e4fc3f137d8"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="cee54a23-d1bc-475d-b447-f2e0db06c505"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="7464485a-8a07-4857-8ad1-bb7c9cea9d80"
+                  LastKnownName="unkown"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="b3baead7-8de9-471d-bb36-995696054185"
+            name="OK"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="d5e9239e-1738-49fe-8f47-a2c5d884c915"
+                guard="WARNING indicator value "
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="40576287-9d32-45b9-bfa3-fbb547ab1d8b"
+                  LastKnownName="WARNING"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="ced1e848-8711-44a3-9189-37bf5d5909cd"
+                guard="CRITICAL indicator value"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="9ede6555-d35f-4e85-a59b-63e55503f47a"
+                  LastKnownName="KRITICAL"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="40576287-9d32-45b9-bfa3-fbb547ab1d8b"
+            name="WARNING"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="5c248a9d-58ad-4f25-9e7f-c638319d58e6"
+                guard="CRITICAL indicator value"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="9ede6555-d35f-4e85-a59b-63e55503f47a"
+                  LastKnownName="KRITICAL"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="83f4c244-a48f-4b6a-a935-2d7afd274e17"
+                guard="user resets the state"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="b3baead7-8de9-471d-bb36-995696054185"
+                  LastKnownName="OK"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="9ede6555-d35f-4e85-a59b-63e55503f47a"
+            name="KRITICAL"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="7e916028-260b-4e3b-b8e6-381dfef37a06"
+                guard="state duration is less"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="b3baead7-8de9-471d-bb36-995696054185"
+                  LastKnownName="OK"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="351e67fe-2ca3-42ef-ad37-f33e3ce25925"
+            name="maintenance"
+            isLeaf="false" />
+          <opaqueAction
+            Id="c990790c-06c0-42e9-859d-8c1ed75ec683"
+            name="irgnore"
+            isLeaf="false" />
+          <opaqueAction
+            Id="7464485a-8a07-4857-8ad1-bb7c9cea9d80"
+            name="unkown"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="aa02e93a-4fc7-4a05-a83f-57dad80bc37c"
+                guard="get data form active directory"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="b3baead7-8de9-471d-bb36-995696054185"
+                  LastKnownName="OK"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode
+            Id="40f6007a-31fc-43be-9a88-634fdbe62460"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <initialNode
+            Id="ba679a57-f024-46e3-a36b-f458e43afbb9"
+            name="Initial2"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="38a06b29-b621-4513-ae2d-b1b670501148"
+                guard="release"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="b3baead7-8de9-471d-bb36-995696054185"
+                  LastKnownName="OK"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <initialNode
+            Id="8a2b29d6-0ce9-47af-b303-e5d88f8fcf3b"
+            name="Initial3"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="f0441774-59b7-441d-91ea-60766e1572d4"
+                guard="user set maintenance"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="351e67fe-2ca3-42ef-ad37-f33e3ce25925"
+                  LastKnownName="maintenance"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <initialNode
+            Id="df307134-813f-429e-9109-b920600be9b3"
+            name="Initial31"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="c549ded2-d4e5-4dcd-8c3b-5093c325d165"
+                guard="user add to ignore list"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="c990790c-06c0-42e9-859d-8c1ed75ec683"
+                  LastKnownName="irgnore"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <initialNode
+            Id="4bfe88f0-d10c-4435-adc3-ce5bd82e5b44"
+            name="Initial32"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="0cb23704-fe18-41d4-abab-7b9a30bcda39"
+                guard="unistall service from the workstation and release"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="40f6007a-31fc-43be-9a88-634fdbe62460"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <initialNode
+            Id="3a678373-1ea9-4295-be6e-7d0d92ec4653"
+            name="Initial321"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="34e62146-8622-48e7-b50d-099ea207560c"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="40f6007a-31fc-43be-9a88-634fdbe62460"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="169541e6-8e94-4bbe-81db-fbed71d8122d"
+        name="Server.CheckWorkstationIn"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="f5ce4e56-9d57-4b48-b8e8-cd9f81daad1a"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="42b37f51-b18f-4932-9ce4-d12c35ebfbf6"
+                isLeaf="false">
+                <acceptEventActionMoniker
+                  Id="160d5eed-69e8-4015-87b6-5d162d5e1f16"
+                  LastKnownName="received workstation check in message"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <activityFinalNode
+            Id="7a62ba12-23fc-4cdf-b34e-90bdbdb0e176"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <opaqueAction
+            Id="cb18c425-d19d-4f7a-b6d5-7f0d47dac66b"
+            name="lookup in database"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="4d06c566-2caa-4ed4-9794-fb577addfb9f"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="3f7bfccc-9cff-4e2f-b7de-4e2a93291a7d"
+                  LastKnownName="Decision1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+            <pins>
+              <opaqueActionHasInputValues>
+                <inputPin
+                  Id="faaed620-ca9a-444c-bc1d-b98ef4b4c7a2"
+                  name="FQDN"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <upperBound>
+                    <literalInteger
+                      Id="d5a902ac-29c9-4438-984e-a46109922a26"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </inputPin>
+              </opaqueActionHasInputValues>
+            </pins>
+          </opaqueAction>
+          <acceptEventAction
+            Id="160d5eed-69e8-4015-87b6-5d162d5e1f16"
+            name="received workstation check in message"
+            isLeaf="false"
+            isUnmarshall="false">
+            <objectFlowTargets>
+              <objectFlow
+                Id="a9c6c889-20e8-4641-88be-815deb2558b5"
+                isLeaf="false"
+                isMulticast="false"
+                isMultireceive="false">
+                <inputPinMoniker
+                  Id="faaed620-ca9a-444c-bc1d-b98ef4b4c7a2"
+                  LastKnownName="FQDN"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </objectFlow>
+            </objectFlowTargets>
+          </acceptEventAction>
+          <decisionNode
+            Id="3f7bfccc-9cff-4e2f-b7de-4e2a93291a7d"
+            name="Decision1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="3badf023-2a09-4689-bd01-ed30179f6882"
+                guard="not found"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="b9810204-d1be-441b-b008-964b2dfcec97"
+                  LastKnownName="get available data from active directory"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="c4cd497c-ba0c-4d63-86fe-dd76b77496b8"
+                guard="found"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="1da8d360-2381-499a-9a44-1bd35e51fc08"
+                  LastKnownName="Merge1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="b9810204-d1be-441b-b008-964b2dfcec97"
+            name="get available data from active directory"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="2e1808d7-0d0f-4d1f-bcfc-5c04130334d9"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="e1463328-0278-4e7f-8184-c1e936fbf94d"
+                  LastKnownName="save workstation to database"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="43cbbc21-c02f-41e0-9f4c-641e7568b44c"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="10cf2699-efe7-463f-a76a-5bbdaad1ad95"
+                  LastKnownName="Decision2"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <mergeNode
+            Id="1da8d360-2381-499a-9a44-1bd35e51fc08"
+            name="Merge1"
+            isLeaf="false">
+            <objectFlowTargets>
+              <objectFlow
+                Id="1bebb201-3ed5-459f-a78b-6d115ec489f3"
+                isLeaf="false"
+                isMulticast="false"
+                isMultireceive="false">
+                <inputPinMoniker
+                  Id="5cfabd4f-0b9c-40aa-b5c8-34003d05ee6b"
+                  LastKnownName="FQDN"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </objectFlow>
+            </objectFlowTargets>
+          </mergeNode>
+          <opaqueAction
+            Id="4e8f9bda-03cb-477e-baeb-d825db56bba0"
+            name="set workstation's available  flag in database"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="f1c0db0a-84a7-457f-b60d-4999b2c86582"
+                isLeaf="false">
+                <sendSignalActionMoniker
+                  Id="f2d8fe13-b30c-401f-a0c5-7eef59cf262c"
+                  LastKnownName="return boolean to signal success"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+            <pins>
+              <opaqueActionHasInputValues>
+                <inputPin
+                  Id="5cfabd4f-0b9c-40aa-b5c8-34003d05ee6b"
+                  name="FQDN"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <upperBound>
+                    <literalInteger
+                      Id="a6c2ca93-51bb-461b-9963-4191343346c7"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </inputPin>
+              </opaqueActionHasInputValues>
+            </pins>
+          </opaqueAction>
+          <sendSignalAction
+            Id="f2d8fe13-b30c-401f-a0c5-7eef59cf262c"
+            name="return boolean to signal success"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="d13136ce-cb6c-4011-8739-ae1b96d62183"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="7a62ba12-23fc-4cdf-b34e-90bdbdb0e176"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </sendSignalAction>
+          <opaqueAction
+            Id="e1463328-0278-4e7f-8184-c1e936fbf94d"
+            name="save workstation to database"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="734669f5-1ec3-469d-a976-bca70b5626ba"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="1da8d360-2381-499a-9a44-1bd35e51fc08"
+                  LastKnownName="Merge1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="693571cc-03ee-4907-8c13-3eed6a3dbaee"
+            name="assign to special OU"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="ba697f47-9719-4738-9317-2e480965c167"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="e1463328-0278-4e7f-8184-c1e936fbf94d"
+                  LastKnownName="save workstation to database"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="10cf2699-efe7-463f-a76a-5bbdaad1ad95"
+            name="Decision2"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="169e0675-5b6e-40ff-9e45-0582334f88be"
+                guard="not found"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="693571cc-03ee-4907-8c13-3eed6a3dbaee"
+                  LastKnownName="assign to special OU"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="e76b23f1-8113-40e0-84c5-de221e39f9ec"
+                guard="found"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="e1463328-0278-4e7f-8184-c1e936fbf94d"
+                  LastKnownName="save workstation to database"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="8c0d7d4f-b922-42d1-a6ab-5367af8a3031"
+        name="Server.ReceiveData"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="51bf0040-b4a6-43d5-bcdc-45234ef0ca4f"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="3c7af8f3-ae67-4ce1-91ad-a0058d51cbc3"
+                isLeaf="false">
+                <acceptEventActionMoniker
+                  Id="cbbd52b1-c8f1-471b-8e6d-d414d622e23c"
+                  LastKnownName="received indicator values"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <activityFinalNode
+            Id="766d0e42-d835-4126-bbef-a933f4db3874"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <acceptEventAction
+            Id="cbbd52b1-c8f1-471b-8e6d-d414d622e23c"
+            name="received indicator values"
+            isLeaf="false"
+            isUnmarshall="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="40de24ca-cdf5-492a-9714-e29906782379"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="78b44d6a-6db6-4b3d-b32f-e75ef0fb16fc"
+                  LastKnownName="Decision1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </acceptEventAction>
+          <opaqueAction
+            Id="7e2feb94-319b-4141-81c2-cdcedb823542"
+            name="map value using the indicator's metrics"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="ad08687f-5ddd-4721-b369-53393f1dbe89"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="4ae54fb0-e51b-4d34-aeef-a105b8783113"
+                  LastKnownName="save values to database"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <sendSignalAction
+            Id="d83aca31-e319-4d55-9856-3159e5b67ec8"
+            name="signal success"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="429e10ff-2c55-4234-b257-1edb9d0bac88"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="0166c41d-3fdf-4658-b9ac-2ee32f1ea21e"
+                  LastKnownName="Merge1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </sendSignalAction>
+          <decisionNode
+            Id="78b44d6a-6db6-4b3d-b32f-e75ef0fb16fc"
+            name="Decision1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="ea6e8244-198c-4720-ae64-bb8cc670beee"
+                guard="workstation or plugin unknown"
+                isLeaf="false">
+                <sendSignalActionMoniker
+                  Id="42296898-3ac4-4ea3-b533-6e199a488d55"
+                  LastKnownName="signal failure"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="b3891b54-33eb-4f88-803e-40c13e17354c"
+                guard="fine"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="7e2feb94-319b-4141-81c2-cdcedb823542"
+                  LastKnownName="map value using the indicator's metrics"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="dcce9365-18b2-4ffc-beba-fcbfa516fad1"
+                guard="workstation ignored or in maintenance"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="0166c41d-3fdf-4658-b9ac-2ee32f1ea21e"
+                  LastKnownName="Merge1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <sendSignalAction
+            Id="42296898-3ac4-4ea3-b533-6e199a488d55"
+            name="signal failure"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="469c5538-2455-4100-8cb9-da1d02662139"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="0166c41d-3fdf-4658-b9ac-2ee32f1ea21e"
+                  LastKnownName="Merge1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </sendSignalAction>
+          <mergeNode
+            Id="0166c41d-3fdf-4658-b9ac-2ee32f1ea21e"
+            name="Merge1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="5748dc4b-2fcc-4b6b-a381-0be5c296f7f1"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="766d0e42-d835-4126-bbef-a933f4db3874"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </mergeNode>
+          <opaqueAction
+            Id="4ae54fb0-e51b-4d34-aeef-a105b8783113"
+            name="save values to database"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="85d7513e-92c7-4ee4-85b2-5f4b1360b60c"
+                isLeaf="false">
+                <sendSignalActionMoniker
+                  Id="d83aca31-e319-4d55-9856-3159e5b67ec8"
+                  LastKnownName="signal success"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="4efe99ba-d319-4026-8836-4f40de0bec32"
+        name="Server_VisPlugin"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="1ac30374-07a8-4ad7-b5a2-a164cdc9c7ab"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="886a4b83-571b-4376-ae94-2e929917bd38"
+                isLeaf="false">
+                <sendSignalActionMoniker
+                  Id="78b1c5e6-2f3c-4b4f-b99f-3995fb942963"
+                  LastKnownName="plugin request"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <sendSignalAction
+            Id="78b1c5e6-2f3c-4b4f-b99f-3995fb942963"
+            name="plugin request"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="67477742-97da-4e5f-8536-ec431f7054f9"
+                isLeaf="false">
+                <acceptEventActionMoniker
+                  Id="71e7898e-7352-4acf-ae29-cc986deeb9eb"
+                  LastKnownName="list of plugin metadata"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </sendSignalAction>
+          <acceptEventAction
+            Id="71e7898e-7352-4acf-ae29-cc986deeb9eb"
+            name="list of plugin metadata"
+            isLeaf="false"
+            isUnmarshall="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="c43e7cb1-cbf2-4f0e-b2e2-21da2f3b2721"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="531b7240-9123-4968-b4cf-8de433f73d6c"
+                  LastKnownName="Merge2"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </acceptEventAction>
+          <opaqueAction
+            Id="361459e1-154d-4716-928c-ebb18bee2104"
+            name="add plugin to pluginRequestList "
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="6d2b6510-98e0-478c-8766-53829981e2af"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="1ced88c5-dcc8-4138-8695-588407dd479e"
+                  LastKnownName="Merge1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <sendSignalAction
+            Id="3d389f67-9cac-4f9c-89ef-71396aff683c"
+            name="send pluginRequestList"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="52d7613e-a01d-4843-bb25-6b23b1a5df38"
+                isLeaf="false">
+                <acceptEventActionMoniker
+                  Id="3d84042e-eb66-4f3d-b436-4eef8ffee5be"
+                  LastKnownName="new plugin"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </sendSignalAction>
+          <acceptEventAction
+            Id="3d84042e-eb66-4f3d-b436-4eef8ffee5be"
+            name="new plugin"
+            isLeaf="false"
+            isUnmarshall="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="e5bd6581-8693-402a-81f4-3edeb27c49fc"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="695f07f4-2a18-4f8e-abea-9ea195b516fd"
+                  LastKnownName="save plugins"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </acceptEventAction>
+          <decisionNode
+            Id="b68d50c4-c2e7-4ad3-89e8-943a3d57111f"
+            name="Decision1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="f6cc8966-2061-43f4-b469-984311ba0ac7"
+                guard="plugin is unknown or out of date"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="361459e1-154d-4716-928c-ebb18bee2104"
+                  LastKnownName="add plugin to pluginRequestList "
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="81c133dd-ba27-4680-9102-832ad18709c8"
+                guard="plugin is uptodate"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="1ced88c5-dcc8-4138-8695-588407dd479e"
+                  LastKnownName="Merge1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <mergeNode
+            Id="1ced88c5-dcc8-4138-8695-588407dd479e"
+            name="Merge1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="35aed15d-fc32-4106-8629-c09d248cb2e9"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="2d84d4ec-7bd6-489d-875d-91b5ec7a74e8"
+                  LastKnownName="Decision2"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </mergeNode>
+          <decisionNode
+            Id="2d84d4ec-7bd6-489d-875d-91b5ec7a74e8"
+            name="Decision2"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="e7d7fe90-9a11-4e2e-9c98-b7f960d32fa7"
+                guard="all plugins checked"
+                isLeaf="false">
+                <sendSignalActionMoniker
+                  Id="3d389f67-9cac-4f9c-89ef-71396aff683c"
+                  LastKnownName="send pluginRequestList"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="63f42095-7389-49c1-a41c-8f47478a0a03"
+                guard="check next plugin"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="531b7240-9123-4968-b4cf-8de433f73d6c"
+                  LastKnownName="Merge2"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <mergeNode
+            Id="531b7240-9123-4968-b4cf-8de433f73d6c"
+            name="Merge2"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="4425097f-cd23-406b-ab23-0b29d3270f09"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="b68d50c4-c2e7-4ad3-89e8-943a3d57111f"
+                  LastKnownName="Decision1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </mergeNode>
+          <opaqueAction
+            Id="695f07f4-2a18-4f8e-abea-9ea195b516fd"
+            name="save plugins"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="6d560c57-185e-4e1e-8837-aa9bb7fe1804"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="a61e6fe5-403e-4125-aec8-14a67192db98"
+                  LastKnownName="load plugin"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="a61e6fe5-403e-4125-aec8-14a67192db98"
+            name="load plugin"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="04a67935-c346-4877-8b81-b14e9e9c1512"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="b6fff55b-a463-431c-a3bf-8de403d3f215"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode
+            Id="b6fff55b-a463-431c-a3bf-8de403d3f215"
+            name="ActivityFinal1"
+            isLeaf="false" />
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="6a57df2e-57ad-44a8-b4ef-bae4818349e1"
+        name="Server_sendVisData"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="e17d38c8-0a28-45f0-a989-9a8ab60ed259"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="9a79134b-ed21-4eb6-bc09-08ee1375f3e9"
+                isLeaf="false">
+                <acceptEventActionMoniker
+                  Id="da8d7220-e34d-4b0b-b292-d0e5da901747"
+                  LastKnownName="visualization data request"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <acceptEventAction
+            Id="da8d7220-e34d-4b0b-b292-d0e5da901747"
+            name="visualization data request"
+            isLeaf="false"
+            isUnmarshall="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="873e48a1-6068-4229-ab12-484ca0784bb5"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="a8215df6-89ef-4904-8f38-2834d61c6421"
+                  LastKnownName="Decision1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </acceptEventAction>
+          <sendSignalAction
+            Id="60566a30-696b-4cb2-86fe-c15f0e71fccc"
+            name="requested visualization data"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="d03cfe27-933e-465b-b3a5-ca0657cb60bb"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="0cf1de7a-115b-478a-bd24-627567a0531d"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </sendSignalAction>
+          <decisionNode
+            Id="a8215df6-89ef-4904-8f38-2834d61c6421"
+            name="Decision1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="4e128289-89a7-43db-b882-0deb7f41747d"
+                guard="requested data is not available"
+                isLeaf="false">
+                <sendSignalActionMoniker
+                  Id="dd5d1607-dd7a-491c-bb3f-a4f7d24a232f"
+                  LastKnownName="empty response"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="fe2fa236-c50c-4280-a6df-a5d550c65dd4"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="5ceec84e-f7e9-420f-9b08-94713c6ddf5c"
+                  LastKnownName="ignore data from ignore-list-workstations"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <sendSignalAction
+            Id="dd5d1607-dd7a-491c-bb3f-a4f7d24a232f"
+            name="empty response"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="59d9e8ab-5f53-400b-b3fb-5e7bdeaaa21d"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="0cf1de7a-115b-478a-bd24-627567a0531d"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </sendSignalAction>
+          <activityFinalNode
+            Id="0cf1de7a-115b-478a-bd24-627567a0531d"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <opaqueAction
+            Id="5ceec84e-f7e9-420f-9b08-94713c6ddf5c"
+            name="ignore data from ignore-list-workstations"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="815ec8d4-b8e6-4b1c-af32-43cf66d63d9a"
+                isLeaf="false">
+                <sendSignalActionMoniker
+                  Id="60566a30-696b-4cb2-86fe-c15f0e71fccc"
+                  LastKnownName="requested visualization data"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="f1b83db7-b1e8-4a6b-80fb-63259dbc5ee7"
+        name="Server.CheckWorkstationOut"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="4834daaf-a36e-4a51-97db-2dd398c261dd"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="8761e175-1a4c-4017-b487-3a50a71e0979"
+                isLeaf="false">
+                <acceptEventActionMoniker
+                  Id="a27a1594-e768-42f3-9406-56d5f515c270"
+                  LastKnownName="received workstation check out signal"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <activityFinalNode
+            Id="68cdc92b-46c0-410d-8edc-9fa38e71c951"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <acceptEventAction
+            Id="a27a1594-e768-42f3-9406-56d5f515c270"
+            name="received workstation check out signal"
+            isLeaf="false"
+            isUnmarshall="false">
+            <pins>
+              <acceptEventActionHasResults>
+                <outputPin
+                  Id="fc3b4261-2d29-4241-af66-d23ee2dd1b0c"
+                  name="FQDN"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <objectFlowTargets>
+                    <objectFlow
+                      Id="919c058c-f192-4e49-8272-a233630d6092"
+                      isLeaf="false"
+                      isMulticast="false"
+                      isMultireceive="false">
+                      <decisionNodeMoniker
+                        Id="d56901cc-49fe-40a2-865b-187dacce9b85"
+                        LastKnownName="Decision1"
+                        LastKnownLocation="MISD_Modeling.uml" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger
+                      Id="5b298a78-1b66-443d-8fd0-8e349d5d8275"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </outputPin>
+              </acceptEventActionHasResults>
+            </pins>
+          </acceptEventAction>
+          <opaqueAction
+            Id="94272d32-9935-4e0a-8acc-069bc452fe00"
+            name="set workstation's available flag in database to false"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="e1dc45db-ab79-4bec-b932-518636821a34"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="68cdc92b-46c0-410d-8edc-9fa38e71c951"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="d56901cc-49fe-40a2-865b-187dacce9b85"
+            name="Decision1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="4715094b-ec43-4d50-91fe-3905cc682780"
+                guard="workstation unknown"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="68cdc92b-46c0-410d-8edc-9fa38e71c951"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="d13c2d70-8386-4c6d-9b07-b38899ace035"
+                guard="workstation known"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="94272d32-9935-4e0a-8acc-069bc452fe00"
+                  LastKnownName="set workstation's available flag in database to false"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="a0b0328c-43df-4677-bc84-42e31ff979ef"
+        name="Server.VisPlugin"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="1a7bb3d6-f26d-4b10-80af-8ff56f9e7525"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="4f88427d-d2fa-4b47-8b85-268fc5495bbb"
+                isLeaf="false">
+                <acceptEventActionMoniker
+                  Id="37a29594-48bd-49df-81a4-b6d7dbedfb2c"
+                  LastKnownName="request plugin list"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <acceptEventAction
+            Id="37a29594-48bd-49df-81a4-b6d7dbedfb2c"
+            name="request plugin list"
+            isLeaf="false"
+            isUnmarshall="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="a0a8f498-13b3-4499-bbb5-0b3c62364cf7"
+                isLeaf="false">
+                <sendSignalActionMoniker
+                  Id="3de907a1-e5bd-48b3-a578-e3a8c6c3c5bb"
+                  LastKnownName="send visualization plugin list"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </acceptEventAction>
+          <sendSignalAction
+            Id="3de907a1-e5bd-48b3-a578-e3a8c6c3c5bb"
+            name="send visualization plugin list"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="248e8a60-8c3a-4fdb-8d37-16294fd9b45d"
+                isLeaf="false">
+                <acceptEventActionMoniker
+                  Id="58ab2782-e8fa-44cd-8e7e-349730bba608"
+                  LastKnownName="requested plugins"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </sendSignalAction>
+          <sendSignalAction
+            Id="61eab787-fde3-4aa0-b3e4-6ea165150bb5"
+            name="requested plugins"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="927da75d-5e89-4e74-abc4-a9dea94d7068"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="89bded58-e4fd-4be9-83be-4c0479febe12"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </sendSignalAction>
+          <acceptEventAction
+            Id="58ab2782-e8fa-44cd-8e7e-349730bba608"
+            name="requested plugins"
+            isLeaf="false"
+            isUnmarshall="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="c6d8158a-ff0d-46e1-84b0-0a1986ef5161"
+                isLeaf="false">
+                <sendSignalActionMoniker
+                  Id="61eab787-fde3-4aa0-b3e4-6ea165150bb5"
+                  LastKnownName="requested plugins"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </acceptEventAction>
+          <activityFinalNode
+            Id="89bded58-e4fd-4be9-83be-4c0479febe12"
+            name="ActivityFinal1"
+            isLeaf="false" />
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="23d18aa7-fc70-46a1-beae-8d6749329996"
+        name="Server_addIngonreList"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="7e4802d8-8faf-457d-9faf-768048011e11"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="0a6a9b19-e5d3-4717-8c51-564e22a09b0f"
+                isLeaf="false">
+                <acceptEventActionMoniker
+                  Id="afdf22f2-a5ce-45ea-af3f-8e575522b0d9"
+                  LastKnownName="workstation"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <acceptEventAction
+            Id="afdf22f2-a5ce-45ea-af3f-8e575522b0d9"
+            name="workstation"
+            isLeaf="false"
+            isUnmarshall="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="8099e1cb-57d7-4a35-a157-ba98d9515203"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="4256f475-bc26-45a6-aee3-bdf1c7be4fd9"
+                  LastKnownName="add workstation to ignore list"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </acceptEventAction>
+          <opaqueAction
+            Id="4256f475-bc26-45a6-aee3-bdf1c7be4fd9"
+            name="add workstation to ignore list"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="ff4252d9-a52a-40c3-aea9-7afd197ac345"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="3eebedd5-9869-4bd6-9a46-077f38b807a6"
+                  LastKnownName="delete all idicatortvalues of this workstation"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="3eebedd5-9869-4bd6-9a46-077f38b807a6"
+            name="delete all idicatortvalues of this workstation"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="2c0de899-f0f7-45a8-a659-4b60e7e188f2"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="66d7247a-10bd-4a44-9d03-22064a00d110"
+                  LastKnownName="delete all idicator settings of this workstation1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="66d7247a-10bd-4a44-9d03-22064a00d110"
+            name="delete all idicator settings of this workstation1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="effa70f9-d04b-4cee-bc3b-f71e42136a72"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="cf754435-a39b-4d06-8e96-a76e4a730b01"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode
+            Id="cf754435-a39b-4d06-8e96-a76e4a730b01"
+            name="ActivityFinal1"
+            isLeaf="false" />
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="0bf6567f-ddba-4d81-8452-e989b1cf8d8e"
+        name="Server.addToMaintance"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="28c75828-cba7-4549-9a4d-ffa6292d8614"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="f8988035-ca5f-4904-b0d2-2a246a307ca3"
+                isLeaf="false">
+                <acceptEventActionMoniker
+                  Id="19b8a59b-9bef-4c36-8173-7e882858f7f5"
+                  LastKnownName="workstation to switch maintenance state"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="4fc7030a-b637-4f76-ba1f-02aeb870e394"
+            name="create start log"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="c7b528f4-799e-45f9-b871-81ea789e56e7"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="38111f49-40a2-4609-a6fe-c6b69db52564"
+                  LastKnownName="Merge1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <acceptEventAction
+            Id="19b8a59b-9bef-4c36-8173-7e882858f7f5"
+            name="workstation to switch maintenance state"
+            isLeaf="false"
+            isUnmarshall="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="8bf3f2ae-1479-42a8-bc41-a1a03a5404a6"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="a007f5ac-5176-4ed0-95cc-7aa9890044ac"
+                  LastKnownName="Decision1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </acceptEventAction>
+          <opaqueAction
+            Id="38606d89-9939-4382-8ea2-058cd447a583"
+            name="add to maintenance list"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="c42440f0-0cb0-463e-9fdc-82925c8e08bf"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="4fc7030a-b637-4f76-ba1f-02aeb870e394"
+                  LastKnownName="create start log"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode
+            Id="f2fa8869-3b24-4640-af6a-630c05cef171"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <opaqueAction
+            Id="55a50ec5-591f-430c-b961-0cefb62a68c0"
+            name="create end log"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="0d482471-ae2d-44a0-8d06-729e56d924d1"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="38111f49-40a2-4609-a6fe-c6b69db52564"
+                  LastKnownName="Merge1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="a6c273f7-82c5-49ad-b5bb-831e737adade"
+            name="delete from maintenance list"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="7d199ff2-b449-44c6-8bf2-0618b396cfcd"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="55a50ec5-591f-430c-b961-0cefb62a68c0"
+                  LastKnownName="create end log"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="a007f5ac-5176-4ed0-95cc-7aa9890044ac"
+            name="Decision1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="4378835d-1c3f-416f-bdd9-4af538cb5664"
+                guard="disable maintenance"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="a6c273f7-82c5-49ad-b5bb-831e737adade"
+                  LastKnownName="delete from maintenance list"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="d6a09b4f-3d81-423a-8168-a34e9be628ca"
+                guard="set maintenance"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="38606d89-9939-4382-8ea2-058cd447a583"
+                  LastKnownName="add to maintenance list"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="e9b4cab1-4f34-449c-9af6-448f224bdb1d"
+                guard="workstation already has the desired state"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="38111f49-40a2-4609-a6fe-c6b69db52564"
+                  LastKnownName="Merge1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <mergeNode
+            Id="38111f49-40a2-4609-a6fe-c6b69db52564"
+            name="Merge1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="eb420291-9ed0-480d-99c0-b2817d9fbe6c"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="f2fa8869-3b24-4640-af6a-630c05cef171"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </mergeNode>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="b26dbc21-8a80-45ad-aa4d-85274c54b1c8"
+        name="Server_addToIgnore"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="0a5a5207-f3d5-4347-98c6-dbba08a7dc33"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="15233906-0b70-4b45-95e5-0c104919d197"
+                isLeaf="false">
+                <acceptEventActionMoniker
+                  Id="344f5600-93b3-4692-afef-ba1626ae6e03"
+                  LastKnownName="workstation to be ignored"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <acceptEventAction
+            Id="344f5600-93b3-4692-afef-ba1626ae6e03"
+            name="workstation to be ignored"
+            isLeaf="false"
+            isUnmarshall="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="83612c17-f205-4d0a-bdba-d57464ff3388"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="fed521ea-409d-42d3-ab20-872f8936428f"
+                  LastKnownName="add workstation to ignore list"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </acceptEventAction>
+          <opaqueAction
+            Id="fed521ea-409d-42d3-ab20-872f8936428f"
+            name="add workstation to ignore list"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="5fcb4a0e-8115-47cf-b6ac-36765f761682"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="a2a222ba-fc6f-48e2-8837-edb6a9e894f9"
+                  LastKnownName="delete all its indicator values"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="a2a222ba-fc6f-48e2-8837-edb6a9e894f9"
+            name="delete all its indicator values"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="aa205c29-260c-4a72-955e-60e614e07960"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="1720d2dd-a350-4833-9990-78eced20ff56"
+                  LastKnownName="delete all its indicator settings"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="1720d2dd-a350-4833-9990-78eced20ff56"
+            name="delete all its indicator settings"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="8efe38f1-9f34-4fb4-b0e4-ab70b66338e7"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="a03f7584-d841-401f-b9c4-a8cd1d93348a"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="MISD_Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode
+            Id="a03f7584-d841-401f-b9c4-a8cd1d93348a"
+            name="ActivityFinal1"
+            isLeaf="false" />
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="33237be4-e4a0-4a55-a05e-51cc0ed8e35e"
+        name="Component2"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="df98a357-3b90-40ac-adca-89b7767b9ea9"
+        name="Class1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

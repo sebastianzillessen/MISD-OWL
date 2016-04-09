@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="4a602329-2987-4dc7-bcbd-8d0577afd632" name="Server_sendVisData" linkedPackageId="25f4a789-2a04-469c-88be-e3491ec5388d" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="2dbf4a48-304e-43e8-80fa-8dba4fb78d31" name="Server_sendVisData" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="6a57df2e-57ad-44a8-b4ef-bae4818349e1" />
+        <nodes>
+          <initialNode Id="b10b4e48-3635-4d22-841a-094987b44171" name="Initial1" isLeaf="false">
+            <elementDefinition Id="e17d38c8-0a28-45f0-a989-9a8ab60ed259" />
+            <flowNodeTargets>
+              <controlFlow Id="1f1939e2-7182-46eb-a51a-0268917cf752" isLeaf="false">
+                <acceptEventActionMoniker Id="e8859265-7649-412d-94bf-c879f1edba13" LastKnownName="visualization data request" />
+                <elementDefinition Id="9a79134b-ed21-4eb6-bc09-08ee1375f3e9" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <acceptEventAction Id="e8859265-7649-412d-94bf-c879f1edba13" name="visualization data request" isLeaf="false" isUnmarshall="false">
+            <elementDefinition Id="da8d7220-e34d-4b0b-b292-d0e5da901747" />
+            <flowNodeTargets>
+              <controlFlow Id="5ba0139a-8d69-41be-a84a-dc2035257a02" isLeaf="false">
+                <decisionNodeMoniker Id="a6c73939-0ea3-4b11-a2b9-9aad5ddee6fc" LastKnownName="Decision1" />
+                <elementDefinition Id="873e48a1-6068-4229-ab12-484ca0784bb5" />
+              </controlFlow>
+            </flowNodeTargets>
+          </acceptEventAction>
+          <sendSignalAction Id="292a0fb0-3017-42cb-8e68-75cf5de5dd5b" name="requested visualization data" isLeaf="false">
+            <elementDefinition Id="60566a30-696b-4cb2-86fe-c15f0e71fccc" />
+            <flowNodeTargets>
+              <controlFlow Id="10056c1c-18af-45af-b38b-a0c0e85f21b6" isLeaf="false">
+                <activityFinalNodeMoniker Id="d1cc49c0-8b57-4095-982e-76cff0c515ed" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="d03cfe27-933e-465b-b3a5-ca0657cb60bb" />
+              </controlFlow>
+            </flowNodeTargets>
+          </sendSignalAction>
+          <decisionNode Id="a6c73939-0ea3-4b11-a2b9-9aad5ddee6fc" name="Decision1" isLeaf="false">
+            <elementDefinition Id="a8215df6-89ef-4904-8f38-2834d61c6421" />
+            <flowNodeTargets>
+              <controlFlow Id="e2adaaee-95cb-407a-ad78-13ac21f8678f" guard="requested data is not available" isLeaf="false">
+                <sendSignalActionMoniker Id="4549701b-7e57-4211-bd97-3d6fc91888d7" LastKnownName="empty response" />
+                <elementDefinition Id="4e128289-89a7-43db-b882-0deb7f41747d" />
+              </controlFlow>
+              <controlFlow Id="d0a10138-d3ba-4b22-b7f4-20e947c084f1" isLeaf="false">
+                <opaqueActionMoniker Id="440326b8-2996-4d1a-ad28-454a7dcef4a8" LastKnownName="ignore data from ignore-list-workstations" />
+                <elementDefinition Id="fe2fa236-c50c-4280-a6df-a5d550c65dd4" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <sendSignalAction Id="4549701b-7e57-4211-bd97-3d6fc91888d7" name="empty response" isLeaf="false">
+            <elementDefinition Id="dd5d1607-dd7a-491c-bb3f-a4f7d24a232f" />
+            <flowNodeTargets>
+              <controlFlow Id="63d3a1b7-cc62-4c77-be47-e9b367d3030e" isLeaf="false">
+                <activityFinalNodeMoniker Id="d1cc49c0-8b57-4095-982e-76cff0c515ed" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="59d9e8ab-5f53-400b-b3fb-5e7bdeaaa21d" />
+              </controlFlow>
+            </flowNodeTargets>
+          </sendSignalAction>
+          <activityFinalNode Id="d1cc49c0-8b57-4095-982e-76cff0c515ed" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="0cf1de7a-115b-478a-bd24-627567a0531d" />
+          </activityFinalNode>
+          <opaqueAction Id="440326b8-2996-4d1a-ad28-454a7dcef4a8" name="ignore data from ignore-list-workstations" isLeaf="false">
+            <elementDefinition Id="5ceec84e-f7e9-420f-9b08-94713c6ddf5c" />
+            <flowNodeTargets>
+              <controlFlow Id="68a63629-39db-4980-9f37-127dcb9c8ddf" isLeaf="false">
+                <sendSignalActionMoniker Id="292a0fb0-3017-42cb-8e68-75cf5de5dd5b" LastKnownName="requested visualization data" />
+                <elementDefinition Id="815ec8d4-b8e6-4b1c-af32-43cf66d63d9a" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="25f4a789-2a04-469c-88be-e3491ec5388d" name="MISD_Modeling">
+    <elementDefinition Id="57152138-29c8-467d-80d5-86353decd659" />
+    <profileInstances>
+      <packageHasProfileInstances Id="1984af46-9b78-4792-a669-201f3f1f27c9">
+        <profileInstance Id="3352a72f-ab22-41da-b494-ad076d4d3253" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="0ec99bc0-fa48-42e1-b080-e72046599269">
+        <profileInstance Id="f882dfc6-0ecb-4f37-b943-39057d659274" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</activityRootModel>

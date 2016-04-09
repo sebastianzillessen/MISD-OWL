@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="8f06d118-fdb5-4787-8658-505d9d648413" name="Client.LogOn" linkedPackageId="6fefaf7d-a2ab-4a44-a5c7-7afdc37033ee" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="8666bc01-5596-4604-bb5a-c6466e746657">
+      <profileInstance Id="6fa7d734-1593-4e2c-b1b3-5f42ebbbdc3c" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="99978674-21c8-4882-ae0d-49748d60e7a9">
+      <profileInstance Id="76021cde-20f2-40fc-9d02-d6dd840d3d5b" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="c0b98329-a57a-4f2d-aea3-3688a18586d0" name="Client.LogOn" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="0bb3e6ef-0e83-4c10-acad-d287a03ae235" />
+        <nodes>
+          <opaqueAction Id="fd73366d-14cb-468d-85fd-6379b7bbeb51" name="Authentication" isLeaf="false">
+            <elementDefinition Id="5f739d70-9660-4fd0-9684-755a99f81eb3" />
+            <flowNodeTargets>
+              <controlFlow Id="b246dff3-da15-4d66-be51-177abaab7d48" isLeaf="false">
+                <acceptEventActionMoniker Id="3ca44f18-6e75-468a-a043-038c2a39bad9" LastKnownName="SystemSetting" />
+                <elementDefinition Id="e24b2a33-48c1-4c53-9912-ddf274da18f5" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <acceptEventAction Id="3ca44f18-6e75-468a-a043-038c2a39bad9" name="SystemSetting" isLeaf="false" isUnmarshall="false">
+            <elementDefinition Id="ccb56034-f39b-431c-a1d5-131ae35c7d37" />
+            <flowNodeTargets>
+              <controlFlow Id="a73bc4b9-4ef0-45e9-afc4-a4743369ce0d" isLeaf="false">
+                <opaqueActionMoniker Id="78d558ce-1215-400e-a557-3df544e43bfc" LastKnownName="locale SystemSetting update" />
+                <elementDefinition Id="b75f6a23-67c9-4115-a3af-09eee002d85d" />
+              </controlFlow>
+            </flowNodeTargets>
+          </acceptEventAction>
+          <opaqueAction Id="1c5d1e2d-3efe-4605-8cde-ed7b244d3b27" name="VisualPlugin" isLeaf="false">
+            <elementDefinition Id="5ae8aebb-635e-4825-9e95-7e22095feb55" />
+            <flowNodeTargets>
+              <controlFlow Id="2855dec8-65c3-472e-8340-792f953febc6" isLeaf="false">
+                <opaqueActionMoniker Id="b52e33e9-7ebe-4fb3-8951-f1c7b2500fa7" LastKnownName="DataCollect" />
+                <elementDefinition Id="c3488995-f081-4caf-913f-b537b0345428" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="78d558ce-1215-400e-a557-3df544e43bfc" name="locale SystemSetting update" isLeaf="false">
+            <elementDefinition Id="a43264a1-a666-4b7a-8b94-eced10e64bda" />
+            <flowNodeTargets>
+              <controlFlow Id="ffe16a85-a63f-425b-a041-361e4cd4e72b" isLeaf="false">
+                <opaqueActionMoniker Id="1c5d1e2d-3efe-4605-8cde-ed7b244d3b27" LastKnownName="VisualPlugin" />
+                <elementDefinition Id="19592570-2e01-4668-89e8-4073390b6ad6" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <acceptEventAction Id="acad3387-e673-489f-94c4-1aca6edfb9a5" name="UIConfiguration" isLeaf="false" isUnmarshall="false">
+            <elementDefinition Id="acb88f07-893c-4953-9c6c-08a9d950f649" />
+            <flowNodeTargets>
+              <controlFlow Id="030ee2e4-f515-4654-a0da-b0ab92ce0db4" isLeaf="false">
+                <opaqueActionMoniker Id="5208e743-8a05-45e9-8b83-eae4cea882a9" LastKnownName="locale UIConfiguration update" />
+                <elementDefinition Id="fac68297-3538-4940-9765-6652e7fc1490" />
+              </controlFlow>
+            </flowNodeTargets>
+          </acceptEventAction>
+          <initialNode Id="3f1b2312-3ba3-470b-a71b-21389beafcc1" name="Initial1" isLeaf="false">
+            <elementDefinition Id="19a13ab1-cff6-4b81-ba44-3f093e4edd1d" />
+            <flowNodeTargets>
+              <controlFlow Id="cfd4ff59-c447-4440-9434-3e2cdd830453" isLeaf="false">
+                <opaqueActionMoniker Id="fd73366d-14cb-468d-85fd-6379b7bbeb51" LastKnownName="Authentication" />
+                <elementDefinition Id="05ba9a02-538f-4ab1-a11f-2e0e6960fcae" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <activityFinalNode Id="b17a9848-abbe-4e51-84fc-6c726d1c9b36" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="c383cff1-3279-4712-b469-1510c96bb4af" />
+          </activityFinalNode>
+          <opaqueAction Id="b52e33e9-7ebe-4fb3-8951-f1c7b2500fa7" name="DataCollect" isLeaf="false">
+            <elementDefinition Id="1687d765-706f-4163-9890-9579cfe73cad" />
+            <flowNodeTargets>
+              <controlFlow Id="4ab061be-ac4c-44aa-a223-526a07f22f97" isLeaf="false">
+                <acceptEventActionMoniker Id="acad3387-e673-489f-94c4-1aca6edfb9a5" LastKnownName="UIConfiguration" />
+                <elementDefinition Id="eba03b54-9c69-49ae-a469-5e00236a0c39" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="5208e743-8a05-45e9-8b83-eae4cea882a9" name="locale UIConfiguration update" isLeaf="false">
+            <elementDefinition Id="a1b80090-eea0-4370-a23a-14fb657aa728" />
+            <flowNodeTargets>
+              <controlFlow Id="3f5ffec4-e9eb-42e9-96a5-5dfe67270805" isLeaf="false">
+                <opaqueActionMoniker Id="ceeaa9f1-bc11-450b-96bd-70d2822be773" LastKnownName="GUI" />
+                <elementDefinition Id="c30e1b3e-1e2c-461e-8607-eb106f4a649e" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="ceeaa9f1-bc11-450b-96bd-70d2822be773" name="GUI" isLeaf="false">
+            <elementDefinition Id="b1011125-a76c-42d1-a68d-b306c302d409" />
+            <flowNodeTargets>
+              <controlFlow Id="1174dd74-10b1-4a46-b321-a89cdde677e4" isLeaf="false">
+                <activityFinalNodeMoniker Id="b17a9848-abbe-4e51-84fc-6c726d1c9b36" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="5ca84f3c-dbb9-4691-b7c7-348eb74f8378" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="6fefaf7d-a2ab-4a44-a5c7-7afdc37033ee" name="MISD_Modeling">
+    <elementDefinition Id="57152138-29c8-467d-80d5-86353decd659" />
+  </package>
+</activityRootModel>

@@ -1,0 +1,81 @@
+<#@ template language="C#" #>
+<#@ import namespace="MISD.Core" #>
+<html><body><font face="Calibri" size="2">
+Hallo liebe MISD OWL User,<br>
+<br>
+nachfolgend eine Übersicht über die überwachten Systeme in den letzen 24 stunden.
+
+<br><br>
+<b>Systeme im Zustand Kritisch</b>
+<table border="1" rules="groups">
+	<tr>
+		<td><ID<</td>
+		<td>Name</td>
+		<td>FQDN</td>
+		<td>Betriebssystem</td>
+		<td>Onlinestatus</td>
+	</tr>
+	<# foreach(WorkstationInfo info in myData.criticalWorkstations)
+		{ #>
+			<tr>
+			<td><#= info.ID #></td>
+			<td><#= info.Name #></td>
+			<td><#= info.FQDN #></td>
+			<td><#= info.CurrentOS #></td>
+			<td><#= info.IsAvailable #></td>
+			</tr>
+		<# } #>
+</table>
+
+
+<br><br>
+<b>Systeme im Zustand Warnung</b>
+<table border="1" rules="groups">
+	<tr>
+		<td><ID<</td>
+		<td>Name</td>
+		<td>FQDN</td>
+		<td>Betriebssystem</td>
+		<td>Onlinestatus</td>
+		<# foreach(WorkstationInfo info in myData.waringWorkstations)
+		{ #>
+			<tr>
+			<td><#= info.ID #></td>
+			<td><#= info.Name #></td>
+			<td><#= info.FQDN #></td>
+			<td><#= info.CurrentOS #></td>
+			<td><#= info.IsAvailable #></td>
+			</tr>
+		<# } #>
+	</tr>
+</table>
+
+
+<br><br>
+<b>Systeme im Wartungszustand</b>
+<table border="1" rules="groups">
+	<tr>
+		<td><ID<</td>
+		<td>Name</td>
+		<td>FQDN</td>
+		<td>Betriebssystem</td>
+		<td>Onlinestatus</td>
+		<# foreach(WorkstationInfo info in myData.maintanceWorkstations)
+		{ #>
+			<tr>
+			<td><#= info.ID #></td>
+			<td><#= info.Name #></td>
+			<td><#= info.FQDN #></td>
+			<td><#= info.CurrentOS #></td>
+			<td><#= info.IsAvailable #></td>
+			</tr>
+		<# } #>
+	</tr>
+</table>
+
+
+<br><br>
+Mit freundlichen Grüßen<br>
+MISD OWL
+
+</font></body></html>

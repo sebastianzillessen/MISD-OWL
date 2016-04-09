@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MISD.Workstation.Windows.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="pluginPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">\plugins</Value>
+    </Setting>
+    <Setting Name="pluginFileBase" Type="System.String" Scope="User">
+      <Value Profile="(Default)">MISD.Plugins.Windows.</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

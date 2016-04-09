@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0FDAC9AA-42BC-4EA9-A7A4-26EA1D6B0C3C}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>MISD.Test.Plugins.Linux</RootNamespace>
+    <AssemblyName>MISD.Test.Plugins.Linux</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <Externalconsole>true</Externalconsole>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <Externalconsole>true</Externalconsole>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="nunit.core, Version=2.5.10.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
+      <Private>False</Private>
+      <Package>nunit</Package>
+    </Reference>
+    <Reference Include="nunit.util, Version=2.5.10.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
+      <Private>False</Private>
+      <Package>nunit</Package>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.5.10.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
+      <Private>False</Private>
+      <Package>nunit</Package>
+    </Reference>
+    <Reference Include="nunit.core.interfaces, Version=2.5.10.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
+      <Private>False</Private>
+      <Package>nunit</Package>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="CpuTest.cs" />
+    <Compile Include="RamTest.cs" />
+    <Compile Include="HddTest.cs" />
+    <Compile Include="GpuTest.cs" />
+    <Compile Include="NetworkTest.cs" />
+    <Compile Include="OsTest.cs" />
+    <Compile Include="EventsTest.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\..\MISD.Core\MISD.Core.csproj">
+      <Project>{B8C8677E-FE2E-46ED-BAA1-537A076EF164}</Project>
+      <Name>MISD.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MISD.Plugins.Linux\CPU\CPU.csproj">
+      <Project>{C66533C9-8FB0-452B-B287-69F638701A81}</Project>
+      <Name>CPU</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MISD.Plugins.Linux\RAM\RAM.csproj">
+      <Project>{F51A5514-2A09-4E5B-9565-AC56CD4BD595}</Project>
+      <Name>RAM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MISD.Plugins.Linux\HDD\HDD.csproj">
+      <Project>{20FF0AFE-36C7-414F-93E2-8AA0AFABC4D5}</Project>
+      <Name>HDD</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MISD.Plugins.Linux\Gpu\GPU.csproj">
+      <Project>{E2DBF5C8-9478-451A-8041-7111F4539AED}</Project>
+      <Name>GPU</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MISD.Plugins.Linux\Network\NetworkAdapter.csproj">
+      <Project>{91EB2CCF-99FD-4502-B510-AB5F13504FA3}</Project>
+      <Name>NetworkAdapter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MISD.Plugins.Linux\OS\OS.csproj">
+      <Project>{4570A394-C040-415A-B180-43F00A46108A}</Project>
+      <Name>OS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MISD.Plugins.Linux\Events\Events.csproj">
+      <Project>{55C99C11-5E01-4686-87BE-6428B269CDAA}</Project>
+      <Name>Events</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

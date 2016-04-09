@@ -1,0 +1,15 @@
+﻿<html><body><font face="Arial">
+Hallo lieber MISD OWL User, liebe MISD OWL Userin,<br>
+<br>
+Die Workstation [%WSName%] hat folgenden Fehler gemeldet:<br><br>
+
+Datum: [%Date%]<br>
+Plugin: [%PluginName%]<br>
+Indikator: [%Indicator%]<br>
+Wert: [%Value%]
+
+<br><br>
+Mit freundlichen Grüßen<br>
+Der MISD OWL Mailer
+
+</font></body></html>

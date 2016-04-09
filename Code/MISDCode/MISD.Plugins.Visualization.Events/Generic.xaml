@@ -1,0 +1,50 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:MISD.Plugins.Visualization.Events">
+
+    <!--Insert plugin image here-->
+    <DrawingBrush x:Key="EventsPluginImage">
+        <DrawingBrush.Drawing>
+            <DrawingGroup>
+                <DrawingGroup.Children>
+                    <GeometryDrawing Brush="White" Geometry="F1 M 4.71201,3.05176e-005L 14.6667,3.05176e-005L 11.4667,7.65732L 16,7.65732L 8,19.1707L 12.7107,19.1707L 4.71201,32L 4.71201,23.104L 0,23.104L 4.356,11.6974L 0,11.6974L 4.71201,3.05176e-005 Z "/>
+                </DrawingGroup.Children>
+            </DrawingGroup>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+    <Style TargetType="{x:Type local:EventsTileCustomUI}">
+        <Style.Setters>
+            <!--define plugin image and data template-->
+            <Setter Property="Image" Value="{StaticResource EventsPluginImage}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type local:EventsTileCustomUI}">
+                        <Grid x:Name="PART_LayoutRoot" VerticalAlignment="Top" Height="500" MinWidth="800" MaxWidth="500">
+                            <ListView ItemsSource="{Binding IndicatorValues}" Background="Transparent" Foreground="White" ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                                      ScrollViewer.VerticalScrollBarVisibility="Hidden" ItemContainerStyle="{DynamicResource AlternatingListStyle}"
+                                      AlternationCount="2" HorizontalAlignment="Stretch">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Value}" Width="{Binding ActualWidth, RelativeSource={RelativeSource Mode=FindAncestor, 
+                                        AncestorType={x:Type Grid }}}" ToolTip="{Binding Value}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+    </Style>
+    <Style x:Key="AlternatingListStyle" TargetType="{x:Type ListViewItem}">
+        <Style.Triggers>
+            <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                <Setter Property="Background" Value="#22FFFFFF"></Setter>
+            </Trigger>
+            <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                <Setter Property="Background" Value="#44FFFFFF"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MISD" Class="MISDDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=acid.visus.uni-stuttgart.de;Initial Catalog=MISD;Persist Security Info=True;User ID=stupro" SettingsObjectName="MISD.Test.Server.Database.Properties.Settings" SettingsPropertyName="MISDConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Email" Member="Email">
+    <Type Name="Email">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="ReceiverName" Type="System.String" DbType="NVarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="DailMail" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Email_EmailObserver" Member="EmailObserver" ThisKey="ID" OtherKey="EmailID" Type="EmailObserver" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ValueString" Member="ValueString">
+    <Type Name="ValueString">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Value" Type="System.String" DbType="NVarChar(1024) NOT NULL" CanBeNull="false" />
+      <Association Name="ValueString_IndicatorValue" Member="IndicatorValue" ThisKey="ID" OtherKey="ValueID" Type="IndicatorValue" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EmailObserver" Member="EmailObserver">
+    <Type Name="EmailObserver">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EmailID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MonitoredSystemID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="Email_EmailObserver" Member="Email" ThisKey="EmailID" OtherKey="ID" Type="Email" IsForeignKey="true" />
+      <Association Name="MonitoredSystem_EmailObserver" Member="MonitoredSystem" ThisKey="MonitoredSystemID" OtherKey="ID" Type="MonitoredSystem" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Indicator" Member="Indicator">
+    <Type Name="Indicator">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="PluginMetadataID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateInterval" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FilterStatement" Type="System.String" DbType="NVarChar(4000) NOT NULL" CanBeNull="false" />
+      <Column Name="StatementWarning" Type="System.String" DbType="NVarChar(4000) NOT NULL" CanBeNull="false" />
+      <Column Name="StatementCritical" Type="System.String" DbType="NVarChar(4000) NOT NULL" CanBeNull="false" />
+      <Column Name="ValueType" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="MonitoredSystemID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="Indicator_IndicatorValue" Member="IndicatorValue" ThisKey="ID" OtherKey="IndicatorID" Type="IndicatorValue" />
+      <Association Name="MonitoredSystem_Indicator" Member="MonitoredSystem" ThisKey="MonitoredSystemID" OtherKey="ID" Type="MonitoredSystem" IsForeignKey="true" />
+      <Association Name="PluginMetadata_Indicator" Member="PluginMetadata" ThisKey="PluginMetadataID" OtherKey="ID" Type="PluginMetadata" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.IndicatorValue" Member="IndicatorValue">
+    <Type Name="IndicatorValue">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IndicatorID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ValueID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Timestamp" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+      <Column Name="Mapping" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Association Name="Indicator_IndicatorValue" Member="Indicator" ThisKey="IndicatorID" OtherKey="ID" Type="Indicator" IsForeignKey="true" />
+      <Association Name="ValueString_IndicatorValue" Member="ValueString" ThisKey="ValueID" OtherKey="ID" Type="ValueString" IsForeignKey="true" />
+      <Association Name="ValueByte_IndicatorValue" Member="ValueByte" ThisKey="ValueID" OtherKey="ID" Type="ValueByte" IsForeignKey="true" />
+      <Association Name="ValueFloat_IndicatorValue" Member="ValueFloat" ThisKey="ValueID" OtherKey="ID" Type="ValueFloat" IsForeignKey="true" />
+      <Association Name="ValueInt_IndicatorValue" Member="ValueInt" ThisKey="ValueID" OtherKey="ID" Type="ValueInt" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Maintenance" Member="Maintenance">
+    <Type Name="Maintenance">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MonitoredSystemID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Beginning" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="[End]" Member="End" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="MonitoredSystem_Maintenance" Member="MonitoredSystem" ThisKey="MonitoredSystemID" OtherKey="ID" Type="MonitoredSystem" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MonitoredSystem" Member="MonitoredSystem">
+    <Type Name="MonitoredSystem">
+      <Column Name="ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="OrganizationalUnitID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="FQDN" Type="System.String" DbType="NVarChar(512) NOT NULL" CanBeNull="false" />
+      <Column Name="IsAvailable" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsIgnored" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="OperatingSystem" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Association Name="MonitoredSystem_EmailObserver" Member="EmailObserver" ThisKey="ID" OtherKey="MonitoredSystemID" Type="EmailObserver" />
+      <Association Name="MonitoredSystem_Indicator" Member="Indicator" ThisKey="ID" OtherKey="MonitoredSystemID" Type="Indicator" />
+      <Association Name="MonitoredSystem_Maintenance" Member="Maintenance" ThisKey="ID" OtherKey="MonitoredSystemID" Type="Maintenance" />
+      <Association Name="OrganizationalUnit_MonitoredSystem" Member="OrganizationalUnit" ThisKey="OrganizationalUnitID" OtherKey="ID" Type="OrganizationalUnit" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OrganizationalUnit" Member="OrganizationalUnit">
+    <Type Name="OrganizationalUnit">
+      <Column Name="ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="FQDN" Type="System.String" DbType="NVarChar(512) NOT NULL" CanBeNull="false" />
+      <Column Name="Parent" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Association Name="OrganizationalUnit_MonitoredSystem" Member="MonitoredSystem" ThisKey="ID" OtherKey="OrganizationalUnitID" Type="MonitoredSystem" />
+      <Association Name="OrganizationalUnit_OrganizationalUnit" Member="OrganizationalUnit2" ThisKey="ID" OtherKey="Parent" Type="OrganizationalUnit" />
+      <Association Name="OrganizationalUnit_OrganizationalUnit" Member="OrganizationalUnit1" ThisKey="Parent" OtherKey="ID" Type="OrganizationalUnit" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PluginMetadata" Member="PluginMetadata">
+    <Type Name="PluginMetadata">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(4000) NOT NULL" CanBeNull="false" />
+      <Column Name="FileName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="Author" Type="System.String" DbType="NVarChar(64) NOT NULL" CanBeNull="false" />
+      <Association Name="PluginMetadata_Indicator" Member="Indicator" ThisKey="ID" OtherKey="PluginMetadataID" Type="Indicator" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UIConfiguration" Member="UIConfiguration">
+    <Type Name="UIConfiguration">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PreviewImage" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Data" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="User_UIConfiguration" Member="User" ThisKey="UserID" OtherKey="ID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[User]" Member="User">
+    <Type Name="User">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(64) NOT NULL" CanBeNull="false" />
+      <Association Name="User_UIConfiguration" Member="UIConfiguration" ThisKey="ID" OtherKey="UserID" Type="UIConfiguration" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ValueByte" Member="ValueByte">
+    <Type Name="ValueByte">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Value" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Association Name="ValueByte_IndicatorValue" Member="IndicatorValue" ThisKey="ID" OtherKey="ValueID" Type="IndicatorValue" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ValueFloat" Member="ValueFloat">
+    <Type Name="ValueFloat">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Value" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Association Name="ValueFloat_IndicatorValue" Member="IndicatorValue" ThisKey="ID" OtherKey="ValueID" Type="IndicatorValue" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ValueInt" Member="ValueInt">
+    <Type Name="ValueInt">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Value" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="ValueInt_IndicatorValue" Member="IndicatorValue" ThisKey="ID" OtherKey="ValueID" Type="IndicatorValue" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,403 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Administration" xml:space="preserve">
+    <value>Verwaltung</value>
+  </data>
+  <data name="ApplicationTitle" xml:space="preserve">
+    <value>MISD</value>
+  </data>
+  <data name="Cluster" xml:space="preserve">
+    <value>Cluster</value>
+  </data>
+  <data name="ConnectionErrorSubtitle" xml:space="preserve">
+    <value>Bitte stellen Sie sicher, dass Sie mit dem Netzwerk verbunden sind.</value>
+  </data>
+  <data name="ConnectionErrorTitle" xml:space="preserve">
+    <value>Es konnte keine Verbindung mit dem Server hergestellt werden!</value>
+    <comment>Wahrscheinlich installiert Arno grade den Server neu :)</comment>
+  </data>
+  <data name="Critical" xml:space="preserve">
+    <value>Kritisch</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Löschen</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>E-Mail</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Beenden</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="Gallery" xml:space="preserve">
+    <value>Gallerie</value>
+  </data>
+  <data name="IgnoreList" xml:space="preserve">
+    <value>Ignorierte Systeme</value>
+  </data>
+  <data name="Indicator" xml:space="preserve">
+    <value>Kenngrösse</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Intervalls" xml:space="preserve">
+    <value>Intervalle</value>
+  </data>
+  <data name="LastChanged" xml:space="preserve">
+    <value>Zuletzt geändert</value>
+  </data>
+  <data name="Layout" xml:space="preserve">
+    <value>Layout</value>
+  </data>
+  <data name="Levels" xml:space="preserve">
+    <value>Level</value>
+  </data>
+  <data name="MailSettings" xml:space="preserve">
+    <value>E-Mail Einstellungen</value>
+  </data>
+  <data name="MailWarning" xml:space="preserve">
+    <value>E-Mail Warnung</value>
+  </data>
+  <data name="Maintenance" xml:space="preserve">
+    <value>Wartung</value>
+  </data>
+  <data name="Mapping" xml:space="preserve">
+    <value>Mapping</value>
+  </data>
+  <data name="MetricCritical" xml:space="preserve">
+    <value>Metrik Kritisch</value>
+  </data>
+  <data name="MetricWarning" xml:space="preserve">
+    <value>Metrik Warnung</value>
+  </data>
+  <data name="MonitoredSystems" xml:space="preserve">
+    <value>Überwachte Rechner</value>
+  </data>
+  <data name="Monitoring" xml:space="preserve">
+    <value>Überwachung</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>Neu</value>
+  </data>
+  <data name="NewName" xml:space="preserve">
+    <value>Neuer Name</value>
+  </data>
+  <data name="Normal" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="NumberLayouts" xml:space="preserve">
+    <value>Anzahl der Layouts</value>
+  </data>
+  <data name="NumberOfChosenSystems" xml:space="preserve">
+    <value>Anzahl ausgewählter Systeme</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Options" xml:space="preserve">
+    <value>Einstellungen</value>
+  </data>
+  <data name="OUs" xml:space="preserve">
+    <value>Organisationseinheiten</value>
+  </data>
+  <data name="Path" xml:space="preserve">
+    <value>Pfad</value>
+  </data>
+  <data name="Plugin" xml:space="preserve">
+    <value>Plugin</value>
+  </data>
+  <data name="PrioPlugins" xml:space="preserve">
+    <value>Prioritäten Plugins</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Aktualisieren</value>
+  </data>
+  <data name="RegEX" xml:space="preserve">
+    <value>Regulärer Ausdruck</value>
+  </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Umbenennen</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Speichern</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Suche</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Einstellungen</value>
+  </data>
+  <data name="StorageDuration" xml:space="preserve">
+    <value>Speicherdauer</value>
+  </data>
+  <data name="SystemsInOU" xml:space="preserve">
+    <value>In OU enthaltene Systeme</value>
+  </data>
+  <data name="TextStyle" xml:space="preserve">
+    <value>Text Darstellung</value>
+  </data>
+  <data name="Tiles" xml:space="preserve">
+    <value>Kacheln</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Gesamt</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>Ansicht</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Warnung</value>
+  </data>
+  <data name="ExistOU" xml:space="preserve">
+    <value>Vorhandene Organisatoinseinheiten</value>
+  </data>
+  <data name="Ignored" xml:space="preserve">
+    <value>Ingnoriert</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="NotIgnored" xml:space="preserve">
+    <value>Nicht ignoriert</value>
+  </data>
+  <data name="Selected" xml:space="preserve">
+    <value>Ausgewählt: </value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="AvailableEMails" xml:space="preserve">
+    <value>Vorhandene E-Mail Adressen</value>
+  </data>
+  <data name="DailyMail" xml:space="preserve">
+    <value>Tagesbericht:</value>
+  </data>
+  <data name="Font" xml:space="preserve">
+    <value>Schriftart:</value>
+  </data>
+  <data name="FontSize" xml:space="preserve">
+    <value>Schriftgröße:</value>
+  </data>
+  <data name="MonitoredSystemIntervall" xml:space="preserve">
+    <value>Monitored-System-Intervall:</value>
+  </data>
+  <data name="NotRegisterd" xml:space="preserve">
+    <value>Nicht registriert</value>
+  </data>
+  <data name="NumberOfChar" xml:space="preserve">
+    <value>Maximale Anzahl angezeigter Buchstaben:</value>
+  </data>
+  <data name="OptionsIntervall" xml:space="preserve">
+    <value>Einstellungen-Intervall:</value>
+  </data>
+  <data name="PluginIntervall" xml:space="preserve">
+    <value>Plugin-Intervall:</value>
+  </data>
+  <data name="Registerd" xml:space="preserve">
+    <value>Registried</value>
+  </data>
+  <data name="InitSyncSubtitle" xml:space="preserve">
+    <value>Bitten warten Sie auf die initiale Synchronisation der Client Daten.</value>
+  </data>
+  <data name="InitSyncTitle" xml:space="preserve">
+    <value>Initiale Synchronisation...</value>
+  </data>
+  <data name="Generated" xml:space="preserve">
+    <value>Generiert</value>
+  </data>
+  <data name="AddOU" xml:space="preserve">
+    <value>OU hinzufügen</value>
+  </data>
+  <data name="SetToMaintenance" xml:space="preserve">
+    <value>Wartung beginnen</value>
+  </data>
+  <data name="StopMaintenance" xml:space="preserve">
+    <value>Wartung beenden</value>
+  </data>
+  <data name="NoSingleSelection" xml:space="preserve">
+    <value>Keine Einzelauswahl</value>
+  </data>
+  <data name="NoChangeYet" xml:space="preserve">
+    <value>Keine Änderung bisher</value>
+  </data>
+  <data name="CharFormat" xml:space="preserve">
+    <value>0 Zeichen</value>
+  </data>
+  <data name="DaysFormat" xml:space="preserve">
+    <value>0 Tage</value>
+  </data>
+  <data name="LayoutName" xml:space="preserve">
+    <value>Name des Layouts</value>
+  </data>
+  <data name="ColorScheme" xml:space="preserve">
+    <value>Farbschema</value>
+  </data>
+  <data name="GivenClusters" xml:space="preserve">
+    <value>Vorhandene Cluster</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Passwort</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Typ</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Nutzer</value>
+  </data>
+  <data name="MainInterval" xml:space="preserve">
+    <value>Aktualisierungs-Intervall</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+  <data name="Level" xml:space="preserve">
+    <value>Level</value>
+  </data>
+  <data name="NumberOfRows" xml:space="preserve">
+    <value>Anzahl der Indicator</value>
+  </data>
+  <data name="ShowTileStatusBar" xml:space="preserve">
+    <value>Zeige Kachel Statusbar</value>
+  </data>
+  <data name="UseCustomUI" xml:space="preserve">
+    <value>Verwende CustomUI</value>
+  </data>
+  <data name="CloseText" xml:space="preserve">
+    <value>Möchten Sie ihr aktuelles Layout speichern, bevor Sie schließen?</value>
+  </data>
+  <data name="CloseTitel" xml:space="preserve">
+    <value>Schließen Dialog</value>
+  </data>
+  <data name="ClosePowerwallText" xml:space="preserve">
+    <value>Sie führen die Anwendung im Powerwall-Modus aus. Möchten Sie alle Powerwallinstanzen ebenfalls beenden?</value>
+  </data>
+  <data name="ClosePowerwallTitle" xml:space="preserve">
+    <value>Powerwall schließen?</value>
+  </data>
+</root>

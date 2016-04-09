@@ -1,0 +1,515 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:MISD.Client.Controls"
+                    xmlns:converters="clr-namespace:MISD.Client.ViewModel.Converters;assembly=MISD.Client.ViewModel"
+                    xmlns:model="clr-namespace:MISD.Client.Model;assembly=MISD.Client.Model"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    xmlns:viewModel="clr-namespace:MISD.Client.ViewModel;assembly=MISD.Client.ViewModel">
+
+    <converters:LevelDefinitionsToPlusButtonVisibilityConverter x:Key="LevelDefinitionsToPlusButtonVisibilityConverter" />
+    <converters:LevelDefinitionsToMinusButtonVisibilityConverter x:Key="LevelDefinitionsToMinusButtonVisibilityConverter" />
+    <converters:LevelDefinitionsToBackButtonVisibilityConverter x:Key="LevelDefinitionsToBackButtonVisibilityConverter" />
+    <converters:StateToBackgroundConverter x:Key="StateToBackgroundConverter" />
+    <converters:AvailableAndStateToBackroundConverter x:Key="AvailableAndStateToBackroundConverter"/>
+    <converters:MonitoredSystemStateToForegroundConverter x:Key="MonitoredSystemStateToForegroundConverter" />
+    <converters:CurrentValueToTextConverter x:Key="CurrentValueToTextConverter"/>
+    <converters:MonitoredSystemNameToLength x:Key="MonitoredSystemNameToLength"/>
+    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    <converters:AlternationIndexToBackgroundConverter x:Key="AlternationIndexToBackgroundConverter" />
+    <converters:PluginExpandedConverter x:Key="PluginExpandedConverter" />
+    <converters:PluginToImageConverter x:Key="PluginToImageConverter" />
+
+    <Style TargetType="Button" x:Key="TileButtonStyle">
+        <Style.Setters>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Background="Transparent" IsHitTestVisible="True">
+                            <Rectangle x:Name="BackgroundRectangle" Fill="White" Opacity="0" />
+                            <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="MouseOver">
+                                        <VisualState.Storyboard>
+                                            <Storyboard>
+                                                <DoubleAnimation To="0.3" Storyboard.TargetName="BackgroundRectangle"
+                                                                 Duration="0:0:0.2" Storyboard.TargetProperty="(UIElement.Opacity)" />
+                                            </Storyboard>
+                                        </VisualState.Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+    </Style>
+
+    <Style TargetType="{x:Type controls:Tile}">
+        <Style.Setters>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="ClipToBounds" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type controls:Tile}">
+                        <Grid x:Name="LayoutRoot" HorizontalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" x:Name="MainColumn" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.Background>
+                                <MultiBinding Converter="{StaticResource AvailableAndStateToBackroundConverter}">
+                                    <Binding Path="MonitoredSystem.State"/>
+                                    <Binding Path="MonitoredSystem.IsAvailable"/>
+                                </MultiBinding>
+                            </Grid.Background>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="NormalStates">
+                                    <VisualState x:Name="Normal" />
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="TileStates">
+                                    <VisualState x:Name="Default" />
+                                    <VisualState x:Name="PluginDetails">
+                                        <VisualState.Storyboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="IndicatorsListTranslateTransform" 
+                                                                 Storyboard.TargetProperty="X"
+                                                                 To="0" Duration="0:0:0.5">
+                                                    <DoubleAnimation.EasingFunction>
+                                                        <CircleEase EasingMode="EaseOut" />
+                                                    </DoubleAnimation.EasingFunction>
+                                                </DoubleAnimation>
+                                                <DoubleAnimation Storyboard.TargetName="PART_PluginList" Storyboard.TargetProperty="(UIElement.Opacity)"
+                                                                 To="0" Duration="0:0:0.5">
+                                                    <DoubleAnimation.EasingFunction>
+                                                        <CircleEase EasingMode="EaseOut" />
+                                                    </DoubleAnimation.EasingFunction>
+                                                </DoubleAnimation>
+                                                <DoubleAnimation Storyboard.TargetName="PART_IndicatorsList" Storyboard.TargetProperty="(UIElement.Opacity)"
+                                                                 To="1" Duration="0:0:0.5">
+                                                    <DoubleAnimation.EasingFunction>
+                                                        <CircleEase EasingMode="EaseOut" />
+                                                    </DoubleAnimation.EasingFunction>
+                                                </DoubleAnimation>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_PluginList" 
+                                                                               Storyboard.TargetProperty="(UIElement.Visibility)" Duration="0:0:0.5">
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.5">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Hidden</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_BackButton" 
+                                                                               Storyboard.TargetProperty="(UIElement.Visibility)" Duration="0">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Visible</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_PlusButton" 
+                                                                               Storyboard.TargetProperty="(UIElement.Visibility)" Duration="0">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Hidden</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_MinusButton" 
+                                                                               Storyboard.TargetProperty="(UIElement.Visibility)" Duration="0">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Hidden</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState.Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="CustomUI">
+                                        <VisualState.Storyboard>
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_Loading" 
+                                                                               Storyboard.TargetProperty="(UIElement.Visibility)" Duration="0">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Collapsed</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_IndicatorsList" 
+                                                                               Storyboard.TargetProperty="(UIElement.Visibility)" Duration="0">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Collapsed</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_PluginList" 
+                                                                               Storyboard.TargetProperty="(UIElement.Visibility)" Duration="0">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Collapsed</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_CustomUIList" 
+                                                                               Storyboard.TargetProperty="(UIElement.Visibility)" Duration="0">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Visible</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="LayoutRoot" 
+                                                                               Storyboard.TargetProperty="(Grid.Width)" Duration="0">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <sys:Double>NaN</sys:Double>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState.Storyboard>
+                                    </VisualState>
+
+                                    <VisualState x:Name="LoadingCustomUI">
+                                        <VisualState.Storyboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="PART_Loading" Storyboard.TargetProperty="(UIElement.Opacity)"
+                                                                 To="0.4" Duration="0:0:1.5">
+                                                    <DoubleAnimation.EasingFunction>
+                                                        <CircleEase EasingMode="EaseOut" />
+                                                    </DoubleAnimation.EasingFunction>
+                                                </DoubleAnimation>
+                                                <DoubleAnimation Storyboard.TargetName="PART_MinusButton" Storyboard.TargetProperty="(UIElement.Opacity)"
+                                                                 To="0.0" Duration="0:0:0.5">
+                                                    <DoubleAnimation.EasingFunction>
+                                                        <CircleEase EasingMode="EaseOut" />
+                                                    </DoubleAnimation.EasingFunction>
+                                                </DoubleAnimation>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_IndicatorsList" 
+                                                                               Storyboard.TargetProperty="(UIElement.Visibility)" Duration="0">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Collapsed</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_PluginList" 
+                                                                               Storyboard.TargetProperty="(UIElement.Visibility)" Duration="0">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Collapsed</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_CustomUIList" 
+                                                                               Storyboard.TargetProperty="(UIElement.Visibility)" Duration="0">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Collapsed</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="LayoutRoot" 
+                                                                               Storyboard.TargetProperty="(Grid.Width)" Duration="0">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <sys:Double>NaN</sys:Double>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_Loading" 
+                                                                               Storyboard.TargetProperty="(UIElement.Visibility)" Duration="0">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <Visibility>Visible</Visibility>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState.Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid x:Name="PART_Header">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Button x:Name="PART_BackButton" Width="{Binding ActualHeight, RelativeSource={RelativeSource Mode=Self}}" Visibility="Hidden" Opacity="0"
+                                        Grid.Column="0" Style="{StaticResource TileButtonStyle}">
+                                    <Rectangle Margin="6" HorizontalAlignment="Stretch" 
+                                               Opacity="0.9" VerticalAlignment="Stretch" 
+                                               Fill="{StaticResource BackDrawingBrush}"/>
+                                </Button>
+                                <TextBlock x:Name="MonitoredSystemNameTextBlock"
+                                           HorizontalAlignment="Center" 
+                                           Grid.Column="0" 
+                                           Grid.ColumnSpan="3"
+                                           
+                                           TextAlignment="Center" 
+                                           VerticalAlignment="Center"
+                                           TextTrimming="CharacterEllipsis" 
+                                           ToolTip="{Binding MonitoredSystem.Name}" 
+                                           Foreground="{Binding MonitoredSystem.State, Converter={StaticResource MonitoredSystemStateToForegroundConverter}}">
+
+                                    <TextBlock.Text>
+                                        <MultiBinding Converter="{StaticResource MonitoredSystemNameToLength}">
+                                            <Binding Path="MonitoredSystem.Name"/>
+                                            <Binding Path="ViewModel.NumberOfCharactersInTileName"/>
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Grid.Column="2">
+                                    <Button x:Name="PART_MinusButton" Width="{Binding ActualHeight, RelativeSource={RelativeSource Mode=Self}}" Visibility="{Binding CurrentLevel, Converter={StaticResource LevelDefinitionsToMinusButtonVisibilityConverter}}" 
+                                            Opacity="0" Style="{StaticResource TileButtonStyle}">
+                                        <Rectangle Margin="6" 
+                                                   HorizontalAlignment="Stretch" Opacity="0.9" 
+                                                   VerticalAlignment="Stretch" Fill="{StaticResource MinusDrawingBrush}" />
+                                    </Button>
+                                    <Button x:Name="PART_PlusButton" Width="{Binding ActualHeight, RelativeSource={RelativeSource Mode=Self}}" Visibility="{Binding CurrentLevel, Converter={StaticResource LevelDefinitionsToPlusButtonVisibilityConverter}}" 
+                                            Opacity="0" Style="{StaticResource TileButtonStyle}">
+                                        <Rectangle Margin="6" HorizontalAlignment="Stretch" Opacity="0.9" VerticalAlignment="Stretch" Fill="{StaticResource PlusDrawingBrush}" />
+                                    </Button>
+                                </StackPanel>
+                            </Grid>
+                            <ListBox x:Name="PART_IndicatorsList" BorderThickness="0" Background="Transparent" Grid.Row="1" 
+                                     Padding="0" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                     AlternationCount="2" ItemsSource="{Binding SelectedValue.Indicators, ElementName=PART_PluginList}">
+                                <ListBox.RenderTransform>
+                                    <TransformGroup>
+                                        <TranslateTransform x:Name="IndicatorsListTranslateTransform" X="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type controls:Tile}, Mode=FindAncestor}}" />
+                                    </TransformGroup>
+                                </ListBox.RenderTransform>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Foreground="White" Text="{Binding Name}" 
+                                                       TextWrapping="WrapWithOverflow" HorizontalAlignment="Left" 
+                                                       Grid.Column="0" Margin="0 6"/>
+                                            <TextBlock 
+                                                Text="{Binding CurrentValue.Value, Converter={StaticResource CurrentValueToTextConverter}}" 
+                                                ToolTip="{Binding CurrentValue.Value}"
+                                                HorizontalAlignment="Right" Grid.Column="1"
+                                                Foreground="White" TextTrimming="CharacterEllipsis" Margin="5 6 0 6"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                                <ListBox.ItemContainerStyle>
+                                    <Style TargetType="ListBoxItem">
+                                        <Style.Setters>
+                                            <Setter Property="Margin" Value="0" />
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="ListBoxItem">
+                                                        <Grid Background="{Binding IndicatorMapping, Converter={StaticResource StateToBackgroundConverter}}">
+                                                            <Rectangle Fill="{Binding RelativeSource={RelativeSource TemplatedParent}, 
+                                                                    Path=(ItemsControl.AlternationIndex), 
+                                                                    Converter={StaticResource AlternationIndexToBackgroundConverter}}" />
+
+                                                            <ContentPresenter Margin="5 0" VerticalAlignment="Center" />
+                                                            <Rectangle Height="1" Fill="#FFFFFF" VerticalAlignment="Top" />
+                                                        </Grid>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style.Setters>
+                                    </Style>
+                                </ListBox.ItemContainerStyle>
+                            </ListBox>
+                            <ListBox x:Name="PART_PluginList" AlternationCount="2" Padding="0" Grid.Row="1" Background="Transparent" 
+                                     BorderThickness="0" BorderBrush="White" Margin="0" 
+                                     ScrollViewer.CanContentScroll="True"
+                                     ItemsSource="{Binding MonitoredSystem.Plugins}" 
+                                     ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                                     ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="30" />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Foreground="White" Text="{Binding Name}" Margin="0 6"
+                                                       TextWrapping="WrapWithOverflow" HorizontalAlignment="Left" Grid.Column="0"/>
+                                            <TextBlock 
+                                                Text="{Binding MainValue, Converter={StaticResource CurrentValueToTextConverter}}" 
+                                                ToolTip="{Binding MainValue}" TextWrapping="NoWrap"
+                                                Foreground="White" TextTrimming="CharacterEllipsis" Margin="5 6 0 6"
+                                                HorizontalAlignment="Right" Grid.Column="1"/>
+                                            <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="{StaticResource RightArrowDrawingBrush}"
+                                                       Grid.Column="2" Margin="2 6" />
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                                <ListBox.ItemContainerStyle>
+                                    <Style TargetType="ListBoxItem">
+                                        <Style.Setters>
+                                            <Setter Property="Margin" Value="0" />
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="ListBoxItem">
+                                                        <Grid Background="{Binding PluginMapping, Converter={StaticResource StateToBackgroundConverter}}">
+                                                            <Rectangle Fill="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(ItemsControl.AlternationIndex), Converter={StaticResource AlternationIndexToBackgroundConverter}}" />
+                                                            <ContentPresenter Margin="5 0" VerticalAlignment="Center" />
+                                                            <Rectangle Height="1" Fill="#FFFFFF" VerticalAlignment="Top" />
+                                                        </Grid>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style.Setters>
+                                    </Style>
+                                </ListBox.ItemContainerStyle>
+                            </ListBox>
+                            <ListBox x:Name="PART_CustomUIList" Background="Transparent" Visibility="Collapsed" AlternationCount="2" Padding="0" Grid.Row="1" 
+                                     BorderThickness="0 1 0 0" BorderBrush="White" Margin="0" ScrollViewer.CanContentScroll="True"
+                                     ItemsSource="{Binding MonitoredSystem.Plugins}" 
+                                     ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Background="{Binding PluginMapping, Converter={StaticResource StateToBackgroundConverter}}" Padding="3" BorderBrush="White" Margin="3" BorderThickness="1">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <ToggleButton x:Name="CustomUIExpander"
+                                                          Tag="{Binding Path=DataContext.MonitoredSystem,
+                                                          RelativeSource={RelativeSource 
+                                                          AncestorType={x:Type ListBox}}}">
+                                                    <ToggleButton.Template>
+                                                        <ControlTemplate TargetType="ToggleButton">
+                                                            <ContentPresenter />
+                                                        </ControlTemplate>
+                                                    </ToggleButton.Template>
+                                                    <ToggleButton.IsChecked>
+                                                        <MultiBinding Mode="OneWay"
+                                                                      Converter="{StaticResource PluginExpandedConverter}">
+                                                            <Binding RelativeSource="{RelativeSource FindAncestor, 
+                                                                     AncestorType=ListBox, AncestorLevel=1}"
+                                                                     Path="DataContext.MonitoredSystem"/>
+                                                            <Binding RelativeSource="{RelativeSource FindAncestor, 
+                                                                     AncestorType=ListBox, AncestorLevel=1}"
+                                                                     Path="DataContext.MonitoredSystem.Sequence"/>
+                                                            <Binding Path="Name"/>
+                                                        </MultiBinding>
+                                                    </ToggleButton.IsChecked>
+                                                    <Grid Background="Transparent" IsHitTestVisible="True">
+                                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="3 0">
+                                                            <TextBlock Foreground="White" 
+                                                                   Name="PluginName" Text="{Binding Name}" Grid.Column="0"/>
+                                                            <TextBlock Foreground="White" Text=": " />
+                                                            <TextBlock Foreground="White" 
+                                                                   Text="{Binding MainValue}" 
+                                                                   Grid.Column="1"/>
+                                                        </StackPanel>
+                                                    </Grid>
+                                                </ToggleButton>
+                                                <ContentPresenter Visibility="{Binding IsChecked, ElementName=CustomUIExpander, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                                                  Grid.Row="1" Tag="{Binding Indicators}" Content="{Binding CustomUI}" />
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel Orientation="Vertical" />
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                                <ListBox.ItemContainerStyle>
+                                    <Style TargetType="ListBoxItem">
+                                        <Style.Setters>
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="ListBoxItem">
+                                                        <Grid>
+                                                            <ContentPresenter Margin="0" VerticalAlignment="Center" />
+                                                        </Grid>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style.Setters>
+                                    </Style>
+                                </ListBox.ItemContainerStyle>
+                            </ListBox>
+                            <Grid x:Name="PART_Loading" Visibility="Hidden" Opacity="0" Grid.Row="0">
+                                <ProgressBar VerticalAlignment="Stretch" IsIndeterminate="True" HorizontalAlignment="Stretch" Foreground="#2858A2"/>
+                            </Grid>
+                            <Grid x:Name="PART_StatusBar" Visibility="{Binding CurrentLevel.HasStatusBar, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="2">
+                                <Rectangle Height="1" VerticalAlignment="Top" HorizontalAlignment="Stretch" Fill="White" />
+                                <ListBox Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Left" 
+                                         ItemsSource="{Binding MonitoredSystem.CriticalPlugins}" VerticalAlignment="Stretch"
+                                         ScrollViewer.CanContentScroll="False" ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                                         ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                                    <ListBox.ItemContainerStyle>
+                                        <Style TargetType="ListBoxItem">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="ListBoxItem">
+                                                        <Rectangle Margin="3 3" ToolTip="{Binding}" Width="{Binding ActualHeight, RelativeSource={RelativeSource Mode=Self}}" Fill="{Binding Converter={StaticResource PluginToImageConverter}}" />
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </ListBox.ItemContainerStyle>
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel Orientation="Horizontal" />
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+                                </ListBox>
+                            </Grid>
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard BeginTime="0:0:0.3">
+                                            <DoubleAnimation To="1" Duration="0:0:0.3" Storyboard.TargetName="PART_BackButton"
+                                                                 Storyboard.TargetProperty="(UIElement.Opacity)" />
+                                            <DoubleAnimation To="1" Duration="0:0:0.3" Storyboard.TargetName="PART_PlusButton"
+                                                                 Storyboard.TargetProperty="(UIElement.Opacity)" />
+                                            <DoubleAnimation To="1" Duration="0:0:0.3" Storyboard.TargetName="PART_MinusButton"
+                                                                 Storyboard.TargetProperty="(UIElement.Opacity)" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation To="0" Duration="0:0:0.3" Storyboard.TargetName="PART_BackButton"
+                                                                 Storyboard.TargetProperty="(UIElement.Opacity)" />
+                                            <DoubleAnimation To="0" Duration="0:0:0.3" Storyboard.TargetName="PART_PlusButton"
+                                                                 Storyboard.TargetProperty="(UIElement.Opacity)" />
+                                            <DoubleAnimation To="0" Duration="0:0:0.3" Storyboard.TargetName="PART_MinusButton"
+                                                                 Storyboard.TargetProperty="(UIElement.Opacity)" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+    </Style>
+
+</ResourceDictionary>

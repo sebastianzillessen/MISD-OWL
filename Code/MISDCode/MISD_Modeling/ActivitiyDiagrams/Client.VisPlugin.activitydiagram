@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="42359213-1cde-4ed6-907c-0f207f594579" name="Server_VisPlugin" linkedPackageId="5ee1d2bd-63c4-4862-9d89-627d742e9d8d" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="ee28f981-1ee2-4c58-a52a-c4b5c8712128">
+      <profileInstance Id="4ecae080-6c84-4113-91b7-8af40771d7cd" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="86b156b7-6140-41ee-94c6-321812ff1cee">
+      <profileInstance Id="07ff57b0-ab3e-4c34-ace1-117739cca2c2" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="92298339-8c0d-4047-ab14-c577165658cc" name="Server_VisPlugin" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="4efe99ba-d319-4026-8836-4f40de0bec32" />
+        <nodes>
+          <initialNode Id="6550b54a-ad7b-4a28-94e4-5b96cef24641" name="Initial1" isLeaf="false">
+            <elementDefinition Id="1ac30374-07a8-4ad7-b5a2-a164cdc9c7ab" />
+            <flowNodeTargets>
+              <controlFlow Id="2c368581-4d2b-4594-9193-2cf427e0a048" isLeaf="false">
+                <sendSignalActionMoniker Id="999e70bc-a1fe-4511-981b-99ad07890877" LastKnownName="plugin request" />
+                <elementDefinition Id="886a4b83-571b-4376-ae94-2e929917bd38" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <sendSignalAction Id="999e70bc-a1fe-4511-981b-99ad07890877" name="plugin request" isLeaf="false">
+            <elementDefinition Id="78b1c5e6-2f3c-4b4f-b99f-3995fb942963" />
+            <flowNodeTargets>
+              <controlFlow Id="67afda76-2936-48a8-9898-16ac2da0bec1" isLeaf="false">
+                <acceptEventActionMoniker Id="8db721cb-0f30-4990-9fe7-84d9e8139936" LastKnownName="list of plugin metadata" />
+                <elementDefinition Id="67477742-97da-4e5f-8536-ec431f7054f9" />
+              </controlFlow>
+            </flowNodeTargets>
+          </sendSignalAction>
+          <acceptEventAction Id="8db721cb-0f30-4990-9fe7-84d9e8139936" name="list of plugin metadata" isLeaf="false" isUnmarshall="false">
+            <elementDefinition Id="71e7898e-7352-4acf-ae29-cc986deeb9eb" />
+            <flowNodeTargets>
+              <controlFlow Id="3b410683-4101-4408-9734-a0d6e8f29e34" isLeaf="false">
+                <mergeNodeMoniker Id="6ce85260-c676-44b7-a9ed-2e8071a989a2" LastKnownName="Merge2" />
+                <elementDefinition Id="c43e7cb1-cbf2-4f0e-b2e2-21da2f3b2721" />
+              </controlFlow>
+            </flowNodeTargets>
+          </acceptEventAction>
+          <opaqueAction Id="0b3982a5-423a-49bc-a3c6-acdec6c069b9" name="add plugin to pluginRequestList " isLeaf="false">
+            <elementDefinition Id="361459e1-154d-4716-928c-ebb18bee2104" />
+            <flowNodeTargets>
+              <controlFlow Id="4a53aea8-ac8c-4adc-9a6c-05b53e7366b5" isLeaf="false">
+                <mergeNodeMoniker Id="caf30544-5782-4c7d-9395-c654448fdd81" LastKnownName="Merge1" />
+                <elementDefinition Id="6d2b6510-98e0-478c-8766-53829981e2af" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <sendSignalAction Id="42cd4d0c-3c3c-44d7-96cc-72c7e4b67967" name="send pluginRequestList" isLeaf="false">
+            <elementDefinition Id="3d389f67-9cac-4f9c-89ef-71396aff683c" />
+            <flowNodeTargets>
+              <controlFlow Id="b07f2607-3338-4bd3-be61-2d27b351f4b0" isLeaf="false">
+                <acceptEventActionMoniker Id="079ac812-dde5-46a1-a2b1-1c59889ec457" LastKnownName="new plugin" />
+                <elementDefinition Id="52d7613e-a01d-4843-bb25-6b23b1a5df38" />
+              </controlFlow>
+            </flowNodeTargets>
+          </sendSignalAction>
+          <acceptEventAction Id="079ac812-dde5-46a1-a2b1-1c59889ec457" name="new plugin" isLeaf="false" isUnmarshall="false">
+            <elementDefinition Id="3d84042e-eb66-4f3d-b436-4eef8ffee5be" />
+            <flowNodeTargets>
+              <controlFlow Id="0fb3809f-2c68-42e8-bc48-27d7ed981ed5" isLeaf="false">
+                <opaqueActionMoniker Id="26f4913e-10d4-4e0f-8679-54f4c57a4ca8" LastKnownName="save plugins" />
+                <elementDefinition Id="e5bd6581-8693-402a-81f4-3edeb27c49fc" />
+              </controlFlow>
+            </flowNodeTargets>
+          </acceptEventAction>
+          <decisionNode Id="469d9e28-9fd1-4a49-b8a7-439a7b3901ec" name="Decision1" isLeaf="false">
+            <elementDefinition Id="b68d50c4-c2e7-4ad3-89e8-943a3d57111f" />
+            <flowNodeTargets>
+              <controlFlow Id="4fb6765d-9ed5-4b81-a43c-e6b38db69c7f" guard="plugin is unknown or out of date" isLeaf="false">
+                <opaqueActionMoniker Id="0b3982a5-423a-49bc-a3c6-acdec6c069b9" LastKnownName="add plugin to pluginRequestList " />
+                <elementDefinition Id="f6cc8966-2061-43f4-b469-984311ba0ac7" />
+              </controlFlow>
+              <controlFlow Id="08c6fa56-b147-467c-868f-f05655f13dd5" guard="plugin is uptodate" isLeaf="false">
+                <mergeNodeMoniker Id="caf30544-5782-4c7d-9395-c654448fdd81" LastKnownName="Merge1" />
+                <elementDefinition Id="81c133dd-ba27-4680-9102-832ad18709c8" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <mergeNode Id="caf30544-5782-4c7d-9395-c654448fdd81" name="Merge1" isLeaf="false">
+            <elementDefinition Id="1ced88c5-dcc8-4138-8695-588407dd479e" />
+            <flowNodeTargets>
+              <controlFlow Id="9d6b4538-54e8-4b31-8419-b98b8824889c" isLeaf="false">
+                <decisionNodeMoniker Id="197c971f-ea12-4921-aeee-ee600279e6bb" LastKnownName="Decision2" />
+                <elementDefinition Id="35aed15d-fc32-4106-8629-c09d248cb2e9" />
+              </controlFlow>
+            </flowNodeTargets>
+          </mergeNode>
+          <decisionNode Id="197c971f-ea12-4921-aeee-ee600279e6bb" name="Decision2" isLeaf="false">
+            <elementDefinition Id="2d84d4ec-7bd6-489d-875d-91b5ec7a74e8" />
+            <flowNodeTargets>
+              <controlFlow Id="64bbb309-3e17-461e-92db-5e378439e82a" guard="all plugins checked" isLeaf="false">
+                <sendSignalActionMoniker Id="42cd4d0c-3c3c-44d7-96cc-72c7e4b67967" LastKnownName="send pluginRequestList" />
+                <elementDefinition Id="e7d7fe90-9a11-4e2e-9c98-b7f960d32fa7" />
+              </controlFlow>
+              <controlFlow Id="5213c81a-ff50-4c96-8268-eb94f0765196" guard="check next plugin" isLeaf="false">
+                <mergeNodeMoniker Id="6ce85260-c676-44b7-a9ed-2e8071a989a2" LastKnownName="Merge2" />
+                <elementDefinition Id="63f42095-7389-49c1-a41c-8f47478a0a03" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <mergeNode Id="6ce85260-c676-44b7-a9ed-2e8071a989a2" name="Merge2" isLeaf="false">
+            <elementDefinition Id="531b7240-9123-4968-b4cf-8de433f73d6c" />
+            <flowNodeTargets>
+              <controlFlow Id="df7c6824-3c32-4b91-8290-6fa3bb7b852d" isLeaf="false">
+                <decisionNodeMoniker Id="469d9e28-9fd1-4a49-b8a7-439a7b3901ec" LastKnownName="Decision1" />
+                <elementDefinition Id="4425097f-cd23-406b-ab23-0b29d3270f09" />
+              </controlFlow>
+            </flowNodeTargets>
+          </mergeNode>
+          <opaqueAction Id="26f4913e-10d4-4e0f-8679-54f4c57a4ca8" name="save plugins" isLeaf="false">
+            <elementDefinition Id="695f07f4-2a18-4f8e-abea-9ea195b516fd" />
+            <flowNodeTargets>
+              <controlFlow Id="6749531b-bea5-4197-b404-67038c1a2bdc" isLeaf="false">
+                <opaqueActionMoniker Id="0c485bc8-f9f8-47cc-9e43-dec47e550544" LastKnownName="load plugin" />
+                <elementDefinition Id="6d560c57-185e-4e1e-8837-aa9bb7fe1804" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="0c485bc8-f9f8-47cc-9e43-dec47e550544" name="load plugin" isLeaf="false">
+            <elementDefinition Id="a61e6fe5-403e-4125-aec8-14a67192db98" />
+            <flowNodeTargets>
+              <controlFlow Id="ae8e6afa-8102-4c9c-bf39-58ef433a4827" isLeaf="false">
+                <activityFinalNodeMoniker Id="8b63dc0b-8322-4471-b4e8-d04b4e386c11" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="04a67935-c346-4877-8b81-b14e9e9c1512" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode Id="8b63dc0b-8322-4471-b4e8-d04b4e386c11" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="b6fff55b-a463-431c-a3bf-8de403d3f215" />
+          </activityFinalNode>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="5ee1d2bd-63c4-4862-9d89-627d742e9d8d" name="MISD_Modeling">
+    <elementDefinition Id="57152138-29c8-467d-80d5-86353decd659" />
+  </package>
+</activityRootModel>

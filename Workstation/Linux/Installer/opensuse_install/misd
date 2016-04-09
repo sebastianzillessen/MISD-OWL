@@ -1,0 +1,99 @@
+#! /bin/sh
+### BEGIN INIT INFO
+# Provides:          misd
+# Required-Start:    $network
+# Required-Stop:     
+# Default-Start:     2 3 4 5
+# Default-Stop:	     0 1 6
+# Short-Description: MISD OWL initscript
+# Description:       This initscript starts the MISD OWL WorkstationService for Linux.
+### END INIT INFO
+
+#-------------------------------------------------------------------------------------
+# Copyright 2012 Paul Brombosch, Ehssan Doust, David Krauss,
+# Fabian Müller, Yannic Noller, Hanna Schäfer, Jonas Scheurich,
+# Arno Schneider, Sebastian Zillessen
+#
+# This file is part of MISD-OWL, a project of the
+# University of Stuttgart (Institution VISUS, Studienprojekt Spring 2012).
+#
+# MISD-OWL is published under GNU Lesser General Public License Version 3.
+# MISD-OWL is free software, you are allowed to redistribute and/or
+# modify it under the terms of the GNU Lesser General Public License
+# Version 3 or any later version. For details see here:
+# http://www.gnu.org/licenses/lgpl.html
+#
+# MISD-OWL is distributed without any warranty, without even the
+# implied warranty of merchantability or fitness for a particular purpose.
+#-------------------------------------------------------------------------------------
+# Author: MISD OWL Team
+# Version: 1.00
+#-------------------------------------------------------------------------------------
+# Description:
+# This batch file is the start and stop script for the
+# MISD OWL WorkstationService Daemon.
+# This file is recommended for the distribution OpenSuse 12.2.
+#-------------------------------------------------------------------------------------
+
+#Local variables
+SERVICEPATH=/opt/misd/MISD.Workstation.Linux.exe
+
+#Local methods
+do_start()
+{
+	echo "Starting MISD OWL WorkstationService..."
+	mono $SERVICEPATH login log
+	echo "MISD OWL WorkstationService is now running..."
+	return 0
+}
+
+do_stop () {
+	echo "Stopping MISD WorkstationService..."
+	mono $SERVICEPATH logout log
+	echo "Done!" 
+	return 0
+}
+
+do_restart() {
+	do_stop
+	case "$?" in
+		0) 
+		   echo "WorkstationService was stopped.."
+                   ;;
+		1)
+		   echo "Unable to stop WorkstationService..."
+		   return 1
+                   ;;
+	esac
+
+	do_start
+	case "$?" in
+		0) 
+		   echo "WorkstationService was restarted.."
+		   return 0
+                   ;;
+		1)
+		   echo "Unable to start WorkstationService.."
+		   return 1
+                   ;;
+	esac
+}
+
+#Check the parameter of daemon
+case $1 in
+    start)
+	do_start
+	;;
+    stop)
+	do_stop
+	;;
+     restart)
+	do_restart
+	;;
+    *)
+	echo "Usage: $0 {start|stop|restart}" >&2
+	exit 3
+	;;
+esac
+
+exit 0

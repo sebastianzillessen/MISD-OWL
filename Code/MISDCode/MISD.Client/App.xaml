@@ -1,0 +1,159 @@
+﻿<Application x:Class="MISD.Client.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:panels="clr-namespace:MISD.Client.Controls.Panels"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:converters="clr-namespace:MISD.Client.ViewModel.Converters;assembly=MISD.Client.ViewModel"
+             xmlns:controls="clr-namespace:MISD.Client.Controls"
+             xmlns:settings="clr-namespace:MISD.Client.Properties"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/ButtonStyle.xaml"/>
+                <ResourceDictionary>
+
+
+                    <FontFamily x:Key="ApplicationGlobalFont">Segoe UI</FontFamily>
+                    <sys:Double x:Key="ApplicationGlobalFontSize">12</sys:Double>
+                    <sys:Double x:Key="FixFontSize">12</sys:Double>
+
+                    <Color x:Key="ApplicationMenuColor">#FF0D57BB</Color>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" x:Key="ApplicationMenuLeftPaneBackgroundBrush">
+                        <LinearGradientBrush.GradientStops>
+                            <GradientStopCollection>
+                                <GradientStop Color="#FFFAFBFC" Offset="0" />
+                                <GradientStop Color="#FFE1E4E8" Offset="1" />
+                            </GradientStopCollection>
+                        </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                    <RadialGradientBrush x:Key="ApplicationMenuSelectedButtonBrush" Center="0.5,0.6"
+                                         RadiusX="0.5" RadiusY="1.0" GradientOrigin="0.5,0.6">
+                        <RadialGradientBrush.GradientStops>
+                            <GradientStopCollection>
+                                <GradientStop Offset="1" Color="Transparent" />
+                                <GradientStop Offset="0" Color="#AAFFFFFF" />
+                            </GradientStopCollection>
+                        </RadialGradientBrush.GradientStops>
+                    </RadialGradientBrush>
+
+                    <Style TargetType="MenuItem">
+
+                        <Style.Setters>
+                            <!--<Setter Property="Icon">
+                                <Setter.Value>
+                                    <Image Source="{Binding Icon}"/>
+                                </Setter.Value>
+                            </Setter>-->
+
+                            <Setter Property="Template">
+
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="MenuItem">
+                                        <Grid x:Name="LayoutRoot">
+                                            <ContentPresenter Name="Content" Width="30" Height="30" ContentSource="Icon"/>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Setter.Value>
+
+
+                            </Setter>
+
+                        </Style.Setters>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Canvas.Background" Value="Black"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+
+                    <Style TargetType="ContextMenu" >
+
+                        <Style.Setters>
+                            <Setter Property="Placement" Value="Center" />
+                            <Setter Property="HorizontalOffset" Value="-180" />
+                            <Setter Property="VerticalOffset" Value="-180" />
+                            <Setter Property="ClipToBounds" Value="False" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ContextMenu">
+                                        <Grid Width="360" Height="360">
+                                            <panels:RadialPanel x:Name="MenuRootPanel" Opacity="0" BackgroundColor="#AA0D57BB" BackgroundOpacity="1" ShowPieLines="True" 
+                                                            ShowBorder="True" IsItemsHost="True" InnerRadius="100" OuterRadius="180" BorderColor="#FF0D57BB">
+                                                <panels:RadialPanel.RenderTransform>
+                                                    <TransformGroup>
+                                                        <RotateTransform x:Name="Rotation" Angle="-90" CenterX="180" CenterY="180" />
+                                                        <ScaleTransform x:Name="Scale" CenterX="180" CenterY="180" ScaleX="0.5" ScaleY="0.5" />
+                                                    </TransformGroup>
+                                                </panels:RadialPanel.RenderTransform>
+                                            </panels:RadialPanel>
+                                            <TextBlock Text="{TemplateBinding Tag}" 
+                                                       VerticalAlignment="Center"
+                                                       HorizontalAlignment="Center"
+                                                       FontSize="{Binding FixFontSize}"
+                                                       />
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsOpen" Value="True">
+                                                <Trigger.EnterActions>
+                                                    <BeginStoryboard>
+                                                        <Storyboard>
+                                                            <DoubleAnimation To="1" Storyboard.TargetName="MenuRootPanel" Storyboard.TargetProperty="(UIElement.Opacity)"
+                                                                             Duration="0:0:0.5">
+                                                                <DoubleAnimation.EasingFunction>
+                                                                    <SineEase EasingMode="EaseIn" />
+                                                                </DoubleAnimation.EasingFunction>
+                                                            </DoubleAnimation>
+                                                            <DoubleAnimation To="1" Storyboard.TargetName="Scale" Storyboard.TargetProperty="ScaleX"
+                                                                             Duration="0:0:0.5">
+                                                                <DoubleAnimation.EasingFunction>
+                                                                    <CircleEase EasingMode="EaseOut" />
+                                                                </DoubleAnimation.EasingFunction>
+                                                            </DoubleAnimation>
+                                                            <DoubleAnimation To="1" Storyboard.TargetName="Scale" Storyboard.TargetProperty="ScaleY"
+                                                                             Duration="0:0:0.5">
+                                                                <DoubleAnimation.EasingFunction>
+                                                                    <CircleEase EasingMode="EaseOut" />
+                                                                </DoubleAnimation.EasingFunction>
+                                                            </DoubleAnimation>
+                                                            <DoubleAnimation To="0" Storyboard.TargetName="Rotation" Storyboard.TargetProperty="(RotateTransform.Angle)"
+                                                                             Duration="0:0:0.5">
+                                                                <DoubleAnimation.EasingFunction>
+                                                                    <CircleEase EasingMode="EaseOut" />
+                                                                </DoubleAnimation.EasingFunction>
+                                                            </DoubleAnimation>
+                                                        </Storyboard>
+                                                    </BeginStoryboard>
+                                                </Trigger.EnterActions>
+                                                <Trigger.ExitActions>
+                                                    <BeginStoryboard>
+                                                        <Storyboard>
+                                                            <DoubleAnimation To="0" Storyboard.TargetName="MenuRootPanel" Storyboard.TargetProperty="(UIElement.Opacity)"
+                                                                             Duration="0:0:0.5" />
+                                                            <DoubleAnimation To="0.5" Storyboard.TargetName="Scale" Storyboard.TargetProperty="ScaleX"
+                                                                             Duration="0:0:0.5"/>
+                                                            <DoubleAnimation To="0.5" Storyboard.TargetName="Scale" Storyboard.TargetProperty="ScaleY"
+                                                                             Duration="0:0:0.5"/>
+                                                            <DoubleAnimation To="-90" Storyboard.TargetName="Rotation" Storyboard.TargetProperty="(RotateTransform.Angle)"
+                                                                             Duration="0:0:0.5"/>
+                                                        </Storyboard>
+                                                    </BeginStoryboard>
+                                                </Trigger.ExitActions>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style.Setters>
+                    </Style>
+                </ResourceDictionary>
+                <ResourceDictionary Source="/MISD.Client;component/Resources/Images.xaml" />
+                <ResourceDictionary Source="/MISD.Client;component/Controls/Tile.xaml" />
+                <ResourceDictionary Source="/MISD.Client;component/Resources/Templates.xaml" />
+                <ResourceDictionary Source="/MISD.Client;component/Controls/ExtendedTreeView.xaml"/>
+                <ResourceDictionary Source="/MISD.Client;component/Controls/RegExGenList\RegExGenList.xaml"/>
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
