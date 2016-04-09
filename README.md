@@ -1,6 +1,6 @@
 # MISD-OWL
----
 ### Master Infrastructure Situation Display Observing Windows and Linux
+----
 
 
 Diese Spezifikation beschreibt das Projekt MISD OWL der Universität Stuttgart.
