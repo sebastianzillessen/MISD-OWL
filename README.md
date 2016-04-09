@@ -2,6 +2,15 @@
 ### Master Infrastructure Situation Display Observing Windows and Linux
 ----
 
+Copyright (c) 2013, Jonas Scheurich <jonas.scheurich@googlemail.com>, Yannic Noller <nolleryc@gmail.com>, Hanna Schäfer <schaeferhannaj@googlemail.com>, Paul Brombosch <paul.brombosch@googlemail.com>, Fabian Müller <fabian1988mueller@googlemail.com>, David Krauss <kraussdd@googlemail.com>, Ehssan Doust <e.doust@outlook.com>, Sebastian Zillessen <sebastian@zillessen.info>.
+
+Universität Stuttgart
+Students in Software engineering.
+All rights reserved.
+
+This project was part of the BSc Software engineering and has been developed from May 2012 to Feb 2013.
+
+---
 
 Diese Spezifikation beschreibt das Projekt MISD OWL der Universität Stuttgart.
 Im Rahmen des Studienprojekts 2012 des Instituts VISUS soll ein System zur Überwachung von vernetzten Rechnern erstellt werden.
